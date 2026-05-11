@@ -2924,6 +2924,24 @@ class stSlimTree: public stMetricTree <ObjectType, EvaluatorType> {
       bool SlimDownCanSwap(tMemLeafNode * src, tMemLeafNode * dst,
                            double & distance);
 
+      // --- Query-Aware SlimDown (Option B) ---
+      struct stQueryHotspot {
+          ObjectType center;
+          int frequency;
+      };
+      std::vector<stQueryHotspot> recentQueries;
+
+      /**
+      * Adds a new query hotspot to the history.
+      */
+      void AddQueryHotspot(ObjectType * sample);
+
+      /**
+      * Calculates the heat of a given region based on recent queries.
+      */
+      double CalculateHeat(ObjectType * repObj);
+      // ---------------------------------------
+
       #ifdef __BULKLOAD__
          /**
          * This methods are used by BulkLoad

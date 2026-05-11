@@ -4314,6 +4314,9 @@ stResult<ObjectType> * tmpl_stSlimTree::RangeQuery(
    // Set the information.
    result->SetQueryInfo((ObjectType*) sample->Clone(), RANGEQUERY, -1, range, false);
 
+   // --- Query-Aware Logic (Option B) ---
+   AddQueryHotspot(sample);
+
    // Visualization support
    #ifdef __stMAMVIEW__
       MAMViewer->SetQueryInfo(0, range);
@@ -5096,6 +5099,9 @@ stResult<ObjectType> * stSlimTree<ObjectType, EvaluatorType>::NearestQuery(
 
    // Set information for this query
    result->SetQueryInfo((ObjectType*) sample->Clone(), KNEARESTQUERY, k, MAXDOUBLE, tie);
+
+   // --- Query-Aware Logic (Option B) ---
+   this->AddQueryHotspot(sample);
 
    #ifdef __stMAMVIEW__
       MAMViewer->SetQueryInfo(k, 0);
@@ -8264,6 +8270,43 @@ void tmpl_stSlimTree::LocalSlimDown(
 
 //-----------------------------------------------------------------------------
 template <class ObjectType, class EvaluatorType>
+void tmpl_stSlimTree::AddQueryHotspot(ObjectType * sample){
+    if (sample == NULL) return;
+    
+    // Check if it's close to an existing hotspot
+    for (size_t i = 0; i < recentQueries.size(); i++) {
+        double dist = this->myMetricEvaluator->GetDistance(*sample, recentQueries[i].center);
+        if (dist < 1e-6) {
+            recentQueries[i].frequency++;
+            return;
+        }
+    }
+    
+    stQueryHotspot hotspot;
+    hotspot.center = *sample;
+    hotspot.frequency = 1;
+    recentQueries.push_back(hotspot);
+    
+    if (recentQueries.size() > 50) {
+        recentQueries.erase(recentQueries.begin());
+    }
+}
+
+//-----------------------------------------------------------------------------
+template <class ObjectType, class EvaluatorType>
+double tmpl_stSlimTree::CalculateHeat(ObjectType * repObj){
+    double heatScore = 0.0;
+    for (size_t i = 0; i < recentQueries.size(); i++) {
+        double dist = this->myMetricEvaluator->GetDistance(*repObj, recentQueries[i].center);
+        if (dist < 10.0) { // Heat threshold
+            heatScore += recentQueries[i].frequency / (1.0 + dist);
+        }
+    }
+    return heatScore;
+}
+
+//-----------------------------------------------------------------------------
+template <class ObjectType, class EvaluatorType>
 bool tmpl_stSlimTree::SlimDownCanSwap(
       tMemLeafNode * src, tMemLeafNode * dst,
       double & distance){
@@ -8276,8 +8319,16 @@ bool tmpl_stSlimTree::SlimDownCanSwap(
    // Calculate the distance between src's last object and dst's representative
    distance = this->myMetricEvaluator->GetDistance(*src->LastObject(), *dst->RepObject());
 
-   // Test distances and occupation
-   if (distance <= dst->GetMinimumRadius()){
+   // --- Query-Aware Logic (Option B) ---
+   double heat = CalculateHeat(dst->RepObject());
+   double allowedGrowthFactor = 0.1; // 10% growth allowed per heat unit
+   double allowedRadius = dst->GetMinimumRadius() + (heat * allowedGrowthFactor * dst->GetMinimumRadius());
+   if (allowedRadius == 0 && heat > 0) {
+       allowedRadius = 0.1 * heat; // Base allowance if radius is 0
+   }
+
+   // Test distances and occupation against the allowed radius
+   if (distance <= allowedRadius){
       if (dst->CanAdd(src->LastObject())){
          return true;
       }else{

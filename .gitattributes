@@ -1,0 +1,13 @@
+# Shell scripts and Python must keep LF endings. A stray CR in a shebang or in
+# the middle of a recipe makes bash fail with messages that do not mention the
+# line ending at all, which is a long detour to debug.
+*.sh  text eol=lf
+*.py  text eol=lf
+
+# Chapter 4 sources were authored with LF; keep them that way so that patch
+# scripts operating on them do not have to guess the convention. The arboretum
+# sources predate this file and stay as they are (CRLF).
+ch4/*.cpp text eol=lf
+ch4/*.h   text eol=lf
+arboretum/src/include/arboretum/stSlimQueryTrace.h text eol=lf
+arboretum/src/include/arboretum/stSlimMetrics.h    text eol=lf

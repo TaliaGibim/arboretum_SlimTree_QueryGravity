@@ -965,6 +965,24 @@ class stSlimTree: public stMetricTree <ObjectType, EvaluatorType> {
       virtual bool Add(ObjectType * newObj);
 
       /**
+      * Returns the page id of the root node.
+      *
+      * GetRoot() is private; it becomes public only under __stDEBUG__, which
+      * also switches on expensive range checks and page clearing, so it is not
+      * usable in a build meant for measurement. External read-only tools that
+      * must walk the tree - the structural metric collector used by the
+      * Chapter 4 evaluation - need this entry point without paying that price.
+      *
+      * @warning Reading Root from the header page is NOT an alternative:
+      * stPlainDiskPageManager::GetHeaderPage() re-reads the page from disk into
+      * the very buffer this tree's Header points at, which would silently
+      * discard unflushed header changes and inflate the read counter.
+      */
+      u_int32_t GetRootPageID(){
+         return Header->Root;
+      }//end GetRootPageID
+
+      /**
       * Returns the height of the tree.
       */
       virtual u_int32_t GetHeight(){
@@ -1861,6 +1879,18 @@ class stSlimTree: public stMetricTree <ObjectType, EvaluatorType> {
       * @warning This method will update the statistics of the tree.
       */
       double GetFatFactor();
+
+      /**
+      * Calculates the relative fat-factor of this tree (thesis Eq. 2.25),
+      * which compares it against a minimally occupied tree of the same
+      * capacity. Unlike the absolute factor it may exceed 1.
+      *
+      * @return The relative fat-factor, or -1.0 when the optimal-tree data
+      * is unavailable (see stTreeInfoResult::HasOptimalTree).
+      * @warning This method will update the statistics of the tree, and is
+      * as expensive as GetFatFactor(). Never call it inside a timed batch.
+      */
+      double GetRelativeFatFactor();
 
 
       #ifdef __BULKLOAD__

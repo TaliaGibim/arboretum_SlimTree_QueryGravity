@@ -7897,6 +7897,53 @@ stTreeInfoResult * tmpl_stSlimTree::GetTreeInfo(){
 }//end stSlimTree<ObjectType, EvaluatorType>::GetTreeInfo
 
 //------------------------------------------------------------------------------
+/**
+* Calculates the fat-factor of this tree (thesis section 2.3.2.6.4, Eq. 2.22).
+*
+* stSlimTree declared this method but never defined it, so any call to it was a
+* link error. The definition simply delegates to the tree-information object,
+* which is where the fat-factor is actually computed.
+*
+* @warning VERY EXPENSIVE. GetTreeInfo() runs ObjectIntersectionsRecursive()
+* once per indexed object, and each of those descends from the root evaluating
+* one distance per index entry. The cost is therefore O(n * nodes-touched) in
+* BOTH distance computations and page reads - millions of each on a 5507-object
+* set. It also increments the shared counters of the metric evaluator and of the
+* page manager. NEVER call it inside a timed batch, and snapshot/restore
+* GetDistanceCount(), GetReadCount() and GetWriteCount() around it, or the
+* reported per-query statistics will be off by orders of magnitude.
+*/
+template <class ObjectType, class EvaluatorType>
+double tmpl_stSlimTree::GetFatFactor(){
+   stTreeInfoResult * info = this->GetTreeInfo();
+   double factor = info->GetGlobalFatFactor();
+   delete info;
+   return factor;
+}//end stSlimTree<ObjectType, EvaluatorType>::GetFatFactor
+
+//------------------------------------------------------------------------------
+/**
+* Calculates the relative fat-factor of this tree (thesis Eq. 2.25).
+*
+* The relative factor compares the tree against a minimally occupied one, so it
+* is only meaningful when the optimal-tree data could be computed - that is,
+* when GetTreeInfo() found a non-zero mean object size.
+*
+* @return The relative fat-factor, or -1.0 when the optimal tree is unavailable.
+* @warning As expensive as GetFatFactor(). See its warning.
+*/
+template <class ObjectType, class EvaluatorType>
+double tmpl_stSlimTree::GetRelativeFatFactor(){
+   stTreeInfoResult * info = this->GetTreeInfo();
+   double factor = -1.0;
+   if (info->HasOptimalTree()){
+      factor = info->GetAbsoluteFatFactor();
+   }//end if
+   delete info;
+   return factor;
+}//end stSlimTree<ObjectType, EvaluatorType>::GetRelativeFatFactor
+
+//------------------------------------------------------------------------------
 template <class ObjectType, class EvaluatorType>
 void tmpl_stSlimTree::GetTreeInfoRecursive(u_int32_t pageID, int level,
       stTreeInformation * info){

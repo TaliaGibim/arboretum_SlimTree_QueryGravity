@@ -1,0 +1,12 @@
+timestamp   : 2026-09-12T18:00:39-03:00
+commit      : 5ede674
+compiler    : g++.exe (Rev5, Built by MSYS2 project) 16.1.0
+reps        : 5
+adapt       : 200
+measure     : 100
+k           : 10
+radius      : 0.5
+page size   : 1024
+chunk       : 50
+dataset     : /c/Users/tataw/OneDrive/Desktop/Talia/Slim_Tree/arboretum_SlimTree_QueryGravity/arboretum/test-brcities-datastore/BrazilianCities.txt
+query pool  : /c/Users/tataw/OneDrive/Desktop/Talia/Slim_Tree/arboretum_SlimTree_QueryGravity/arboretum/test-brcities-datastore/BrazilianCities500.txt

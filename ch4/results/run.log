@@ -1,0 +1,195 @@
+dataset 5507 objects | regime concentrado (2 centres) | adapt 200 measure 100
+  concentrado knn original: 0.14084 ms, 370.12 dist, 68.22 reads  [exact]
+  concentrado knn slimdown: 0.128974 ms, 358.94 dist, 63.45 reads  [exact]
+  concentrado knn etapa1: 0.124889 ms, 369.98 dist, 66.27 reads, 1083 moved  [exact]
+  concentrado knn etapa2: 0.043205 ms, 125.09 dist, 19.8 reads  [exact]
+  concentrado knn etapa2_data: 0.046898 ms, 153.1 dist, 20.67 reads  [exact]
+  concentrado range original: 0.123215 ms, 279.79 dist, 66.01 reads  [exact]
+  concentrado range slimdown: 0.106469 ms, 269.26 dist, 60.96 reads  [exact]
+  concentrado range etapa1: 0.109123 ms, 281.14 dist, 63.91 reads, 1073 moved  [exact]
+  concentrado range etapa2: 0.035558 ms, 88.12 dist, 18 reads  [exact]
+  concentrado range etapa2_data: 0.031713 ms, 97.28 dist, 16.22 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso (8 centres) | adapt 200 measure 100
+  disperso knn original: 0.092796 ms, 274.84 dist, 46.31 reads  [exact]
+  disperso knn slimdown: 0.137075 ms, 274.46 dist, 44.41 reads  [exact]
+  disperso knn etapa1: 0.086711 ms, 273.68 dist, 45.44 reads, 557 moved  [exact]
+  disperso knn etapa2: 0.031551 ms, 89.47 dist, 13.44 reads  [exact]
+  disperso knn etapa2_data: 0.037079 ms, 126.37 dist, 17.65 reads  [exact]
+  disperso range original: 0.069774 ms, 164.94 dist, 40.92 reads  [exact]
+  disperso range slimdown: 0.071022 ms, 161.79 dist, 39.15 reads  [exact]
+  disperso range etapa1: 0.068379 ms, 165.28 dist, 40.37 reads, 446 moved  [exact]
+  disperso range etapa2: 0.022607 ms, 47.78 dist, 11.86 reads  [exact]
+  disperso range etapa2_data: 0.027634 ms, 64.47 dist, 14.74 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme (0 centres) | adapt 200 measure 100
+  uniforme knn original: 0.140936 ms, 406.53 dist, 73.55 reads  [exact]
+  uniforme knn slimdown: 0.174986 ms, 391.22 dist, 67.8 reads  [exact]
+  uniforme knn etapa1: 0.151092 ms, 394.05 dist, 71.1 reads, 1505 moved  [exact]
+  uniforme knn etapa2: 0.060091 ms, 157.99 dist, 25.85 reads  [exact]
+  uniforme knn etapa2_data: 0.047215 ms, 135.52 dist, 21.4 reads  [exact]
+  uniforme range original: 0.135135 ms, 356.36 dist, 72.14 reads  [exact]
+  uniforme range slimdown: 0.12851 ms, 342.03 dist, 66.38 reads  [exact]
+  uniforme range etapa1: 0.123335 ms, 345.96 dist, 69.52 reads, 1495 moved  [exact]
+  uniforme range etapa2: 0.049095 ms, 134.98 dist, 24.69 reads  [exact]
+  uniforme range etapa2_data: 0.045184 ms, 124.27 dist, 21.32 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso (8 centres) | adapt 200 measure 100
+  disperso knn original: 0.093153 ms, 274.84 dist, 46.31 reads  [exact]
+  disperso knn slimdown: 0.0952 ms, 274.46 dist, 44.41 reads  [exact]
+  disperso knn etapa1: 0.091434 ms, 273.68 dist, 45.44 reads, 557 moved  [exact]
+  disperso knn etapa2: 0.029049 ms, 89.47 dist, 13.44 reads  [exact]
+  disperso knn etapa2_data: 0.039625 ms, 126.37 dist, 17.65 reads  [exact]
+  disperso range original: 0.075233 ms, 164.94 dist, 40.92 reads  [exact]
+  disperso range slimdown: 0.072348 ms, 161.79 dist, 39.15 reads  [exact]
+  disperso range etapa1: 0.068414 ms, 165.28 dist, 40.37 reads, 446 moved  [exact]
+  disperso range etapa2: 0.022483 ms, 47.78 dist, 11.86 reads  [exact]
+  disperso range etapa2_data: 0.028216 ms, 64.47 dist, 14.74 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme (0 centres) | adapt 200 measure 100
+  uniforme knn original: 0.14708 ms, 406.53 dist, 73.55 reads  [exact]
+  uniforme knn slimdown: 0.12913 ms, 391.22 dist, 67.8 reads  [exact]
+  uniforme knn etapa1: 0.142094 ms, 394.05 dist, 71.1 reads, 1505 moved  [exact]
+  uniforme knn etapa2: 0.055758 ms, 157.99 dist, 25.85 reads  [exact]
+  uniforme knn etapa2_data: 0.043494 ms, 135.52 dist, 21.4 reads  [exact]
+  uniforme range original: 0.134322 ms, 356.36 dist, 72.14 reads  [exact]
+  uniforme range slimdown: 0.126159 ms, 342.03 dist, 66.38 reads  [exact]
+  uniforme range etapa1: 0.124824 ms, 345.96 dist, 69.52 reads, 1495 moved  [exact]
+  uniforme range etapa2: 0.051282 ms, 134.98 dist, 24.69 reads  [exact]
+  uniforme range etapa2_data: 0.044674 ms, 124.27 dist, 21.32 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado (2 centres) | adapt 200 measure 100
+  concentrado knn original: 0.13452 ms, 370.12 dist, 68.22 reads  [exact]
+  concentrado knn slimdown: 0.133351 ms, 358.94 dist, 63.45 reads  [exact]
+  concentrado knn etapa1: 0.131731 ms, 369.98 dist, 66.27 reads, 1083 moved  [exact]
+  concentrado knn etapa2: 0.043171 ms, 125.09 dist, 19.8 reads  [exact]
+  concentrado knn etapa2_data: 0.047633 ms, 153.1 dist, 20.67 reads  [exact]
+  concentrado range original: 0.119644 ms, 279.79 dist, 66.01 reads  [exact]
+  concentrado range slimdown: 0.109498 ms, 269.26 dist, 60.96 reads  [exact]
+  concentrado range etapa1: 0.111855 ms, 281.14 dist, 63.91 reads, 1073 moved  [exact]
+  concentrado range etapa2: 0.033157 ms, 88.12 dist, 18 reads  [exact]
+  concentrado range etapa2_data: 0.030271 ms, 97.28 dist, 16.22 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme (0 centres) | adapt 200 measure 100
+  uniforme knn original: 0.142315 ms, 406.53 dist, 73.55 reads  [exact]
+  uniforme knn slimdown: 0.132718 ms, 391.22 dist, 67.8 reads  [exact]
+  uniforme knn etapa1: 0.147795 ms, 394.05 dist, 71.1 reads, 1505 moved  [exact]
+  uniforme knn etapa2: 0.057689 ms, 157.99 dist, 25.85 reads  [exact]
+  uniforme knn etapa2_data: 0.047331 ms, 135.52 dist, 21.4 reads  [exact]
+  uniforme range original: 0.138233 ms, 356.36 dist, 72.14 reads  [exact]
+  uniforme range slimdown: 0.131563 ms, 342.03 dist, 66.38 reads  [exact]
+  uniforme range etapa1: 0.12471 ms, 345.96 dist, 69.52 reads, 1495 moved  [exact]
+  uniforme range etapa2: 0.048865 ms, 134.98 dist, 24.69 reads  [exact]
+  uniforme range etapa2_data: 0.0434 ms, 124.27 dist, 21.32 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado (2 centres) | adapt 200 measure 100
+  concentrado knn original: 0.127145 ms, 370.12 dist, 68.22 reads  [exact]
+  concentrado knn slimdown: 0.132798 ms, 358.94 dist, 63.45 reads  [exact]
+  concentrado knn etapa1: 0.130399 ms, 369.98 dist, 66.27 reads, 1083 moved  [exact]
+  concentrado knn etapa2: 0.042492 ms, 125.09 dist, 19.8 reads  [exact]
+  concentrado knn etapa2_data: 0.04643 ms, 153.1 dist, 20.67 reads  [exact]
+  concentrado range original: 0.113625 ms, 279.79 dist, 66.01 reads  [exact]
+  concentrado range slimdown: 0.112776 ms, 269.26 dist, 60.96 reads  [exact]
+  concentrado range etapa1: 0.11063 ms, 281.14 dist, 63.91 reads, 1073 moved  [exact]
+  concentrado range etapa2: 0.034567 ms, 88.12 dist, 18 reads  [exact]
+  concentrado range etapa2_data: 0.030682 ms, 97.28 dist, 16.22 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso (8 centres) | adapt 200 measure 100
+  disperso knn original: 0.089759 ms, 274.84 dist, 46.31 reads  [exact]
+  disperso knn slimdown: 0.09466 ms, 274.46 dist, 44.41 reads  [exact]
+  disperso knn etapa1: 0.086778 ms, 273.68 dist, 45.44 reads, 557 moved  [exact]
+  disperso knn etapa2: 0.02894 ms, 89.47 dist, 13.44 reads  [exact]
+  disperso knn etapa2_data: 0.037987 ms, 126.37 dist, 17.65 reads  [exact]
+  disperso range original: 0.07148 ms, 164.94 dist, 40.92 reads  [exact]
+  disperso range slimdown: 0.071093 ms, 161.79 dist, 39.15 reads  [exact]
+  disperso range etapa1: 0.073511 ms, 165.28 dist, 40.37 reads, 446 moved  [exact]
+  disperso range etapa2: 0.034989 ms, 47.78 dist, 11.86 reads  [exact]
+  disperso range etapa2_data: 0.028238 ms, 64.47 dist, 14.74 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado (2 centres) | adapt 200 measure 100
+  concentrado knn original: 0.133924 ms, 370.12 dist, 68.22 reads  [exact]
+  concentrado knn slimdown: 0.128463 ms, 358.94 dist, 63.45 reads  [exact]
+  concentrado knn etapa1: 0.125468 ms, 369.98 dist, 66.27 reads, 1083 moved  [exact]
+  concentrado knn etapa2: 0.043439 ms, 125.09 dist, 19.8 reads  [exact]
+  concentrado knn etapa2_data: 0.047092 ms, 153.1 dist, 20.67 reads  [exact]
+  concentrado range original: 0.123346 ms, 279.79 dist, 66.01 reads  [exact]
+  concentrado range slimdown: 0.109467 ms, 269.26 dist, 60.96 reads  [exact]
+  concentrado range etapa1: 0.110697 ms, 281.14 dist, 63.91 reads, 1073 moved  [exact]
+  concentrado range etapa2: 0.035043 ms, 88.12 dist, 18 reads  [exact]
+  concentrado range etapa2_data: 0.031718 ms, 97.28 dist, 16.22 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso (8 centres) | adapt 200 measure 100
+  disperso knn original: 0.098124 ms, 274.84 dist, 46.31 reads  [exact]
+  disperso knn slimdown: 0.090927 ms, 274.46 dist, 44.41 reads  [exact]
+  disperso knn etapa1: 0.092371 ms, 273.68 dist, 45.44 reads, 557 moved  [exact]
+  disperso knn etapa2: 0.032654 ms, 89.47 dist, 13.44 reads  [exact]
+  disperso knn etapa2_data: 0.039071 ms, 126.37 dist, 17.65 reads  [exact]
+  disperso range original: 0.074072 ms, 164.94 dist, 40.92 reads  [exact]
+  disperso range slimdown: 0.071827 ms, 161.79 dist, 39.15 reads  [exact]
+  disperso range etapa1: 0.072521 ms, 165.28 dist, 40.37 reads, 446 moved  [exact]
+  disperso range etapa2: 0.022897 ms, 47.78 dist, 11.86 reads  [exact]
+  disperso range etapa2_data: 0.026041 ms, 64.47 dist, 14.74 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme (0 centres) | adapt 200 measure 100
+  uniforme knn original: 0.139217 ms, 406.53 dist, 73.55 reads  [exact]
+  uniforme knn slimdown: 0.140144 ms, 391.22 dist, 67.8 reads  [exact]
+  uniforme knn etapa1: 0.142469 ms, 394.05 dist, 71.1 reads, 1505 moved  [exact]
+  uniforme knn etapa2: 0.058602 ms, 157.99 dist, 25.85 reads  [exact]
+  uniforme knn etapa2_data: 0.047495 ms, 135.52 dist, 21.4 reads  [exact]
+  uniforme range original: 0.129501 ms, 356.36 dist, 72.14 reads  [exact]
+  uniforme range slimdown: 0.132969 ms, 342.03 dist, 66.38 reads  [exact]
+  uniforme range etapa1: 0.126539 ms, 345.96 dist, 69.52 reads, 1495 moved  [exact]
+  uniforme range etapa2: 0.049002 ms, 134.98 dist, 24.69 reads  [exact]
+  uniforme range etapa2_data: 0.042561 ms, 124.27 dist, 21.32 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso (8 centres) | adapt 200 measure 100
+  disperso knn original: 0.088808 ms, 274.84 dist, 46.31 reads  [exact]
+  disperso knn slimdown: 0.097153 ms, 274.46 dist, 44.41 reads  [exact]
+  disperso knn etapa1: 0.094115 ms, 273.68 dist, 45.44 reads, 557 moved  [exact]
+  disperso knn etapa2: 0.030202 ms, 89.47 dist, 13.44 reads  [exact]
+  disperso knn etapa2_data: 0.037593 ms, 126.37 dist, 17.65 reads  [exact]
+  disperso range original: 0.070646 ms, 164.94 dist, 40.92 reads  [exact]
+  disperso range slimdown: 0.066416 ms, 161.79 dist, 39.15 reads  [exact]
+  disperso range etapa1: 0.069963 ms, 165.28 dist, 40.37 reads, 446 moved  [exact]
+  disperso range etapa2: 0.021138 ms, 47.78 dist, 11.86 reads  [exact]
+  disperso range etapa2_data: 0.026239 ms, 64.47 dist, 14.74 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme (0 centres) | adapt 200 measure 100
+  uniforme knn original: 0.147257 ms, 406.53 dist, 73.55 reads  [exact]
+  uniforme knn slimdown: 0.146155 ms, 391.22 dist, 67.8 reads  [exact]
+  uniforme knn etapa1: 0.138459 ms, 394.05 dist, 71.1 reads, 1505 moved  [exact]
+  uniforme knn etapa2: 0.056567 ms, 157.99 dist, 25.85 reads  [exact]
+  uniforme knn etapa2_data: 0.046658 ms, 135.52 dist, 21.4 reads  [exact]
+  uniforme range original: 0.128552 ms, 356.36 dist, 72.14 reads  [exact]
+  uniforme range slimdown: 0.126394 ms, 342.03 dist, 66.38 reads  [exact]
+  uniforme range etapa1: 0.126525 ms, 345.96 dist, 69.52 reads, 1495 moved  [exact]
+  uniforme range etapa2: 0.053378 ms, 134.98 dist, 24.69 reads  [exact]
+  uniforme range etapa2_data: 0.044931 ms, 124.27 dist, 21.32 reads  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado (2 centres) | adapt 200 measure 100
+  concentrado knn original: 0.139739 ms, 370.12 dist, 68.22 reads  [exact]
+  concentrado knn slimdown: 0.130717 ms, 358.94 dist, 63.45 reads  [exact]
+  concentrado knn etapa1: 0.131006 ms, 369.98 dist, 66.27 reads, 1083 moved  [exact]
+  concentrado knn etapa2: 0.050659 ms, 125.09 dist, 19.8 reads  [exact]
+  concentrado knn etapa2_data: 0.047209 ms, 153.1 dist, 20.67 reads  [exact]
+  concentrado range original: 0.122143 ms, 279.79 dist, 66.01 reads  [exact]
+  concentrado range slimdown: 0.11275 ms, 269.26 dist, 60.96 reads  [exact]
+  concentrado range etapa1: 0.112853 ms, 281.14 dist, 63.91 reads, 1073 moved  [exact]
+  concentrado range etapa2: 0.040062 ms, 88.12 dist, 18 reads  [exact]
+  concentrado range etapa2_data: 0.031514 ms, 97.28 dist, 16.22 reads  [exact]
+
+DONE (0)

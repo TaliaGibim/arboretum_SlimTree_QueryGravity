@@ -4330,6 +4330,8 @@ stResult<ObjectType> * tmpl_stSlimTree::RangeQuery(
       // Read node...
       currPage = tMetricTree::myPageManager->GetPage(this->GetRoot());
       currNode = stSlimNode::CreateNode(currPage);
+      ST_SLIM_TRACE_ENTER(this->GetRoot(),
+                          currNode->GetNodeType() == stSlimNode::LEAF);
 
 
 
@@ -4338,6 +4340,7 @@ stResult<ObjectType> * tmpl_stSlimTree::RangeQuery(
          // Get Index node
          stSlimIndexNode * indexNode = (stSlimIndexNode *)currNode;
          numberOfEntries = indexNode->GetNumberOfEntries();
+         ST_SLIM_TRACE_SCAN(numberOfEntries, false);
 
          // Visualization support
          #ifdef __stMAMVIEW__
@@ -4365,9 +4368,13 @@ stResult<ObjectType> * tmpl_stSlimTree::RangeQuery(
                                indexNode->GetObjectSize(idx));
             // Evaluate distance
             distance = this->myMetricEvaluator->GetDistance(tmpObj, *sample);
+            ST_SLIM_TRACE_IDIST();
             // test if this subtree qualifies.
             if (distance <= range + indexNode->GetIndexEntry(idx).Radius){
                // Yes! Analyze this subtree.
+               ST_SLIM_TRACE_DESCEND(this->GetRoot(), idx,
+                                     indexNode->GetIndexEntry(idx).PageID,
+                                     indexNode->GetIndexEntry(idx).Radius, distance);
                this->RangeQuery(indexNode->GetIndexEntry(idx).PageID, result,
                                 sample, range, distance);
             }//end if
@@ -4377,6 +4384,7 @@ stResult<ObjectType> * tmpl_stSlimTree::RangeQuery(
          // No, it is a leaf node. Get it.
          stSlimLeafNode * leafNode = (stSlimLeafNode *)currNode;
          numberOfEntries = leafNode->GetNumberOfEntries();
+         ST_SLIM_TRACE_SCAN(numberOfEntries, true);
 
          #ifdef __stMAMVIEW__
             comment.Append("Root is the leaf node ");
@@ -4449,11 +4457,13 @@ void tmpl_stSlimTree::RangeQuery(
       // Read node...
       currPage = tMetricTree::myPageManager->GetPage(pageID);
       currNode = stSlimNode::CreateNode(currPage);
+      ST_SLIM_TRACE_ENTER(pageID, currNode->GetNodeType() == stSlimNode::LEAF);
       // Is it an Index node?
       if (currNode->GetNodeType() == stSlimNode::INDEX) {
          // Get Index node
          stSlimIndexNode * indexNode = (stSlimIndexNode *)currNode;
          numberOfEntries = indexNode->GetNumberOfEntries();
+         ST_SLIM_TRACE_SCAN(numberOfEntries, false);
 
          // Visualization support
          #ifdef __stMAMVIEW__
@@ -4487,9 +4497,13 @@ void tmpl_stSlimTree::RangeQuery(
                                   indexNode->GetObjectSize(idx));
                // Evaluate distance
                distance = this->myMetricEvaluator->GetDistance(tmpObj, *sample);
+               ST_SLIM_TRACE_IDIST();
                // is this a qualified subtree?
                if (distance <= range + indexNode->GetIndexEntry(idx).Radius){
                   // Yes! Analyze it!
+                  ST_SLIM_TRACE_DESCEND(pageID, idx,
+                                        indexNode->GetIndexEntry(idx).PageID,
+                                        indexNode->GetIndexEntry(idx).Radius, distance);
                   this->RangeQuery(indexNode->GetIndexEntry(idx).PageID, result,
                                     sample, range, distance);
                   #ifdef __stMAMVIEW__
@@ -4514,6 +4528,7 @@ void tmpl_stSlimTree::RangeQuery(
          // No, it is a leaf node. Get it.
          stSlimLeafNode * leafNode = (stSlimLeafNode *)currNode;
          numberOfEntries = leafNode->GetNumberOfEntries();
+         ST_SLIM_TRACE_SCAN(numberOfEntries, true);
 
          #ifdef __stMAMVIEW__
             comment.Clear();
@@ -5164,11 +5179,15 @@ void stSlimTree<ObjectType, EvaluatorType>::NearestQuery(tResult * result,
       // Read node...
       currPage = tMetricTree::myPageManager->GetPage(pqCurrValue.PageID);
       currNode = stSlimNode::CreateNode(currPage);
+      ST_SLIM_TRACE_EXPAND(pqCurrValue.PageID);
+      ST_SLIM_TRACE_ENTER(pqCurrValue.PageID,
+                          currNode->GetNodeType() == stSlimNode::LEAF);
       // Is it a Index node?
       if (currNode->GetNodeType() == stSlimNode::INDEX) {
          // Get Index node
          stSlimIndexNode * indexNode = (stSlimIndexNode *)currNode;
          numberOfEntries = indexNode->GetNumberOfEntries();
+         ST_SLIM_TRACE_SCAN(numberOfEntries, false);
 
          // Visualization support
          #ifdef __stMAMVIEW__
@@ -5203,6 +5222,7 @@ void stSlimTree<ObjectType, EvaluatorType>::NearestQuery(tResult * result,
                                   indexNode->GetObjectSize(idx));
                // Evaluate distance
                distance = this->myMetricEvaluator->GetDistance(tmpObj, *sample);
+               ST_SLIM_TRACE_IDIST();
 
                if (distance <= rangeK + indexNode->GetIndexEntry(idx).Radius){
                   // Yes! I'm qualified! Put it in the queue.
@@ -5213,6 +5233,9 @@ void stSlimTree<ObjectType, EvaluatorType>::NearestQuery(tResult * result,
                      pqTmpValue.Level = pqCurrValue.Level + 1;
                   #endif //__stMAMVIEW__                     
                   queue->Add(distance, pqTmpValue);
+                  ST_SLIM_TRACE_ENQUEUE(pqCurrValue.PageID, idx,
+                                        indexNode->GetIndexEntry(idx).PageID,
+                                        indexNode->GetIndexEntry(idx).Radius, distance);
                   this->sumOperationsQueue++;  // Update the statistics for the queue
                }//end if
             }//end if
@@ -5221,6 +5244,7 @@ void stSlimTree<ObjectType, EvaluatorType>::NearestQuery(tResult * result,
          // No, it is a leaf node. Get it.
          stSlimLeafNode * leafNode = (stSlimLeafNode *)currNode;
          numberOfEntries = leafNode->GetNumberOfEntries();
+         ST_SLIM_TRACE_SCAN(numberOfEntries, true);
 
          #ifdef __stMAMVIEW__
             comment.Clear();
@@ -5263,6 +5287,7 @@ void stSlimTree<ObjectType, EvaluatorType>::NearestQuery(tResult * result,
                      result->Cut(k);
                      //may I use this for performance?
                      rangeK = result->GetMaximumDistance();
+                     ST_SLIM_TRACE_TAU(rangeK);
                   }//end if
                }//end if
             }//end if
@@ -5295,6 +5320,7 @@ void stSlimTree<ObjectType, EvaluatorType>::NearestQuery(tResult * result,
       stop = false;
       do{
          if (queue->Get(distance, pqCurrValue)){
+            ST_SLIM_TRACE_POP(distance <= rangeK + pqCurrValue.Radius);
             this->sumOperationsQueue++;  // Update the statistics for the queue
             // Qualified if distance <= rangeK + radius
             if (distance <= rangeK + pqCurrValue.Radius){

@@ -64,6 +64,10 @@
    #include <arboretum/stLevelDiskAccess.h>
 #endif //__stDISKACCESSSTATS__
 
+// Query traversal trace (thesis Chapter 4). Unless ST_SLIM_TRACE is 1 this
+// header defines nothing but no-op macros, so the tree is unchanged.
+#include <arboretum/stSlimQueryTrace.h>
+
 
 #ifdef __BULKLOAD__
 //=============================================================================

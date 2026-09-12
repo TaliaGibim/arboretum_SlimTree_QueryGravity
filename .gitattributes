@@ -11,3 +11,5 @@ ch4/*.cpp text eol=lf
 ch4/*.h   text eol=lf
 arboretum/src/include/arboretum/stSlimQueryTrace.h text eol=lf
 arboretum/src/include/arboretum/stSlimMetrics.h    text eol=lf
+arboretum/src/include/arboretum/stSlimEtapa1.h      text eol=lf
+arboretum/src/include/arboretum/stSlimVoronoiRebuild.h text eol=lf

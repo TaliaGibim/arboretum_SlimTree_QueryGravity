@@ -76,6 +76,7 @@ command -v g++ >/dev/null 2>&1 || {
 # ---------------------------------------------------------------------------
 case "$DRIVER" in
     phase1_check)            TRACE=0 ;;
+    phase6_check)            TRACE=0 ;;
     phase3_check|phase4_check|chapter4) TRACE=1 ;;
     *)                       TRACE=1 ;;
 esac
@@ -106,7 +107,7 @@ case "$DRIVER" in
         set -- --dataset "${DATASTORE}/BrazilianCities.txt" \
                --index-dir "$OUT_DIR"
         ;;
-    phase3_check|phase4_check)
+    phase3_check|phase4_check|phase6_check)
         set -- --dataset "${DATASTORE}/BrazilianCities.txt" \
                --queryfile "${DATASTORE}/BrazilianCities500.txt" \
                --index-dir "$OUT_DIR"

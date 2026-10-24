@@ -6,7 +6,10 @@
 #   bash arboretum_SlimTree_QueryGravity/ch4/run_ch4.sh [options]
 #
 # Options:
-#   --reps N        repetitions (default 5)
+#   --reps N        independent repetitions (default 20); repetition r
+#                   runs with seed SEED + r
+#   --seed N        base seed                         (default 42)
+#   --region-factor F  region size = F x queries drawn from it (default 3)
 #   --adapt N       adaptation queries per repetition (default 200)
 #   --measure N     measured queries per repetition   (default 100)
 #   --k N           k for the k-NN batches            (default 10)
@@ -29,7 +32,9 @@ DATASTORE="${ARB}/test-brcities-datastore"
 OUT_DIR="${CH4_DIR}/build"
 RESULTS="${CH4_DIR}/results"
 
-REPS=5
+REPS=20
+SEED=42
+REGION_FACTOR=3
 ADAPT=200
 MEASURE=100
 K=10
@@ -41,6 +46,8 @@ ANALYSE=1
 while [ "$#" -gt 0 ]; do
     case "$1" in
         --reps)       REPS="$2"; shift 2 ;;
+        --seed)       SEED="$2"; shift 2 ;;
+        --region-factor) REGION_FACTOR="$2"; shift 2 ;;
         --adapt)      ADAPT="$2"; shift 2 ;;
         --measure)    MEASURE="$2"; shift 2 ;;
         --k)          K="$2"; shift 2 ;;
@@ -75,8 +82,13 @@ BIN="${OUT_DIR}/chapter4.exe"
 mkdir -p "$RESULTS"
 find "$RESULTS" -mindepth 1 -maxdepth 1 -name '*.csv' -exec rm -f {} + 2>/dev/null || true
 find "$RESULTS" -mindepth 1 -maxdepth 1 -name '*.md' -exec rm -f {} + 2>/dev/null || true
+rm -f "${RESULTS}/run.log"
 
 COMMIT="$(git -C "$REPO" rev-parse --short HEAD 2>/dev/null || echo unknown)"
+# Uncommitted changes mean the binary is NOT what that commit would build.
+if ! git -C "$REPO" diff --quiet HEAD -- . ':!ch4/results' 2>/dev/null; then
+    COMMIT="${COMMIT}-dirty"
+fi
 
 {
     echo "timestamp   : $(date -Is)"
@@ -89,6 +101,8 @@ COMMIT="$(git -C "$REPO" rev-parse --short HEAD 2>/dev/null || echo unknown)"
     echo "radius      : ${RADIUS}"
     echo "page size   : ${PAGE_SIZE}"
     echo "chunk       : ${CHUNK}"
+    echo "seeds       : ${SEED}..$((SEED + REPS - 1)) (one per repetition)"
+    echo "region fact.: ${REGION_FACTOR}"
     echo "dataset     : ${DATASTORE}/BrazilianCities.txt"
     echo "query pool  : ${DATASTORE}/BrazilianCities500.txt"
 } > "${RESULTS}/environment.txt"
@@ -128,6 +142,9 @@ for rep in $(seq 0 $((REPS - 1))); do
             --moves-out     "${RESULTS}/moves.csv" \
             --breakeven-out "${RESULTS}/breakeven.csv" \
             --nav-out       "${RESULTS}/navgraph.csv" \
+            --workload-out  "${RESULTS}/workload.csv" \
+            --seed          "$SEED" \
+            --region-factor "$REGION_FACTOR" \
             >> "${RESULTS}/run.log" 2>&1
         echo "  ${regime} done"
     done

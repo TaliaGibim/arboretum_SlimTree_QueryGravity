@@ -987,6 +987,30 @@ class stSlimTree: public stMetricTree <ObjectType, EvaluatorType> {
       }//end GetRootPageID
 
       /**
+      * Adopts a tree that was assembled page by page OUTSIDE this class - the
+      * top-down bulk load of Chapter 4 (stSlimQueryBulkLoad). The caller has
+      * already written every node through this tree's page manager; this only
+      * records where the root is and the counters the header keeps.
+      *
+      * Like GetRootPageID(), it exists because the header is private and there
+      * is no protected section to reach it from a subclass. Being a member of
+      * a class template, it generates no code unless it is called.
+      *
+      * @warning Nothing here checks that the pages form a valid Slim-tree:
+      * representatives, parent distances and covering radii are the caller's
+      * responsibility, and root entries must carry Distance 0 as AddNewRoot()
+      * writes them. Only call it on a tree whose page manager was empty.
+      */
+      void AdoptBulkTree(u_int32_t root, u_int32_t height,
+                         u_int32_t objectCount, u_int32_t nodeCount){
+         Header->Root = root;
+         Header->Height = height;
+         Header->ObjectCount = objectCount;
+         Header->NodeCount = nodeCount;
+         HeaderUpdate = true;
+      }//end AdoptBulkTree
+
+      /**
       * Returns the height of the tree.
       */
       virtual u_int32_t GetHeight(){

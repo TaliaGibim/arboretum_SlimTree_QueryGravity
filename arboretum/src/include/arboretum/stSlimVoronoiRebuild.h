@@ -189,6 +189,15 @@ class stSlimVoronoiRebuild{
          return (QueryTree != NULL) ? QueryTree->GetHeight() : 0;
       }//end GetQueryTreeHeight
 
+      /**
+      * Distances spent building T_Q, counted by T_Q's own evaluator. Part of
+      * the reorganisation cost that has to be amortised.
+      */
+      long GetQueryTreeDistances() const {
+         return (QueryTree != NULL) ?
+               (long) QueryTree->GetMetricEvaluator()->GetDistanceCount() : 0;
+      }//end GetQueryTreeDistances
+
       //=====================================================================
       // Step 2 - the pivots (section 4.4.1)
       //=====================================================================

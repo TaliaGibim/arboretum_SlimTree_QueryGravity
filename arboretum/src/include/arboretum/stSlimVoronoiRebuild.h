@@ -221,6 +221,99 @@ class stSlimVoronoiRebuild{
       }//end ExtractPivots
 
       /**
+      * Extracts EXACTLY `count` pivots from T_Q, so that |P| is a controlled
+      * parameter rather than a side effect of the shape of T_Q (with the
+      * root alone, |P| ranged from 2 to 17 for the same 200 queries).
+      *
+      * T_Q is read level by level from the root; the first level holding at
+      * least `count` representatives is used, and `count` of them are chosen
+      * by k-centre (farthest-point), so the pivots spread over the queried
+      * space. The coarse-to-fine order means a small |P| still comes from the
+      * top of the query hierarchy. If no level is large enough - more pivots
+      * asked than queries indexed - every query centre is a pivot.
+      *
+      * The k-centre distances go to this class own evaluator and are reported
+      * by GetPivotDistances().
+      *
+      * @return |P|, which is `count` unless T_Q holds fewer centres.
+      */
+      std::size_t ExtractNPivots(std::size_t count){
+         for (std::size_t i = 0; i < Pivots.size(); i++){
+            delete Pivots[i];
+         }//end for
+         Pivots.clear();
+         if ((QueryTree == NULL) || (QueryTree->GetRootPageID() == 0) ||
+             (count == 0)){
+            return 0;
+         }//end if
+
+         std::vector<u_int32_t> level(1, QueryTree->GetRootPageID());
+         std::vector<ObjectType *> reps;
+         while (true){
+            std::vector<u_int32_t> next;
+            for (std::size_t i = 0; i < reps.size(); i++){
+               delete reps[i];
+            }//end for
+            reps.clear();
+            for (std::size_t n = 0; n < level.size(); n++){
+               stPage * page = QueryPageManager->GetPage(level[n]);
+               stSlimNode * node = stSlimNode::CreateNode(page);
+               for (u_int32_t e = 0; e < node->GetNumberOfEntries(); e++){
+                  ObjectType * obj = new ObjectType();
+                  obj->Unserialize(node->GetObject(e), node->GetObjectSize(e));
+                  reps.push_back(obj);
+                  if (node->GetNodeType() == stSlimNode::INDEX){
+                     next.push_back(((stSlimIndexNode *) node)->GetIndexEntry(e).PageID);
+                  }//end if
+               }//end for
+               delete node;
+               QueryPageManager->ReleasePage(page);
+            }//end for
+            if ((reps.size() >= count) || next.empty()){
+               break;
+            }//end if
+            level.swap(next);
+         }//end while
+
+         if (reps.size() <= count){
+            Pivots.swap(reps);
+            return Pivots.size();
+         }//end if
+
+         // k-centre over this level: start from its first representative.
+         std::vector<bool> taken(reps.size(), false);
+         std::vector<double> best(reps.size(), 1e300);
+         std::size_t pick = 0;
+         while (Pivots.size() < count){
+            taken[pick] = true;
+            Pivots.push_back(reps[pick]);
+            double far = -1.0;
+            std::size_t nextPick = pick;
+            for (std::size_t i = 0; i < reps.size(); i++){
+               if (taken[i]){
+                  continue;
+               }//end if
+               const double d = Evaluator.GetDistance(*reps[i], *Pivots.back());
+               PivotDistances++;
+               if (d < best[i]){
+                  best[i] = d;
+               }//end if
+               if (best[i] > far){
+                  far = best[i];
+                  nextPick = i;
+               }//end if
+            }//end for
+            pick = nextPick;
+         }//end while
+         for (std::size_t i = 0; i < reps.size(); i++){
+            if (!taken[i]){
+               delete reps[i];
+            }//end if
+         }//end for
+         return Pivots.size();
+      }//end ExtractNPivots
+
+      /**
       * Uses an explicit pivot set instead of deriving one from T_Q.
       *
       * Useful for controls and for sweeping |P| independently of T_Q shape.

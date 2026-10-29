@@ -106,6 +106,7 @@ struct Config {
     bool seedFirst = false;  // Etapa 2 variant
     bool knnGate = false;    // Etapa 1, Equation 4.8 gate
     double bulkQueryShare = 0.5;  // etapa2_bulk: fan-out share of query pivots
+    int pivots = 0;          // etapa2 |P|; 0 = the root of T_Q, whatever its size
     std::string commit = "";
 };
 
@@ -617,6 +618,7 @@ int main(int argc, char **argv) {
         else if (a == "--seed-first") cfg.seedFirst = true;
         else if (a == "--knn-gate") cfg.knnGate = true;
         else if (a == "--bulk-query-share") cfg.bulkQueryShare = std::stod(next("--bulk-query-share"));
+        else if (a == "--pivots") cfg.pivots = std::stoi(next("--pivots"));
         else if (a == "--agg-out") aggOut = next("--agg-out");
         else if (a == "--struct-out") structOut = next("--struct-out");
         else if (a == "--moves-out") movesOut = next("--moves-out");
@@ -637,6 +639,8 @@ int main(int argc, char **argv) {
                 << "  --file-order     insert in file order, not a per-repetition shuffle\n"
                 << "  --seed-first     Etapa 2: round-robin seeding variant\n"
                 << "  --knn-gate       Etapa 1: only accept radius-shrinking moves\n"
+                << "  --pivots N       etapa2/etapa2_data: exactly N Voronoi pivots (default 0 =\n"
+                << "                   the root entries of T_Q, as many as it happens to have)\n"
                 << "  --bulk-query-share S  etapa2_bulk: share of each fan-out given to\n"
                 << "                   query pivots (default 0.5)\n"
                 << "  --no-verify      skip brute-force verification\n"
@@ -877,8 +881,11 @@ int main(int argc, char **argv) {
                     if (arm == "etapa2") {
                         rebuild.BuildQueryTree(w.adapt, cfg.pageSize,
                                                cfg.indexDir + "/ch4_TQ.dat");
-                        pivotsUsed = rebuild.ExtractPivots(myRebuild::pmNODE_REPS);
-                        pivotCost = rebuild.GetQueryTreeDistances();
+                        pivotsUsed = (cfg.pivots > 0)
+                                         ? rebuild.ExtractNPivots((size_t)cfg.pivots)
+                                         : rebuild.ExtractPivots(myRebuild::pmNODE_REPS);
+                        pivotCost = rebuild.GetQueryTreeDistances() +
+                                    rebuild.GetPivotDistances();
                     } else {
                         // Same |P|, but chosen from the DATA and never from a
                         // query. Everything downstream is identical.

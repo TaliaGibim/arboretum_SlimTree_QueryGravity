@@ -10,6 +10,9 @@
 #                   runs with seed SEED + r
 #   --seed N        base seed                         (default 42)
 #   --region-factor F  region size = F x queries drawn from it (default 3)
+#   --pivots N      etapa2/etapa2_data use exactly N Voronoi pivots
+#                   (default 0 = the root entries of T_Q, 2 to 17 in practice)
+#   --results DIR   where to write the CSVs and SUMMARY.md (default ch4/results)
 #   --adapt N       adaptation queries per repetition (default 200)
 #   --measure N     measured queries per repetition   (default 100)
 #   --k N           k for the k-NN batches            (default 10)
@@ -35,6 +38,7 @@ RESULTS="${CH4_DIR}/results"
 REPS=20
 SEED=42
 REGION_FACTOR=3
+PIVOTS=0
 ADAPT=200
 MEASURE=100
 K=10
@@ -48,6 +52,8 @@ while [ "$#" -gt 0 ]; do
         --reps)       REPS="$2"; shift 2 ;;
         --seed)       SEED="$2"; shift 2 ;;
         --region-factor) REGION_FACTOR="$2"; shift 2 ;;
+        --pivots)     PIVOTS="$2"; shift 2 ;;
+        --results)    RESULTS="$2"; shift 2 ;;
         --adapt)      ADAPT="$2"; shift 2 ;;
         --measure)    MEASURE="$2"; shift 2 ;;
         --k)          K="$2"; shift 2 ;;
@@ -103,6 +109,7 @@ fi
     echo "chunk       : ${CHUNK}"
     echo "seeds       : ${SEED}..$((SEED + REPS - 1)) (one per repetition)"
     echo "region fact.: ${REGION_FACTOR}"
+    echo "pivots      : ${PIVOTS} (0 = root of T_Q)"
     echo "dataset     : ${DATASTORE}/BrazilianCities.txt"
     echo "query pool  : ${DATASTORE}/BrazilianCities500.txt"
 } > "${RESULTS}/environment.txt"
@@ -145,6 +152,7 @@ for rep in $(seq 0 $((REPS - 1))); do
             --workload-out  "${RESULTS}/workload.csv" \
             --seed          "$SEED" \
             --region-factor "$REGION_FACTOR" \
+            --pivots        "$PIVOTS" \
             >> "${RESULTS}/run.log" 2>&1
         echo "  ${regime} done"
     done

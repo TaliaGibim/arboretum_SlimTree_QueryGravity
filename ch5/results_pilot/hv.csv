@@ -1,0 +1,2 @@
+dataset,objects,sample,seed,grid,d_plus,hv,delta_mean,delta_p10,delta_p50,delta_p90,delta_max
+brcities5507,5507,200,42,1000,38.0716,0.914681,0.0853189,0.0259646,0.0737415,0.151565,0.430248

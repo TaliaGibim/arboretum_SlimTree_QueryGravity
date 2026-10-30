@@ -1,0 +1,181 @@
+HV(brcities5507) = 0.914681 over 200 objects (mean discrepancy 0.0853189, d+ = 38.0716)
+regime concentrado | rep 0 seed 42 | adapt 200 measure 100
+  knn: base 398.85 dist, 70.58 reads | replica exact | q_medoids 67.128% | q_kcenter 67.0102% | d_far 67.8074% | d_medoids 68.6524% | d_random 64.7988% | q_nearest(S=1) 70.2119% | q_nearest_dfar 72.5561% | d_nearest(S=1) 64.4653% | d_nearest_dfar 70.9214%
+  range: base 343.72 dist, 69.6 reads | replica exact | q_medoids 75.5324% | q_kcenter 75.5062% | d_far 75.8117% | d_medoids 76.5099% | d_random 73.6239% | q_nearest(S=1) 79.8179% | q_nearest_dfar 81.9621% | d_nearest(S=1) 73.461% | d_nearest_dfar 79.7364%
+regime disperso | rep 0 seed 42 | adapt 200 measure 100
+  knn: base 377.58 dist, 65.47 reads | replica exact | q_medoids 68.6159% | q_kcenter 68.5709% | d_far 68.2001% | d_medoids 69.3098% | d_random 65.9542% | q_nearest(S=1) 71.0313% | q_nearest_dfar 72.8084% | d_nearest(S=1) 66.5554% | d_nearest_dfar 71.4153%
+  range: base 314.32 dist, 63.18 reads | replica exact | q_medoids 76.7562% | q_kcenter 76.5876% | d_far 76.2185% | d_medoids 77.087% | d_random 74.3923% | q_nearest(S=1) 80.9907% | q_nearest_dfar 82.6801% | d_nearest(S=1) 75.5154% | d_nearest_dfar 80.6121%
+regime uniforme | rep 0 seed 42 | adapt 200 measure 100
+  knn: base 381.37 dist, 64.6 reads | replica exact | q_medoids 69.308% | q_kcenter 68.6551% | d_far 68.802% | d_medoids 69.1612% | d_random 66.9271% | q_nearest(S=1) 63.66% | q_nearest_dfar 71.2091% | d_nearest(S=1) 65.0838% | d_nearest_dfar 71.3375%
+  range: base 328.52 dist, 62.85 reads | replica exact | q_medoids 76.6103% | q_kcenter 75.9345% | d_far 76.0989% | d_medoids 76.2937% | d_random 74.379% | q_nearest(S=1) 72.6501% | q_nearest_dfar 79.0089% | d_nearest(S=1) 73.6028% | d_nearest_dfar 79.2676%
+regime concentrado | rep 1 seed 43 | adapt 200 measure 100
+  knn: base 385.21 dist, 67.57 reads | replica exact | q_medoids 67.5216% | q_kcenter 67.7241% | d_far 65.9458% | d_medoids 68.5315% | d_random 67.7111% | q_nearest(S=1) 69.1727% | q_nearest_dfar 71.2962% | d_nearest(S=1) 65.1722% | d_nearest_dfar 69.9359%
+  range: base 313.88 dist, 65.15 reads | replica exact | q_medoids 75.9367% | q_kcenter 75.7965% | d_far 73.7001% | d_medoids 76.7586% | d_random 75.5225% | q_nearest(S=1) 79.489% | q_nearest_dfar 81.2508% | d_nearest(S=1) 74.726% | d_nearest_dfar 79.0939%
+regime disperso | rep 1 seed 43 | adapt 200 measure 100
+  knn: base 446.86 dist, 77.52 reads | replica exact | q_medoids 70.2703% | q_kcenter 70.3733% | d_far 70.8522% | d_medoids 71.4072% | d_random 70.747% | q_nearest(S=1) 72.9334% | q_nearest_dfar 75.2741% | d_nearest(S=1) 67.162% | d_nearest_dfar 73.7748%
+  range: base 358.95 dist, 73.74 reads | replica exact | q_medoids 76.565% | q_kcenter 76.3198% | d_far 76.7628% | d_medoids 77.1807% | d_random 76.3811% | q_nearest(S=1) 81.2899% | q_nearest_dfar 83.2372% | d_nearest(S=1) 75.3977% | d_nearest_dfar 80.6463%
+regime uniforme | rep 1 seed 43 | adapt 200 measure 100
+  knn: base 422.12 dist, 74.39 reads | replica exact | q_medoids 69.1154% | q_kcenter 69.023% | d_far 68.7293% | d_medoids 69.4826% | d_random 68.9709% | q_nearest(S=1) 66.7749% | q_nearest_dfar 71.835% | d_nearest(S=1) 66.5995% | d_nearest_dfar 72.0956%
+  range: base 354.82 dist, 72.17 reads | replica exact | q_medoids 76.3429% | q_kcenter 76.0639% | d_far 75.9033% | d_medoids 76.729% | d_random 76.2358% | q_nearest(S=1) 75.4467% | q_nearest_dfar 80.1139% | d_nearest(S=1) 75.6834% | d_nearest_dfar 80.1787%
+regime concentrado | rep 2 seed 44 | adapt 200 measure 100
+  knn: base 369.01 dist, 72.96 reads | replica exact | q_medoids 67.8193% | q_kcenter 67.0659% | d_far 67.0253% | d_medoids 68.3261% | d_random 64.1825% | q_nearest(S=1) 71.2203% | q_nearest_dfar 73.3666% | d_nearest(S=1) 66.2502% | d_nearest_dfar 71.5319%
+  range: base 344.74 dist, 72.24 reads | replica exact | q_medoids 75.0914% | q_kcenter 74.0152% | d_far 74.43% | d_medoids 75.4395% | d_random 70.9578% | q_nearest(S=1) 79.4657% | q_nearest_dfar 81.5513% | d_nearest(S=1) 73.8905% | d_nearest_dfar 79.4077%
+regime disperso | rep 2 seed 44 | adapt 200 measure 100
+  knn: base 365.39 dist, 71.75 reads | replica exact | q_medoids 66.7424% | q_kcenter 66.6575% | d_far 67.3965% | d_medoids 67.5826% | d_random 63.8578% | q_nearest(S=1) 69.9499% | q_nearest_dfar 72.2954% | d_nearest(S=1) 66.7916% | d_nearest_dfar 71.1404%
+  range: base 328.09 dist, 70.37 reads | replica exact | q_medoids 73.9096% | q_kcenter 73.9827% | d_far 74.8758% | d_medoids 74.76% | d_random 71.1299% | q_nearest(S=1) 78.6126% | q_nearest_dfar 80.9564% | d_nearest(S=1) 74.9642% | d_nearest_dfar 79.5544%
+regime uniforme | rep 2 seed 44 | adapt 200 measure 100
+  knn: base 375 dist, 71.51 reads | replica exact | q_medoids 68.2373% | q_kcenter 68.0907% | d_far 68.224% | d_medoids 68.432% | d_random 64.4427% | q_nearest(S=1) 65.232% | q_nearest_dfar 71.4107% | d_nearest(S=1) 65.0027% | d_nearest_dfar 71.368%
+  range: base 336 dist, 69.98 reads | replica exact | q_medoids 75.4107% | q_kcenter 75.4375% | d_far 75.5268% | d_medoids 75.5923% | d_random 71.4554% | q_nearest(S=1) 73.7738% | q_nearest_dfar 79.4881% | d_nearest(S=1) 73.2232% | d_nearest_dfar 79.3363%
+regime concentrado | rep 3 seed 45 | adapt 200 measure 100
+  knn: base 392.34 dist, 69.49 reads | replica exact | q_medoids 67.5231% | q_kcenter 68.5451% | d_far 68.8816% | d_medoids 68.7924% | d_random 67.885% | q_nearest(S=1) 70.4211% | q_nearest_dfar 72.7583% | d_nearest(S=1) 63.7942% | d_nearest_dfar 71.3565%
+  range: base 287.03 dist, 65.87 reads | replica exact | q_medoids 75.9537% | q_kcenter 76.4241% | d_far 76.8979% | d_medoids 76.7725% | d_random 75.5426% | q_nearest(S=1) 82.0437% | q_nearest_dfar 83.7613% | d_nearest(S=1) 76.2986% | d_nearest_dfar 81.1622%
+regime disperso | rep 3 seed 45 | adapt 200 measure 100
+  knn: base 390.35 dist, 70.61 reads | replica exact | q_medoids 68.3207% | q_kcenter 68.8792% | d_far 68.1798% | d_medoids 68.3105% | d_random 68.0236% | q_nearest(S=1) 69.5402% | q_nearest_dfar 72.0943% | d_nearest(S=1) 64.6317% | d_nearest_dfar 70.9261%
+  range: base 341.21 dist, 68.83 reads | replica exact | q_medoids 75.9972% | q_kcenter 76.4749% | d_far 75.7188% | d_medoids 75.7891% | d_random 75.6455% | q_nearest(S=1) 78.9162% | q_nearest_dfar 80.9824% | d_nearest(S=1) 73.2276% | d_nearest_dfar 79.1302%
+regime uniforme | rep 3 seed 45 | adapt 200 measure 100
+  knn: base 417.3 dist, 70.57 reads | replica exact | q_medoids 69.6789% | q_kcenter 69.5351% | d_far 69.5016% | d_medoids 69.8514% | d_random 69.5806% | q_nearest(S=1) 65.5907% | q_nearest_dfar 71.9482% | d_nearest(S=1) 64.9605% | d_nearest_dfar 72.0417%
+  range: base 344.48 dist, 68.09 reads | replica exact | q_medoids 76.1902% | q_kcenter 76.196% | d_far 76.0334% | d_medoids 76.3702% | d_random 76.1118% | q_nearest(S=1) 73.984% | q_nearest_dfar 79.4618% | d_nearest(S=1) 73.8679% | d_nearest_dfar 79.5518%
+regime concentrado | rep 4 seed 46 | adapt 200 measure 100
+  knn: base 375.93 dist, 63.11 reads | replica exact | q_medoids 66.7225% | q_kcenter 66.7066% | d_far 67.9861% | d_medoids 68.5739% | d_random 64.5652% | q_nearest(S=1) 70.1141% | q_nearest_dfar 72.0267% | d_nearest(S=1) 65.9804% | d_nearest_dfar 71.0904%
+  range: base 348.58 dist, 62.82 reads | replica exact | q_medoids 74.5596% | q_kcenter 74.3904% | d_far 75.9711% | d_medoids 76.2207% | d_random 72.1327% | q_nearest(S=1) 78.3694% | q_nearest_dfar 80.4464% | d_nearest(S=1) 73.8883% | d_nearest_dfar 79.3419%
+regime disperso | rep 4 seed 46 | adapt 200 measure 100
+  knn: base 355.52 dist, 60.08 reads | replica exact | q_medoids 68.4462% | q_kcenter 68.7416% | d_far 67.9512% | d_medoids 68.1621% | d_random 64.8993% | q_nearest(S=1) 69.3604% | q_nearest_dfar 71.4615% | d_nearest(S=1) 64.8852% | d_nearest_dfar 70.5727%
+  range: base 310.54 dist, 58.24 reads | replica exact | q_medoids 75.7294% | q_kcenter 75.9483% | d_far 75.0789% | d_medoids 74.9533% | d_random 70.986% | q_nearest(S=1) 77.6132% | q_nearest_dfar 79.8319% | d_nearest(S=1) 72.7088% | d_nearest_dfar 78.7016%
+regime uniforme | rep 4 seed 46 | adapt 200 measure 100
+  knn: base 380.86 dist, 65.09 reads | replica exact | q_medoids 68.0959% | q_kcenter 68.8442% | d_far 68.3479% | d_medoids 68.621% | d_random 65.7118% | q_nearest(S=1) 64.0997% | q_nearest_dfar 70.7898% | d_nearest(S=1) 63.9027% | d_nearest_dfar 71.0314%
+  range: base 322.71 dist, 62.89 reads | replica exact | q_medoids 75.6593% | q_kcenter 76.5951% | d_far 76.0869% | d_medoids 76.2542% | d_random 73.0315% | q_nearest(S=1) 73.5056% | q_nearest_dfar 79.48% | d_nearest(S=1) 73.8093% | d_nearest_dfar 79.6164%
+regime concentrado | rep 5 seed 47 | adapt 200 measure 100
+  knn: base 435.42 dist, 77.46 reads | replica exact | q_medoids 68.651% | q_kcenter 68.024% | d_far 70.1667% | d_medoids 71.1612% | d_random 68.2054% | q_nearest(S=1) 71.8341% | q_nearest_dfar 74.1078% | d_nearest(S=1) 67.9803% | d_nearest_dfar 72.9204%
+  range: base 396.73 dist, 77.87 reads | replica exact | q_medoids 77.6901% | q_kcenter 76.5306% | d_far 78.1917% | d_medoids 79.3184% | d_random 76.8331% | q_nearest(S=1) 80.8988% | q_nearest_dfar 83.0943% | d_nearest(S=1) 76.876% | d_nearest_dfar 81.5945%
+regime disperso | rep 5 seed 47 | adapt 200 measure 100
+  knn: base 373.51 dist, 65.2 reads | replica exact | q_medoids 69.5109% | q_kcenter 69.0423% | d_far 68.5738% | d_medoids 69.2458% | d_random 65.8269% | q_nearest(S=1) 69.7277% | q_nearest_dfar 72.0971% | d_nearest(S=1) 64.9514% | d_nearest_dfar 70.8923%
+  range: base 307.49 dist, 63.05 reads | replica exact | q_medoids 77.2545% | q_kcenter 76.6139% | d_far 75.9277% | d_medoids 76.8545% | d_random 73.7065% | q_nearest(S=1) 79.2351% | q_nearest_dfar 81.4205% | d_nearest(S=1) 73.7325% | d_nearest_dfar 79.3782%
+regime uniforme | rep 5 seed 47 | adapt 200 measure 100
+  knn: base 387.34 dist, 67.98 reads | replica exact | q_medoids 68.6684% | q_kcenter 68.3792% | d_far 68.7226% | d_medoids 68.8465% | d_random 66.381% | q_nearest(S=1) 65.8052% | q_nearest_dfar 71.4359% | d_nearest(S=1) 65.8181% | d_nearest_dfar 71.4411%
+  range: base 354.52 dist, 67.62 reads | replica exact | q_medoids 76.4865% | q_kcenter 76.2975% | d_far 76.7009% | d_medoids 76.7094% | d_random 73.8943% | q_nearest(S=1) 74.5036% | q_nearest_dfar 79.8178% | d_nearest(S=1) 74.0269% | d_nearest_dfar 79.7811%
+regime concentrado | rep 6 seed 48 | adapt 200 measure 100
+  knn: base 350.82 dist, 65.41 reads | replica exact | q_medoids 65.974% | q_kcenter 65.1217% | d_far 66.2163% | d_medoids 66.3474% | d_random 64.9336% | q_nearest(S=1) 69.0354% | q_nearest_dfar 71.4326% | d_nearest(S=1) 62.9867% | d_nearest_dfar 69.6654%
+  range: base 337.16 dist, 64.43 reads | replica exact | q_medoids 73.4696% | q_kcenter 72.4908% | d_far 73.9056% | d_medoids 73.953% | d_random 72.2921% | q_nearest(S=1) 77.2423% | q_nearest_dfar 79.2858% | d_nearest(S=1) 71.1502% | d_nearest_dfar 77.5982%
+regime disperso | rep 6 seed 48 | adapt 200 measure 100
+  knn: base 382.23 dist, 70.84 reads | replica exact | q_medoids 69.262% | q_kcenter 68.2809% | d_far 68.9951% | d_medoids 69.296% | d_random 67.7524% | q_nearest(S=1) 70.9651% | q_nearest_dfar 73.6441% | d_nearest(S=1) 65.6882% | d_nearest_dfar 71.9933%
+  range: base 344.21 dist, 69.84 reads | replica exact | q_medoids 76.2151% | q_kcenter 74.809% | d_far 75.6893% | d_medoids 75.9101% | d_random 73.9723% | q_nearest(S=1) 79.2046% | q_nearest_dfar 81.6449% | d_nearest(S=1) 73.2227% | d_nearest_dfar 79.4195%
+regime uniforme | rep 6 seed 48 | adapt 200 measure 100
+  knn: base 380.17 dist, 67.91 reads | replica exact | q_medoids 68.4825% | q_kcenter 68.5141% | d_far 67.8907% | d_medoids 68.3457% | d_random 66.2835% | q_nearest(S=1) 64.0897% | q_nearest_dfar 70.721% | d_nearest(S=1) 64.1608% | d_nearest_dfar 70.8288%
+  range: base 326.59 dist, 66.17 reads | replica exact | q_medoids 75.7953% | q_kcenter 75.7249% | d_far 75.2993% | d_medoids 75.532% | d_random 73.5846% | q_nearest(S=1) 72.9753% | q_nearest_dfar 79.0441% | d_nearest(S=1) 73.1896% | d_nearest_dfar 79.0594%
+regime concentrado | rep 7 seed 49 | adapt 200 measure 100
+  knn: base 460.25 dist, 83.22 reads | replica exact | q_medoids 67.3243% | q_kcenter 66.7876% | d_far 69.5492% | d_medoids 69.3341% | d_random 63.6263% | q_nearest(S=1) 71.5894% | q_nearest_dfar 73.8273% | d_nearest(S=1) 66.6616% | d_nearest_dfar 72.2998%
+  range: base 406.99 dist, 82.57 reads | replica exact | q_medoids 74.6161% | q_kcenter 74.2451% | d_far 76.3803% | d_medoids 76.1616% | d_random 70.385% | q_nearest(S=1) 79.4147% | q_nearest_dfar 81.6064% | d_nearest(S=1) 74.0927% | d_nearest_dfar 79.8201%
+regime disperso | rep 7 seed 49 | adapt 200 measure 100
+  knn: base 448.32 dist, 78.19 reads | replica exact | q_medoids 68.3909% | q_kcenter 70.4006% | d_far 70.1686% | d_medoids 70.1329% | d_random 66.4302% | q_nearest(S=1) 72.7003% | q_nearest_dfar 74.536% | d_nearest(S=1) 67.8399% | d_nearest_dfar 73.0349%
+  range: base 378.79 dist, 77.05 reads | replica exact | q_medoids 74.8383% | q_kcenter 76.3457% | d_far 76.3484% | d_medoids 76.0474% | d_random 72.0241% | q_nearest(S=1) 80.4641% | q_nearest_dfar 82.3491% | d_nearest(S=1) 75.0733% | d_nearest_dfar 80.2001%
+regime uniforme | rep 7 seed 49 | adapt 200 measure 100
+  knn: base 432.3 dist, 75.1 reads | replica exact | q_medoids 68.6815% | q_kcenter 69.0123% | d_far 68.7601% | d_medoids 69.2667% | d_random 65.6974% | q_nearest(S=1) 67.0738% | q_nearest_dfar 72.179% | d_nearest(S=1) 66.44% | d_nearest_dfar 72.0426%
+  range: base 374.26 dist, 73.59 reads | replica exact | q_medoids 75.7201% | q_kcenter 76.0861% | d_far 75.6453% | d_medoids 76.0648% | d_random 72.5512% | q_nearest(S=1) 74.825% | q_nearest_dfar 79.8536% | d_nearest(S=1) 74.3494% | d_nearest_dfar 79.7013%
+regime concentrado | rep 8 seed 50 | adapt 200 measure 100
+  knn: base 367.95 dist, 64 reads | replica exact | q_medoids 67.1722% | q_kcenter 66.2644% | d_far 67.2428% | d_medoids 68.156% | d_random 67.9929% | q_nearest(S=1) 69.0773% | q_nearest_dfar 71.5478% | d_nearest(S=1) 65.0116% | d_nearest_dfar 70.5639%
+  range: base 261.91 dist, 60.29 reads | replica exact | q_medoids 77.2326% | q_kcenter 75.8887% | d_far 76.4347% | d_medoids 77.6908% | d_random 77.5114% | q_nearest(S=1) 83.0934% | q_nearest_dfar 84.781% | d_nearest(S=1) 78.2139% | d_nearest_dfar 82.3718%
+regime disperso | rep 8 seed 50 | adapt 200 measure 100
+  knn: base 416.94 dist, 73.19 reads | replica exact | q_medoids 69.7438% | q_kcenter 69.9261% | d_far 68.9068% | d_medoids 68.6789% | d_random 69.2977% | q_nearest(S=1) 71.0918% | q_nearest_dfar 73.4134% | d_nearest(S=1) 65.5082% | d_nearest_dfar 71.7393%
+  range: base 378.23 dist, 72.19 reads | replica exact | q_medoids 77.2863% | q_kcenter 77.7516% | d_far 76.5804% | d_medoids 76.1944% | d_random 76.9188% | q_nearest(S=1) 79.5415% | q_nearest_dfar 81.9634% | d_nearest(S=1) 73.5055% | d_nearest_dfar 79.8377%
+regime uniforme | rep 8 seed 50 | adapt 200 measure 100
+  knn: base 412.22 dist, 70.89 reads | replica exact | q_medoids 69.0141% | q_kcenter 69.0651% | d_far 69.2349% | d_medoids 69.2179% | d_random 68.854% | q_nearest(S=1) 66.2195% | q_nearest_dfar 72.1387% | d_nearest(S=1) 66.268% | d_nearest_dfar 72.3376%
+  range: base 349.96 dist, 69.09 reads | replica exact | q_medoids 76.6088% | q_kcenter 76.6059% | d_far 76.8174% | d_medoids 76.8402% | d_random 76.5345% | q_nearest(S=1) 75.0829% | q_nearest_dfar 80.7035% | d_nearest(S=1) 75.1% | d_nearest_dfar 80.7149%
+regime concentrado | rep 9 seed 51 | adapt 200 measure 100
+  knn: base 400.77 dist, 71.81 reads | replica exact | q_medoids 66.8912% | q_kcenter 66.215% | d_far 68.3609% | d_medoids 69.7033% | d_random 69.329% | q_nearest(S=1) 71.4225% | q_nearest_dfar 73.5609% | d_nearest(S=1) 66.2425% | d_nearest_dfar 72.1212%
+  range: base 329.11 dist, 69.32 reads | replica exact | q_medoids 76.0354% | q_kcenter 75.8652% | d_far 76.4213% | d_medoids 77.9192% | d_random 77.3723% | q_nearest(S=1) 81.5016% | q_nearest_dfar 83.3521% | d_nearest(S=1) 76.3119% | d_nearest_dfar 81.3011%
+regime disperso | rep 9 seed 51 | adapt 200 measure 100
+  knn: base 402.15 dist, 70.84 reads | replica exact | q_medoids 69.5213% | q_kcenter 69.0538% | d_far 67.6464% | d_medoids 69.3423% | d_random 69.4641% | q_nearest(S=1) 70.4762% | q_nearest_dfar 72.9056% | d_nearest(S=1) 63.8543% | d_nearest_dfar 70.9114%
+  range: base 328.01 dist, 68.21 reads | replica exact | q_medoids 77.6135% | q_kcenter 77.1806% | d_far 75.7538% | d_medoids 77.2415% | d_random 77.4458% | q_nearest(S=1) 80.8908% | q_nearest_dfar 82.8877% | d_nearest(S=1) 73.8971% | d_nearest_dfar 80.1104%
+regime uniforme | rep 9 seed 51 | adapt 200 measure 100
+  knn: base 371.35 dist, 65.09 reads | replica exact | q_medoids 67.9871% | q_kcenter 68.0652% | d_far 67.812% | d_medoids 68.566% | d_random 68.8057% | q_nearest(S=1) 64.1901% | q_nearest_dfar 71.0139% | d_nearest(S=1) 64.9926% | d_nearest_dfar 71.1916%
+  range: base 316.65 dist, 62.75 reads | replica exact | q_medoids 75.2629% | q_kcenter 75.5061% | d_far 75.0829% | d_medoids 75.765% | d_random 76.3051% | q_nearest(S=1) 73.3997% | q_nearest_dfar 79.2642% | d_nearest(S=1) 73.9965% | d_nearest_dfar 79.4347%
+regime concentrado | rep 10 seed 52 | adapt 200 measure 100
+  knn: base 423.14 dist, 74.53 reads | replica exact | q_medoids 69.4002% | q_kcenter 68.5825% | d_far 69.2844% | d_medoids 70.3786% | d_random 70.2415% | q_nearest(S=1) 71.9998% | q_nearest_dfar 74.011% | d_nearest(S=1) 67.7081% | d_nearest_dfar 72.827%
+  range: base 374.49 dist, 73.71 reads | replica exact | q_medoids 76.1008% | q_kcenter 74.9312% | d_far 75.7457% | d_medoids 76.958% | d_random 76.7818% | q_nearest(S=1) 79.9834% | q_nearest_dfar 81.8713% | d_nearest(S=1) 75.3825% | d_nearest_dfar 80.2692%
+regime disperso | rep 10 seed 52 | adapt 200 measure 100
+  knn: base 425.11 dist, 75.91 reads | replica exact | q_medoids 68.8739% | q_kcenter 69.462% | d_far 69.1727% | d_medoids 69.8149% | d_random 69.6855% | q_nearest(S=1) 71.0216% | q_nearest_dfar 73.4822% | d_nearest(S=1) 67.0532% | d_nearest_dfar 72.4707%
+  range: base 362.13 dist, 74.15 reads | replica exact | q_medoids 76.0003% | q_kcenter 76.3593% | d_far 75.9285% | d_medoids 76.6852% | d_random 76.5361% | q_nearest(S=1) 79.9685% | q_nearest_dfar 81.9429% | d_nearest(S=1) 75.6745% | d_nearest_dfar 80.496%
+regime uniforme | rep 10 seed 52 | adapt 200 measure 100
+  knn: base 404.6 dist, 70.21 reads | replica exact | q_medoids 69.0213% | q_kcenter 69.822% | d_far 69.088% | d_medoids 69.2462% | d_random 69.0015% | q_nearest(S=1) 65.2546% | q_nearest_dfar 71.7598% | d_nearest(S=1) 65.173% | d_nearest_dfar 71.8043%
+  range: base 348.16 dist, 68.03 reads | replica exact | q_medoids 76.4419% | q_kcenter 77.2892% | d_far 76.6573% | d_medoids 76.6314% | d_random 76.5769% | q_nearest(S=1) 74.0723% | q_nearest_dfar 80.1901% | d_nearest(S=1) 74.2934% | d_nearest_dfar 80.2821%
+regime concentrado | rep 11 seed 53 | adapt 200 measure 100
+  knn: base 422 dist, 66.82 reads | replica exact | q_medoids 70.0284% | q_kcenter 70.5498% | d_far 68.8649% | d_medoids 69.9194% | d_random 65.0379% | q_nearest(S=1) 72.0806% | q_nearest_dfar 73.7938% | d_nearest(S=1) 67.4787% | d_nearest_dfar 72.3957%
+  range: base 341.61 dist, 64.15 reads | replica exact | q_medoids 76.5551% | q_kcenter 76.6459% | d_far 74.6787% | d_medoids 75.7091% | d_random 70.5307% | q_nearest(S=1) 79.945% | q_nearest_dfar 81.432% | d_nearest(S=1) 75.0417% | d_nearest_dfar 79.623%
+regime disperso | rep 11 seed 53 | adapt 200 measure 100
+  knn: base 400.07 dist, 69.59 reads | replica exact | q_medoids 67.5157% | q_kcenter 67.3857% | d_far 67.5582% | d_medoids 67.7331% | d_random 65.4735% | q_nearest(S=1) 70.1877% | q_nearest_dfar 72.3123% | d_nearest(S=1) 66.7683% | d_nearest_dfar 71.1051%
+  range: base 354.75 dist, 68.27 reads | replica exact | q_medoids 74.148% | q_kcenter 74.1367% | d_far 74.4101% | d_medoids 74.475% | d_random 72.6286% | q_nearest(S=1) 77.6575% | q_nearest_dfar 80.0028% | d_nearest(S=1) 73.7026% | d_nearest_dfar 78.5201%
+regime uniforme | rep 11 seed 53 | adapt 200 measure 100
+  knn: base 438.19 dist, 72.96 reads | replica exact | q_medoids 71.0012% | q_kcenter 70.9532% | d_far 70.3804% | d_medoids 70.7364% | d_random 67.7446% | q_nearest(S=1) 67.0371% | q_nearest_dfar 73.2308% | d_nearest(S=1) 67.0896% | d_nearest_dfar 73.1623%
+  range: base 354.35 dist, 70.12 reads | replica exact | q_medoids 77.8976% | q_kcenter 77.7706% | d_far 77.3388% | d_medoids 77.7254% | d_random 75.0614% | q_nearest(S=1) 75.6484% | q_nearest_dfar 81.1937% | d_nearest(S=1) 75.7359% | d_nearest_dfar 81.1006%
+regime concentrado | rep 12 seed 54 | adapt 200 measure 100
+  knn: base 414.48 dist, 69.98 reads | replica exact | q_medoids 68.8501% | q_kcenter 69.6656% | d_far 69.5594% | d_medoids 70.4184% | d_random 69.4436% | q_nearest(S=1) 70.9154% | q_nearest_dfar 73.2774% | d_nearest(S=1) 66.4664% | d_nearest_dfar 72.2906%
+  range: base 316.54 dist, 66.08 reads | replica exact | q_medoids 76.8908% | q_kcenter 77.5605% | d_far 77.0898% | d_medoids 77.9459% | d_random 77.3931% | q_nearest(S=1) 81.7875% | q_nearest_dfar 83.5661% | d_nearest(S=1) 76.8718% | d_nearest_dfar 81.8096%
+regime disperso | rep 12 seed 54 | adapt 200 measure 100
+  knn: base 373.98 dist, 65.01 reads | replica exact | q_medoids 65.0035% | q_kcenter 65.4019% | d_far 67.41% | d_medoids 68.033% | d_random 67.0918% | q_nearest(S=1) 68.7657% | q_nearest_dfar 71.3407% | d_nearest(S=1) 64.0302% | d_nearest_dfar 70.2711%
+  range: base 321.84 dist, 63.56 reads | replica exact | q_medoids 73.2662% | q_kcenter 73.7136% | d_far 75.3604% | d_medoids 75.9104% | d_random 74.8074% | q_nearest(S=1) 78.7596% | q_nearest_dfar 80.8445% | d_nearest(S=1) 73.6142% | d_nearest_dfar 79.2599%
+regime uniforme | rep 12 seed 54 | adapt 200 measure 100
+  knn: base 383.79 dist, 65.16 reads | replica exact | q_medoids 67.1409% | q_kcenter 67.1487% | d_far 68.0059% | d_medoids 68.8189% | d_random 68.0007% | q_nearest(S=1) 64.8401% | q_nearest_dfar 70.6115% | d_nearest(S=1) 65.5541% | d_nearest_dfar 70.734%
+  range: base 328.19 dist, 63.18 reads | replica exact | q_medoids 74.6549% | q_kcenter 74.533% | d_far 75.7153% | d_medoids 76.3704% | d_random 75.6879% | q_nearest(S=1) 74.0394% | q_nearest_dfar 79.134% | d_nearest(S=1) 74.3563% | d_nearest_dfar 79.6185%
+regime concentrado | rep 13 seed 55 | adapt 200 measure 100
+  knn: base 388.86 dist, 73.04 reads | replica exact | q_medoids 68.1479% | q_kcenter 67.4356% | d_far 66.9213% | d_medoids 67.7905% | d_random 67.3044% | q_nearest(S=1) 70.4058% | q_nearest_dfar 72.4348% | d_nearest(S=1) 65.7332% | d_nearest_dfar 70.9638%
+  range: base 360.29 dist, 72.66 reads | replica exact | q_medoids 76.369% | q_kcenter 75.4587% | d_far 74.576% | d_medoids 75.5974% | d_random 75.0978% | q_nearest(S=1) 79.1335% | q_nearest_dfar 81.1596% | d_nearest(S=1) 73.7101% | d_nearest_dfar 79.3222%
+regime disperso | rep 13 seed 55 | adapt 200 measure 100
+  knn: base 379.81 dist, 67.9 reads | replica exact | q_medoids 67.0414% | q_kcenter 67.3784% | d_far 66.7992% | d_medoids 67.2047% | d_random 67.0125% | q_nearest(S=1) 68.7765% | q_nearest_dfar 70.9881% | d_nearest(S=1) 65.1826% | d_nearest_dfar 69.956%
+  range: base 339.38 dist, 66.78 reads | replica exact | q_medoids 74.642% | q_kcenter 75.2814% | d_far 74.4269% | d_medoids 74.8129% | d_random 74.8099% | q_nearest(S=1) 77.4442% | q_nearest_dfar 79.7336% | d_nearest(S=1) 73.1304% | d_nearest_dfar 78.3546%
+regime uniforme | rep 13 seed 55 | adapt 200 measure 100
+  knn: base 394.31 dist, 70.97 reads | replica exact | q_medoids 68.2407% | q_kcenter 68.3016% | d_far 67.5966% | d_medoids 68.3447% | d_random 67.8223% | q_nearest(S=1) 64.5025% | q_nearest_dfar 70.688% | d_nearest(S=1) 65.2279% | d_nearest_dfar 70.7489%
+  range: base 339.24 dist, 68.97 reads | replica exact | q_medoids 75.1562% | q_kcenter 75.1975% | d_far 74.5195% | d_medoids 75.1268% | d_random 74.7789% | q_nearest(S=1) 72.854% | q_nearest_dfar 78.331% | d_nearest(S=1) 73.1753% | d_nearest_dfar 78.3398%
+regime concentrado | rep 14 seed 56 | adapt 200 measure 100
+  knn: base 368.54 dist, 65.11 reads | replica exact | q_medoids 68.5272% | q_kcenter 66.1502% | d_far 67.5422% | d_medoids 67.6453% | d_random 63.217% | q_nearest(S=1) 70.8308% | q_nearest_dfar 72.9175% | d_nearest(S=1) 67.7131% | d_nearest_dfar 71.9406%
+  range: base 384.3 dist, 66.44 reads | replica exact | q_medoids 75.311% | q_kcenter 72.8702% | d_far 74.101% | d_medoids 74.0515% | d_random 69.1777% | q_nearest(S=1) 77.0596% | q_nearest_dfar 79.3104% | d_nearest(S=1) 73.8928% | d_nearest_dfar 78.345%
+regime disperso | rep 14 seed 56 | adapt 200 measure 100
+  knn: base 422.63 dist, 72.47 reads | replica exact | q_medoids 70.0258% | q_kcenter 69.6354% | d_far 69.7324% | d_medoids 70.1086% | d_random 65.6082% | q_nearest(S=1) 71.6158% | q_nearest_dfar 73.7383% | d_nearest(S=1) 65.8377% | d_nearest_dfar 72.2689%
+  range: base 354.85 dist, 69.45 reads | replica exact | q_medoids 77.8554% | q_kcenter 77.1735% | d_far 77.2298% | d_medoids 77.7991% | d_random 73.0478% | q_nearest(S=1) 81.2202% | q_nearest_dfar 83.0576% | d_nearest(S=1) 74.981% | d_nearest_dfar 80.7468%
+regime uniforme | rep 14 seed 56 | adapt 200 measure 100
+  knn: base 413.96 dist, 71.9 reads | replica exact | q_medoids 69.4826% | q_kcenter 69.5768% | d_far 69.0719% | d_medoids 69.613% | d_random 65.574% | q_nearest(S=1) 66.9002% | q_nearest_dfar 72.234% | d_nearest(S=1) 67.1273% | d_nearest_dfar 72.5263%
+  range: base 358.03 dist, 70.21 reads | replica exact | q_medoids 76.4098% | q_kcenter 76.5746% | d_far 75.8903% | d_medoids 76.5243% | d_random 72.4492% | q_nearest(S=1) 74.8764% | q_nearest_dfar 79.9654% | d_nearest(S=1) 75.8177% | d_nearest_dfar 80.3759%
+regime concentrado | rep 15 seed 57 | adapt 200 measure 100
+  knn: base 376.14 dist, 63.29 reads | replica exact | q_medoids 68.1581% | q_kcenter 68.081% | d_far 69.2402% | d_medoids 69.7373% | d_random 67.8045% | q_nearest(S=1) 70.7024% | q_nearest_dfar 73.3078% | d_nearest(S=1) 64.3883% | d_nearest_dfar 71.6568%
+  range: base 322.58 dist, 61.88 reads | replica exact | q_medoids 76.2943% | q_kcenter 76.1579% | d_far 76.2912% | d_medoids 76.8523% | d_random 75.0636% | q_nearest(S=1) 79.6857% | q_nearest_dfar 81.9301% | d_nearest(S=1) 73.2748% | d_nearest_dfar 79.7074%
+regime disperso | rep 15 seed 57 | adapt 200 measure 100
+  knn: base 406.06 dist, 68.97 reads | replica exact | q_medoids 70.5807% | q_kcenter 71.0018% | d_far 69.7261% | d_medoids 70.63% | d_random 69.1351% | q_nearest(S=1) 72.3834% | q_nearest_dfar 74.4225% | d_nearest(S=1) 65.212% | d_nearest_dfar 72.5952%
+  range: base 347.17 dist, 66.98 reads | replica exact | q_medoids 77.7112% | q_kcenter 78.3679% | d_far 76.5072% | d_medoids 77.3944% | d_random 76.078% | q_nearest(S=1) 81.1476% | q_nearest_dfar 82.8125% | d_nearest(S=1) 73.5403% | d_nearest_dfar 80.0703%
+regime uniforme | rep 15 seed 57 | adapt 200 measure 100
+  knn: base 389.81 dist, 67.33 reads | replica exact | q_medoids 69.1439% | q_kcenter 69.9751% | d_far 68.9387% | d_medoids 69.9649% | d_random 68.3307% | q_nearest(S=1) 64.8111% | q_nearest_dfar 71.9402% | d_nearest(S=1) 65.2805% | d_nearest_dfar 72.3122%
+  range: base 334.83 dist, 65.65 reads | replica exact | q_medoids 75.7698% | q_kcenter 76.7076% | d_far 75.5129% | d_medoids 76.4866% | d_random 75.2442% | q_nearest(S=1) 73.5926% | q_nearest_dfar 79.4045% | d_nearest(S=1) 73.8315% | d_nearest_dfar 79.8584%
+regime concentrado | rep 16 seed 58 | adapt 200 measure 100
+  knn: base 362.29 dist, 60.94 reads | replica exact | q_medoids 69.1242% | q_kcenter 68.9724% | d_far 68.5832% | d_medoids 68.9558% | d_random 61.3486% | q_nearest(S=1) 69.0359% | q_nearest_dfar 72.2957% | d_nearest(S=1) 63.5899% | d_nearest_dfar 71.2081%
+  range: base 232.58 dist, 55.3 reads | replica exact | q_medoids 78.1624% | q_kcenter 76.9241% | d_far 76.4038% | d_medoids 77.5303% | d_random 70.2855% | q_nearest(S=1) 82.621% | q_nearest_dfar 84.2635% | d_nearest(S=1) 76.7306% | d_nearest_dfar 81.4257%
+regime disperso | rep 16 seed 58 | adapt 200 measure 100
+  knn: base 394.94 dist, 71.18 reads | replica exact | q_medoids 70.6082% | q_kcenter 70.6664% | d_far 69.9499% | d_medoids 70.4234% | d_random 66.0531% | q_nearest(S=1) 72.1122% | q_nearest_dfar 74.0872% | d_nearest(S=1) 66.7646% | d_nearest_dfar 72.7224%
+  range: base 317.39 dist, 68.92 reads | replica exact | q_medoids 78.0144% | q_kcenter 78.0617% | d_far 77.1606% | d_medoids 77.6048% | d_random 73.5436% | q_nearest(S=1) 82.3498% | q_nearest_dfar 83.7613% | d_nearest(S=1) 76.48% | d_nearest_dfar 81.2376%
+regime uniforme | rep 16 seed 58 | adapt 200 measure 100
+  knn: base 405.24 dist, 71.53 reads | replica exact | q_medoids 69.9832% | q_kcenter 70.0671% | d_far 69.196% | d_medoids 69.6377% | d_random 65.2428% | q_nearest(S=1) 65.3168% | q_nearest_dfar 72.2979% | d_nearest(S=1) 66.906% | d_nearest_dfar 72.5496%
+  range: base 350.26 dist, 69.95 reads | replica exact | q_medoids 77.0884% | q_kcenter 77.1884% | d_far 76.3433% | d_medoids 76.6402% | d_random 72.3177% | q_nearest(S=1) 74.0364% | q_nearest_dfar 80.2318% | d_nearest(S=1) 75.4611% | d_nearest_dfar 80.7486%
+regime concentrado | rep 17 seed 59 | adapt 200 measure 100
+  knn: base 493.15 dist, 86.38 reads | replica exact | q_medoids 71.9801% | q_kcenter 71.4347% | d_far 71.0615% | d_medoids 72.0957% | d_random 68.539% | q_nearest(S=1) 74.4398% | q_nearest_dfar 76.3845% | d_nearest(S=1) 69.561% | d_nearest_dfar 75.0745%
+  range: base 417.45 dist, 85.34 reads | replica exact | q_medoids 79.1496% | q_kcenter 78.4142% | d_far 77.5925% | d_medoids 78.5531% | d_random 75.4198% | q_nearest(S=1) 82.8818% | q_nearest_dfar 84.4796% | d_nearest(S=1) 78.0549% | d_nearest_dfar 82.6949%
+regime disperso | rep 17 seed 59 | adapt 200 measure 100
+  knn: base 442.78 dist, 80.09 reads | replica exact | q_medoids 69.4273% | q_kcenter 67.5866% | d_far 68.7971% | d_medoids 69.6508% | d_random 65.1226% | q_nearest(S=1) 72.0493% | q_nearest_dfar 73.8922% | d_nearest(S=1) 67.7108% | d_nearest_dfar 72.6523%
+  range: base 400.13 dist, 79.96 reads | replica exact | q_medoids 76.6001% | q_kcenter 74.8282% | d_far 75.9103% | d_medoids 76.4202% | d_random 72.2415% | q_nearest(S=1) 80.049% | q_nearest_dfar 81.8259% | d_nearest(S=1) 75.1356% | d_nearest_dfar 80.039%
+regime uniforme | rep 17 seed 59 | adapt 200 measure 100
+  knn: base 420.64 dist, 75.75 reads | replica exact | q_medoids 69.7437% | q_kcenter 69.4537% | d_far 69.1185% | d_medoids 69.5702% | d_random 66.249% | q_nearest(S=1) 66.9242% | q_nearest_dfar 72.5632% | d_nearest(S=1) 67.635% | d_nearest_dfar 72.7772%
+  range: base 372.69 dist, 75.05 reads | replica exact | q_medoids 76.7367% | q_kcenter 76.3745% | d_far 76.0015% | d_medoids 76.3932% | d_random 73.3076% | q_nearest(S=1) 74.7806% | q_nearest_dfar 80.2088% | d_nearest(S=1) 75.5507% | d_nearest_dfar 80.5603%
+regime concentrado | rep 18 seed 60 | adapt 200 measure 100
+  knn: base 359.76 dist, 66.17 reads | replica exact | q_medoids 66.7389% | q_kcenter 65.5715% | d_far 67.8563% | d_medoids 67.5617% | d_random 67.545% | q_nearest(S=1) 70.4803% | q_nearest_dfar 72.3455% | d_nearest(S=1) 64.7459% | d_nearest_dfar 70.6554%
+  range: base 348.9 dist, 66.67 reads | replica exact | q_medoids 73.511% | q_kcenter 72.1467% | d_far 74.8725% | d_medoids 74.2964% | d_random 74.689% | q_nearest(S=1) 77.8819% | q_nearest_dfar 79.7306% | d_nearest(S=1) 72.0722% | d_nearest_dfar 77.9908%
+regime disperso | rep 18 seed 60 | adapt 200 measure 100
+  knn: base 382.33 dist, 67.73 reads | replica exact | q_medoids 67.5228% | q_kcenter 68.2813% | d_far 68.4906% | d_medoids 68.3284% | d_random 68.7024% | q_nearest(S=1) 70.2691% | q_nearest_dfar 72.6048% | d_nearest(S=1) 65.5716% | d_nearest_dfar 71.3258%
+  range: base 330.88 dist, 66.22 reads | replica exact | q_medoids 74.8912% | q_kcenter 75.6558% | d_far 75.7132% | d_medoids 75.6105% | d_random 76.2149% | q_nearest(S=1) 79.0649% | q_nearest_dfar 80.978% | d_nearest(S=1) 74.6948% | d_nearest_dfar 79.3551%
+regime uniforme | rep 18 seed 60 | adapt 200 measure 100
+  knn: base 386.22 dist, 66.98 reads | replica exact | q_medoids 68.2979% | q_kcenter 68.8053% | d_far 68.1347% | d_medoids 67.8059% | d_random 68.0338% | q_nearest(S=1) 65.4575% | q_nearest_dfar 70.8793% | d_nearest(S=1) 66.4466% | d_nearest_dfar 71.1512%
+  range: base 322.33 dist, 64.75 reads | replica exact | q_medoids 76.3193% | q_kcenter 76.7691% | d_far 76.1797% | d_medoids 75.7609% | d_random 76.189% | q_nearest(S=1) 75.1621% | q_nearest_dfar 79.9367% | d_nearest(S=1) 75.9501% | d_nearest_dfar 80.3028%
+regime concentrado | rep 19 seed 61 | adapt 200 measure 100
+  knn: base 478.46 dist, 85.26 reads | replica exact | q_medoids 68.2105% | q_kcenter 69.0005% | d_far 68.4927% | d_medoids 69.6714% | d_random 69.5126% | q_nearest(S=1) 72.8232% | q_nearest_dfar 74.4263% | d_nearest(S=1) 68.2711% | d_nearest_dfar 72.9047%
+  range: base 444.29 dist, 84.72 reads | replica exact | q_medoids 75.7793% | q_kcenter 76.3623% | d_far 75.4665% | d_medoids 76.7742% | d_random 76.4591% | q_nearest(S=1) 80.8076% | q_nearest_dfar 82.3674% | d_nearest(S=1) 75.5565% | d_nearest_dfar 80.5645%
+regime disperso | rep 19 seed 61 | adapt 200 measure 100
+  knn: base 397.72 dist, 66.37 reads | replica exact | q_medoids 68.591% | q_kcenter 68.5558% | d_far 67.711% | d_medoids 67.54% | d_random 67.3464% | q_nearest(S=1) 69.6017% | q_nearest_dfar 71.9476% | d_nearest(S=1) 64.1582% | d_nearest_dfar 70.6904%
+  range: base 332.74 dist, 64.76 reads | replica exact | q_medoids 76.2427% | q_kcenter 76.0985% | d_far 75.1848% | d_medoids 74.7671% | d_random 74.6559% | q_nearest(S=1) 79.0948% | q_nearest_dfar 80.8679% | d_nearest(S=1) 73.7783% | d_nearest_dfar 79.0798%
+regime uniforme | rep 19 seed 61 | adapt 200 measure 100
+  knn: base 434.87 dist, 72.84 reads | replica exact | q_medoids 69.3311% | q_kcenter 70.2417% | d_far 69.131% | d_medoids 69.2299% | d_random 69.0091% | q_nearest(S=1) 66.068% | q_nearest_dfar 72.0514% | d_nearest(S=1) 66.7418% | d_nearest_dfar 72.5113%
+  range: base 360.15 dist, 70.16 reads | replica exact | q_medoids 76.5181% | q_kcenter 77.1762% | d_far 76.221% | d_medoids 76.5487% | d_random 75.8934% | q_nearest(S=1) 74.916% | q_nearest_dfar 80.2582% | d_nearest(S=1) 75.9545% | d_nearest_dfar 80.7303%

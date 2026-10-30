@@ -1,0 +1,115 @@
+a,b,regime,query_type,slots,mean_pp,ci_pp,wins,reads_mean_pp,reads_ci_pp,reads_wins,reps,isolates
+q_medoids,d_medoids,concentrado,knn,1,3.625749999999999,1.132032910952965,18,3.6477,0.9901626463899239,20,20,"same construction, queries vs data"
+q_medoids,d_medoids,concentrado,knn,2,2.079924999999998,0.7201086989692416,18,5.90375,1.334576106792477,20,20,"same construction, queries vs data"
+q_medoids,d_medoids,concentrado,knn,3,-0.8675150000000003,0.7587614883350242,6,4.696065,1.2984490197002663,20,20,"same construction, queries vs data"
+q_medoids,d_medoids,concentrado,knn,4,-0.99298,0.4549665659029507,4,3.6051199999999994,1.1524078850753883,20,20,"same construction, queries vs data"
+q_medoids,d_medoids,concentrado,range,1,4.528414999999999,1.0606207068030922,20,3.6225575,0.9212930279618604,20,20,"same construction, queries vs data"
+q_medoids,d_medoids,concentrado,range,2,2.805914999999999,0.6939511631765859,19,5.8474715,1.2652596139332204,20,20,"same construction, queries vs data"
+q_medoids,d_medoids,concentrado,range,3,-0.3931750000000001,0.7426942178159142,9,4.5236149999999995,1.326320150209756,19,20,"same construction, queries vs data"
+q_medoids,d_medoids,concentrado,range,4,-0.538574999999998,0.4272103170313714,5,3.360205,1.113978817460867,19,20,"same construction, queries vs data"
+q_medoids,d_medoids,disperso,knn,1,1.708455,0.6772059631122421,16,1.8369944999999999,0.6578672787317813,17,20,"same construction, queries vs data"
+q_medoids,d_medoids,disperso,knn,2,1.303224999999999,0.34837977070715326,19,2.714185,0.8407514336350215,19,20,"same construction, queries vs data"
+q_medoids,d_medoids,disperso,knn,3,-0.7077349999999978,0.741743649868234,5,2.12143,0.7183646561491938,18,20,"same construction, queries vs data"
+q_medoids,d_medoids,disperso,knn,4,-0.34601499999999985,0.4351090302478198,7,2.3370299999999995,0.6923164909970324,18,20,"same construction, queries vs data"
+q_medoids,d_medoids,disperso,range,1,1.9030350000000003,0.703247373029997,16,1.8456624999999998,0.6852340853711494,17,20,"same construction, queries vs data"
+q_medoids,d_medoids,disperso,range,2,1.515764999999999,0.483860464920887,19,2.7135949999999998,0.8758101322712829,19,20,"same construction, queries vs data"
+q_medoids,d_medoids,disperso,range,3,-0.3918950000000002,0.710126973543942,8,2.1172699999999995,0.7473936291549913,19,20,"same construction, queries vs data"
+q_medoids,d_medoids,disperso,range,4,-0.09804999999999993,0.42005852299528174,11,2.3351249999999997,0.6727933886585854,18,20,"same construction, queries vs data"
+q_medoids,d_medoids,uniforme,knn,1,0.20182999999999857,0.24727012251880398,10,-0.03487750000000003,0.16607658858562035,10,20,"same construction, queries vs data"
+q_medoids,d_medoids,uniforme,knn,2,0.10930499999999803,0.2949047869081186,9,-0.09563499999999996,0.20834642555875305,10,20,"same construction, queries vs data"
+q_medoids,d_medoids,uniforme,knn,3,-0.007784999999999797,0.37541338994271956,9,-0.03015999999999961,0.37709715488750123,9,20,"same construction, queries vs data"
+q_medoids,d_medoids,uniforme,knn,4,-0.20515999999999862,0.22694038202850514,7,-0.36493499999999984,0.41547305566677645,4,20,"same construction, queries vs data"
+q_medoids,d_medoids,uniforme,range,1,0.2427599999999998,0.28286755413342124,10,-0.08136850000000014,0.18387258989795804,9,20,"same construction, queries vs data"
+q_medoids,d_medoids,uniforme,range,2,0.08457000000000008,0.29254451623831845,8,-0.10972000000000035,0.23188866199894287,8,20,"same construction, queries vs data"
+q_medoids,d_medoids,uniforme,range,3,-0.019200000000000016,0.37690641733108277,11,-0.08128499999999939,0.4177564024802281,8,20,"same construction, queries vs data"
+q_medoids,d_medoids,uniforme,range,4,-0.16394999999999768,0.23626915457848865,7,-0.3241750000000003,0.4493442828000154,7,20,"same construction, queries vs data"
+q_medoids,d_far,concentrado,knn,1,-0.46972500000000006,1.3764761010455602,9,1.1362744999999999,1.3082711727452492,14,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,concentrado,knn,2,-0.7405250000000038,0.730011751737001,5,5.2565349999999995,0.8129911183661483,20,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,concentrado,knn,3,-1.2858999999999994,0.5894645015036488,3,4.52735,1.1269258653988923,20,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,concentrado,knn,4,-0.23477000000000176,0.5190133637869682,8,5.693585,1.209323580777516,20,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,concentrado,range,1,0.14950000000000047,1.2790756543553568,9,1.2435485,1.2977595619151667,14,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,concentrado,range,2,-0.11625499999999889,0.7290270042706225,6,5.450245000000001,0.8230324245379962,20,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,concentrado,range,3,-0.7635550000000002,0.6438814075019826,7,4.5029449999999995,1.1798140430391781,20,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,concentrado,range,4,0.2639399999999988,0.559784618771771,11,5.60414,1.2418334804140443,20,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,disperso,knn,1,-2.184925,1.0342380887708196,3,-0.262665,0.979637324447454,10,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,disperso,knn,2,-1.867815000000001,0.604901614885845,1,1.2673950000000003,0.717472497778458,15,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,disperso,knn,3,-1.1273800000000005,0.7263694529928716,4,1.443515,0.7086996348056653,16,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,disperso,knn,4,0.08984999999999985,0.46389156277740223,13,3.1492999999999998,0.9405620942106252,18,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,disperso,range,1,-2.1042750000000003,1.093645032656124,4,-0.21630400000000014,1.0379786346185007,10,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,disperso,range,2,-2.1171450000000007,0.6174807465942401,1,1.2125699999999997,0.7651678634214448,16,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,disperso,range,3,-0.9519449999999978,0.6719974386178724,4,1.3998149999999998,0.750673208977054,16,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,disperso,range,4,0.23751999999999923,0.45873674387997326,14,3.05399,1.0187192067685602,17,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,uniforme,knn,1,-3.79483,0.683757239734461,0,-1.9100295,0.6039027638300634,1,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,uniforme,knn,2,-3.486100000000001,0.3035452200053605,0,-1.486135,0.5743784885584455,3,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,uniforme,knn,3,-0.5573650000000014,0.26289292422585436,2,-0.6773899999999997,0.35631174264766696,3,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,uniforme,knn,4,0.19844000000000364,0.18573092444034653,14,0.6662900000000003,0.4000831797651178,15,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,uniforme,range,1,-3.7775100000000004,0.8880589848166699,0,-1.6974565000000001,0.7451725148916668,3,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,uniforme,range,2,-3.710629999999999,0.33805835079783053,0,-1.4212450000000003,0.5999616419332384,3,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,uniforme,range,3,-0.6098300000000016,0.2626548147622232,3,-0.5858199999999998,0.41008129645197655,4,20,query concentration points vs classic outlier pivots
+q_medoids,d_far,uniforme,range,4,0.1752500000000005,0.2110208505361303,14,0.7004899999999997,0.41757128581427866,13,20,query concentration points vs classic outlier pivots
+q_kcenter,d_far,concentrado,knn,1,-0.46972500000000006,1.3764761010455602,9,1.1362744999999999,1.3082711727452492,14,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,concentrado,knn,2,-2.073775000000002,0.9254089602272688,3,2.180875,0.5785790205833146,19,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,concentrado,knn,3,-2.006294999999999,0.6514564377073334,1,1.8575099999999998,1.0834592884946905,17,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,concentrado,knn,4,-0.5839900000000015,0.5916446631181752,8,3.923305,1.145481176223976,20,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,concentrado,range,1,0.14950000000000047,1.2790756543553568,9,1.2435485,1.2977595619151667,14,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,concentrado,range,2,-2.1419349999999993,0.7833396479090796,2,2.4381099999999996,0.5389989348441266,20,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,concentrado,range,3,-1.8771099999999983,0.6281464677193714,0,2.0556349999999997,1.0908565403982606,17,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,concentrado,range,4,-0.316880000000004,0.6030588028418543,7,4.10651,1.2051590740646023,20,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,disperso,knn,1,-2.184925,1.0342380887708196,3,-0.262665,0.979637324447454,10,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,disperso,knn,2,-2.1505199999999998,0.6349796069546939,1,0.4652999999999999,0.6494894378335756,13,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,disperso,knn,3,-1.0672400000000013,0.6290345670690003,3,0.9300700000000004,0.6940513891625594,13,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,disperso,knn,4,0.15319000000000002,0.40481018879085073,12,2.5387949999999995,0.8749227219644192,19,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,disperso,range,1,-2.1042750000000003,1.093645032656124,4,-0.21630400000000014,1.0379786346185007,10,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,disperso,range,2,-2.49331,0.5351008758545902,1,0.4620049999999999,0.6782301536913217,12,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,disperso,range,3,-0.9558599999999956,0.5850232675711521,4,0.8885850000000006,0.7499715470816225,13,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,disperso,range,4,0.24522499999999994,0.4280915160332151,11,2.489445,0.9330907974956423,18,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,uniforme,knn,1,-3.79483,0.683757239734461,0,-1.9100295,0.6039027638300634,1,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,uniforme,knn,2,-2.174035000000001,0.341974660984198,0,-1.5871499999999998,0.563380982750429,3,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,uniforme,knn,3,-0.5356700000000011,0.26797890382506406,3,-0.9117599999999999,0.555273487826796,2,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,uniforme,knn,4,0.34212000000000203,0.23221120829280398,15,0.5330199999999999,0.5555412775590534,14,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,uniforme,range,1,-3.7775100000000004,0.8880589848166699,0,-1.6974565000000001,0.7451725148916668,3,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,uniforme,range,2,-2.541969999999999,0.3639189869682818,0,-1.48094,0.6498071227927439,3,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,uniforme,range,3,-0.5469950000000019,0.29755011188610475,3,-0.7889949999999999,0.5819436700321416,3,20,"same construction (farthest-first), queries vs data"
+q_kcenter,d_far,uniforme,range,4,0.32267500000000027,0.2512766089698554,15,0.47349499999999994,0.5463115117997824,13,20,"same construction (farthest-first), queries vs data"
+q_nearest,d_nearest,concentrado,knn,1,4.880604999999997,0.41980994453992043,20,10.15541,0.8461719373200987,20,20,local pivot: nearest past query vs nearest data sample
+q_nearest,d_nearest,concentrado,range,1,5.181325,0.37107566617709015,20,10.964395,0.973350434520855,20,20,local pivot: nearest past query vs nearest data sample
+q_nearest,d_nearest,disperso,knn,1,4.92011,0.47183213576923866,20,10.48845,0.973667264720357,20,20,local pivot: nearest past query vs nearest data sample
+q_nearest,d_nearest,disperso,range,1,5.376915000000002,0.462877983284981,20,11.4971,1.3269747632249795,20,20,local pivot: nearest past query vs nearest data sample
+q_nearest,d_nearest,uniforme,knn,1,-0.328140000000003,0.2886344049151175,6,-0.8224649999999993,0.5476796450635167,5,20,local pivot: nearest past query vs nearest data sample
+q_nearest,d_nearest,uniforme,range,1,-0.34253000000000144,0.24967298338815255,4,-0.8039149999999993,0.6601396918949243,9,20,local pivot: nearest past query vs nearest data sample
+q_nearest_dfar,d_nearest_dfar,concentrado,knn,2,2.639875,0.2262848430454779,20,9.305285000000001,0.7639583076028803,20,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,concentrado,knn,3,1.7184400000000017,0.15276586765630062,20,8.67203,0.7467086983388047,20,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,concentrado,knn,4,1.367529999999998,0.1306042734171896,20,8.222895000000001,0.7355422227177179,20,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,concentrado,range,2,2.997560000000001,0.21847553826147928,20,10.012675,0.8609063463467103,20,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,concentrado,range,3,2.1555100000000005,0.24296716074313904,20,9.315710000000001,0.8832075262432242,20,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,concentrado,range,4,1.9010999999999996,0.21149842263003657,20,8.853525,0.8378787173358564,20,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,disperso,knn,2,2.582079999999999,0.2162478137616582,20,9.46796,0.836680311130547,20,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,disperso,knn,3,1.6587300000000034,0.16545943653763792,20,8.823135,0.7822794480298565,20,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,disperso,knn,4,1.34437,0.13343331313716303,20,8.37941,0.7236890184733256,20,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,disperso,range,2,3.0661650000000025,0.2660620138427394,20,10.460625,1.155859829999372,20,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,disperso,range,3,2.203169999999999,0.24060469290659767,20,9.732635,1.0979815652549156,20,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,disperso,range,4,1.9515449999999994,0.22581645760333502,20,9.230815,1.067101721467012,20,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,uniforme,knn,2,-0.2191699999999983,0.18273577060305615,3,-0.7241149999999996,0.48535182614650835,7,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,uniforme,knn,3,-0.1706299999999999,0.08398631152142452,6,-0.6937850000000001,0.45771504779329386,7,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,uniforme,knn,4,-0.15278999999999954,0.07053948004368557,3,-0.7099000000000008,0.4349152116006896,5,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,uniforme,range,2,-0.1984099999999991,0.1520942851741273,7,-0.75477,0.5800500977829799,8,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,uniforme,range,3,-0.20477499999999935,0.11204670923594416,4,-0.7472649999999994,0.5343315081100143,6,20,local + global: queries vs data
+q_nearest_dfar,d_nearest_dfar,uniforme,range,4,-0.17346999999999824,0.10448680944414993,4,-0.7572799999999994,0.5166995334780472,7,20,local + global: queries vs data
+q_nearest_dfar,d_far,concentrado,knn,2,6.972794999999998,0.7308927844413872,20,31.212645000000002,1.3083830544431667,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,concentrado,knn,3,4.634755000000001,0.39232017648799067,20,27.635635,1.413598569670567,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,concentrado,knn,4,4.754319999999998,0.3571367881568893,20,26.928825,1.4873593554622984,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,concentrado,range,2,8.455455,1.0341248391906093,20,32.436885000000004,2.0148512341880807,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,concentrado,range,3,6.284730000000001,0.47211766546649364,20,28.638795,1.75667854451012,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,concentrado,range,4,6.311999999999998,0.499395535472204,20,27.83335,1.6940500670628524,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,disperso,knn,2,6.3636599999999985,0.4146171560244052,20,30.040475,0.9899290956839412,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,disperso,knn,3,4.384505000000001,0.2387936699708493,20,26.493995,0.9810994485805966,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,disperso,knn,4,4.356405,0.2191319247667631,20,25.51267,0.9267584629574187,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,disperso,range,2,7.742020000000002,0.5141732732748563,20,31.242485,1.3969370635149998,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,disperso,range,3,5.987840000000004,0.2631787588365248,20,27.478405000000002,1.2350671597483576,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,disperso,range,4,5.84972,0.26432248391242263,20,26.365465,1.217488349772924,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,uniforme,knn,2,3.312730000000002,0.258761480202645,20,20.052095,0.7818848641825407,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,uniforme,knn,3,2.6173599999999992,0.15302340248790847,20,17.359335,0.6536157299902111,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,uniforme,knn,4,2.912530000000004,0.14399985630241993,20,16.858935,0.6525653195711691,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,uniforme,range,2,4.309845000000002,0.2582715581844615,20,20.427315,0.7905193283775285,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,uniforme,range,3,3.677564999999999,0.15922919620326165,20,17.573365,0.7114458160174295,20,20,adding a local query pivot vs all-global pivots
+q_nearest_dfar,d_far,uniforme,range,4,3.7757700000000014,0.17324811840107446,20,16.92477,0.7405810466743564,20,20,adding a local query pivot vs all-global pivots

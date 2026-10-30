@@ -34,9 +34,11 @@ REPO="$(cd "${CH4_DIR}/.." && pwd)"
 ROOT="$(cd "${REPO}/.." && pwd)"
 ARB="${REPO}/arboretum"
 DATASTORE="${ARB}/test-brcities-datastore"
-# build.sh and compat.h still live in the Chapter 3 harness; Chapter 4 reuses
-# them so that both chapters are compiled with provably identical flags.
-BENCH_DIR="${ROOT}/benchmark"
+# build.sh and compat.h live in the Chapter 3 harness, benchmark/; Chapter 4
+# reuses them so that both chapters are compiled with provably identical flags.
+# The harness is inside the repository; a copy next to it is the old layout.
+BENCH_DIR="${REPO}/benchmark"
+[ -d "$BENCH_DIR" ] || BENCH_DIR="${ROOT}/benchmark"
 OUT_DIR="${CH4_DIR}/build"
 
 if [ "$#" -lt 1 ]; then

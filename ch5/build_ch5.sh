@@ -24,7 +24,10 @@ REPO="$(cd "${CH5_DIR}/.." && pwd)"
 ROOT="$(cd "${REPO}/.." && pwd)"
 ARB="${REPO}/arboretum"
 DATASTORE="${ARB}/test-brcities-datastore"
-BENCH_DIR="${ROOT}/benchmark"
+# The Chapter 3 harness lives inside the repository; a copy next to it is the
+# old layout.
+BENCH_DIR="${REPO}/benchmark"
+[ -d "$BENCH_DIR" ] || BENCH_DIR="${ROOT}/benchmark"
 OUT_DIR="${CH5_DIR}/build"
 
 if [ "$#" -lt 1 ]; then

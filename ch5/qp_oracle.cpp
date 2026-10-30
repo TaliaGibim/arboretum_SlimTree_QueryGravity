@@ -616,6 +616,9 @@ static const char *PILOT_HEADER =
 
 }  // namespace qp
 
+// qp_recast.cpp includes this file for the simulator above and brings its own
+// main().
+#ifndef QP_ORACLE_NO_MAIN
 // ---------------------------------------------------------------------------
 static void usage() {
     std::cout <<
@@ -1011,3 +1014,4 @@ int main(int argc, char **argv) {
     }
     return 0;
 }
+#endif  // QP_ORACLE_NO_MAIN

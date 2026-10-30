@@ -78,6 +78,96 @@ Outputs go to `ch5/results_pilot/`:
 | `hv.csv` | homogeneity of viewpoints |
 | `SUMMARY.md` | tables and the go/no-go verdict |
 
+## Phase R0 - `qp_recast.cpp`: RECAST-style paid columns per node
+
+F0 showed that a pivot helps when it sits next to the query, but its local
+pivot was an oracle. It assumed 200 full columns and found the nearest one for
+free. R0 measures the realistic version, after RECAST (Liu & Mao, arXiv
+2608.06962). No pivot is installed and no global pivot is used.
+
+**Paid columns.** When a query finishes, every node it read may keep one column
+for it. The column is made of what the query already computed: for each entry,
+an interval that contains the distance from the query to every object of the
+entry.
+
+| entry | interval |
+|---|---|
+| leaf, distance computed | exact |
+| index, distance computed | ± the covering radius, tightened by the child's intervals when the query went down |
+| skipped by the parent filter | the triangle inequality through the node representative |
+| pruned by another pivot | the bound that pivot gave |
+
+Building the columns costs no distance.
+
+**Pruning.** A later query prunes an entry with pivot p when `d(q,p) + r < lo` or
+`d(q,p) - r > hi`.
+- d(q,p) is paid once per query and shared by all nodes that hold p.
+- It is not paid at all when the node representative already shows that p
+  cannot prune the entry.
+- In k-NN, r is the current r_k.
+
+**Life cycle, per node** (RECAST Sec. III-B/C):
+- **Admission:** the query computed distances in the node and some of them were
+  false positives. The column enters as a trial pivot.
+- **Gain:** the work the pivot pruned, minus its share of d(q,p). Forgotten at
+  `--decay` per visit of the node.
+- **Confirmation:** a trial pivot is confirmed when its gain exceeds `--tau`.
+- **Eviction, with K slots per node:**
+  - while the node's cost is falling, only a useless trial may leave;
+  - on a cost spike (κ = 4 times the moving average), the oldest pivot leaves;
+  - otherwise, the least efficient pivot leaves.
+
+The tree is static: R0 does not model insertion, and the tables live in memory,
+as in RECAST. Their size is reported.
+
+**Arms.** All arms run on the same tree and queries as F0 and Chapter 4.
+
+| arm | what |
+|---|---|
+| `none` | the Slim-tree (replica, checked against the real tree) |
+| `recast` | tables built online by the 200 adapt queries, frozen for the 100 measured ones |
+| `recast_live` | the same tables, still learning during the measured queries |
+| `recast_data` | **control**: the same mechanism, columns left by 200 "queries" on random cities, whose cost is overhead |
+| `oracle_q`, `oracle_d` | the F0 local oracle and its control (ceiling) |
+| `pm_dfar4` | 4 global data pivots, full columns (reference; installation not charged) |
+
+**Runs.** Each run uses K ∈ {2, 4, 8} and the three regimes with the Chapter 4
+stream. There is also a `salto` order for concentrado and disperso: the same
+adapt queries, region by region, so the focus jumps.
+
+**Hypotheses.** These were written after a one-repetition smoke run and before
+the 20-repetition run.
+- **H-R0.1:** `recast` costs fewer distances than the Slim-tree (CI above 0), in
+  every regime and query type, for some K.
+- **H-R0.2:** `recast` beats `recast_data` by ≥ 5 pp of distances (paired CI
+  above 0), in concentrado and disperso, both query types, for some K. This is
+  the claim that the gain comes from the queries; the threshold is the F0 gate.
+- **H-R0.3** (descriptive): in uniforme, `recast` and `recast_data` are within
+  noise.
+- **H-R0.4** (descriptive): page reads saved. F0's oracle saved about 45%, but
+  paid columns only bound unexplored subtrees by ± the covering radius, so a
+  much smaller number is expected.
+
+```bash
+# full run: 20 repetitions x 5 (regime, order) runs, about 2 minutes, then the analysis
+bash arboretum_SlimTree_QueryGravity/ch5/run_recast.sh
+
+# smoke run
+bash arboretum_SlimTree_QueryGravity/ch5/run_recast.sh --quick --results /tmp/r0
+```
+
+Outputs go to `ch5/results_recast/`:
+
+| file | contents |
+|---|---|
+| `recast.csv` | one row per (repetition, regime, order, query type, arm, phase, K) |
+| `online.csv` | the adapt phase in blocks of 25 queries, for the curves |
+| `summary.csv` | the same, averaged over repetitions |
+| `paired.csv` | the paired comparisons |
+| `SUMMARY.md` | tables and the verdict on each hypothesis |
+
+## Toolchain
+
 The toolchain notes of `ch4/README.md` apply unchanged: PATH order, TMP for
 make, and Smart App Control, which can block a freshly built `.exe` for a few
 minutes.

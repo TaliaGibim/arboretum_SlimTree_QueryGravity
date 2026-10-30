@@ -84,7 +84,10 @@
 #include <cstddef>
 #include <map>
 #include <string>
+#include <utility>
 #include <vector>
+#include <functional>
+#include <ostream>
 
 #if ST_SLIM_TRACE
 
@@ -156,6 +159,33 @@ class stSlimEtapa1{
          */
          bool RequireShrink;
 
+         /**
+         * Reverses Equation 4.4: the destination is the visited sibling
+         * FARTHEST from the query, so objects leave the leaves every query
+         * opens instead of piling into them. Off = the thesis as written.
+         */
+         bool DestinationFarthest;
+
+         /**
+         * Anti ping-pong, guaranteed: move only when x ends up CLOSER to the
+         * new representative, d(x,O_j) < d(x,O_i). The sum of d(x, rep(x))
+         * then strictly decreases with every move, so no move can ever be
+         * undone. Free: both distances are already known.
+         */
+         bool CloserToRep;
+
+         /** Anti ping-pong, tabu: never send x back to the leaf it just left. */
+         bool NoReturn;
+
+         /**
+         * Anti ping-pong, consensus: x moves only after this many queries in a
+         * row proposed the SAME destination leaf. 1 = off.
+         */
+         int VotesRequired;
+
+         /** Anti ping-pong, freeze: an object moves at most this often. 0 = off. */
+         int MaxMovesPerObject;
+
          Config(){
             MaxMovesPerQuery = 8;
             MinGain = 0.0;
@@ -163,6 +193,11 @@ class stSlimEtapa1{
             CooldownQueries = 0;
             MinLeafEntries = 2;
             RequireShrink = false;
+            DestinationFarthest = false;
+            CloserToRep = false;
+            NoReturn = false;
+            VotesRequired = 1;
+            MaxMovesPerObject = 0;
          }//end Config
       };//end Config
 
@@ -212,6 +247,11 @@ class stSlimEtapa1{
          long RejectedByCooldown;
          /** Rejected by RequireShrink (Equation 4.8 gate). */
          long RejectedByNoShrink;
+         /** Rejected by the anti ping-pong options of Config. */
+         long RejectedByNotCloser;
+         long RejectedByNoReturn;
+         long RejectedByVotes;
+         long RejectedByMoveCap;
 
          /**
          * MUST STAY ZERO. Equation 4.3 guarantees the destination radius cannot
@@ -264,6 +304,10 @@ class stSlimEtapa1{
             RejectedByGain = 0;
             RejectedByCooldown = 0;
             RejectedByNoShrink = 0;
+            RejectedByNotCloser = 0;
+            RejectedByNoReturn = 0;
+            RejectedByVotes = 0;
+            RejectedByMoveCap = 0;
             DestinationRadiusGrowthEvents = 0;
             Distances = 0;
             PageReads = 0;
@@ -291,10 +335,26 @@ class stSlimEtapa1{
       void SetConfig(const Config & config){ Cfg = config; }
       void ResetStats(){ St.Reset(); }
 
+      /**
+      * Optional decision log, one CSV line per decision: which filter stopped
+      * each object, or that it moved. Off (NULL) by default; it costs no
+      * distance and changes no decision. `namer` turns an object into a label.
+      * Columns: <prefix>query,src,dst,dq_dst,dq_src,event,object,d_x_src,
+      * d_x_dst,dst_radius.
+      */
+      void SetDecisionLog(std::ostream * log, const std::string & prefix,
+                          std::function<std::string(ObjectType &)> namer){
+         DecLog = log;
+         DecPrefix = prefix;
+         Namer = namer;
+      }//end SetDecisionLog
+
       /** Forgets the per-object move history used by the cooldown and by H4. */
       void ResetHistory(){
          LastSource.clear();
          LastMoveQuery.clear();
+         Votes.clear();
+         MoveCount.clear();
       }//end ResetHistory
 
       //=====================================================================
@@ -320,6 +380,14 @@ class stSlimEtapa1{
             std::map<u_int32_t, std::vector<stSlimVisit> > byParent;
             for (std::size_t i = 0; i < trace.Visits.size(); i++){
                if (trace.Visits[i].Expanded){
+                  if (DecLog != NULL){
+                     CurSrc = trace.Visits[i].Parent;
+                     CurDst = trace.Visits[i].Child;
+                     CurDq = trace.Visits[i].DistToQuery;
+                     CurDi = 0.0;
+                     CurDstR = -1.0;
+                     Dec("visit", "", 0.0, 0.0);
+                  }//end if
                   byParent[trace.Visits[i].Parent].push_back(trace.Visits[i]);
                }//end if
             }//end for
@@ -341,6 +409,35 @@ class stSlimEtapa1{
       }//end ApplyAfterQuery
 
    private:
+      std::ostream * DecLog = NULL;
+      std::string DecPrefix;
+      std::function<std::string(ObjectType &)> Namer;
+      u_int32_t CurSrc = 0, CurDst = 0;
+      double CurDq = 0.0, CurDi = 0.0, CurDstR = -1.0;
+
+      void Dec(const char * ev, const std::string & name, double dxi, double dxj){
+         if (DecLog == NULL){
+            return;
+         }//end if
+         *DecLog << DecPrefix << (St.QueriesSeen - 1) << ',' << CurSrc << ','
+                 << CurDst << ',' << CurDq << ',' << CurDi << ',' << ev << ",\""
+                 << name << "\"," << dxi << ',' << dxj << ',' << CurDstR << '\n';
+      }//end Dec
+
+      std::string NameOf(ObjectType & o){
+         return (DecLog != NULL && Namer) ? Namer(o) : std::string();
+      }//end NameOf
+
+      // A fresh object unserialized from the page, never copied, so naming it
+      // cannot share a Serialized buffer with anything.
+      std::string NameAt(stSlimLeafNode * leaf, u_int32_t t){
+         if (DecLog == NULL || !Namer){
+            return std::string();
+         }//end if
+         ObjectType tmp;
+         tmp.Unserialize(leaf->GetObject(t), leaf->GetObjectSize(t));
+         return Namer(tmp);
+      }//end NameAt
 
       stPageManager * PageManager;
       Config Cfg;
@@ -352,6 +449,10 @@ class stSlimEtapa1{
       std::map<std::string, u_int32_t> LastSource;
       /** Serialized object -> query index at its last move (cooldown). */
       std::map<std::string, long> LastMoveQuery;
+      /** Consensus: object -> (proposed destination page, consecutive votes). */
+      std::map<std::string, std::pair<u_int32_t, int> > Votes;
+      /** Freeze: object -> how many times it has moved. */
+      std::map<std::string, int> MoveCount;
 
       /** A candidate that already passed Equations 4.3 and 4.6. */
       struct Candidate{
@@ -383,6 +484,9 @@ class stSlimEtapa1{
                          std::vector<stSlimVisit> group, int & movesLeft){
 
          std::sort(group.begin(), group.end(), ByDistToQuery);
+         if (Cfg.DestinationFarthest){
+            std::reverse(group.begin(), group.end());
+         }//end if
 
          stPage * parentPage = PageManager->GetPage(parentPageID);
          if (parentPage == NULL){
@@ -407,8 +511,17 @@ class stSlimEtapa1{
             // plain d(q,O_j) < d(q,O_i) of the thesis.
             const double dq = destination.DistToQuery;
             const double di = group[s].DistToQuery;
-            if (!((dq < di - Cfg.MinGain) && (dq < Cfg.HysteresisAlpha * di))){
+            const bool gain = Cfg.DestinationFarthest
+                  ? ((dq > di + Cfg.MinGain) && (Cfg.HysteresisAlpha * dq > di))
+                  : ((dq < di - Cfg.MinGain) && (dq < Cfg.HysteresisAlpha * di));
+            CurSrc = group[s].Child;
+            CurDst = destination.Child;
+            CurDq = dq;
+            CurDi = di;
+            CurDstR = -1.0;
+            if (!gain){
                St.RejectedByGain++;
+               Dec("gain", "", 0.0, 0.0);
                continue;
             }//end if
 
@@ -485,6 +598,8 @@ class stSlimEtapa1{
          const double repToRep = Evaluator.GetDistance(srcRep, dstRep);
          St.Distances++;
          St.PairDistances++;
+         CurDstR = dstRadius;
+         Dec("pair", "", repToRep, 0.0);
 
          stPage * srcPage = PageManager->GetPage(srcPageID);
          if (srcPage == NULL){
@@ -533,12 +648,14 @@ class stSlimEtapa1{
             // Equation 4.6. The representative is the entry at distance zero.
             if (dxOi == 0.0){
                St.RejectedByRepresentative++;
+               Dec("representative", NameAt(srcLeaf, t), dxOi, -1.0);
                continue;
             }//end if
 
             // Equation 4.3, lower bound - free, uses only stored values.
             if (std::fabs(dxOi - repToRep) > dstRadius){
                St.SkippedByBound++;
+               Dec("bound", NameAt(srcLeaf, t), dxOi, -1.0);
                continue;
             }//end if
 
@@ -547,17 +664,47 @@ class stSlimEtapa1{
             cand.DistToSrcRep = dxOi;
             cand.Object.Unserialize(srcLeaf->GetObject(t),
                                     srcLeaf->GetObjectSize(t));
+            // The key comes from the page bytes, NOT from cand.Object.Serialize():
+            // TCity has no copy constructor, so serializing cand before it is
+            // copied into `accepted` makes both copies own the same buffer and
+            // the second destructor frees it twice.
+            const std::string rawKey((const char *) srcLeaf->GetObject(t),
+                                     (std::size_t) srcLeaf->GetObjectSize(t));
 
             // The cooldown is free, so it is tested before paying for a
             // distance. Off by default: the reverse relocation rate that H4
             // predicts has to be observable before it is damped.
+            if (Cfg.NoReturn || (Cfg.MaxMovesPerObject > 0)){
+               const std::string key = rawKey;
+               if (Cfg.NoReturn){
+                  typename std::map<std::string, u_int32_t>::iterator prev =
+                        LastSource.find(key);
+                  if ((prev != LastSource.end()) && (prev->second == dstPageID)){
+                     St.RejectedByNoReturn++;
+                     Dec("noreturn", NameOf(cand.Object), dxOi, -1.0);
+                     continue;
+                  }//end if
+               }//end if
+               if (Cfg.MaxMovesPerObject > 0){
+                  typename std::map<std::string, int>::iterator mc =
+                        MoveCount.find(key);
+                  if ((mc != MoveCount.end()) &&
+                      (mc->second >= Cfg.MaxMovesPerObject)){
+                     St.RejectedByMoveCap++;
+                     Dec("movecap", NameOf(cand.Object), dxOi, -1.0);
+                     continue;
+                  }//end if
+               }//end if
+            }//end if
+
             if (Cfg.CooldownQueries > 0){
-               const std::string key = KeyOf(cand.Object);
+               const std::string key = rawKey;
                typename std::map<std::string, long>::iterator seen =
                      LastMoveQuery.find(key);
                if ((seen != LastMoveQuery.end()) &&
                    ((St.QueriesSeen - seen->second) < Cfg.CooldownQueries)){
                   St.RejectedByCooldown++;
+                  Dec("cooldown", NameOf(cand.Object), dxOi, -1.0);
                   continue;
                }//end if
             }//end if
@@ -569,6 +716,13 @@ class stSlimEtapa1{
 
             if (cand.DistToDstRep > dstRadius){
                St.RejectedByCoverage++;
+               Dec("coverage", NameOf(cand.Object), dxOi, cand.DistToDstRep);
+               continue;
+            }//end if
+
+            if (Cfg.CloserToRep && (cand.DistToDstRep >= dxOi)){
+               St.RejectedByNotCloser++;
+               Dec("notcloser", NameOf(cand.Object), dxOi, cand.DistToDstRep);
                continue;
             }//end if
 
@@ -578,6 +732,7 @@ class stSlimEtapa1{
             // representatives.
             if (cand.DistToDstRep == 0.0){
                St.RejectedByDuplicate++;
+               Dec("duplicate", NameOf(cand.Object), dxOi, cand.DistToDstRep);
                continue;
             }//end if
 
@@ -617,6 +772,7 @@ class stSlimEtapa1{
 
             if (((long) srcCount - removedSoFar - 1) < Cfg.MinLeafEntries){
                St.RejectedByUnderflow++;
+               Dec("underflow", NameOf(cand.Object), cand.DistToSrcRep, cand.DistToDstRep);
                break;
             }//end if
 
@@ -625,7 +781,23 @@ class stSlimEtapa1{
             // r_i untouched, so for k-NN it buys no extra pruning.
             if (Cfg.RequireShrink && (cand.DistToSrcRep <= maxKept)){
                St.RejectedByNoShrink++;
+               Dec("noshrink", NameOf(cand.Object), cand.DistToSrcRep, cand.DistToDstRep);
                continue;
+            }//end if
+
+            if (Cfg.VotesRequired > 1){
+               std::pair<u_int32_t, int> & v = Votes[KeyOf(cand.Object)];
+               if (v.first == dstPageID){
+                  v.second++;
+               }else{
+                  v.first = dstPageID;
+                  v.second = 1;
+               }//end if
+               if (v.second < Cfg.VotesRequired){
+                  St.RejectedByVotes++;
+                  Dec("votes", NameOf(cand.Object), cand.DistToSrcRep, cand.DistToDstRep);
+                  continue;
+               }//end if
             }//end if
 
             // Equation 4.5. AddEntry returns -1 when the page is full, so the
@@ -636,6 +808,7 @@ class stSlimEtapa1{
                                                  cand.Object.Serialize());
             if (newIdx < 0){
                St.RejectedByCapacity++;
+               Dec("capacity", NameOf(cand.Object), cand.DistToSrcRep, cand.DistToDstRep);
                continue;
             }//end if
 
@@ -649,6 +822,7 @@ class stSlimEtapa1{
             movesLeft--;
             moved++;
             St.ObjectsRelocated++;
+            Dec("moved", NameOf(cand.Object), cand.DistToSrcRep, cand.DistToDstRep);
 
             const std::string key = KeyOf(cand.Object);
             typename std::map<std::string, u_int32_t>::iterator prev =
@@ -658,6 +832,12 @@ class stSlimEtapa1{
             }//end if
             LastSource[key] = srcPageID;
             LastMoveQuery[key] = St.QueriesSeen;
+            if (Cfg.VotesRequired > 1){
+               Votes.erase(key);
+            }//end if
+            if (Cfg.MaxMovesPerObject > 0){
+               MoveCount[key]++;
+            }//end if
          }//end for
 
          bool changed = false;

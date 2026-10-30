@@ -1,0 +1,91 @@
+=== Chapter 4 driver: chapter4 (ST_SLIM_TRACE=1) ===
+=== building arboretum_SlimTree_QueryGravity ===
+    worktree : /c/Users/tataw/OneDrive/Desktop/Talia/Slim_Tree/arboretum_SlimTree_QueryGravity
+    flags    : -m64 -fPIC -O2 -std=c++20 -include /c/Users/tataw/OneDrive/Desktop/Talia/Slim_Tree/benchmark/src/compat.h
+    g++      : g++.exe (Rev5, Built by MSYS2 project) 16.1.0
+    library  : reusing /c/Users/tataw/OneDrive/Desktop/Talia/Slim_Tree/arboretum_SlimTree_QueryGravity/arboretum/build/libarboretum.a
+    -> /c/Users/tataw/OneDrive/Desktop/Talia/Slim_Tree/arboretum_SlimTree_QueryGravity/ch4/build/chapter4.exe
+built /c/Users/tataw/OneDrive/Desktop/Talia/Slim_Tree/arboretum_SlimTree_QueryGravity/ch4/build/chapter4.exe (NO_RUN=1, not running)
+--- repetition 1/20 ---
+  concentrado done
+  disperso done
+  uniforme done
+--- repetition 2/20 ---
+  disperso done
+  uniforme done
+  concentrado done
+--- repetition 3/20 ---
+  uniforme done
+  concentrado done
+  disperso done
+--- repetition 4/20 ---
+  concentrado done
+  disperso done
+  uniforme done
+--- repetition 5/20 ---
+  disperso done
+  uniforme done
+  concentrado done
+--- repetition 6/20 ---
+  uniforme done
+  concentrado done
+  disperso done
+--- repetition 7/20 ---
+  concentrado done
+  disperso done
+  uniforme done
+--- repetition 8/20 ---
+  disperso done
+  uniforme done
+  concentrado done
+--- repetition 9/20 ---
+  uniforme done
+  concentrado done
+  disperso done
+--- repetition 10/20 ---
+  concentrado done
+  disperso done
+  uniforme done
+--- repetition 11/20 ---
+  disperso done
+  uniforme done
+  concentrado done
+--- repetition 12/20 ---
+  uniforme done
+  concentrado done
+  disperso done
+--- repetition 13/20 ---
+  concentrado done
+  disperso done
+  uniforme done
+--- repetition 14/20 ---
+  disperso done
+  uniforme done
+  concentrado done
+--- repetition 15/20 ---
+  uniforme done
+  concentrado done
+  disperso done
+--- repetition 16/20 ---
+  concentrado done
+  disperso done
+  uniforme done
+--- repetition 17/20 ---
+  disperso done
+  uniforme done
+  concentrado done
+--- repetition 18/20 ---
+  uniforme done
+  concentrado done
+  disperso done
+--- repetition 19/20 ---
+  concentrado done
+  disperso done
+  uniforme done
+--- repetition 20/20 ---
+  disperso done
+  uniforme done
+  concentrado done
+
+results in arboretum_SlimTree_QueryGravity/ch4/results_etapa1/F3_votes3
+wrote summary.csv, comparison.csv, paired.csv and SUMMARY.md to arboretum_SlimTree_QueryGravity/ch4/results_etapa1/F3_votes3

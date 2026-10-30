@@ -1,0 +1,1580 @@
+dataset 5507 objects | regime concentrado | rep 0 seed 42 | adapt 200 measure 100 | measure->adapt 0.252115
+  region 0: Carnaubal-CE (450 cities, radius 3.70168)
+  region 1: Floreal-SP (450 cities, radius 2.66008)
+  concentrado knn original: 0.135243 ms, 398.85 dist, 70.58 reads  [exact]
+  concentrado knn slimdown: 0.126666 ms, 392.68 dist, 66.04 reads  [exact]
+  concentrado knn etapa1: 0.128147 ms, 398.08 dist, 68.36 reads, 1329 moved  [exact]
+  concentrado knn etapa2: 0.048574 ms, 156.39 dist, 22.53 reads, |P| 13  [exact]
+  concentrado knn etapa2_data: 0.051199 ms, 160.36 dist, 25.31 reads, |P| 13  [exact]
+  concentrado knn hilbert: 0.041694 ms, 135.94 dist, 20.48 reads  [exact]
+  concentrado knn etapa2_bulk: 0.029486 ms, 106.87 dist, 13.22 reads, |P| 657  [exact]
+  concentrado knn etapa2_bulk_data: 0.034602 ms, 114.88 dist, 15.81 reads, |P| 658  [exact]
+  concentrado knn hilbert_etapa1: 0.040948 ms, 137.26 dist, 20.03 reads, 475 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.044906 ms, 161.18 dist, 21.92 reads, 609 moved, |P| 13  [exact]
+  concentrado range original: 0.131621 ms, 343.72 dist, 69.6 reads  [exact]
+  concentrado range slimdown: 0.115276 ms, 334.36 dist, 64.48 reads  [exact]
+  concentrado range etapa1: 0.122008 ms, 341.65 dist, 67.79 reads, 1390 moved  [exact]
+  concentrado range etapa2: 0.038943 ms, 119.06 dist, 19.88 reads, |P| 13  [exact]
+  concentrado range etapa2_data: 0.047297 ms, 139.15 dist, 24.1 reads, |P| 13  [exact]
+  concentrado range hilbert: 0.041151 ms, 119.73 dist, 19.39 reads  [exact]
+  concentrado range etapa2_bulk: 0.030306 ms, 101.57 dist, 13.6 reads, |P| 657  [exact]
+  concentrado range etapa2_bulk_data: 0.03097 ms, 102.69 dist, 14.64 reads, |P| 658  [exact]
+  concentrado range hilbert_etapa1: 0.037008 ms, 120.44 dist, 18.87 reads, 472 moved  [exact]
+  concentrado range etapa2_etapa1: 0.037411 ms, 121.15 dist, 19.41 reads, 583 moved, |P| 13  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 0 seed 42 | adapt 200 measure 100 | measure->adapt 0.301419
+  region 0: Carnaubal-CE (114 cities, radius 1.66379)
+  region 1: Vitória do Jari-AP (114 cities, radius 5.21637)
+  region 2: São Francisco do Oeste-RN (114 cities, radius 1.08301)
+  region 3: Floreal-SP (114 cities, radius 1.00305)
+  region 4: Sarzedo-MG (114 cities, radius 1.05603)
+  region 5: Taió-SC (114 cities, radius 1.27224)
+  region 6: Várzea Branca-PI (114 cities, radius 2.49634)
+  region 7: Ponto Chique-MG (114 cities, radius 2.46272)
+  disperso knn original: 0.127956 ms, 377.58 dist, 65.47 reads  [exact]
+  disperso knn slimdown: 0.11629 ms, 372.74 dist, 60.9 reads  [exact]
+  disperso knn etapa1: 0.119474 ms, 375.97 dist, 63.57 reads, 1241 moved  [exact]
+  disperso knn etapa2: 0.041056 ms, 123.64 dist, 18.06 reads, |P| 13  [exact]
+  disperso knn etapa2_data: 0.053575 ms, 163.19 dist, 25.48 reads, |P| 13  [exact]
+  disperso knn hilbert: 0.049107 ms, 124.14 dist, 17.76 reads  [exact]
+  disperso knn etapa2_bulk: 0.027009 ms, 97.3 dist, 11.9 reads, |P| 641  [exact]
+  disperso knn etapa2_bulk_data: 0.029487 ms, 102.74 dist, 13.75 reads, |P| 658  [exact]
+  disperso knn hilbert_etapa1: 0.038185 ms, 125.64 dist, 17.49 reads, 450 moved  [exact]
+  disperso knn etapa2_etapa1: 0.037076 ms, 124.2 dist, 17.79 reads, 583 moved, |P| 13  [exact]
+  disperso range original: 0.178589 ms, 314.32 dist, 63.18 reads  [exact]
+  disperso range slimdown: 0.106704 ms, 305.6 dist, 58.7 reads  [exact]
+  disperso range etapa1: 0.108517 ms, 311.32 dist, 60.69 reads, 1200 moved  [exact]
+  disperso range etapa2: 0.033132 ms, 101.5 dist, 16.78 reads, |P| 13  [exact]
+  disperso range etapa2_data: 0.045082 ms, 131.04 dist, 23.51 reads, |P| 13  [exact]
+  disperso range hilbert: 0.034517 ms, 109.74 dist, 17.69 reads  [exact]
+  disperso range etapa2_bulk: 0.029515 ms, 91.35 dist, 12.3 reads, |P| 641  [exact]
+  disperso range etapa2_bulk_data: 0.027695 ms, 93.35 dist, 13.42 reads, |P| 658  [exact]
+  disperso range hilbert_etapa1: 0.033341 ms, 110.46 dist, 17.4 reads, 442 moved  [exact]
+  disperso range etapa2_etapa1: 0.033784 ms, 103.18 dist, 16.62 reads, 559 moved, |P| 13  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 0 seed 42 | adapt 200 measure 100 | measure->adapt 0.874211
+  uniforme knn original: 0.125539 ms, 381.37 dist, 64.6 reads  [exact]
+  uniforme knn slimdown: 0.113138 ms, 373.93 dist, 60.75 reads  [exact]
+  uniforme knn etapa1: 0.11872 ms, 373.54 dist, 62.78 reads, 1479 moved  [exact]
+  uniforme knn etapa2: 0.044634 ms, 145.76 dist, 20.92 reads, |P| 17  [exact]
+  uniforme knn etapa2_data: 0.046098 ms, 144.86 dist, 21.19 reads, |P| 17  [exact]
+  uniforme knn hilbert: 0.054799 ms, 120.59 dist, 17.26 reads  [exact]
+  uniforme knn etapa2_bulk: 0.029379 ms, 99.81 dist, 12.08 reads, |P| 664  [exact]
+  uniforme knn etapa2_bulk_data: 0.033843 ms, 96.45 dist, 12.71 reads, |P| 658  [exact]
+  uniforme knn hilbert_etapa1: 0.038545 ms, 120.73 dist, 16.99 reads, 695 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.054928 ms, 147.54 dist, 20.7 reads, 864 moved, |P| 17  [exact]
+  uniforme range original: 0.114902 ms, 328.52 dist, 62.85 reads  [exact]
+  uniforme range slimdown: 0.113143 ms, 320.78 dist, 59.04 reads  [exact]
+  uniforme range etapa1: 0.1115 ms, 321.67 dist, 60.82 reads, 1443 moved  [exact]
+  uniforme range etapa2: 0.039846 ms, 126.06 dist, 20.37 reads, |P| 17  [exact]
+  uniforme range etapa2_data: 0.040987 ms, 126.67 dist, 20.93 reads, |P| 17  [exact]
+  uniforme range hilbert: 0.035542 ms, 115.59 dist, 17.83 reads  [exact]
+  uniforme range etapa2_bulk: 0.026414 ms, 94.05 dist, 12.72 reads, |P| 664  [exact]
+  uniforme range etapa2_bulk_data: 0.039957 ms, 96.67 dist, 13.69 reads, |P| 658  [exact]
+  uniforme range hilbert_etapa1: 0.036625 ms, 115.07 dist, 17.49 reads, 662 moved  [exact]
+  uniforme range etapa2_etapa1: 0.039075 ms, 126.88 dist, 20.13 reads, 799 moved, |P| 17  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 1 seed 43 | adapt 200 measure 100 | measure->adapt 0.323471
+  region 0: Novo Triunfo-BA (114 cities, radius 1.43136)
+  region 1: Graça Aranha-MA (114 cities, radius 1.88112)
+  region 2: Bom Sucesso do Sul-PR (114 cities, radius 0.998248)
+  region 3: Kaloré-PR (114 cities, radius 1.09659)
+  region 4: Formosa do Rio Preto-BA (114 cities, radius 3.20006)
+  region 5: Cumari-GO (114 cities, radius 1.97952)
+  region 6: Campo Grande-MS (114 cities, radius 3.3022)
+  region 7: Montenegro-RS (114 cities, radius 0.9)
+  disperso knn original: 0.152414 ms, 446.86 dist, 77.52 reads  [exact]
+  disperso knn slimdown: 0.139551 ms, 436.46 dist, 72.19 reads  [exact]
+  disperso knn etapa1: 0.139391 ms, 441.91 dist, 74.96 reads, 1487 moved  [exact]
+  disperso knn etapa2: 0.048825 ms, 147.87 dist, 22.77 reads, |P| 17  [exact]
+  disperso knn etapa2_data: 0.047744 ms, 146.59 dist, 22.56 reads, |P| 17  [exact]
+  disperso knn hilbert: 0.040646 ms, 127.39 dist, 17.88 reads  [exact]
+  disperso knn etapa2_bulk: 0.028131 ms, 95.21 dist, 12.66 reads, |P| 672  [exact]
+  disperso knn etapa2_bulk_data: 0.029284 ms, 103.5 dist, 12.41 reads, |P| 665  [exact]
+  disperso knn hilbert_etapa1: 0.036645 ms, 131.11 dist, 17.44 reads, 704 moved  [exact]
+  disperso knn etapa2_etapa1: 0.044897 ms, 150.19 dist, 22.47 reads, 570 moved, |P| 17  [exact]
+  disperso range original: 0.130252 ms, 358.95 dist, 73.74 reads  [exact]
+  disperso range slimdown: 0.122498 ms, 349.46 dist, 68.74 reads  [exact]
+  disperso range etapa1: 0.12842 ms, 353.95 dist, 71.51 reads, 1451 moved  [exact]
+  disperso range etapa2: 0.040853 ms, 120.88 dist, 21.48 reads, |P| 17  [exact]
+  disperso range etapa2_data: 0.04112 ms, 121.29 dist, 21.31 reads, |P| 17  [exact]
+  disperso range hilbert: 0.034333 ms, 104.68 dist, 16.42 reads  [exact]
+  disperso range etapa2_bulk: 0.026717 ms, 88.04 dist, 12.98 reads, |P| 672  [exact]
+  disperso range etapa2_bulk_data: 0.025604 ms, 90.1 dist, 11.78 reads, |P| 665  [exact]
+  disperso range hilbert_etapa1: 0.03163 ms, 106.34 dist, 16.22 reads, 677 moved  [exact]
+  disperso range etapa2_etapa1: 0.043855 ms, 122.62 dist, 21.19 reads, 533 moved, |P| 17  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 1 seed 43 | adapt 200 measure 100 | measure->adapt 0.673927
+  uniforme knn original: 0.141111 ms, 422.12 dist, 74.39 reads  [exact]
+  uniforme knn slimdown: 0.129667 ms, 413.79 dist, 69.37 reads  [exact]
+  uniforme knn etapa1: 0.133723 ms, 411.9 dist, 72.06 reads, 1574 moved  [exact]
+  uniforme knn etapa2: 0.043559 ms, 130.4 dist, 21 reads, |P| 15  [exact]
+  uniforme knn etapa2_data: 0.039943 ms, 131 dist, 19.26 reads, |P| 15  [exact]
+  uniforme knn hilbert: 0.039393 ms, 123.8 dist, 17.21 reads  [exact]
+  uniforme knn etapa2_bulk: 0.028852 ms, 100.17 dist, 12.19 reads, |P| 640  [exact]
+  uniforme knn etapa2_bulk_data: 0.028523 ms, 99.41 dist, 12 reads, |P| 665  [exact]
+  uniforme knn hilbert_etapa1: 0.036215 ms, 123.71 dist, 16.85 reads, 682 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.041886 ms, 131.26 dist, 20.77 reads, 726 moved, |P| 15  [exact]
+  uniforme range original: 0.132127 ms, 354.82 dist, 72.17 reads  [exact]
+  uniforme range slimdown: 0.120351 ms, 344.73 dist, 66.98 reads  [exact]
+  uniforme range etapa1: 0.127691 ms, 348.23 dist, 69.93 reads, 1535 moved  [exact]
+  uniforme range etapa2: 0.04071 ms, 118.99 dist, 21.08 reads, |P| 15  [exact]
+  uniforme range etapa2_data: 0.036379 ms, 112.59 dist, 18.25 reads, |P| 15  [exact]
+  uniforme range hilbert: 0.038802 ms, 112.79 dist, 16.87 reads  [exact]
+  uniforme range etapa2_bulk: 0.027735 ms, 95.02 dist, 12.36 reads, |P| 640  [exact]
+  uniforme range etapa2_bulk_data: 0.028689 ms, 92.66 dist, 12.37 reads, |P| 665  [exact]
+  uniforme range hilbert_etapa1: 0.033725 ms, 112.63 dist, 16.55 reads, 655 moved  [exact]
+  uniforme range etapa2_etapa1: 0.04053 ms, 118.49 dist, 20.81 reads, 683 moved, |P| 15  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 1 seed 43 | adapt 200 measure 100 | measure->adapt 0.26492
+  region 0: Novo Triunfo-BA (450 cities, radius 3.01877)
+  region 1: Graça Aranha-MA (450 cities, radius 3.99084)
+  concentrado knn original: 0.127403 ms, 385.21 dist, 67.57 reads  [exact]
+  concentrado knn slimdown: 0.11926 ms, 382.09 dist, 63.11 reads  [exact]
+  concentrado knn etapa1: 0.118528 ms, 380.43 dist, 63.84 reads, 1348 moved  [exact]
+  concentrado knn etapa2: 0.040987 ms, 109.57 dist, 18.19 reads, |P| 14  [exact]
+  concentrado knn etapa2_data: 0.037665 ms, 117.52 dist, 17.15 reads, |P| 14  [exact]
+  concentrado knn hilbert: 0.039517 ms, 136.94 dist, 18.05 reads  [exact]
+  concentrado knn etapa2_bulk: 0.030349 ms, 100.03 dist, 13.42 reads, |P| 655  [exact]
+  concentrado knn etapa2_bulk_data: 0.036828 ms, 104.85 dist, 12.79 reads, |P| 665  [exact]
+  concentrado knn hilbert_etapa1: 0.040183 ms, 138.25 dist, 17.75 reads, 644 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.041059 ms, 112.08 dist, 17.85 reads, 507 moved, |P| 14  [exact]
+  concentrado range original: 0.121502 ms, 313.88 dist, 65.15 reads  [exact]
+  concentrado range slimdown: 0.10918 ms, 303.74 dist, 60.6 reads  [exact]
+  concentrado range etapa1: 0.109673 ms, 308.65 dist, 60.83 reads, 1312 moved  [exact]
+  concentrado range etapa2: 0.035978 ms, 92.94 dist, 17.2 reads, |P| 14  [exact]
+  concentrado range etapa2_data: 0.034527 ms, 97.43 dist, 17.1 reads, |P| 14  [exact]
+  concentrado range hilbert: 0.032904 ms, 111.57 dist, 16.85 reads  [exact]
+  concentrado range etapa2_bulk: 0.026276 ms, 82.21 dist, 11.61 reads, |P| 655  [exact]
+  concentrado range etapa2_bulk_data: 0.024049 ms, 85.86 dist, 11.21 reads, |P| 665  [exact]
+  concentrado range hilbert_etapa1: 0.039781 ms, 112.35 dist, 16.57 reads, 620 moved  [exact]
+  concentrado range etapa2_etapa1: 0.031616 ms, 92.94 dist, 16.75 reads, 481 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 2 seed 44 | adapt 200 measure 100 | measure->adapt 0.698155
+  uniforme knn original: 0.133108 ms, 375 dist, 71.51 reads  [exact]
+  uniforme knn slimdown: 0.124982 ms, 369.44 dist, 66.92 reads  [exact]
+  uniforme knn etapa1: 0.126689 ms, 366 dist, 69.33 reads, 1487 moved  [exact]
+  uniforme knn etapa2: 0.049755 ms, 143.72 dist, 22.93 reads, |P| 14  [exact]
+  uniforme knn etapa2_data: 0.067133 ms, 141.8 dist, 21.37 reads, |P| 14  [exact]
+  uniforme knn hilbert: 0.037505 ms, 126.11 dist, 17.15 reads  [exact]
+  uniforme knn etapa2_bulk: 0.027074 ms, 97.69 dist, 12.16 reads, |P| 631  [exact]
+  uniforme knn etapa2_bulk_data: 0.027271 ms, 93.79 dist, 11.95 reads, |P| 636  [exact]
+  uniforme knn hilbert_etapa1: 0.035662 ms, 126.55 dist, 16.9 reads, 633 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.046225 ms, 146.81 dist, 22.66 reads, 886 moved, |P| 14  [exact]
+  uniforme range original: 0.125686 ms, 336 dist, 69.98 reads  [exact]
+  uniforme range slimdown: 0.118861 ms, 327.81 dist, 65.37 reads  [exact]
+  uniforme range etapa1: 0.172074 ms, 327.51 dist, 67.49 reads, 1434 moved  [exact]
+  uniforme range etapa2: 0.042568 ms, 125.14 dist, 22.22 reads, |P| 14  [exact]
+  uniforme range etapa2_data: 0.039915 ms, 121.19 dist, 20.31 reads, |P| 14  [exact]
+  uniforme range hilbert: 0.043564 ms, 110.88 dist, 17.28 reads  [exact]
+  uniforme range etapa2_bulk: 0.027965 ms, 93.01 dist, 12.82 reads, |P| 631  [exact]
+  uniforme range etapa2_bulk_data: 0.030973 ms, 92.39 dist, 12.7 reads, |P| 636  [exact]
+  uniforme range hilbert_etapa1: 0.035855 ms, 111.05 dist, 17.03 reads, 635 moved  [exact]
+  uniforme range etapa2_etapa1: 0.041484 ms, 124.98 dist, 21.89 reads, 799 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 2 seed 44 | adapt 200 measure 100 | measure->adapt 0.248507
+  region 0: Vassouras-RJ (450 cities, radius 2.52715)
+  region 1: Tianguá-CE (450 cities, radius 3.93085)
+  concentrado knn original: 0.14177 ms, 369.01 dist, 72.96 reads  [exact]
+  concentrado knn slimdown: 0.12149 ms, 361.99 dist, 67.53 reads  [exact]
+  concentrado knn etapa1: 0.129126 ms, 370.62 dist, 70.46 reads, 1274 moved  [exact]
+  concentrado knn etapa2: 0.051491 ms, 154.61 dist, 24.6 reads, |P| 15  [exact]
+  concentrado knn etapa2_data: 0.049452 ms, 154.25 dist, 24.43 reads, |P| 15  [exact]
+  concentrado knn hilbert: 0.040545 ms, 133 dist, 18.42 reads  [exact]
+  concentrado knn etapa2_bulk: 0.028146 ms, 99.5 dist, 12.64 reads, |P| 635  [exact]
+  concentrado knn etapa2_bulk_data: 0.028911 ms, 95.86 dist, 12.55 reads, |P| 636  [exact]
+  concentrado knn hilbert_etapa1: 0.038048 ms, 136.26 dist, 17.98 reads, 443 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.061333 ms, 156.59 dist, 23.96 reads, 596 moved, |P| 15  [exact]
+  concentrado range original: 0.131911 ms, 344.74 dist, 72.24 reads  [exact]
+  concentrado range slimdown: 0.120823 ms, 340.09 dist, 67.2 reads  [exact]
+  concentrado range etapa1: 0.124425 ms, 345.95 dist, 69.49 reads, 1205 moved  [exact]
+  concentrado range etapa2: 0.04987 ms, 124.76 dist, 22.51 reads, |P| 15  [exact]
+  concentrado range etapa2_data: 0.045924 ms, 140.02 dist, 23.93 reads, |P| 15  [exact]
+  concentrado range hilbert: 0.036565 ms, 115.71 dist, 18.95 reads  [exact]
+  concentrado range etapa2_bulk: 0.039711 ms, 94.35 dist, 13.17 reads, |P| 635  [exact]
+  concentrado range etapa2_bulk_data: 0.026107 ms, 94.06 dist, 13.07 reads, |P| 636  [exact]
+  concentrado range hilbert_etapa1: 0.038884 ms, 115.9 dist, 18.29 reads, 506 moved  [exact]
+  concentrado range etapa2_etapa1: 0.04126 ms, 124.3 dist, 21.87 reads, 567 moved, |P| 15  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 2 seed 44 | adapt 200 measure 100 | measure->adapt 0.291391
+  region 0: Vassouras-RJ (114 cities, radius 1.21433)
+  region 1: Tianguá-CE (114 cities, radius 1.64906)
+  region 2: Sítio do Quinto-BA (114 cities, radius 1.30863)
+  region 3: Sítio Novo-RN (114 cities, radius 0.881022)
+  region 4: Rio Paranaíba-MG (114 cities, radius 1.74642)
+  region 5: Itapuranga-GO (114 cities, radius 1.57429)
+  region 6: Junqueirópolis-SP (114 cities, radius 1.31244)
+  region 7: Brasnorte-MT (114 cities, radius 4.75016)
+  disperso knn original: 0.184292 ms, 365.39 dist, 71.75 reads  [exact]
+  disperso knn slimdown: 0.129002 ms, 359.53 dist, 66.98 reads  [exact]
+  disperso knn etapa1: 0.12812 ms, 363.15 dist, 69.28 reads, 1260 moved  [exact]
+  disperso knn etapa2: 0.043879 ms, 143.3 dist, 21.16 reads, |P| 16  [exact]
+  disperso knn etapa2_data: 0.045691 ms, 153.17 dist, 22.25 reads, |P| 16  [exact]
+  disperso knn hilbert: 0.039861 ms, 121.55 dist, 17.35 reads  [exact]
+  disperso knn etapa2_bulk: 0.027919 ms, 90.13 dist, 11.58 reads, |P| 644  [exact]
+  disperso knn etapa2_bulk_data: 0.027464 ms, 94.8 dist, 12.03 reads, |P| 636  [exact]
+  disperso knn hilbert_etapa1: 0.036497 ms, 123.42 dist, 17.09 reads, 486 moved  [exact]
+  disperso knn etapa2_etapa1: 0.042757 ms, 145.64 dist, 20.79 reads, 611 moved, |P| 16  [exact]
+  disperso range original: 0.125443 ms, 328.09 dist, 70.37 reads  [exact]
+  disperso range slimdown: 0.119585 ms, 322.37 dist, 66.04 reads  [exact]
+  disperso range etapa1: 0.12267 ms, 327.24 dist, 67.9 reads, 1237 moved  [exact]
+  disperso range etapa2: 0.039169 ms, 119.45 dist, 20.02 reads, |P| 16  [exact]
+  disperso range etapa2_data: 0.040425 ms, 127.6 dist, 21.07 reads, |P| 16  [exact]
+  disperso range hilbert: 0.045171 ms, 102.34 dist, 17.04 reads  [exact]
+  disperso range etapa2_bulk: 0.029037 ms, 92.97 dist, 12.79 reads, |P| 644  [exact]
+  disperso range etapa2_bulk_data: 0.025848 ms, 91.52 dist, 12.6 reads, |P| 636  [exact]
+  disperso range hilbert_etapa1: 0.032348 ms, 104.08 dist, 16.77 reads, 435 moved  [exact]
+  disperso range etapa2_etapa1: 0.037513 ms, 121.12 dist, 19.71 reads, 549 moved, |P| 16  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 3 seed 45 | adapt 200 measure 100 | measure->adapt 0.572909
+  region 0: São Luiz-RR (450 cities, radius 15.0269)
+  region 1: Mauá da Serra-PR (450 cities, radius 2.49195)
+  concentrado knn original: 0.128979 ms, 392.34 dist, 69.49 reads  [exact]
+  concentrado knn slimdown: 0.118348 ms, 384.77 dist, 64.15 reads  [exact]
+  concentrado knn etapa1: 0.12222 ms, 389.14 dist, 65.56 reads, 1179 moved  [exact]
+  concentrado knn etapa2: 0.040673 ms, 124.58 dist, 19.29 reads, |P| 16  [exact]
+  concentrado knn etapa2_data: 0.038544 ms, 133.35 dist, 18.98 reads, |P| 16  [exact]
+  concentrado knn hilbert: 0.035459 ms, 113.97 dist, 16.02 reads  [exact]
+  concentrado knn etapa2_bulk: 0.025078 ms, 83.89 dist, 10.51 reads, |P| 641  [exact]
+  concentrado knn etapa2_bulk_data: 0.024891 ms, 82 dist, 11.22 reads, |P| 670  [exact]
+  concentrado knn hilbert_etapa1: 0.034262 ms, 116.68 dist, 15.69 reads, 462 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.040666 ms, 127.83 dist, 19.02 reads, 412 moved, |P| 16  [exact]
+  concentrado range original: 0.11518 ms, 287.03 dist, 65.87 reads  [exact]
+  concentrado range slimdown: 0.108367 ms, 277.09 dist, 60.67 reads  [exact]
+  concentrado range etapa1: 0.112724 ms, 280.45 dist, 62.25 reads, 1075 moved  [exact]
+  concentrado range etapa2: 0.032015 ms, 89.53 dist, 17.18 reads, |P| 16  [exact]
+  concentrado range etapa2_data: 0.035201 ms, 104.92 dist, 17.64 reads, |P| 16  [exact]
+  concentrado range hilbert: 0.026378 ms, 76.99 dist, 13.51 reads  [exact]
+  concentrado range etapa2_bulk: 0.020773 ms, 68.61 dist, 10.41 reads, |P| 641  [exact]
+  concentrado range etapa2_bulk_data: 0.021169 ms, 67.82 dist, 10.76 reads, |P| 670  [exact]
+  concentrado range hilbert_etapa1: 0.025 ms, 78.54 dist, 13.28 reads, 390 moved  [exact]
+  concentrado range etapa2_etapa1: 0.031511 ms, 90.69 dist, 16.88 reads, 363 moved, |P| 16  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 3 seed 45 | adapt 200 measure 100 | measure->adapt 0.539009
+  region 0: São Luiz-RR (114 cities, radius 9.89256)
+  region 1: Almas-TO (114 cities, radius 2.86295)
+  region 2: Mauá da Serra-PR (114 cities, radius 1.15974)
+  region 3: Santa Maria-RN (114 cities, radius 0.992472)
+  region 4: Tanguá-RJ (114 cities, radius 1.47231)
+  region 5: Meleiro-SC (114 cities, radius 1.50881)
+  region 6: Pingo-d'Água-MG (114 cities, radius 0.988585)
+  region 7: Santo Antônio do Jardim-SP (114 cities, radius 0.955249)
+  disperso knn original: 0.132545 ms, 390.35 dist, 70.61 reads  [exact]
+  disperso knn slimdown: 0.121381 ms, 379.28 dist, 64.64 reads  [exact]
+  disperso knn etapa1: 0.126503 ms, 387.56 dist, 68.24 reads, 1313 moved  [exact]
+  disperso knn etapa2: 0.042815 ms, 143.01 dist, 20.76 reads, |P| 15  [exact]
+  disperso knn etapa2_data: 0.042253 ms, 140.79 dist, 20.16 reads, |P| 15  [exact]
+  disperso knn hilbert: 0.038889 ms, 123.64 dist, 17.34 reads  [exact]
+  disperso knn etapa2_bulk: 0.026009 ms, 95.88 dist, 10.98 reads, |P| 603  [exact]
+  disperso knn etapa2_bulk_data: 0.024823 ms, 87.76 dist, 11.03 reads, |P| 670  [exact]
+  disperso knn hilbert_etapa1: 0.03602 ms, 125.37 dist, 17.04 reads, 563 moved  [exact]
+  disperso knn etapa2_etapa1: 0.042007 ms, 146.91 dist, 20.53 reads, 629 moved, |P| 15  [exact]
+  disperso range original: 0.1245 ms, 341.21 dist, 68.83 reads  [exact]
+  disperso range slimdown: 0.115008 ms, 328.95 dist, 63.06 reads  [exact]
+  disperso range etapa1: 0.120545 ms, 338.12 dist, 66.65 reads, 1283 moved  [exact]
+  disperso range etapa2: 0.038349 ms, 122.07 dist, 19.94 reads, |P| 15  [exact]
+  disperso range etapa2_data: 0.039334 ms, 133.59 dist, 20.35 reads, |P| 15  [exact]
+  disperso range hilbert: 0.033582 ms, 109.24 dist, 16.99 reads  [exact]
+  disperso range etapa2_bulk: 0.025783 ms, 94.46 dist, 11.92 reads, |P| 603  [exact]
+  disperso range etapa2_bulk_data: 0.026097 ms, 93.54 dist, 12.24 reads, |P| 670  [exact]
+  disperso range hilbert_etapa1: 0.034454 ms, 110.64 dist, 16.65 reads, 538 moved  [exact]
+  disperso range etapa2_etapa1: 0.040999 ms, 124.13 dist, 19.73 reads, 630 moved, |P| 15  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 3 seed 45 | adapt 200 measure 100 | measure->adapt 0.797228
+  uniforme knn original: 0.131404 ms, 417.3 dist, 70.57 reads  [exact]
+  uniforme knn slimdown: 0.123393 ms, 403.83 dist, 65.56 reads  [exact]
+  uniforme knn etapa1: 0.127945 ms, 400.39 dist, 67.3 reads, 1567 moved  [exact]
+  uniforme knn etapa2: 0.048206 ms, 149.79 dist, 22.32 reads, |P| 15  [exact]
+  uniforme knn etapa2_data: 0.04534 ms, 151.87 dist, 21.69 reads, |P| 15  [exact]
+  uniforme knn hilbert: 0.037231 ms, 126.81 dist, 17.33 reads  [exact]
+  uniforme knn etapa2_bulk: 0.026631 ms, 93.77 dist, 12.11 reads, |P| 661  [exact]
+  uniforme knn etapa2_bulk_data: 0.030173 ms, 94.1 dist, 12.23 reads, |P| 670  [exact]
+  uniforme knn hilbert_etapa1: 0.039287 ms, 127.22 dist, 17.04 reads, 684 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.047006 ms, 152.01 dist, 22.06 reads, 931 moved, |P| 15  [exact]
+  uniforme range original: 0.130479 ms, 344.48 dist, 68.09 reads  [exact]
+  uniforme range slimdown: 0.112458 ms, 333.48 dist, 62.95 reads  [exact]
+  uniforme range etapa1: 0.11594 ms, 332.93 dist, 64.78 reads, 1515 moved  [exact]
+  uniforme range etapa2: 0.041988 ms, 130.48 dist, 21.76 reads, |P| 15  [exact]
+  uniforme range etapa2_data: 0.039959 ms, 129.38 dist, 20.5 reads, |P| 15  [exact]
+  uniforme range hilbert: 0.033663 ms, 108.99 dist, 17.1 reads  [exact]
+  uniforme range etapa2_bulk: 0.02749 ms, 93.11 dist, 12.68 reads, |P| 661  [exact]
+  uniforme range etapa2_bulk_data: 0.032723 ms, 94.71 dist, 13.21 reads, |P| 670  [exact]
+  uniforme range hilbert_etapa1: 0.036458 ms, 109.71 dist, 16.95 reads, 620 moved  [exact]
+  uniforme range etapa2_etapa1: 0.044319 ms, 130.96 dist, 21.52 reads, 920 moved, |P| 15  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 4 seed 46 | adapt 200 measure 100 | measure->adapt 0.355036
+  region 0: Conde-BA (114 cities, radius 1.52542)
+  region 1: Iraceminha-SC (114 cities, radius 0.872067)
+  region 2: Pindorama do Tocantins-TO (114 cities, radius 2.87517)
+  region 3: Boa Vista-RR (114 cities, radius 11.1394)
+  region 4: Rio Pomba-MG (114 cities, radius 0.910879)
+  region 5: Cachoeirinha-RS (114 cities, radius 1.10923)
+  region 6: Solânea-PB (114 cities, radius 0.732393)
+  region 7: Varjão de Minas-MG (114 cities, radius 1.99602)
+  disperso knn original: 0.115007 ms, 355.52 dist, 60.08 reads  [exact]
+  disperso knn slimdown: 0.106403 ms, 345.72 dist, 56.81 reads  [exact]
+  disperso knn etapa1: 0.112866 ms, 354.22 dist, 59.13 reads, 1058 moved  [exact]
+  disperso knn etapa2: 0.047506 ms, 134.67 dist, 21.93 reads, |P| 16  [exact]
+  disperso knn etapa2_data: 0.037345 ms, 115.31 dist, 18.18 reads, |P| 16  [exact]
+  disperso knn hilbert: 0.035825 ms, 116.48 dist, 16.29 reads  [exact]
+  disperso knn etapa2_bulk: 0.024081 ms, 88.11 dist, 10.59 reads, |P| 624  [exact]
+  disperso knn etapa2_bulk_data: 0.028182 ms, 93.81 dist, 11.59 reads, |P| 626  [exact]
+  disperso knn hilbert_etapa1: 0.035562 ms, 118.59 dist, 16.09 reads, 454 moved  [exact]
+  disperso knn etapa2_etapa1: 0.050823 ms, 137.63 dist, 21.45 reads, 581 moved, |P| 16  [exact]
+  disperso range original: 0.108352 ms, 310.54 dist, 58.24 reads  [exact]
+  disperso range slimdown: 0.102475 ms, 301.79 dist, 55.35 reads  [exact]
+  disperso range etapa1: 0.103581 ms, 310.44 dist, 57.54 reads, 1031 moved  [exact]
+  disperso range etapa2: 0.043997 ms, 127.17 dist, 22.25 reads, |P| 16  [exact]
+  disperso range etapa2_data: 0.036975 ms, 107.6 dist, 19.04 reads, |P| 16  [exact]
+  disperso range hilbert: 0.043872 ms, 109.96 dist, 16.77 reads  [exact]
+  disperso range etapa2_bulk: 0.026145 ms, 96.98 dist, 12.04 reads, |P| 624  [exact]
+  disperso range etapa2_bulk_data: 0.026569 ms, 94.95 dist, 12.77 reads, |P| 626  [exact]
+  disperso range hilbert_etapa1: 0.033923 ms, 112.47 dist, 16.51 reads, 441 moved  [exact]
+  disperso range etapa2_etapa1: 0.051488 ms, 128.62 dist, 21.74 reads, 642 moved, |P| 16  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 4 seed 46 | adapt 200 measure 100 | measure->adapt 0.847409
+  uniforme knn original: 0.122982 ms, 380.86 dist, 65.09 reads  [exact]
+  uniforme knn slimdown: 0.115331 ms, 374.01 dist, 61.27 reads  [exact]
+  uniforme knn etapa1: 0.119137 ms, 367.98 dist, 63.46 reads, 1466 moved  [exact]
+  uniforme knn etapa2: 0.041755 ms, 118.71 dist, 19.67 reads, |P| 13  [exact]
+  uniforme knn etapa2_data: 0.036495 ms, 116.59 dist, 16.77 reads, |P| 13  [exact]
+  uniforme knn hilbert: 0.036086 ms, 122.85 dist, 17.19 reads  [exact]
+  uniforme knn etapa2_bulk: 0.028115 ms, 99.13 dist, 11.82 reads, |P| 660  [exact]
+  uniforme knn etapa2_bulk_data: 0.035648 ms, 94.93 dist, 12.18 reads, |P| 626  [exact]
+  uniforme knn hilbert_etapa1: 0.035457 ms, 122.57 dist, 16.94 reads, 690 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.041693 ms, 118.32 dist, 19.55 reads, 747 moved, |P| 13  [exact]
+  uniforme range original: 0.114096 ms, 322.71 dist, 62.89 reads  [exact]
+  uniforme range slimdown: 0.107085 ms, 316.22 dist, 59.41 reads  [exact]
+  uniforme range etapa1: 0.111144 ms, 313.77 dist, 61.35 reads, 1463 moved  [exact]
+  uniforme range etapa2: 0.038187 ms, 109.38 dist, 20.01 reads, |P| 13  [exact]
+  uniforme range etapa2_data: 0.033679 ms, 110.66 dist, 17.13 reads, |P| 13  [exact]
+  uniforme range hilbert: 0.034104 ms, 113.69 dist, 17.11 reads  [exact]
+  uniforme range etapa2_bulk: 0.027153 ms, 92.27 dist, 12.32 reads, |P| 660  [exact]
+  uniforme range etapa2_bulk_data: 0.026552 ms, 91.37 dist, 12.39 reads, |P| 626  [exact]
+  uniforme range hilbert_etapa1: 0.033663 ms, 113.03 dist, 16.87 reads, 648 moved  [exact]
+  uniforme range etapa2_etapa1: 0.038115 ms, 109.39 dist, 19.87 reads, 728 moved, |P| 13  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 4 seed 46 | adapt 200 measure 100 | measure->adapt 0.2086
+  region 0: Conde-BA (450 cities, radius 3.59539)
+  region 1: Iraceminha-SC (450 cities, radius 2.41299)
+  concentrado knn original: 0.119549 ms, 375.93 dist, 63.11 reads  [exact]
+  concentrado knn slimdown: 0.111512 ms, 367.39 dist, 60.57 reads  [exact]
+  concentrado knn etapa1: 0.117215 ms, 379.13 dist, 62.29 reads, 1227 moved  [exact]
+  concentrado knn etapa2: 0.051771 ms, 154.76 dist, 23.31 reads, |P| 14  [exact]
+  concentrado knn etapa2_data: 0.039387 ms, 123.47 dist, 18.85 reads, |P| 14  [exact]
+  concentrado knn hilbert: 0.035375 ms, 128.13 dist, 16.98 reads  [exact]
+  concentrado knn etapa2_bulk: 0.028565 ms, 98.68 dist, 12.43 reads, |P| 652  [exact]
+  concentrado knn etapa2_bulk_data: 0.025269 ms, 89.58 dist, 10.93 reads, |P| 626  [exact]
+  concentrado knn hilbert_etapa1: 0.035194 ms, 128.95 dist, 16.49 reads, 659 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.04801 ms, 160.92 dist, 22.72 reads, 508 moved, |P| 14  [exact]
+  concentrado range original: 0.112533 ms, 348.58 dist, 62.82 reads  [exact]
+  concentrado range slimdown: 0.110778 ms, 341.37 dist, 60.23 reads  [exact]
+  concentrado range etapa1: 0.113673 ms, 352.29 dist, 62.03 reads, 1232 moved  [exact]
+  concentrado range etapa2: 0.041325 ms, 124.65 dist, 21.37 reads, |P| 14  [exact]
+  concentrado range etapa2_data: 0.039295 ms, 125.61 dist, 19.78 reads, |P| 14  [exact]
+  concentrado range hilbert: 0.041831 ms, 127.23 dist, 17.52 reads  [exact]
+  concentrado range etapa2_bulk: 0.027986 ms, 100.67 dist, 13.76 reads, |P| 652  [exact]
+  concentrado range etapa2_bulk_data: 0.027703 ms, 101.9 dist, 13.1 reads, |P| 626  [exact]
+  concentrado range hilbert_etapa1: 0.034911 ms, 128.17 dist, 17.12 reads, 730 moved  [exact]
+  concentrado range etapa2_etapa1: 0.049071 ms, 127.42 dist, 20.71 reads, 510 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 5 seed 47 | adapt 200 measure 100 | measure->adapt 0.588789
+  uniforme knn original: 0.129009 ms, 387.34 dist, 67.98 reads  [exact]
+  uniforme knn slimdown: 0.118607 ms, 370.46 dist, 62.62 reads  [exact]
+  uniforme knn etapa1: 0.124816 ms, 374.58 dist, 65.82 reads, 1529 moved  [exact]
+  uniforme knn etapa2: 0.041333 ms, 126.53 dist, 18.64 reads, |P| 12  [exact]
+  uniforme knn etapa2_data: 0.043048 ms, 131.73 dist, 20.49 reads, |P| 12  [exact]
+  uniforme knn hilbert: 0.036256 ms, 122.73 dist, 17.37 reads  [exact]
+  uniforme knn etapa2_bulk: 0.033859 ms, 101.05 dist, 12.3 reads, |P| 694  [exact]
+  uniforme knn etapa2_bulk_data: 0.028016 ms, 95.68 dist, 12.27 reads, |P| 654  [exact]
+  uniforme knn hilbert_etapa1: 0.036731 ms, 122.28 dist, 17.11 reads, 649 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.038095 ms, 127.24 dist, 18.25 reads, 720 moved, |P| 12  [exact]
+  uniforme range original: 0.125268 ms, 354.52 dist, 67.62 reads  [exact]
+  uniforme range slimdown: 0.111518 ms, 340.2 dist, 62.2 reads  [exact]
+  uniforme range etapa1: 0.117839 ms, 343.34 dist, 64.69 reads, 1512 moved  [exact]
+  uniforme range etapa2: 0.039419 ms, 130.25 dist, 20.09 reads, |P| 12  [exact]
+  uniforme range etapa2_data: 0.042303 ms, 126.96 dist, 21.39 reads, |P| 12  [exact]
+  uniforme range hilbert: 0.063295 ms, 122.76 dist, 18.19 reads  [exact]
+  uniforme range etapa2_bulk: 0.032158 ms, 103.66 dist, 13.65 reads, |P| 694  [exact]
+  uniforme range etapa2_bulk_data: 0.027841 ms, 99.34 dist, 13.61 reads, |P| 654  [exact]
+  uniforme range hilbert_etapa1: 0.035373 ms, 122.79 dist, 17.89 reads, 614 moved  [exact]
+  uniforme range etapa2_etapa1: 0.038189 ms, 131.23 dist, 19.79 reads, 712 moved, |P| 12  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 5 seed 47 | adapt 200 measure 100 | measure->adapt 0.243471
+  region 0: Augusto de Lima-MG (450 cities, radius 3.04021)
+  region 1: Boa Esperança-PR (450 cities, radius 2.7324)
+  concentrado knn original: 0.146304 ms, 435.42 dist, 77.46 reads  [exact]
+  concentrado knn slimdown: 0.129621 ms, 415.31 dist, 70.09 reads  [exact]
+  concentrado knn etapa1: 0.137772 ms, 427.92 dist, 74.04 reads, 1280 moved  [exact]
+  concentrado knn etapa2: 0.04879 ms, 152.74 dist, 21.91 reads, |P| 13  [exact]
+  concentrado knn etapa2_data: 0.045999 ms, 138.99 dist, 22.58 reads, |P| 13  [exact]
+  concentrado knn hilbert: 0.038568 ms, 126.91 dist, 18.39 reads  [exact]
+  concentrado knn etapa2_bulk: 0.032497 ms, 112.54 dist, 14.1 reads, |P| 650  [exact]
+  concentrado knn etapa2_bulk_data: 0.033937 ms, 100.67 dist, 12.62 reads, |P| 654  [exact]
+  concentrado knn hilbert_etapa1: 0.037485 ms, 129.64 dist, 18 reads, 536 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.044549 ms, 154.95 dist, 21.52 reads, 376 moved, |P| 13  [exact]
+  concentrado range original: 0.162533 ms, 396.73 dist, 77.87 reads  [exact]
+  concentrado range slimdown: 0.126975 ms, 378.06 dist, 70.14 reads  [exact]
+  concentrado range etapa1: 0.13534 ms, 393.03 dist, 74.37 reads, 1276 moved  [exact]
+  concentrado range etapa2: 0.039026 ms, 130.02 dist, 20.21 reads, |P| 13  [exact]
+  concentrado range etapa2_data: 0.045412 ms, 136.46 dist, 23.73 reads, |P| 13  [exact]
+  concentrado range hilbert: 0.036132 ms, 121.93 dist, 18.66 reads  [exact]
+  concentrado range etapa2_bulk: 0.029056 ms, 104.15 dist, 14.23 reads, |P| 650  [exact]
+  concentrado range etapa2_bulk_data: 0.028901 ms, 105.78 dist, 14.21 reads, |P| 654  [exact]
+  concentrado range hilbert_etapa1: 0.036458 ms, 123.19 dist, 18.36 reads, 527 moved  [exact]
+  concentrado range etapa2_etapa1: 0.039001 ms, 131.47 dist, 19.92 reads, 398 moved, |P| 13  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 5 seed 47 | adapt 200 measure 100 | measure->adapt 0.373478
+  region 0: Augusto de Lima-MG (114 cities, radius 1.72676)
+  region 1: Boa Esperança-PR (114 cities, radius 1.18258)
+  region 2: São Geraldo do Araguaia-PA (114 cities, radius 2.44499)
+  region 3: Astolfo Dutra-MG (114 cities, radius 0.898053)
+  region 4: Cordeiros-BA (114 cities, radius 1.86118)
+  region 5: São José do Piauí-PI (114 cities, radius 1.55232)
+  region 6: Rio Preto da Eva-AM (114 cities, radius 8.22706)
+  region 7: Nova Roma do Sul-RS (114 cities, radius 0.832346)
+  disperso knn original: 0.136894 ms, 373.51 dist, 65.2 reads  [exact]
+  disperso knn slimdown: 0.11227 ms, 359.4 dist, 59.6 reads  [exact]
+  disperso knn etapa1: 0.119457 ms, 368.08 dist, 63.23 reads, 1252 moved  [exact]
+  disperso knn etapa2: 0.040587 ms, 128.08 dist, 18.69 reads, |P| 17  [exact]
+  disperso knn etapa2_data: 0.038761 ms, 121.96 dist, 19.09 reads, |P| 17  [exact]
+  disperso knn hilbert: 0.038181 ms, 121.15 dist, 16.88 reads  [exact]
+  disperso knn etapa2_bulk: 0.02817 ms, 99.05 dist, 12.33 reads, |P| 644  [exact]
+  disperso knn etapa2_bulk_data: 0.028055 ms, 98.84 dist, 12.66 reads, |P| 654  [exact]
+  disperso knn hilbert_etapa1: 0.034607 ms, 123.69 dist, 16.6 reads, 466 moved  [exact]
+  disperso knn etapa2_etapa1: 0.039724 ms, 130.43 dist, 18.47 reads, 495 moved, |P| 17  [exact]
+  disperso range original: 0.110906 ms, 307.49 dist, 63.05 reads  [exact]
+  disperso range slimdown: 0.104015 ms, 294.93 dist, 57.92 reads  [exact]
+  disperso range etapa1: 0.108027 ms, 302.74 dist, 60.78 reads, 1172 moved  [exact]
+  disperso range etapa2: 0.035458 ms, 111.14 dist, 18.16 reads, |P| 17  [exact]
+  disperso range etapa2_data: 0.034839 ms, 107.22 dist, 18.34 reads, |P| 17  [exact]
+  disperso range hilbert: 0.033325 ms, 108.4 dist, 17.06 reads  [exact]
+  disperso range etapa2_bulk: 0.025273 ms, 88.75 dist, 12.39 reads, |P| 644  [exact]
+  disperso range etapa2_bulk_data: 0.034716 ms, 87.39 dist, 12.33 reads, |P| 654  [exact]
+  disperso range hilbert_etapa1: 0.032317 ms, 110.21 dist, 16.8 reads, 457 moved  [exact]
+  disperso range etapa2_etapa1: 0.036121 ms, 111.82 dist, 17.92 reads, 447 moved, |P| 17  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 6 seed 48 | adapt 200 measure 100 | measure->adapt 0.22519
+  region 0: Pelotas-RS (450 cities, radius 4.42832)
+  region 1: Mata Grande-AL (450 cities, radius 2.47693)
+  concentrado knn original: 0.120366 ms, 350.82 dist, 65.41 reads  [exact]
+  concentrado knn slimdown: 0.112048 ms, 333.88 dist, 60.51 reads  [exact]
+  concentrado knn etapa1: 0.119607 ms, 346.62 dist, 63.18 reads, 1321 moved  [exact]
+  concentrado knn etapa2: 0.039897 ms, 116.37 dist, 19.27 reads, |P| 13  [exact]
+  concentrado knn etapa2_data: 0.042082 ms, 135.85 dist, 21.23 reads, |P| 13  [exact]
+  concentrado knn hilbert: 0.036227 ms, 127.53 dist, 16.31 reads  [exact]
+  concentrado knn etapa2_bulk: 0.029034 ms, 100 dist, 12.58 reads, |P| 647  [exact]
+  concentrado knn etapa2_bulk_data: 0.02875 ms, 98.08 dist, 12.32 reads, |P| 656  [exact]
+  concentrado knn hilbert_etapa1: 0.037116 ms, 130.72 dist, 16.13 reads, 549 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.037168 ms, 118.46 dist, 18.76 reads, 482 moved, |P| 13  [exact]
+  concentrado range original: 0.12272 ms, 337.16 dist, 64.43 reads  [exact]
+  concentrado range slimdown: 0.109858 ms, 325.06 dist, 59.78 reads  [exact]
+  concentrado range etapa1: 0.11384 ms, 337.95 dist, 62.15 reads, 1382 moved  [exact]
+  concentrado range etapa2: 0.040985 ms, 123.24 dist, 20.7 reads, |P| 13  [exact]
+  concentrado range etapa2_data: 0.045048 ms, 145.9 dist, 23.18 reads, |P| 13  [exact]
+  concentrado range hilbert: 0.034776 ms, 119.94 dist, 17.04 reads  [exact]
+  concentrado range etapa2_bulk: 0.029204 ms, 103.98 dist, 13.83 reads, |P| 647  [exact]
+  concentrado range etapa2_bulk_data: 0.034775 ms, 107.7 dist, 14.94 reads, |P| 656  [exact]
+  concentrado range hilbert_etapa1: 0.034248 ms, 121.45 dist, 16.84 reads, 583 moved  [exact]
+  concentrado range etapa2_etapa1: 0.039722 ms, 123.94 dist, 20.15 reads, 533 moved, |P| 13  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 6 seed 48 | adapt 200 measure 100 | measure->adapt 0.307209
+  region 0: Pelotas-RS (114 cities, radius 2.45605)
+  region 1: Mata Grande-AL (114 cities, radius 1.36616)
+  region 2: Frei Lagonegro-MG (114 cities, radius 1.38398)
+  region 3: Pedro Laurentino-PI (114 cities, radius 1.83371)
+  region 4: Jaborá-SC (114 cities, radius 1.04924)
+  region 5: Talismã-TO (114 cities, radius 2.70485)
+  region 6: Guaçuí-ES (114 cities, radius 1.09165)
+  region 7: Luiziana-PR (114 cities, radius 1.14935)
+  disperso knn original: 0.148795 ms, 382.23 dist, 70.84 reads  [exact]
+  disperso knn slimdown: 0.119099 ms, 366.8 dist, 64.51 reads  [exact]
+  disperso knn etapa1: 0.125027 ms, 377.36 dist, 67.43 reads, 1363 moved  [exact]
+  disperso knn etapa2: 0.052759 ms, 156.54 dist, 24.98 reads, |P| 14  [exact]
+  disperso knn etapa2_data: 0.051937 ms, 159.6 dist, 24.79 reads, |P| 14  [exact]
+  disperso knn hilbert: 0.038755 ms, 131.02 dist, 17.59 reads  [exact]
+  disperso knn etapa2_bulk: 0.025924 ms, 95.74 dist, 11.79 reads, |P| 626  [exact]
+  disperso knn etapa2_bulk_data: 0.027868 ms, 101.69 dist, 12.2 reads, |P| 656  [exact]
+  disperso knn hilbert_etapa1: 0.037337 ms, 132.92 dist, 17.39 reads, 601 moved  [exact]
+  disperso knn etapa2_etapa1: 0.048808 ms, 158.63 dist, 24.65 reads, 631 moved, |P| 14  [exact]
+  disperso range original: 0.15991 ms, 344.21 dist, 69.84 reads  [exact]
+  disperso range slimdown: 0.116317 ms, 329.56 dist, 63.56 reads  [exact]
+  disperso range etapa1: 0.121645 ms, 340.82 dist, 67.23 reads, 1353 moved  [exact]
+  disperso range etapa2: 0.047159 ms, 142.01 dist, 24.62 reads, |P| 14  [exact]
+  disperso range etapa2_data: 0.0465 ms, 136.35 dist, 23.66 reads, |P| 14  [exact]
+  disperso range hilbert: 0.034222 ms, 114.67 dist, 17.58 reads  [exact]
+  disperso range etapa2_bulk: 0.028918 ms, 100.38 dist, 13.48 reads, |P| 626  [exact]
+  disperso range etapa2_bulk_data: 0.029046 ms, 100.42 dist, 13.05 reads, |P| 656  [exact]
+  disperso range hilbert_etapa1: 0.033557 ms, 115.78 dist, 17.3 reads, 544 moved  [exact]
+  disperso range etapa2_etapa1: 0.045992 ms, 142.93 dist, 24.34 reads, 575 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 6 seed 48 | adapt 200 measure 100 | measure->adapt 0.732676
+  uniforme knn original: 0.132183 ms, 380.17 dist, 67.91 reads  [exact]
+  uniforme knn slimdown: 0.121617 ms, 365.87 dist, 62.24 reads  [exact]
+  uniforme knn etapa1: 0.133445 ms, 368.13 dist, 65.03 reads, 1495 moved  [exact]
+  uniforme knn etapa2: 0.054608 ms, 139.2 dist, 22.82 reads, |P| 14  [exact]
+  uniforme knn etapa2_data: 0.058833 ms, 150.37 dist, 23.38 reads, |P| 14  [exact]
+  uniforme knn hilbert: 0.039062 ms, 126.67 dist, 17.29 reads  [exact]
+  uniforme knn etapa2_bulk: 0.028801 ms, 87.68 dist, 11.55 reads, |P| 633  [exact]
+  uniforme knn etapa2_bulk_data: 0.028396 ms, 97.45 dist, 11.76 reads, |P| 656  [exact]
+  uniforme knn hilbert_etapa1: 0.0377 ms, 127.62 dist, 17.04 reads, 651 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.048442 ms, 139.14 dist, 22.51 reads, 826 moved, |P| 14  [exact]
+  uniforme range original: 0.121095 ms, 326.59 dist, 66.17 reads  [exact]
+  uniforme range slimdown: 0.111437 ms, 312.99 dist, 60.42 reads  [exact]
+  uniforme range etapa1: 0.118496 ms, 317.9 dist, 63.6 reads, 1441 moved  [exact]
+  uniforme range etapa2: 0.045066 ms, 127.18 dist, 22.77 reads, |P| 14  [exact]
+  uniforme range etapa2_data: 0.043342 ms, 126.29 dist, 21.97 reads, |P| 14  [exact]
+  uniforme range hilbert: 0.034187 ms, 108.96 dist, 16.81 reads  [exact]
+  uniforme range etapa2_bulk: 0.028408 ms, 89.24 dist, 12.22 reads, |P| 633  [exact]
+  uniforme range etapa2_bulk_data: 0.027041 ms, 93.82 dist, 12.46 reads, |P| 656  [exact]
+  uniforme range hilbert_etapa1: 0.033666 ms, 109.06 dist, 16.58 reads, 595 moved  [exact]
+  uniforme range etapa2_etapa1: 0.04437 ms, 127.42 dist, 22.6 reads, 791 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 7 seed 49 | adapt 200 measure 100 | measure->adapt 0.277897
+  region 0: Pirajuba-MG (114 cities, radius 1.41683)
+  region 1: São Carlos-SC (114 cities, radius 0.765572)
+  region 2: São Bento do Sul-SC (114 cities, radius 1.24201)
+  region 3: Iguatama-MG (114 cities, radius 1.33544)
+  region 4: Ribeirão Cascalheira-MT (114 cities, radius 3.56216)
+  region 5: São Jorge-RS (114 cities, radius 0.9717)
+  region 6: São Bernardo-MA (114 cities, radius 1.92263)
+  region 7: Marcionílio Souza-BA (114 cities, radius 1.5685)
+  disperso knn original: 0.144714 ms, 448.32 dist, 78.19 reads  [exact]
+  disperso knn slimdown: 0.142204 ms, 428.41 dist, 71.59 reads  [exact]
+  disperso knn etapa1: 0.149523 ms, 443.27 dist, 75.67 reads, 1428 moved  [exact]
+  disperso knn etapa2: 0.053659 ms, 156.99 dist, 23.82 reads, |P| 14  [exact]
+  disperso knn etapa2_data: 0.052357 ms, 159.28 dist, 23.28 reads, |P| 14  [exact]
+  disperso knn hilbert: 0.040094 ms, 124.89 dist, 17.42 reads  [exact]
+  disperso knn etapa2_bulk: 0.028221 ms, 99.32 dist, 12.56 reads, |P| 638  [exact]
+  disperso knn etapa2_bulk_data: 0.028499 ms, 104.91 dist, 12.71 reads, |P| 658  [exact]
+  disperso knn hilbert_etapa1: 0.037633 ms, 126.76 dist, 17.01 reads, 479 moved  [exact]
+  disperso knn etapa2_etapa1: 0.052462 ms, 157.6 dist, 23.59 reads, 810 moved, |P| 14  [exact]
+  disperso range original: 0.137556 ms, 378.79 dist, 77.05 reads  [exact]
+  disperso range slimdown: 0.129367 ms, 364.22 dist, 70.44 reads  [exact]
+  disperso range etapa1: 0.13694 ms, 375.86 dist, 74.02 reads, 1465 moved  [exact]
+  disperso range etapa2: 0.044516 ms, 136.36 dist, 22.96 reads, |P| 14  [exact]
+  disperso range etapa2_data: 0.043469 ms, 135.2 dist, 21.82 reads, |P| 14  [exact]
+  disperso range hilbert: 0.040559 ms, 117.09 dist, 17.87 reads  [exact]
+  disperso range etapa2_bulk: 0.032548 ms, 104.93 dist, 14.07 reads, |P| 638  [exact]
+  disperso range etapa2_bulk_data: 0.030856 ms, 101.83 dist, 13.54 reads, |P| 658  [exact]
+  disperso range hilbert_etapa1: 0.037787 ms, 119.09 dist, 17.49 reads, 504 moved  [exact]
+  disperso range etapa2_etapa1: 0.060009 ms, 135.64 dist, 22.75 reads, 810 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 7 seed 49 | adapt 200 measure 100 | measure->adapt 0.576935
+  uniforme knn original: 0.142046 ms, 432.3 dist, 75.1 reads  [exact]
+  uniforme knn slimdown: 0.130936 ms, 415.12 dist, 68.98 reads  [exact]
+  uniforme knn etapa1: 0.138013 ms, 417.5 dist, 72.33 reads, 1583 moved  [exact]
+  uniforme knn etapa2: 0.04249 ms, 126.95 dist, 20.49 reads, |P| 12  [exact]
+  uniforme knn etapa2_data: 0.044819 ms, 133.11 dist, 21.76 reads, |P| 12  [exact]
+  uniforme knn hilbert: 0.039427 ms, 134.31 dist, 18.08 reads  [exact]
+  uniforme knn etapa2_bulk: 0.028024 ms, 97.82 dist, 12.04 reads, |P| 672  [exact]
+  uniforme knn etapa2_bulk_data: 0.029222 ms, 103.33 dist, 12.7 reads, |P| 658  [exact]
+  uniforme knn hilbert_etapa1: 0.038317 ms, 134.61 dist, 17.66 reads, 679 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.058925 ms, 127.59 dist, 20.29 reads, 710 moved, |P| 12  [exact]
+  uniforme range original: 0.133765 ms, 374.26 dist, 73.59 reads  [exact]
+  uniforme range slimdown: 0.12271 ms, 359.61 dist, 67.58 reads  [exact]
+  uniforme range etapa1: 0.128942 ms, 363.08 dist, 70.65 reads, 1546 moved  [exact]
+  uniforme range etapa2: 0.041365 ms, 122.26 dist, 21.14 reads, |P| 12  [exact]
+  uniforme range etapa2_data: 0.043253 ms, 127.71 dist, 22.1 reads, |P| 12  [exact]
+  uniforme range hilbert: 0.03711 ms, 116.38 dist, 17.71 reads  [exact]
+  uniforme range etapa2_bulk: 0.026542 ms, 97.42 dist, 12.89 reads, |P| 672  [exact]
+  uniforme range etapa2_bulk_data: 0.028565 ms, 99.2 dist, 13.5 reads, |P| 658  [exact]
+  uniforme range hilbert_etapa1: 0.034627 ms, 116.44 dist, 17.4 reads, 637 moved  [exact]
+  uniforme range etapa2_etapa1: 0.043138 ms, 122.12 dist, 21.01 reads, 651 moved, |P| 12  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 7 seed 49 | adapt 200 measure 100 | measure->adapt 0.225988
+  region 0: Pirajuba-MG (450 cities, radius 2.75334)
+  region 1: São Carlos-SC (450 cities, radius 2.30489)
+  concentrado knn original: 0.152947 ms, 460.25 dist, 83.22 reads  [exact]
+  concentrado knn slimdown: 0.139824 ms, 441.86 dist, 76.3 reads  [exact]
+  concentrado knn etapa1: 0.147721 ms, 456.69 dist, 79.82 reads, 1323 moved  [exact]
+  concentrado knn etapa2: 0.054626 ms, 163.51 dist, 27.91 reads, |P| 15  [exact]
+  concentrado knn etapa2_data: 0.038357 ms, 126.28 dist, 19.24 reads, |P| 15  [exact]
+  concentrado knn hilbert: 0.036967 ms, 125.4 dist, 17.52 reads  [exact]
+  concentrado knn etapa2_bulk: 0.032609 ms, 103.58 dist, 14.55 reads, |P| 632  [exact]
+  concentrado knn etapa2_bulk_data: 0.034411 ms, 122.28 dist, 15.29 reads, |P| 658  [exact]
+  concentrado knn hilbert_etapa1: 0.035779 ms, 126 dist, 17.07 reads, 472 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.054364 ms, 165.5 dist, 27.51 reads, 549 moved, |P| 15  [exact]
+  concentrado range original: 0.148997 ms, 406.99 dist, 82.57 reads  [exact]
+  concentrado range slimdown: 0.136853 ms, 394.54 dist, 76.04 reads  [exact]
+  concentrado range etapa1: 0.144451 ms, 406.28 dist, 78.95 reads, 1356 moved  [exact]
+  concentrado range etapa2: 0.059829 ms, 149.13 dist, 27.67 reads, |P| 15  [exact]
+  concentrado range etapa2_data: 0.043627 ms, 137.18 dist, 20.96 reads, |P| 15  [exact]
+  concentrado range hilbert: 0.038256 ms, 129.82 dist, 18.9 reads  [exact]
+  concentrado range etapa2_bulk: 0.03357 ms, 106.17 dist, 15.69 reads, |P| 632  [exact]
+  concentrado range etapa2_bulk_data: 0.032994 ms, 110.75 dist, 15.35 reads, |P| 658  [exact]
+  concentrado range hilbert_etapa1: 0.03666 ms, 129.42 dist, 18.33 reads, 529 moved  [exact]
+  concentrado range etapa2_etapa1: 0.059485 ms, 149.99 dist, 27.12 reads, 599 moved, |P| 15  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 8 seed 50 | adapt 200 measure 100 | measure->adapt 0.748297
+  uniforme knn original: 0.159112 ms, 412.22 dist, 70.89 reads  [exact]
+  uniforme knn slimdown: 0.120358 ms, 396.69 dist, 64.53 reads  [exact]
+  uniforme knn etapa1: 0.12965 ms, 397.4 dist, 67.93 reads, 1405 moved  [exact]
+  uniforme knn etapa2: 0.042737 ms, 130.25 dist, 20.6 reads, |P| 14  [exact]
+  uniforme knn etapa2_data: 0.045744 ms, 140.35 dist, 21.26 reads, |P| 14  [exact]
+  uniforme knn hilbert: 0.03936 ms, 126.55 dist, 17.62 reads  [exact]
+  uniforme knn etapa2_bulk: 0.029702 ms, 102.29 dist, 12.3 reads, |P| 621  [exact]
+  uniforme knn etapa2_bulk_data: 0.028004 ms, 98.46 dist, 12.55 reads, |P| 652  [exact]
+  uniforme knn hilbert_etapa1: 0.039461 ms, 127.8 dist, 17.46 reads, 710 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.043204 ms, 130.51 dist, 20.4 reads, 776 moved, |P| 14  [exact]
+  uniforme range original: 0.126597 ms, 349.96 dist, 69.09 reads  [exact]
+  uniforme range slimdown: 0.116518 ms, 334.97 dist, 62.96 reads  [exact]
+  uniforme range etapa1: 0.11884 ms, 337.68 dist, 66.16 reads, 1400 moved  [exact]
+  uniforme range etapa2: 0.039771 ms, 124.07 dist, 20.97 reads, |P| 14  [exact]
+  uniforme range etapa2_data: 0.041957 ms, 125.86 dist, 21.34 reads, |P| 14  [exact]
+  uniforme range hilbert: 0.041178 ms, 108.27 dist, 17.26 reads  [exact]
+  uniforme range etapa2_bulk: 0.026413 ms, 95.98 dist, 12.66 reads, |P| 621  [exact]
+  uniforme range etapa2_bulk_data: 0.042401 ms, 93.85 dist, 12.83 reads, |P| 652  [exact]
+  uniforme range hilbert_etapa1: 0.032823 ms, 108.39 dist, 16.97 reads, 684 moved  [exact]
+  uniforme range etapa2_etapa1: 0.039506 ms, 123.72 dist, 20.69 reads, 727 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 8 seed 50 | adapt 200 measure 100 | measure->adapt 0.38877
+  region 0: Porto Alegre do Norte-MT (450 cities, radius 6.61544)
+  region 1: Jatobá do Piauí-PI (450 cities, radius 3.57405)
+  concentrado knn original: 0.147098 ms, 367.95 dist, 64 reads  [exact]
+  concentrado knn slimdown: 0.114676 ms, 358.21 dist, 59.52 reads  [exact]
+  concentrado knn etapa1: 0.117028 ms, 363.78 dist, 61.9 reads, 1405 moved  [exact]
+  concentrado knn etapa2: 0.032451 ms, 99.17 dist, 15 reads, |P| 14  [exact]
+  concentrado knn etapa2_data: 0.041652 ms, 130.92 dist, 19.01 reads, |P| 14  [exact]
+  concentrado knn hilbert: 0.039093 ms, 136.75 dist, 17.98 reads  [exact]
+  concentrado knn etapa2_bulk: 0.026895 ms, 90.27 dist, 11.65 reads, |P| 628  [exact]
+  concentrado knn etapa2_bulk_data: 0.031819 ms, 101.03 dist, 13.7 reads, |P| 652  [exact]
+  concentrado knn hilbert_etapa1: 0.037729 ms, 137.8 dist, 17.48 reads, 384 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.030373 ms, 99.25 dist, 14.77 reads, 440 moved, |P| 14  [exact]
+  concentrado range original: 0.129612 ms, 261.91 dist, 60.29 reads  [exact]
+  concentrado range slimdown: 0.0968 ms, 251.76 dist, 55.74 reads  [exact]
+  concentrado range etapa1: 0.102078 ms, 257.62 dist, 57.47 reads, 1291 moved  [exact]
+  concentrado range etapa2: 0.026778 ms, 79.09 dist, 13.99 reads, |P| 14  [exact]
+  concentrado range etapa2_data: 0.031476 ms, 88.28 dist, 16.21 reads, |P| 14  [exact]
+  concentrado range hilbert: 0.028419 ms, 84.48 dist, 15.35 reads  [exact]
+  concentrado range etapa2_bulk: 0.02151 ms, 73.66 dist, 11.1 reads, |P| 628  [exact]
+  concentrado range etapa2_bulk_data: 0.030528 ms, 71.54 dist, 11.64 reads, |P| 652  [exact]
+  concentrado range hilbert_etapa1: 0.028317 ms, 84.84 dist, 15.06 reads, 307 moved  [exact]
+  concentrado range etapa2_etapa1: 0.025416 ms, 78.71 dist, 13.79 reads, 343 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 8 seed 50 | adapt 200 measure 100 | measure->adapt 0.265467
+  region 0: Porto Alegre do Norte-MT (114 cities, radius 3.9362)
+  region 1: Jatobá do Piauí-PI (114 cities, radius 1.57953)
+  region 2: Ibituruna-MG (114 cities, radius 1.08167)
+  region 3: Iperó-SP (114 cities, radius 1.06794)
+  region 4: Araruama-RJ (114 cities, radius 1.69859)
+  region 5: Serro-MG (114 cities, radius 1.34648)
+  region 6: Presidente Venceslau-SP (114 cities, radius 1.34648)
+  region 7: Queimadas-PB (114 cities, radius 0.800562)
+  disperso knn original: 0.136828 ms, 416.94 dist, 73.19 reads  [exact]
+  disperso knn slimdown: 0.123253 ms, 400.16 dist, 65.57 reads  [exact]
+  disperso knn etapa1: 0.133312 ms, 414.76 dist, 71.31 reads, 1460 moved  [exact]
+  disperso knn etapa2: 0.046242 ms, 153.5 dist, 22.32 reads, |P| 15  [exact]
+  disperso knn etapa2_data: 0.049808 ms, 145.83 dist, 24.22 reads, |P| 15  [exact]
+  disperso knn hilbert: 0.041324 ms, 131.15 dist, 19.1 reads  [exact]
+  disperso knn etapa2_bulk: 0.026003 ms, 92.65 dist, 12.01 reads, |P| 611  [exact]
+  disperso knn etapa2_bulk_data: 0.029692 ms, 103.98 dist, 12.93 reads, |P| 652  [exact]
+  disperso knn hilbert_etapa1: 0.040883 ms, 134.22 dist, 18.75 reads, 422 moved  [exact]
+  disperso knn etapa2_etapa1: 0.045874 ms, 158.73 dist, 22.1 reads, 574 moved, |P| 15  [exact]
+  disperso range original: 0.133176 ms, 378.23 dist, 72.19 reads  [exact]
+  disperso range slimdown: 0.117776 ms, 362.76 dist, 64.6 reads  [exact]
+  disperso range etapa1: 0.131523 ms, 377.4 dist, 70.5 reads, 1442 moved  [exact]
+  disperso range etapa2: 0.044919 ms, 128.48 dist, 20.73 reads, |P| 15  [exact]
+  disperso range etapa2_data: 0.047274 ms, 144.15 dist, 25.01 reads, |P| 15  [exact]
+  disperso range hilbert: 0.03809 ms, 122.66 dist, 19.51 reads  [exact]
+  disperso range etapa2_bulk: 0.029303 ms, 105.6 dist, 14.04 reads, |P| 611  [exact]
+  disperso range etapa2_bulk_data: 0.028756 ms, 106.35 dist, 13.9 reads, |P| 652  [exact]
+  disperso range hilbert_etapa1: 0.039186 ms, 124.87 dist, 19.15 reads, 480 moved  [exact]
+  disperso range etapa2_etapa1: 0.041004 ms, 131.54 dist, 20.47 reads, 612 moved, |P| 15  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 9 seed 51 | adapt 200 measure 100 | measure->adapt 0.267488
+  region 0: Tibagi-PR (450 cities, radius 2.62482)
+  region 1: Maracás-BA (450 cities, radius 3.79897)
+  concentrado knn original: 0.13122 ms, 400.77 dist, 71.81 reads  [exact]
+  concentrado knn slimdown: 0.124748 ms, 383.76 dist, 65.76 reads  [exact]
+  concentrado knn etapa1: 0.129669 ms, 401.8 dist, 69.48 reads, 1495 moved  [exact]
+  concentrado knn etapa2: 0.043599 ms, 151.96 dist, 20.69 reads, |P| 13  [exact]
+  concentrado knn etapa2_data: 0.040233 ms, 136.42 dist, 19.79 reads, |P| 13  [exact]
+  concentrado knn hilbert: 0.042066 ms, 142.34 dist, 19.32 reads  [exact]
+  concentrado knn etapa2_bulk: 0.030824 ms, 96.87 dist, 12.17 reads, |P| 650  [exact]
+  concentrado knn etapa2_bulk_data: 0.030358 ms, 106.59 dist, 13.68 reads, |P| 678  [exact]
+  concentrado knn hilbert_etapa1: 0.038791 ms, 145.89 dist, 18.78 reads, 640 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.041559 ms, 152.92 dist, 19.89 reads, 399 moved, |P| 13  [exact]
+  concentrado range original: 0.128907 ms, 329.11 dist, 69.32 reads  [exact]
+  concentrado range slimdown: 0.121293 ms, 317.36 dist, 63.55 reads  [exact]
+  concentrado range etapa1: 0.119348 ms, 330.19 dist, 66.73 reads, 1445 moved  [exact]
+  concentrado range etapa2: 0.036728 ms, 107.31 dist, 18.14 reads, |P| 13  [exact]
+  concentrado range etapa2_data: 0.04058 ms, 119.28 dist, 20.06 reads, |P| 13  [exact]
+  concentrado range hilbert: 0.034149 ms, 107.6 dist, 17.14 reads  [exact]
+  concentrado range etapa2_bulk: 0.028636 ms, 90.93 dist, 12.55 reads, |P| 650  [exact]
+  concentrado range etapa2_bulk_data: 0.026075 ms, 86.21 dist, 12.81 reads, |P| 678  [exact]
+  concentrado range hilbert_etapa1: 0.032485 ms, 108.15 dist, 16.64 reads, 565 moved  [exact]
+  concentrado range etapa2_etapa1: 0.035465 ms, 108.1 dist, 17.53 reads, 377 moved, |P| 13  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 9 seed 51 | adapt 200 measure 100 | measure->adapt 0.371596
+  region 0: Tibagi-PR (114 cities, radius 1.42667)
+  region 1: Campo Grande-MS (114 cities, radius 3.3022)
+  region 2: Maracás-BA (114 cities, radius 1.54013)
+  region 3: Congonhas do Norte-MG (114 cities, radius 1.2886)
+  region 4: Cotriguaçu-MT (114 cities, radius 5.37566)
+  region 5: Bicas-MG (114 cities, radius 0.980816)
+  region 6: Córrego do Ouro-GO (114 cities, radius 1.672)
+  region 7: Biritiba-Mirim-SP (114 cities, radius 1.14018)
+  disperso knn original: 0.132685 ms, 402.15 dist, 70.84 reads  [exact]
+  disperso knn slimdown: 0.122955 ms, 388.22 dist, 65.41 reads  [exact]
+  disperso knn etapa1: 0.134616 ms, 392.21 dist, 69.02 reads, 1417 moved  [exact]
+  disperso knn etapa2: 0.043242 ms, 142.05 dist, 20.6 reads, |P| 12  [exact]
+  disperso knn etapa2_data: 0.045945 ms, 161.57 dist, 21.06 reads, |P| 12  [exact]
+  disperso knn hilbert: 0.044849 ms, 128.93 dist, 18.06 reads  [exact]
+  disperso knn etapa2_bulk: 0.025956 ms, 93.73 dist, 11.87 reads, |P| 625  [exact]
+  disperso knn etapa2_bulk_data: 0.030929 ms, 99.5 dist, 12.74 reads, |P| 678  [exact]
+  disperso knn hilbert_etapa1: 0.038345 ms, 133.21 dist, 17.62 reads, 566 moved  [exact]
+  disperso knn etapa2_etapa1: 0.041526 ms, 144.78 dist, 20.37 reads, 630 moved, |P| 12  [exact]
+  disperso range original: 0.121532 ms, 328.01 dist, 68.21 reads  [exact]
+  disperso range slimdown: 0.11367 ms, 316.87 dist, 62.95 reads  [exact]
+  disperso range etapa1: 0.116459 ms, 318.92 dist, 65.66 reads, 1366 moved  [exact]
+  disperso range etapa2: 0.040123 ms, 122.39 dist, 20.52 reads, |P| 12  [exact]
+  disperso range etapa2_data: 0.036757 ms, 118.15 dist, 19.24 reads, |P| 12  [exact]
+  disperso range hilbert: 0.035309 ms, 101.74 dist, 16.86 reads  [exact]
+  disperso range etapa2_bulk: 0.026815 ms, 88.85 dist, 12.34 reads, |P| 625  [exact]
+  disperso range etapa2_bulk_data: 0.033955 ms, 85.16 dist, 12.23 reads, |P| 678  [exact]
+  disperso range hilbert_etapa1: 0.034139 ms, 102.76 dist, 16.5 reads, 557 moved  [exact]
+  disperso range etapa2_etapa1: 0.037617 ms, 123.63 dist, 20.34 reads, 603 moved, |P| 12  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 9 seed 51 | adapt 200 measure 100 | measure->adapt 0.869683
+  uniforme knn original: 0.123133 ms, 371.35 dist, 65.09 reads  [exact]
+  uniforme knn slimdown: 0.114109 ms, 356.79 dist, 59.88 reads  [exact]
+  uniforme knn etapa1: 0.122543 ms, 361.51 dist, 62.35 reads, 1528 moved  [exact]
+  uniforme knn etapa2: 0.04379 ms, 126.69 dist, 19.73 reads, |P| 14  [exact]
+  uniforme knn etapa2_data: 0.043269 ms, 144.19 dist, 20.18 reads, |P| 14  [exact]
+  uniforme knn hilbert: 0.048146 ms, 123.31 dist, 16.86 reads  [exact]
+  uniforme knn etapa2_bulk: 0.025406 ms, 89.03 dist, 11.13 reads, |P| 656  [exact]
+  uniforme knn etapa2_bulk_data: 0.029985 ms, 96.39 dist, 12.24 reads, |P| 678  [exact]
+  uniforme knn hilbert_etapa1: 0.035829 ms, 122.74 dist, 16.59 reads, 650 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.043334 ms, 127.62 dist, 19.54 reads, 758 moved, |P| 14  [exact]
+  uniforme range original: 0.112438 ms, 316.65 dist, 62.75 reads  [exact]
+  uniforme range slimdown: 0.108388 ms, 305.05 dist, 57.94 reads  [exact]
+  uniforme range etapa1: 0.115376 ms, 307.3 dist, 60.47 reads, 1516 moved  [exact]
+  uniforme range etapa2: 0.039735 ms, 113.06 dist, 19.31 reads, |P| 14  [exact]
+  uniforme range etapa2_data: 0.040213 ms, 120.81 dist, 19.4 reads, |P| 14  [exact]
+  uniforme range hilbert: 0.0332 ms, 108.1 dist, 16.59 reads  [exact]
+  uniforme range etapa2_bulk: 0.025886 ms, 90.11 dist, 12.4 reads, |P| 656  [exact]
+  uniforme range etapa2_bulk_data: 0.027354 ms, 87.54 dist, 12.55 reads, |P| 678  [exact]
+  uniforme range hilbert_etapa1: 0.032072 ms, 107.77 dist, 16.35 reads, 655 moved  [exact]
+  uniforme range etapa2_etapa1: 0.037263 ms, 113.92 dist, 19.16 reads, 714 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 10 seed 52 | adapt 200 measure 100 | measure->adapt 0.30311
+  region 0: Várzea da Roça-BA (114 cities, radius 1.61037)
+  region 1: Astolfo Dutra-MG (114 cities, radius 0.898053)
+  region 2: Chapadão do Sul-MS (114 cities, radius 2.68187)
+  region 3: Embu-Guaçu-SP (114 cities, radius 1.15732)
+  region 4: Rancho Alegre-PR (114 cities, radius 1.06775)
+  region 5: Curral Velho-PB (114 cities, radius 1.13265)
+  region 6: São Pedro do Piauí-PI (114 cities, radius 1.73459)
+  region 7: Itaipé-MG (114 cities, radius 1.5678)
+  disperso knn original: 0.167803 ms, 425.11 dist, 75.91 reads  [exact]
+  disperso knn slimdown: 0.171484 ms, 411.94 dist, 69.73 reads  [exact]
+  disperso knn etapa1: 0.136516 ms, 412.33 dist, 73.3 reads, 1497 moved  [exact]
+  disperso knn etapa2: 0.044974 ms, 145.98 dist, 22.21 reads, |P| 13  [exact]
+  disperso knn etapa2_data: 0.038315 ms, 119.33 dist, 17.85 reads, |P| 13  [exact]
+  disperso knn hilbert: 0.038895 ms, 130.56 dist, 18.84 reads  [exact]
+  disperso knn etapa2_bulk: 0.027849 ms, 101.07 dist, 12.4 reads, |P| 624  [exact]
+  disperso knn etapa2_bulk_data: 0.031971 ms, 107.45 dist, 13.14 reads, |P| 635  [exact]
+  disperso knn hilbert_etapa1: 0.040376 ms, 134.11 dist, 18.41 reads, 648 moved  [exact]
+  disperso knn etapa2_etapa1: 0.042851 ms, 147.5 dist, 21.81 reads, 570 moved, |P| 13  [exact]
+  disperso range original: 0.132814 ms, 362.13 dist, 74.15 reads  [exact]
+  disperso range slimdown: 0.120722 ms, 346.86 dist, 67.66 reads  [exact]
+  disperso range etapa1: 0.127944 ms, 352.22 dist, 71.67 reads, 1480 moved  [exact]
+  disperso range etapa2: 0.046517 ms, 143.02 dist, 23.15 reads, |P| 13  [exact]
+  disperso range etapa2_data: 0.037138 ms, 113.24 dist, 18.8 reads, |P| 13  [exact]
+  disperso range hilbert: 0.036064 ms, 118.67 dist, 18.64 reads  [exact]
+  disperso range etapa2_bulk: 0.027221 ms, 101.13 dist, 13.21 reads, |P| 624  [exact]
+  disperso range etapa2_bulk_data: 0.029029 ms, 100.16 dist, 13.27 reads, |P| 635  [exact]
+  disperso range hilbert_etapa1: 0.035664 ms, 121.57 dist, 18.28 reads, 624 moved  [exact]
+  disperso range etapa2_etapa1: 0.043136 ms, 143.54 dist, 22.69 reads, 598 moved, |P| 13  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 10 seed 52 | adapt 200 measure 100 | measure->adapt 0.759434
+  uniforme knn original: 0.132879 ms, 404.6 dist, 70.21 reads  [exact]
+  uniforme knn slimdown: 0.122378 ms, 394.76 dist, 65.16 reads  [exact]
+  uniforme knn etapa1: 0.127714 ms, 390.65 dist, 67.82 reads, 1536 moved  [exact]
+  uniforme knn etapa2: 0.049989 ms, 150.73 dist, 23.52 reads, |P| 13  [exact]
+  uniforme knn etapa2_data: 0.038241 ms, 125.62 dist, 18.23 reads, |P| 13  [exact]
+  uniforme knn hilbert: 0.0394 ms, 124.25 dist, 17.24 reads  [exact]
+  uniforme knn etapa2_bulk: 0.027422 ms, 90.48 dist, 11.48 reads, |P| 644  [exact]
+  uniforme knn etapa2_bulk_data: 0.029791 ms, 100.39 dist, 12.65 reads, |P| 635  [exact]
+  uniforme knn hilbert_etapa1: 0.036764 ms, 124.33 dist, 17.02 reads, 663 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.046298 ms, 151.88 dist, 23.14 reads, 824 moved, |P| 13  [exact]
+  uniforme range original: 0.126674 ms, 348.16 dist, 68.03 reads  [exact]
+  uniforme range slimdown: 0.113858 ms, 337.35 dist, 63 reads  [exact]
+  uniforme range etapa1: 0.118254 ms, 337.53 dist, 65.52 reads, 1518 moved  [exact]
+  uniforme range etapa2: 0.045937 ms, 134.45 dist, 22.87 reads, |P| 13  [exact]
+  uniforme range etapa2_data: 0.039987 ms, 113.93 dist, 18.15 reads, |P| 13  [exact]
+  uniforme range hilbert: 0.039893 ms, 114.92 dist, 17.63 reads  [exact]
+  uniforme range etapa2_bulk: 0.029992 ms, 91.55 dist, 12.39 reads, |P| 644  [exact]
+  uniforme range etapa2_bulk_data: 0.028798 ms, 95.5 dist, 13 reads, |P| 635  [exact]
+  uniforme range hilbert_etapa1: 0.039181 ms, 115.1 dist, 17.4 reads, 636 moved  [exact]
+  uniforme range etapa2_etapa1: 0.043401 ms, 134.32 dist, 22.61 reads, 689 moved, |P| 13  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 10 seed 52 | adapt 200 measure 100 | measure->adapt 0.242252
+  region 0: Várzea da Roça-BA (450 cities, radius 3.60136)
+  region 1: Astolfo Dutra-MG (450 cities, radius 2.2508)
+  concentrado knn original: 0.170354 ms, 423.14 dist, 74.53 reads  [exact]
+  concentrado knn slimdown: 0.125618 ms, 407.33 dist, 68.03 reads  [exact]
+  concentrado knn etapa1: 0.133413 ms, 419.21 dist, 71.23 reads, 1092 moved  [exact]
+  concentrado knn etapa2: 0.056015 ms, 130.21 dist, 18.84 reads, |P| 15  [exact]
+  concentrado knn etapa2_data: 0.041644 ms, 123.68 dist, 19.19 reads, |P| 15  [exact]
+  concentrado knn hilbert: 0.041633 ms, 138.69 dist, 18.72 reads  [exact]
+  concentrado knn etapa2_bulk: 0.028586 ms, 94.98 dist, 12.14 reads, |P| 657  [exact]
+  concentrado knn etapa2_bulk_data: 0.026676 ms, 101.83 dist, 11.44 reads, |P| 635  [exact]
+  concentrado knn hilbert_etapa1: 0.038386 ms, 138.78 dist, 18.24 reads, 635 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.038643 ms, 132.29 dist, 18.46 reads, 739 moved, |P| 15  [exact]
+  concentrado range original: 0.135008 ms, 374.49 dist, 73.71 reads  [exact]
+  concentrado range slimdown: 0.121452 ms, 359.31 dist, 67.03 reads  [exact]
+  concentrado range etapa1: 0.129449 ms, 367.62 dist, 70.52 reads, 1166 moved  [exact]
+  concentrado range etapa2: 0.037916 ms, 116.06 dist, 18.29 reads, |P| 15  [exact]
+  concentrado range etapa2_data: 0.038448 ms, 118.56 dist, 19.93 reads, |P| 15  [exact]
+  concentrado range hilbert: 0.03584 ms, 125.49 dist, 18.6 reads  [exact]
+  concentrado range etapa2_bulk: 0.030127 ms, 96.92 dist, 13.6 reads, |P| 657  [exact]
+  concentrado range etapa2_bulk_data: 0.029968 ms, 100.19 dist, 12.13 reads, |P| 635  [exact]
+  concentrado range hilbert_etapa1: 0.038302 ms, 127.03 dist, 18.25 reads, 682 moved  [exact]
+  concentrado range etapa2_etapa1: 0.036012 ms, 116.92 dist, 17.84 reads, 658 moved, |P| 15  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 11 seed 53 | adapt 200 measure 100 | measure->adapt 0.783568
+  uniforme knn original: 0.138142 ms, 438.19 dist, 72.96 reads  [exact]
+  uniforme knn slimdown: 0.124002 ms, 417.95 dist, 66.39 reads  [exact]
+  uniforme knn etapa1: 0.131695 ms, 421.54 dist, 69.65 reads, 1558 moved  [exact]
+  uniforme knn etapa2: 0.045213 ms, 135.35 dist, 21.58 reads, |P| 2  [exact]
+  uniforme knn etapa2_data: 0.036031 ms, 121.61 dist, 17.42 reads, |P| 2  [exact]
+  uniforme knn hilbert: 0.037091 ms, 121.79 dist, 16.98 reads  [exact]
+  uniforme knn etapa2_bulk: 0.027397 ms, 95.83 dist, 12.13 reads, |P| 680  [exact]
+  uniforme knn etapa2_bulk_data: 0.028411 ms, 100.32 dist, 12.44 reads, |P| 661  [exact]
+  uniforme knn hilbert_etapa1: 0.035712 ms, 121.49 dist, 16.8 reads, 618 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.042598 ms, 135.38 dist, 21.29 reads, 735 moved, |P| 2  [exact]
+  uniforme range original: 0.131349 ms, 354.35 dist, 70.12 reads  [exact]
+  uniforme range slimdown: 0.114711 ms, 338.09 dist, 63.53 reads  [exact]
+  uniforme range etapa1: 0.119522 ms, 341.44 dist, 66.66 reads, 1516 moved  [exact]
+  uniforme range etapa2: 0.044573 ms, 122.63 dist, 21.36 reads, |P| 2  [exact]
+  uniforme range etapa2_data: 0.035153 ms, 105.99 dist, 16.95 reads, |P| 2  [exact]
+  uniforme range hilbert: 0.043118 ms, 106.81 dist, 16.87 reads  [exact]
+  uniforme range etapa2_bulk: 0.024805 ms, 86.98 dist, 12.3 reads, |P| 680  [exact]
+  uniforme range etapa2_bulk_data: 0.025036 ms, 90.21 dist, 12.42 reads, |P| 661  [exact]
+  uniforme range hilbert_etapa1: 0.032399 ms, 106.16 dist, 16.59 reads, 607 moved  [exact]
+  uniforme range etapa2_etapa1: 0.044912 ms, 122.44 dist, 21.19 reads, 739 moved, |P| 2  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 11 seed 53 | adapt 200 measure 100 | measure->adapt 0.294588
+  region 0: Morro Cabeça no Tempo-PI (450 cities, radius 4.74721)
+  region 1: Jaboatão dos Guararapes-PE (450 cities, radius 2.66282)
+  concentrado knn original: 0.127057 ms, 422 dist, 66.82 reads  [exact]
+  concentrado knn slimdown: 0.116588 ms, 399.73 dist, 61.24 reads  [exact]
+  concentrado knn etapa1: 0.122274 ms, 404.31 dist, 63.86 reads, 1317 moved  [exact]
+  concentrado knn etapa2: 0.044342 ms, 139.33 dist, 20.15 reads, |P| 16  [exact]
+  concentrado knn etapa2_data: 0.046227 ms, 128.47 dist, 20.71 reads, |P| 16  [exact]
+  concentrado knn hilbert: 0.043128 ms, 128.06 dist, 18.12 reads  [exact]
+  concentrado knn etapa2_bulk: 0.034456 ms, 96.35 dist, 12.22 reads, |P| 659  [exact]
+  concentrado knn etapa2_bulk_data: 0.029179 ms, 104.77 dist, 12.83 reads, |P| 661  [exact]
+  concentrado knn hilbert_etapa1: 0.03878 ms, 129.02 dist, 17.79 reads, 547 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.042717 ms, 141.95 dist, 19.82 reads, 567 moved, |P| 16  [exact]
+  concentrado range original: 0.116052 ms, 341.61 dist, 64.15 reads  [exact]
+  concentrado range slimdown: 0.104836 ms, 323.66 dist, 58.59 reads  [exact]
+  concentrado range etapa1: 0.110878 ms, 329.16 dist, 60.98 reads, 1351 moved  [exact]
+  concentrado range etapa2: 0.038704 ms, 120.95 dist, 19.29 reads, |P| 16  [exact]
+  concentrado range etapa2_data: 0.041097 ms, 124.07 dist, 21.56 reads, |P| 16  [exact]
+  concentrado range hilbert: 0.037567 ms, 121.2 dist, 18.5 reads  [exact]
+  concentrado range etapa2_bulk: 0.026375 ms, 90.11 dist, 12.64 reads, |P| 659  [exact]
+  concentrado range etapa2_bulk_data: 0.027065 ms, 95.22 dist, 12.86 reads, |P| 661  [exact]
+  concentrado range hilbert_etapa1: 0.035243 ms, 122.29 dist, 18.19 reads, 559 moved  [exact]
+  concentrado range etapa2_etapa1: 0.038294 ms, 120.33 dist, 18.75 reads, 532 moved, |P| 16  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 11 seed 53 | adapt 200 measure 100 | measure->adapt 0.232855
+  region 0: Morro Cabeça no Tempo-PI (114 cities, radius 2.77417)
+  region 1: Itiruçu-BA (114 cities, radius 1.47801)
+  region 2: Jaboatão dos Guararapes-PE (114 cities, radius 1.0435)
+  region 3: Carmo-RJ (114 cities, radius 1.07448)
+  region 4: Vicente Dutra-RS (114 cities, radius 0.859069)
+  region 5: Morro Reuter-RS (114 cities, radius 1.01139)
+  region 6: João Lisboa-MA (114 cities, radius 2.62739)
+  region 7: Echaporã-SP (114 cities, radius 1.07935)
+  disperso knn original: 0.153256 ms, 400.07 dist, 69.59 reads  [exact]
+  disperso knn slimdown: 0.118542 ms, 384.36 dist, 64.01 reads  [exact]
+  disperso knn etapa1: 0.128733 ms, 395.14 dist, 67.37 reads, 1328 moved  [exact]
+  disperso knn etapa2: 0.042703 ms, 131.68 dist, 18.72 reads, |P| 14  [exact]
+  disperso knn etapa2_data: 0.040362 ms, 135.6 dist, 19.74 reads, |P| 14  [exact]
+  disperso knn hilbert: 0.041767 ms, 136.09 dist, 18.44 reads  [exact]
+  disperso knn etapa2_bulk: 0.02757 ms, 100.16 dist, 11.73 reads, |P| 643  [exact]
+  disperso knn etapa2_bulk_data: 0.030362 ms, 103.15 dist, 13.01 reads, |P| 661  [exact]
+  disperso knn hilbert_etapa1: 0.039809 ms, 139.48 dist, 18.12 reads, 542 moved  [exact]
+  disperso knn etapa2_etapa1: 0.040019 ms, 133.04 dist, 18.46 reads, 434 moved, |P| 14  [exact]
+  disperso range original: 0.12638 ms, 354.75 dist, 68.27 reads  [exact]
+  disperso range slimdown: 0.113784 ms, 346.07 dist, 62.81 reads  [exact]
+  disperso range etapa1: 0.119722 ms, 349.45 dist, 65.93 reads, 1317 moved  [exact]
+  disperso range etapa2: 0.039384 ms, 125.86 dist, 19.32 reads, |P| 14  [exact]
+  disperso range etapa2_data: 0.041438 ms, 140.19 dist, 20.9 reads, |P| 14  [exact]
+  disperso range hilbert: 0.047224 ms, 126.61 dist, 18.25 reads  [exact]
+  disperso range etapa2_bulk: 0.027579 ms, 107.01 dist, 13.21 reads, |P| 643  [exact]
+  disperso range etapa2_bulk_data: 0.029884 ms, 106.63 dist, 14.18 reads, |P| 661  [exact]
+  disperso range hilbert_etapa1: 0.036754 ms, 130.42 dist, 18 reads, 535 moved  [exact]
+  disperso range etapa2_etapa1: 0.038378 ms, 128.05 dist, 19.11 reads, 429 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 12 seed 54 | adapt 200 measure 100 | measure->adapt 0.340573
+  region 0: Iguaraçu-PR (450 cities, radius 2.59763)
+  region 1: Alto Boa Vista-MT (450 cities, radius 6.42343)
+  concentrado knn original: 0.134119 ms, 414.48 dist, 69.98 reads  [exact]
+  concentrado knn slimdown: 0.122567 ms, 402.72 dist, 66.02 reads  [exact]
+  concentrado knn etapa1: 0.127507 ms, 409.76 dist, 66.9 reads, 1193 moved  [exact]
+  concentrado knn etapa2: 0.04914 ms, 142.08 dist, 23.51 reads, |P| 16  [exact]
+  concentrado knn etapa2_data: 0.045699 ms, 146.17 dist, 21 reads, |P| 16  [exact]
+  concentrado knn hilbert: 0.048625 ms, 130.42 dist, 19.28 reads  [exact]
+  concentrado knn etapa2_bulk: 0.026961 ms, 90.19 dist, 12.15 reads, |P| 656  [exact]
+  concentrado knn etapa2_bulk_data: 0.028991 ms, 105.28 dist, 12.32 reads, |P| 609  [exact]
+  concentrado knn hilbert_etapa1: 0.039427 ms, 133.65 dist, 18.72 reads, 484 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.051326 ms, 145.62 dist, 23.15 reads, 708 moved, |P| 16  [exact]
+  concentrado range original: 0.119315 ms, 316.54 dist, 66.08 reads  [exact]
+  concentrado range slimdown: 0.112783 ms, 305.04 dist, 62.84 reads  [exact]
+  concentrado range etapa1: 0.10993 ms, 309.14 dist, 62.71 reads, 1225 moved  [exact]
+  concentrado range etapa2: 0.04337 ms, 105.21 dist, 20.21 reads, |P| 16  [exact]
+  concentrado range etapa2_data: 0.035504 ms, 106.25 dist, 18.55 reads, |P| 16  [exact]
+  concentrado range hilbert: 0.030463 ms, 92.82 dist, 16 reads  [exact]
+  concentrado range etapa2_bulk: 0.024236 ms, 81.91 dist, 12.19 reads, |P| 656  [exact]
+  concentrado range etapa2_bulk_data: 0.023627 ms, 83.29 dist, 11.33 reads, |P| 609  [exact]
+  concentrado range hilbert_etapa1: 0.030482 ms, 93.28 dist, 15.67 reads, 378 moved  [exact]
+  concentrado range etapa2_etapa1: 0.038893 ms, 106.2 dist, 19.96 reads, 478 moved, |P| 16  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 12 seed 54 | adapt 200 measure 100 | measure->adapt 0.319509
+  region 0: Iguaraçu-PR (114 cities, radius 0.989949)
+  region 1: Tiradentes do Sul-RS (114 cities, radius 1.12361)
+  region 2: Alto Boa Vista-MT (114 cities, radius 3.84038)
+  region 3: São Geraldo da Piedade-MG (114 cities, radius 1.15434)
+  region 4: Vila Nova do Piauí-PI (114 cities, radius 1.66379)
+  region 5: Sinimbu-RS (114 cities, radius 1.06019)
+  region 6: Presidente Sarney-MA (114 cities, radius 2.05572)
+  region 7: Mira Estrela-SP (114 cities, radius 1.31518)
+  disperso knn original: 0.123463 ms, 373.98 dist, 65.01 reads  [exact]
+  disperso knn slimdown: 0.118975 ms, 365.61 dist, 61.25 reads  [exact]
+  disperso knn etapa1: 0.127427 ms, 367.11 dist, 63.08 reads, 1267 moved  [exact]
+  disperso knn etapa2: 0.048991 ms, 153.71 dist, 21.54 reads, |P| 15  [exact]
+  disperso knn etapa2_data: 0.045596 ms, 144.46 dist, 20.7 reads, |P| 15  [exact]
+  disperso knn hilbert: 0.039644 ms, 128.09 dist, 18.2 reads  [exact]
+  disperso knn etapa2_bulk: 0.04762 ms, 105.38 dist, 13.63 reads, |P| 621  [exact]
+  disperso knn etapa2_bulk_data: 0.033188 ms, 104.07 dist, 11.8 reads, |P| 609  [exact]
+  disperso knn hilbert_etapa1: 0.039587 ms, 131.17 dist, 17.92 reads, 476 moved  [exact]
+  disperso knn etapa2_etapa1: 0.054749 ms, 156.39 dist, 21.16 reads, 633 moved, |P| 15  [exact]
+  disperso range original: 0.121863 ms, 321.84 dist, 63.56 reads  [exact]
+  disperso range slimdown: 0.109257 ms, 312.47 dist, 59.97 reads  [exact]
+  disperso range etapa1: 0.111917 ms, 315.19 dist, 61.52 reads, 1276 moved  [exact]
+  disperso range etapa2: 0.041012 ms, 121.2 dist, 19.41 reads, |P| 15  [exact]
+  disperso range etapa2_data: 0.037282 ms, 116.07 dist, 19.38 reads, |P| 15  [exact]
+  disperso range hilbert: 0.033937 ms, 111.24 dist, 17.11 reads  [exact]
+  disperso range etapa2_bulk: 0.026843 ms, 94.6 dist, 13.38 reads, |P| 621  [exact]
+  disperso range etapa2_bulk_data: 0.027219 ms, 100.68 dist, 12.63 reads, |P| 609  [exact]
+  disperso range hilbert_etapa1: 0.034852 ms, 112.52 dist, 16.83 reads, 443 moved  [exact]
+  disperso range etapa2_etapa1: 0.037817 ms, 122.51 dist, 18.94 reads, 552 moved, |P| 15  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 12 seed 54 | adapt 200 measure 100 | measure->adapt 0.741774
+  uniforme knn original: 0.123928 ms, 383.79 dist, 65.16 reads  [exact]
+  uniforme knn slimdown: 0.125315 ms, 372.21 dist, 60.43 reads  [exact]
+  uniforme knn etapa1: 0.117044 ms, 368.06 dist, 62.25 reads, 1471 moved  [exact]
+  uniforme knn etapa2: 0.038777 ms, 121.19 dist, 18.35 reads, |P| 14  [exact]
+  uniforme knn etapa2_data: 0.043043 ms, 126.69 dist, 22 reads, |P| 14  [exact]
+  uniforme knn hilbert: 0.042356 ms, 126.02 dist, 17.76 reads  [exact]
+  uniforme knn etapa2_bulk: 0.027447 ms, 95.67 dist, 12.05 reads, |P| 625  [exact]
+  uniforme knn etapa2_bulk_data: 0.027987 ms, 102.39 dist, 11.8 reads, |P| 609  [exact]
+  uniforme knn hilbert_etapa1: 0.036569 ms, 126.1 dist, 17.46 reads, 709 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.041399 ms, 121.8 dist, 18.2 reads, 738 moved, |P| 14  [exact]
+  uniforme range original: 0.114694 ms, 328.19 dist, 63.18 reads  [exact]
+  uniforme range slimdown: 0.10452 ms, 317.21 dist, 58.64 reads  [exact]
+  uniforme range etapa1: 0.110746 ms, 318.16 dist, 60.63 reads, 1457 moved  [exact]
+  uniforme range etapa2: 0.037963 ms, 111.61 dist, 18.47 reads, |P| 14  [exact]
+  uniforme range etapa2_data: 0.043887 ms, 124.16 dist, 22.7 reads, |P| 14  [exact]
+  uniforme range hilbert: 0.037627 ms, 118.52 dist, 18.2 reads  [exact]
+  uniforme range etapa2_bulk: 0.027472 ms, 96.7 dist, 12.93 reads, |P| 625  [exact]
+  uniforme range etapa2_bulk_data: 0.026259 ms, 97.73 dist, 12.11 reads, |P| 609  [exact]
+  uniforme range hilbert_etapa1: 0.03816 ms, 118.18 dist, 17.86 reads, 744 moved  [exact]
+  uniforme range etapa2_etapa1: 0.039927 ms, 112.5 dist, 18.17 reads, 727 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 13 seed 55 | adapt 200 measure 100 | measure->adapt 0.255997
+  region 0: Jeceaba-MG (114 cities, radius 0.985089)
+  region 1: Bela Cruz-CE (114 cities, radius 1.97254)
+  region 2: Divinolândia de Minas-MG (114 cities, radius 1.16056)
+  region 3: Barão do Triunfo-RS (114 cities, radius 1.23794)
+  region 4: Tupiratins-TO (114 cities, radius 2.58258)
+  region 5: Arataca-BA (114 cities, radius 2.00639)
+  region 6: Casinhas-PE (114 cities, radius 0.813204)
+  region 7: Timbó-SC (114 cities, radius 1.23794)
+  disperso knn original: 0.131286 ms, 379.81 dist, 67.9 reads  [exact]
+  disperso knn slimdown: 0.117339 ms, 367.7 dist, 63.35 reads  [exact]
+  disperso knn etapa1: 0.126823 ms, 377.36 dist, 66.53 reads, 1105 moved  [exact]
+  disperso knn etapa2: 0.04611 ms, 151.37 dist, 21.41 reads, |P| 16  [exact]
+  disperso knn etapa2_data: 0.047827 ms, 145.58 dist, 21.87 reads, |P| 16  [exact]
+  disperso knn hilbert: 0.035772 ms, 127.38 dist, 16.62 reads  [exact]
+  disperso knn etapa2_bulk: 0.024769 ms, 88.28 dist, 11.09 reads, |P| 654  [exact]
+  disperso knn etapa2_bulk_data: 0.026737 ms, 93.3 dist, 11.86 reads, |P| 642  [exact]
+  disperso knn hilbert_etapa1: 0.034429 ms, 128.16 dist, 16.39 reads, 509 moved  [exact]
+  disperso knn etapa2_etapa1: 0.047866 ms, 155.3 dist, 20.92 reads, 552 moved, |P| 16  [exact]
+  disperso range original: 0.119699 ms, 339.38 dist, 66.78 reads  [exact]
+  disperso range slimdown: 0.112297 ms, 327.99 dist, 62.25 reads  [exact]
+  disperso range etapa1: 0.120782 ms, 337.37 dist, 65.43 reads, 1070 moved  [exact]
+  disperso range etapa2: 0.040389 ms, 121.2 dist, 18.67 reads, |P| 16  [exact]
+  disperso range etapa2_data: 0.048326 ms, 134.48 dist, 21.77 reads, |P| 16  [exact]
+  disperso range hilbert: 0.038814 ms, 114.5 dist, 17.19 reads  [exact]
+  disperso range etapa2_bulk: 0.028417 ms, 96.44 dist, 12.81 reads, |P| 654  [exact]
+  disperso range etapa2_bulk_data: 0.029719 ms, 94.24 dist, 13.3 reads, |P| 642  [exact]
+  disperso range hilbert_etapa1: 0.035453 ms, 116.01 dist, 16.99 reads, 524 moved  [exact]
+  disperso range etapa2_etapa1: 0.036158 ms, 122.93 dist, 18.25 reads, 523 moved, |P| 16  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 13 seed 55 | adapt 200 measure 100 | measure->adapt 0.781124
+  uniforme knn original: 0.153709 ms, 394.31 dist, 70.97 reads  [exact]
+  uniforme knn slimdown: 0.123072 ms, 378.38 dist, 65.89 reads  [exact]
+  uniforme knn etapa1: 0.128318 ms, 380.66 dist, 68.1 reads, 1537 moved  [exact]
+  uniforme knn etapa2: 0.03929 ms, 118.17 dist, 18.2 reads, |P| 14  [exact]
+  uniforme knn etapa2_data: 0.048485 ms, 149.62 dist, 21.95 reads, |P| 14  [exact]
+  uniforme knn hilbert: 0.05087 ms, 126.7 dist, 17.28 reads  [exact]
+  uniforme knn etapa2_bulk: 0.025638 ms, 92.47 dist, 11.68 reads, |P| 659  [exact]
+  uniforme knn etapa2_bulk_data: 0.029139 ms, 102.67 dist, 12.73 reads, |P| 642  [exact]
+  uniforme knn hilbert_etapa1: 0.036252 ms, 126.91 dist, 17.04 reads, 744 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.052804 ms, 119.41 dist, 17.93 reads, 705 moved, |P| 14  [exact]
+  uniforme range original: 0.124298 ms, 339.24 dist, 68.97 reads  [exact]
+  uniforme range slimdown: 0.11551 ms, 323.87 dist, 64.16 reads  [exact]
+  uniforme range etapa1: 0.119948 ms, 330.74 dist, 66.69 reads, 1492 moved  [exact]
+  uniforme range etapa2: 0.038426 ms, 115.82 dist, 18.78 reads, |P| 14  [exact]
+  uniforme range etapa2_data: 0.040306 ms, 119.9 dist, 20.36 reads, |P| 14  [exact]
+  uniforme range hilbert: 0.033929 ms, 110.89 dist, 17.18 reads  [exact]
+  uniforme range etapa2_bulk: 0.027388 ms, 95.54 dist, 12.6 reads, |P| 659  [exact]
+  uniforme range etapa2_bulk_data: 0.029545 ms, 93.12 dist, 13.06 reads, |P| 642  [exact]
+  uniforme range hilbert_etapa1: 0.046531 ms, 110.8 dist, 16.97 reads, 712 moved  [exact]
+  uniforme range etapa2_etapa1: 0.036448 ms, 116.46 dist, 18.56 reads, 678 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 13 seed 55 | adapt 200 measure 100 | measure->adapt 0.24221
+  region 0: Jeceaba-MG (450 cities, radius 2.11287)
+  region 1: Bela Cruz-CE (450 cities, radius 4.38543)
+  concentrado knn original: 0.13422 ms, 388.86 dist, 73.04 reads  [exact]
+  concentrado knn slimdown: 0.121959 ms, 373.59 dist, 67.01 reads  [exact]
+  concentrado knn etapa1: 0.132321 ms, 392.1 dist, 70.78 reads, 1353 moved  [exact]
+  concentrado knn etapa2: 0.070638 ms, 159.53 dist, 24.78 reads, |P| 13  [exact]
+  concentrado knn etapa2_data: 0.044947 ms, 150.44 dist, 21.86 reads, |P| 13  [exact]
+  concentrado knn hilbert: 0.043096 ms, 137.76 dist, 19.01 reads  [exact]
+  concentrado knn etapa2_bulk: 0.028913 ms, 103.88 dist, 13.13 reads, |P| 644  [exact]
+  concentrado knn etapa2_bulk_data: 0.028048 ms, 97.77 dist, 12.26 reads, |P| 642  [exact]
+  concentrado knn hilbert_etapa1: 0.039973 ms, 141.38 dist, 18.59 reads, 405 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.059598 ms, 163.59 dist, 24.26 reads, 620 moved, |P| 13  [exact]
+  concentrado range original: 0.132556 ms, 360.29 dist, 72.66 reads  [exact]
+  concentrado range slimdown: 0.120206 ms, 346.27 dist, 66.49 reads  [exact]
+  concentrado range etapa1: 0.128301 ms, 361.8 dist, 70.4 reads, 1268 moved  [exact]
+  concentrado range etapa2: 0.044211 ms, 135.27 dist, 22.08 reads, |P| 13  [exact]
+  concentrado range etapa2_data: 0.0443 ms, 133.53 dist, 21.43 reads, |P| 13  [exact]
+  concentrado range hilbert: 0.040327 ms, 120.34 dist, 19.69 reads  [exact]
+  concentrado range etapa2_bulk: 0.030667 ms, 107.28 dist, 14.05 reads, |P| 644  [exact]
+  concentrado range etapa2_bulk_data: 0.043478 ms, 99.88 dist, 13.68 reads, |P| 642  [exact]
+  concentrado range hilbert_etapa1: 0.038285 ms, 121.6 dist, 19.23 reads, 418 moved  [exact]
+  concentrado range etapa2_etapa1: 0.048505 ms, 138.28 dist, 21.69 reads, 624 moved, |P| 13  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 14 seed 56 | adapt 200 measure 100 | measure->adapt 0.62962
+  uniforme knn original: 0.133989 ms, 413.96 dist, 71.9 reads  [exact]
+  uniforme knn slimdown: 0.126021 ms, 401.63 dist, 66.18 reads  [exact]
+  uniforme knn etapa1: 0.13326 ms, 401.6 dist, 69.58 reads, 1527 moved  [exact]
+  uniforme knn etapa2: 0.056786 ms, 126.51 dist, 18.74 reads, |P| 12  [exact]
+  uniforme knn etapa2_data: 0.042915 ms, 132.56 dist, 20.99 reads, |P| 12  [exact]
+  uniforme knn hilbert: 0.040172 ms, 128.83 dist, 17.94 reads  [exact]
+  uniforme knn etapa2_bulk: 0.028866 ms, 95.22 dist, 12.46 reads, |P| 648  [exact]
+  uniforme knn etapa2_bulk_data: 0.030802 ms, 108.18 dist, 13.43 reads, |P| 661  [exact]
+  uniforme knn hilbert_etapa1: 0.037101 ms, 128.82 dist, 17.62 reads, 721 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.040969 ms, 128.18 dist, 18.47 reads, 806 moved, |P| 12  [exact]
+  uniforme range original: 0.127336 ms, 358.03 dist, 70.21 reads  [exact]
+  uniforme range slimdown: 0.207884 ms, 346.62 dist, 64.27 reads  [exact]
+  uniforme range etapa1: 0.122533 ms, 348.54 dist, 68.02 reads, 1488 moved  [exact]
+  uniforme range etapa2: 0.036802 ms, 114.92 dist, 18.59 reads, |P| 12  [exact]
+  uniforme range etapa2_data: 0.040081 ms, 123.09 dist, 20.92 reads, |P| 12  [exact]
+  uniforme range hilbert: 0.04179 ms, 113.54 dist, 17.68 reads  [exact]
+  uniforme range etapa2_bulk: 0.027915 ms, 95.47 dist, 12.94 reads, |P| 648  [exact]
+  uniforme range etapa2_bulk_data: 0.02722 ms, 99.58 dist, 13.49 reads, |P| 661  [exact]
+  uniforme range hilbert_etapa1: 0.035571 ms, 113.36 dist, 17.38 reads, 707 moved  [exact]
+  uniforme range etapa2_etapa1: 0.042854 ms, 114.88 dist, 18.34 reads, 731 moved, |P| 12  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 14 seed 56 | adapt 200 measure 100 | measure->adapt 0.186237
+  region 0: Ajuricaba-RS (450 cities, radius 2.51016)
+  region 1: Jucurutu-RN (450 cities, radius 2.22865)
+  concentrado knn original: 0.121208 ms, 368.54 dist, 65.11 reads  [exact]
+  concentrado knn slimdown: 0.11134 ms, 356.25 dist, 60.58 reads  [exact]
+  concentrado knn etapa1: 0.120601 ms, 366.05 dist, 63 reads, 1391 moved  [exact]
+  concentrado knn etapa2: 0.0424 ms, 127.59 dist, 20.17 reads, |P| 12  [exact]
+  concentrado knn etapa2_data: 0.03838 ms, 128.05 dist, 19.06 reads, |P| 12  [exact]
+  concentrado knn hilbert: 0.038227 ms, 131.62 dist, 17.07 reads  [exact]
+  concentrado knn etapa2_bulk: 0.037839 ms, 134.54 dist, 16.53 reads, |P| 651  [exact]
+  concentrado knn etapa2_bulk_data: 0.029089 ms, 102.08 dist, 12.78 reads, |P| 661  [exact]
+  concentrado knn hilbert_etapa1: 0.036361 ms, 132.17 dist, 16.71 reads, 602 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.039534 ms, 131.23 dist, 19.58 reads, 613 moved, |P| 12  [exact]
+  concentrado range original: 0.126263 ms, 384.3 dist, 66.44 reads  [exact]
+  concentrado range slimdown: 0.115994 ms, 374.6 dist, 61.63 reads  [exact]
+  concentrado range etapa1: 0.155184 ms, 381.56 dist, 64.28 reads, 1418 moved  [exact]
+  concentrado range etapa2: 0.0459 ms, 138.64 dist, 22.35 reads, |P| 12  [exact]
+  concentrado range etapa2_data: 0.04584 ms, 150.53 dist, 21.77 reads, |P| 12  [exact]
+  concentrado range hilbert: 0.03897 ms, 133.96 dist, 18.88 reads  [exact]
+  concentrado range etapa2_bulk: 0.033902 ms, 119.71 dist, 16.06 reads, |P| 651  [exact]
+  concentrado range etapa2_bulk_data: 0.033805 ms, 116.94 dist, 15.7 reads, |P| 661  [exact]
+  concentrado range hilbert_etapa1: 0.037203 ms, 134.56 dist, 18.41 reads, 621 moved  [exact]
+  concentrado range etapa2_etapa1: 0.042143 ms, 141.02 dist, 21.54 reads, 652 moved, |P| 12  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 14 seed 56 | adapt 200 measure 100 | measure->adapt 0.28778
+  region 0: Ajuricaba-RS (114 cities, radius 1.11606)
+  region 1: Jucurutu-RN (114 cities, radius 1.07517)
+  region 2: Registro-SP (114 cities, radius 1.54625)
+  region 3: Tesouro-MT (114 cities, radius 3.52677)
+  region 4: Ibitirama-ES (114 cities, radius 1.0685)
+  region 5: Gouveia-MG (114 cities, radius 1.47462)
+  region 6: Jacundá-PA (114 cities, radius 3.0702)
+  region 7: Palmital-PR (114 cities, radius 1.34648)
+  disperso knn original: 0.15573 ms, 422.63 dist, 72.47 reads  [exact]
+  disperso knn slimdown: 0.124892 ms, 406.56 dist, 65.83 reads  [exact]
+  disperso knn etapa1: 0.133463 ms, 413.87 dist, 70.4 reads, 1449 moved  [exact]
+  disperso knn etapa2: 0.043622 ms, 142.47 dist, 21.41 reads, |P| 16  [exact]
+  disperso knn etapa2_data: 0.05331 ms, 156.3 dist, 25.22 reads, |P| 16  [exact]
+  disperso knn hilbert: 0.036069 ms, 119.84 dist, 16.93 reads  [exact]
+  disperso knn etapa2_bulk: 0.027569 ms, 96.07 dist, 12.22 reads, |P| 645  [exact]
+  disperso knn etapa2_bulk_data: 0.031792 ms, 102.95 dist, 13.01 reads, |P| 661  [exact]
+  disperso knn hilbert_etapa1: 0.034724 ms, 120.57 dist, 16.68 reads, 580 moved  [exact]
+  disperso knn etapa2_etapa1: 0.042302 ms, 146.38 dist, 21.08 reads, 509 moved, |P| 16  [exact]
+  disperso range original: 0.126794 ms, 354.85 dist, 69.45 reads  [exact]
+  disperso range slimdown: 0.113219 ms, 341.85 dist, 63.34 reads  [exact]
+  disperso range etapa1: 0.123394 ms, 347.55 dist, 67.56 reads, 1435 moved  [exact]
+  disperso range etapa2: 0.036292 ms, 115.2 dist, 19.02 reads, |P| 16  [exact]
+  disperso range etapa2_data: 0.048518 ms, 137.01 dist, 24.4 reads, |P| 16  [exact]
+  disperso range hilbert: 0.036531 ms, 107.15 dist, 17.37 reads  [exact]
+  disperso range etapa2_bulk: 0.027691 ms, 94.08 dist, 13 reads, |P| 645  [exact]
+  disperso range etapa2_bulk_data: 0.027324 ms, 94.58 dist, 13.44 reads, |P| 661  [exact]
+  disperso range hilbert_etapa1: 0.033751 ms, 108.27 dist, 17.08 reads, 575 moved  [exact]
+  disperso range etapa2_etapa1: 0.035747 ms, 117.1 dist, 18.65 reads, 463 moved, |P| 16  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 15 seed 57 | adapt 200 measure 100 | measure->adapt 0.271452
+  region 0: Itajuípe-BA (450 cities, radius 4.15708)
+  region 1: Jaguaribara-CE (450 cities, radius 2.83148)
+  concentrado knn original: 0.13478 ms, 376.14 dist, 63.29 reads  [exact]
+  concentrado knn slimdown: 0.114699 ms, 366.39 dist, 59.86 reads  [exact]
+  concentrado knn etapa1: 0.11441 ms, 375.94 dist, 60.92 reads, 1134 moved  [exact]
+  concentrado knn etapa2: 0.038306 ms, 127.2 dist, 18.21 reads, |P| 12  [exact]
+  concentrado knn etapa2_data: 0.050311 ms, 175.92 dist, 24.26 reads, |P| 12  [exact]
+  concentrado knn hilbert: 0.038493 ms, 135.28 dist, 18.79 reads  [exact]
+  concentrado knn etapa2_bulk: 0.030454 ms, 102.78 dist, 13.22 reads, |P| 625  [exact]
+  concentrado knn etapa2_bulk_data: 0.027014 ms, 101.9 dist, 11.58 reads, |P| 666  [exact]
+  concentrado knn hilbert_etapa1: 0.03809 ms, 136.98 dist, 18.3 reads, 557 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.03718 ms, 128.38 dist, 17.71 reads, 559 moved, |P| 12  [exact]
+  concentrado range original: 0.116532 ms, 322.58 dist, 61.88 reads  [exact]
+  concentrado range slimdown: 0.103125 ms, 313.32 dist, 58.25 reads  [exact]
+  concentrado range etapa1: 0.109594 ms, 324.57 dist, 59.64 reads, 1098 moved  [exact]
+  concentrado range etapa2: 0.033574 ms, 110.13 dist, 17.44 reads, |P| 12  [exact]
+  concentrado range etapa2_data: 0.043437 ms, 148.18 dist, 23.39 reads, |P| 12  [exact]
+  concentrado range hilbert: 0.037103 ms, 119.54 dist, 18.56 reads  [exact]
+  concentrado range etapa2_bulk: 0.026658 ms, 87.82 dist, 12.97 reads, |P| 625  [exact]
+  concentrado range etapa2_bulk_data: 0.024244 ms, 88.69 dist, 11.73 reads, |P| 666  [exact]
+  concentrado range hilbert_etapa1: 0.03598 ms, 121.3 dist, 18.21 reads, 521 moved  [exact]
+  concentrado range etapa2_etapa1: 0.033701 ms, 110.75 dist, 16.9 reads, 479 moved, |P| 12  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 15 seed 57 | adapt 200 measure 100 | measure->adapt 0.284457
+  region 0: Itajuípe-BA (114 cities, radius 1.78017)
+  region 1: Jaguaribara-CE (114 cities, radius 1.25897)
+  region 2: Ibirité-MG (114 cities, radius 1.02728)
+  region 3: Arapoema-TO (114 cities, radius 2.55666)
+  region 4: Santa Tereza do Oeste-PR (114 cities, radius 1.31848)
+  region 5: União da Vitória-PR (114 cities, radius 1.43199)
+  region 6: Cumbe-SE (114 cities, radius 1.0489)
+  region 7: Glaucilândia-MG (114 cities, radius 1.87627)
+  disperso knn original: 0.130164 ms, 406.06 dist, 68.97 reads  [exact]
+  disperso knn slimdown: 0.129898 ms, 392.92 dist, 64.48 reads  [exact]
+  disperso knn etapa1: 0.126518 ms, 400.89 dist, 67.04 reads, 1244 moved  [exact]
+  disperso knn etapa2: 0.045193 ms, 126.46 dist, 21.33 reads, |P| 15  [exact]
+  disperso knn etapa2_data: 0.048496 ms, 160.83 dist, 23.45 reads, |P| 15  [exact]
+  disperso knn hilbert: 0.039008 ms, 127.36 dist, 17.67 reads  [exact]
+  disperso knn etapa2_bulk: 0.025582 ms, 92.33 dist, 11.16 reads, |P| 637  [exact]
+  disperso knn etapa2_bulk_data: 0.026229 ms, 96.9 dist, 11.73 reads, |P| 666  [exact]
+  disperso knn hilbert_etapa1: 0.037048 ms, 128.73 dist, 17.28 reads, 479 moved  [exact]
+  disperso knn etapa2_etapa1: 0.041544 ms, 129.03 dist, 20.9 reads, 595 moved, |P| 15  [exact]
+  disperso range original: 0.120992 ms, 347.17 dist, 66.98 reads  [exact]
+  disperso range slimdown: 0.121345 ms, 335.73 dist, 62.32 reads  [exact]
+  disperso range etapa1: 0.117487 ms, 344.61 dist, 65.07 reads, 1285 moved  [exact]
+  disperso range etapa2: 0.04132 ms, 118 dist, 21.04 reads, |P| 15  [exact]
+  disperso range etapa2_data: 0.044122 ms, 142.89 dist, 23.33 reads, |P| 15  [exact]
+  disperso range hilbert: 0.036121 ms, 116.39 dist, 17.68 reads  [exact]
+  disperso range etapa2_bulk: 0.026099 ms, 93.58 dist, 12.53 reads, |P| 637  [exact]
+  disperso range etapa2_bulk_data: 0.0263 ms, 91.38 dist, 12.11 reads, |P| 666  [exact]
+  disperso range hilbert_etapa1: 0.033711 ms, 117.61 dist, 17.42 reads, 502 moved  [exact]
+  disperso range etapa2_etapa1: 0.042911 ms, 120.97 dist, 20.69 reads, 557 moved, |P| 15  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 15 seed 57 | adapt 200 measure 100 | measure->adapt 0.826986
+  uniforme knn original: 0.126087 ms, 389.81 dist, 67.33 reads  [exact]
+  uniforme knn slimdown: 0.11758 ms, 376.5 dist, 62.76 reads  [exact]
+  uniforme knn etapa1: 0.121899 ms, 379.16 dist, 64.99 reads, 1536 moved  [exact]
+  uniforme knn etapa2: 0.042596 ms, 137.52 dist, 19.5 reads, |P| 13  [exact]
+  uniforme knn etapa2_data: 0.045119 ms, 143.47 dist, 21.62 reads, |P| 13  [exact]
+  uniforme knn hilbert: 0.03564 ms, 123.69 dist, 16.85 reads  [exact]
+  uniforme knn etapa2_bulk: 0.028567 ms, 100.36 dist, 12.35 reads, |P| 650  [exact]
+  uniforme knn etapa2_bulk_data: 0.029186 ms, 97.18 dist, 11.94 reads, |P| 666  [exact]
+  uniforme knn hilbert_etapa1: 0.036351 ms, 124.23 dist, 16.54 reads, 681 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.043946 ms, 138.23 dist, 19.2 reads, 691 moved, |P| 13  [exact]
+  uniforme range original: 0.125609 ms, 334.83 dist, 65.65 reads  [exact]
+  uniforme range slimdown: 0.109367 ms, 322.57 dist, 61.08 reads  [exact]
+  uniforme range etapa1: 0.12308 ms, 325.29 dist, 63.59 reads, 1532 moved  [exact]
+  uniforme range etapa2: 0.037377 ms, 108.24 dist, 17.91 reads, |P| 13  [exact]
+  uniforme range etapa2_data: 0.053562 ms, 124.22 dist, 20.65 reads, |P| 13  [exact]
+  uniforme range hilbert: 0.049571 ms, 110.28 dist, 17.04 reads  [exact]
+  uniforme range etapa2_bulk: 0.027181 ms, 92.21 dist, 12.27 reads, |P| 650  [exact]
+  uniforme range etapa2_bulk_data: 0.025353 ms, 91.3 dist, 12.25 reads, |P| 666  [exact]
+  uniforme range hilbert_etapa1: 0.036271 ms, 110.88 dist, 16.81 reads, 678 moved  [exact]
+  uniforme range etapa2_etapa1: 0.037022 ms, 109.1 dist, 17.68 reads, 686 moved, |P| 13  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 16 seed 58 | adapt 200 measure 100 | measure->adapt 0.364352
+  region 0: Costa Marques-RO (114 cities, radius 7.51963)
+  region 1: Araguacema-TO (114 cities, radius 3.03059)
+  region 2: Esperantinópolis-MA (114 cities, radius 1.98862)
+  region 3: Brotas-SP (114 cities, radius 1.11324)
+  region 4: Tupãssi-PR (114 cities, radius 1.34391)
+  region 5: Vista Alegre-RS (114 cities, radius 0.876926)
+  region 6: Luziânia-GO (114 cities, radius 1.99211)
+  region 7: Coronel José Dias-PI (114 cities, radius 2.24511)
+  disperso knn original: 0.141106 ms, 394.94 dist, 71.18 reads  [exact]
+  disperso knn slimdown: 0.142044 ms, 386.08 dist, 65.99 reads  [exact]
+  disperso knn etapa1: 0.170869 ms, 385.95 dist, 68.4 reads, 1288 moved  [exact]
+  disperso knn etapa2: 0.034082 ms, 107.93 dist, 15.23 reads, |P| 16  [exact]
+  disperso knn etapa2_data: 0.049347 ms, 143.01 dist, 22.31 reads, |P| 16  [exact]
+  disperso knn hilbert: 0.038754 ms, 130.51 dist, 17.74 reads  [exact]
+  disperso knn etapa2_bulk: 0.026442 ms, 95.28 dist, 11.77 reads, |P| 646  [exact]
+  disperso knn etapa2_bulk_data: 0.037722 ms, 88.67 dist, 11.44 reads, |P| 669  [exact]
+  disperso knn hilbert_etapa1: 0.038792 ms, 130.88 dist, 17.56 reads, 557 moved  [exact]
+  disperso knn etapa2_etapa1: 0.031445 ms, 109.58 dist, 14.89 reads, 483 moved, |P| 16  [exact]
+  disperso range original: 0.128288 ms, 317.39 dist, 68.92 reads  [exact]
+  disperso range slimdown: 0.111423 ms, 305.6 dist, 63.49 reads  [exact]
+  disperso range etapa1: 0.1171 ms, 311.46 dist, 66.11 reads, 1203 moved  [exact]
+  disperso range etapa2: 0.02721 ms, 87.84 dist, 14.06 reads, |P| 16  [exact]
+  disperso range etapa2_data: 0.041022 ms, 115.68 dist, 21.16 reads, |P| 16  [exact]
+  disperso range hilbert: 0.032075 ms, 99.96 dist, 16.49 reads  [exact]
+  disperso range etapa2_bulk: 0.026007 ms, 83.47 dist, 11.5 reads, |P| 646  [exact]
+  disperso range etapa2_bulk_data: 0.024152 ms, 78.07 dist, 11.28 reads, |P| 669  [exact]
+  disperso range hilbert_etapa1: 0.031368 ms, 100.19 dist, 16.28 reads, 463 moved  [exact]
+  disperso range etapa2_etapa1: 0.02668 ms, 88.71 dist, 13.85 reads, 440 moved, |P| 16  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 16 seed 58 | adapt 200 measure 100 | measure->adapt 0.724997
+  uniforme knn original: 0.1553 ms, 405.24 dist, 71.53 reads  [exact]
+  uniforme knn slimdown: 0.120649 ms, 393.17 dist, 65.59 reads  [exact]
+  uniforme knn etapa1: 0.128256 ms, 391.47 dist, 68.37 reads, 1494 moved  [exact]
+  uniforme knn etapa2: 0.041935 ms, 125.34 dist, 19.95 reads, |P| 12  [exact]
+  uniforme knn etapa2_data: 0.043657 ms, 135.19 dist, 20.24 reads, |P| 12  [exact]
+  uniforme knn hilbert: 0.042129 ms, 127.26 dist, 17.49 reads  [exact]
+  uniforme knn etapa2_bulk: 0.027289 ms, 90.2 dist, 12.07 reads, |P| 672  [exact]
+  uniforme knn etapa2_bulk_data: 0.029144 ms, 93.86 dist, 11.89 reads, |P| 669  [exact]
+  uniforme knn hilbert_etapa1: 0.037562 ms, 128.19 dist, 17.29 reads, 696 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.041249 ms, 125.18 dist, 19.8 reads, 846 moved, |P| 12  [exact]
+  uniforme range original: 0.129333 ms, 350.26 dist, 69.95 reads  [exact]
+  uniforme range slimdown: 0.115835 ms, 337.25 dist, 64.23 reads  [exact]
+  uniforme range etapa1: 0.120188 ms, 340.44 dist, 66.51 reads, 1465 moved  [exact]
+  uniforme range etapa2: 0.039402 ms, 117.54 dist, 20.08 reads, |P| 12  [exact]
+  uniforme range etapa2_data: 0.041174 ms, 120.2 dist, 19.77 reads, |P| 12  [exact]
+  uniforme range hilbert: 0.047582 ms, 109.15 dist, 17.2 reads  [exact]
+  uniforme range etapa2_bulk: 0.025824 ms, 87.49 dist, 12.57 reads, |P| 672  [exact]
+  uniforme range etapa2_bulk_data: 0.027618 ms, 91.98 dist, 12.63 reads, |P| 669  [exact]
+  uniforme range hilbert_etapa1: 0.034603 ms, 108.85 dist, 17.02 reads, 656 moved  [exact]
+  uniforme range etapa2_etapa1: 0.038578 ms, 117.51 dist, 19.84 reads, 782 moved, |P| 12  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 16 seed 58 | adapt 200 measure 100 | measure->adapt 0.690847
+  region 0: Costa Marques-RO (450 cities, radius 14.8786)
+  region 1: Esperantinópolis-MA (450 cities, radius 4.15086)
+  concentrado knn original: 0.113905 ms, 362.29 dist, 60.94 reads  [exact]
+  concentrado knn slimdown: 0.108683 ms, 354.02 dist, 57.12 reads  [exact]
+  concentrado knn etapa1: 0.108327 ms, 358.48 dist, 57.82 reads, 1186 moved  [exact]
+  concentrado knn etapa2: 0.045083 ms, 144 dist, 20.36 reads, |P| 15  [exact]
+  concentrado knn etapa2_data: 0.034945 ms, 111.34 dist, 16.58 reads, |P| 15  [exact]
+  concentrado knn hilbert: 0.032997 ms, 113.59 dist, 14.75 reads  [exact]
+  concentrado knn etapa2_bulk: 0.022958 ms, 76.31 dist, 9.59 reads, |P| 619  [exact]
+  concentrado knn etapa2_bulk_data: 0.025795 ms, 86.11 dist, 10.75 reads, |P| 669  [exact]
+  concentrado knn hilbert_etapa1: 0.035502 ms, 113.85 dist, 14.3 reads, 456 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.043692 ms, 150.62 dist, 20.02 reads, 457 moved, |P| 15  [exact]
+  concentrado range original: 0.098453 ms, 232.58 dist, 55.3 reads  [exact]
+  concentrado range slimdown: 0.094831 ms, 224.85 dist, 51.81 reads  [exact]
+  concentrado range etapa1: 0.098079 ms, 226.24 dist, 52.18 reads, 1032 moved  [exact]
+  concentrado range etapa2: 0.028309 ms, 68.37 dist, 15.39 reads, |P| 15  [exact]
+  concentrado range etapa2_data: 0.026978 ms, 69.42 dist, 14.12 reads, |P| 15  [exact]
+  concentrado range hilbert: 0.022824 ms, 65.68 dist, 12.33 reads  [exact]
+  concentrado range etapa2_bulk: 0.018562 ms, 55.28 dist, 8.38 reads, |P| 619  [exact]
+  concentrado range etapa2_bulk_data: 0.017508 ms, 55.8 dist, 8.57 reads, |P| 669  [exact]
+  concentrado range hilbert_etapa1: 0.022947 ms, 65.47 dist, 12.1 reads, 400 moved  [exact]
+  concentrado range etapa2_etapa1: 0.029086 ms, 68.43 dist, 15.22 reads, 357 moved, |P| 15  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 17 seed 59 | adapt 200 measure 100 | measure->adapt 0.666155
+  uniforme knn original: 0.143454 ms, 420.64 dist, 75.75 reads  [exact]
+  uniforme knn slimdown: 0.130379 ms, 403.18 dist, 69.48 reads  [exact]
+  uniforme knn etapa1: 0.139758 ms, 408.92 dist, 73.44 reads, 1526 moved  [exact]
+  uniforme knn etapa2: 0.050008 ms, 139.44 dist, 21.22 reads, |P| 13  [exact]
+  uniforme knn etapa2_data: 0.042256 ms, 132.59 dist, 20.28 reads, |P| 13  [exact]
+  uniforme knn hilbert: 0.041069 ms, 126.81 dist, 17.58 reads  [exact]
+  uniforme knn etapa2_bulk: 0.028935 ms, 99.84 dist, 12.46 reads, |P| 648  [exact]
+  uniforme knn etapa2_bulk_data: 0.027551 ms, 96.17 dist, 12.22 reads, |P| 637  [exact]
+  uniforme knn hilbert_etapa1: 0.037253 ms, 127.26 dist, 17.38 reads, 680 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.044152 ms, 140.29 dist, 21.05 reads, 783 moved, |P| 13  [exact]
+  uniforme range original: 0.13807 ms, 372.69 dist, 75.05 reads  [exact]
+  uniforme range slimdown: 0.134142 ms, 357.8 dist, 68.59 reads  [exact]
+  uniforme range etapa1: 0.131157 ms, 362.57 dist, 72.36 reads, 1487 moved  [exact]
+  uniforme range etapa2: 0.045003 ms, 129.14 dist, 21.68 reads, |P| 13  [exact]
+  uniforme range etapa2_data: 0.042802 ms, 122.41 dist, 20.32 reads, |P| 13  [exact]
+  uniforme range hilbert: 0.037665 ms, 115.29 dist, 17.67 reads  [exact]
+  uniforme range etapa2_bulk: 0.028577 ms, 98.21 dist, 13.36 reads, |P| 648  [exact]
+  uniforme range etapa2_bulk_data: 0.026557 ms, 95.28 dist, 12.74 reads, |P| 637  [exact]
+  uniforme range hilbert_etapa1: 0.03468 ms, 116.12 dist, 17.46 reads, 677 moved  [exact]
+  uniforme range etapa2_etapa1: 0.04227 ms, 129.96 dist, 21.54 reads, 705 moved, |P| 13  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 17 seed 59 | adapt 200 measure 100 | measure->adapt 0.24983
+  region 0: São Sebastião da Amoreira-PR (450 cities, radius 2.46619)
+  region 1: Três Ranchos-GO (450 cities, radius 3.35288)
+  concentrado knn original: 0.161932 ms, 493.15 dist, 86.38 reads  [exact]
+  concentrado knn slimdown: 0.146757 ms, 470.18 dist, 78.62 reads  [exact]
+  concentrado knn etapa1: 0.154398 ms, 483.19 dist, 81.53 reads, 1480 moved  [exact]
+  concentrado knn etapa2: 0.06013 ms, 174.97 dist, 27.45 reads, |P| 12  [exact]
+  concentrado knn etapa2_data: 0.045601 ms, 144.96 dist, 22.26 reads, |P| 12  [exact]
+  concentrado knn hilbert: 0.041476 ms, 136.72 dist, 20.19 reads  [exact]
+  concentrado knn etapa2_bulk: 0.043398 ms, 116.14 dist, 14.73 reads, |P| 624  [exact]
+  concentrado knn etapa2_bulk_data: 0.031946 ms, 103.64 dist, 12.87 reads, |P| 637  [exact]
+  concentrado knn hilbert_etapa1: 0.057428 ms, 139.07 dist, 19.78 reads, 454 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.055104 ms, 177.74 dist, 26.57 reads, 656 moved, |P| 12  [exact]
+  concentrado range original: 0.152438 ms, 417.45 dist, 85.34 reads  [exact]
+  concentrado range slimdown: 0.139747 ms, 400.5 dist, 77.44 reads  [exact]
+  concentrado range etapa1: 0.147257 ms, 411.67 dist, 80.29 reads, 1491 moved  [exact]
+  concentrado range etapa2: 0.047437 ms, 135.99 dist, 23.74 reads, |P| 12  [exact]
+  concentrado range etapa2_data: 0.047738 ms, 131.11 dist, 21.88 reads, |P| 12  [exact]
+  concentrado range hilbert: 0.042273 ms, 115.63 dist, 19.05 reads  [exact]
+  concentrado range etapa2_bulk: 0.031015 ms, 104.71 dist, 14.32 reads, |P| 624  [exact]
+  concentrado range etapa2_bulk_data: 0.027462 ms, 96.44 dist, 13.13 reads, |P| 637  [exact]
+  concentrado range hilbert_etapa1: 0.039014 ms, 116.68 dist, 18.5 reads, 428 moved  [exact]
+  concentrado range etapa2_etapa1: 0.045249 ms, 137.17 dist, 23.04 reads, 515 moved, |P| 12  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 17 seed 59 | adapt 200 measure 100 | measure->adapt 0.260405
+  region 0: São Sebastião da Amoreira-PR (114 cities, radius 1.15521)
+  region 1: Celso Ramos-SC (114 cities, radius 1.12894)
+  region 2: Orindiúva-SP (114 cities, radius 1.20337)
+  region 3: Felixlândia-MG (114 cities, radius 1.58777)
+  region 4: Chiador-MG (114 cities, radius 1.03121)
+  region 5: Conceição dos Ouros-MG (114 cities, radius 0.920489)
+  region 6: Capanema-PA (114 cities, radius 2.89969)
+  region 7: Vila Propício-GO (114 cities, radius 1.77341)
+  disperso knn original: 0.167708 ms, 442.78 dist, 80.09 reads  [exact]
+  disperso knn slimdown: 0.139757 ms, 424.19 dist, 73.27 reads  [exact]
+  disperso knn etapa1: 0.148132 ms, 432.13 dist, 77.66 reads, 1497 moved  [exact]
+  disperso knn etapa2: 0.058097 ms, 173.81 dist, 26.59 reads, |P| 15  [exact]
+  disperso knn etapa2_data: 0.042238 ms, 132.8 dist, 19.63 reads, |P| 15  [exact]
+  disperso knn hilbert: 0.041201 ms, 126.81 dist, 18.56 reads  [exact]
+  disperso knn etapa2_bulk: 0.028757 ms, 102.59 dist, 13.03 reads, |P| 650  [exact]
+  disperso knn etapa2_bulk_data: 0.027149 ms, 96.3 dist, 12.12 reads, |P| 637  [exact]
+  disperso knn hilbert_etapa1: 0.037083 ms, 129.32 dist, 18.07 reads, 473 moved  [exact]
+  disperso knn etapa2_etapa1: 0.05269 ms, 174.74 dist, 25.98 reads, 640 moved, |P| 15  [exact]
+  disperso range original: 0.153256 ms, 400.13 dist, 79.96 reads  [exact]
+  disperso range slimdown: 0.130252 ms, 386.29 dist, 73.09 reads  [exact]
+  disperso range etapa1: 0.137751 ms, 391.99 dist, 77.45 reads, 1524 moved  [exact]
+  disperso range etapa2: 0.053879 ms, 164.54 dist, 26.85 reads, |P| 15  [exact]
+  disperso range etapa2_data: 0.039228 ms, 130.67 dist, 20.18 reads, |P| 15  [exact]
+  disperso range hilbert: 0.0472 ms, 120.61 dist, 18.95 reads  [exact]
+  disperso range etapa2_bulk: 0.0297 ms, 108.88 dist, 14.62 reads, |P| 650  [exact]
+  disperso range etapa2_bulk_data: 0.027742 ms, 100.32 dist, 13.55 reads, |P| 637  [exact]
+  disperso range hilbert_etapa1: 0.036133 ms, 121.98 dist, 18.44 reads, 427 moved  [exact]
+  disperso range etapa2_etapa1: 0.052323 ms, 162.69 dist, 26.17 reads, 639 moved, |P| 15  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 18 seed 60 | adapt 200 measure 100 | measure->adapt 0.189343
+  region 0: Água Doce-SC (450 cities, radius 2.25788)
+  region 1: Santa Luzia do Itanhy-SE (450 cities, radius 3.47438)
+  concentrado knn original: 0.145295 ms, 359.76 dist, 66.17 reads  [exact]
+  concentrado knn slimdown: 0.119009 ms, 345.67 dist, 61.05 reads  [exact]
+  concentrado knn etapa1: 0.12107 ms, 357.88 dist, 63.98 reads, 1099 moved  [exact]
+  concentrado knn etapa2: 0.039721 ms, 128.39 dist, 18.13 reads, |P| 17  [exact]
+  concentrado knn etapa2_data: 0.039246 ms, 126.13 dist, 18.93 reads, |P| 17  [exact]
+  concentrado knn hilbert: 0.038222 ms, 133.37 dist, 17.41 reads  [exact]
+  concentrado knn etapa2_bulk: 0.029209 ms, 96.92 dist, 12.73 reads, |P| 620  [exact]
+  concentrado knn etapa2_bulk_data: 0.034899 ms, 96.82 dist, 12.33 reads, |P| 644  [exact]
+  concentrado knn hilbert_etapa1: 0.038893 ms, 134.52 dist, 16.89 reads, 565 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.037908 ms, 132.4 dist, 17.79 reads, 467 moved, |P| 17  [exact]
+  concentrado range original: 0.133809 ms, 348.9 dist, 66.67 reads  [exact]
+  concentrado range slimdown: 0.113509 ms, 337.16 dist, 61.3 reads  [exact]
+  concentrado range etapa1: 0.118109 ms, 350.7 dist, 64.56 reads, 1125 moved  [exact]
+  concentrado range etapa2: 0.036703 ms, 124.97 dist, 18.55 reads, |P| 17  [exact]
+  concentrado range etapa2_data: 0.040209 ms, 135.59 dist, 20.25 reads, |P| 17  [exact]
+  concentrado range hilbert: 0.036147 ms, 135.1 dist, 18.05 reads  [exact]
+  concentrado range etapa2_bulk: 0.033392 ms, 108.64 dist, 14.57 reads, |P| 620  [exact]
+  concentrado range etapa2_bulk_data: 0.039348 ms, 105.16 dist, 14 reads, |P| 644  [exact]
+  concentrado range hilbert_etapa1: 0.037978 ms, 135.75 dist, 17.64 reads, 646 moved  [exact]
+  concentrado range etapa2_etapa1: 0.039136 ms, 126.19 dist, 18.11 reads, 522 moved, |P| 17  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 18 seed 60 | adapt 200 measure 100 | measure->adapt 0.298141
+  region 0: Água Doce-SC (114 cities, radius 1.13071)
+  region 1: Guia Lopes da Laguna-MS (114 cities, radius 3.78535)
+  region 2: São Vicente do Sul-RS (114 cities, radius 2.00202)
+  region 3: Santa Luzia do Itanhy-SE (114 cities, radius 1.42874)
+  region 4: Chã Preta-AL (114 cities, radius 0.946256)
+  region 5: Lençóis Paulista-SP (114 cities, radius 1.15732)
+  region 6: Novo Oriente do Piauí-PI (114 cities, radius 1.61818)
+  region 7: Barra da Estiva-BA (114 cities, radius 1.80546)
+  disperso knn original: 0.126062 ms, 382.33 dist, 67.73 reads  [exact]
+  disperso knn slimdown: 0.113804 ms, 368.68 dist, 62.07 reads  [exact]
+  disperso knn etapa1: 0.123842 ms, 377.89 dist, 65.5 reads, 1260 moved  [exact]
+  disperso knn etapa2: 0.047909 ms, 152.74 dist, 23.36 reads, |P| 14  [exact]
+  disperso knn etapa2_data: 0.045275 ms, 147.9 dist, 21.89 reads, |P| 14  [exact]
+  disperso knn hilbert: 0.040846 ms, 128.37 dist, 17.69 reads  [exact]
+  disperso knn etapa2_bulk: 0.027177 ms, 98.09 dist, 11.73 reads, |P| 640  [exact]
+  disperso knn etapa2_bulk_data: 0.027403 ms, 96.78 dist, 11.89 reads, |P| 644  [exact]
+  disperso knn hilbert_etapa1: 0.037738 ms, 131.24 dist, 17.37 reads, 646 moved  [exact]
+  disperso knn etapa2_etapa1: 0.053185 ms, 152.9 dist, 23.11 reads, 635 moved, |P| 14  [exact]
+  disperso range original: 0.120982 ms, 330.88 dist, 66.22 reads  [exact]
+  disperso range slimdown: 0.137215 ms, 318.29 dist, 60.63 reads  [exact]
+  disperso range etapa1: 0.123565 ms, 326.46 dist, 63.97 reads, 1239 moved  [exact]
+  disperso range etapa2: 0.043653 ms, 129.47 dist, 22.17 reads, |P| 14  [exact]
+  disperso range etapa2_data: 0.046565 ms, 124.18 dist, 21.23 reads, |P| 14  [exact]
+  disperso range hilbert: 0.034636 ms, 117.18 dist, 17.21 reads  [exact]
+  disperso range etapa2_bulk: 0.027495 ms, 95.29 dist, 12.42 reads, |P| 640  [exact]
+  disperso range etapa2_bulk_data: 0.026746 ms, 93.92 dist, 12.33 reads, |P| 644  [exact]
+  disperso range hilbert_etapa1: 0.035572 ms, 119.69 dist, 16.99 reads, 650 moved  [exact]
+  disperso range etapa2_etapa1: 0.043618 ms, 129.78 dist, 21.91 reads, 607 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 18 seed 60 | adapt 200 measure 100 | measure->adapt 0.704342
+  uniforme knn original: 0.128375 ms, 386.22 dist, 66.98 reads  [exact]
+  uniforme knn slimdown: 0.122572 ms, 374.14 dist, 62.35 reads  [exact]
+  uniforme knn etapa1: 0.125531 ms, 377.18 dist, 64.86 reads, 1479 moved  [exact]
+  uniforme knn etapa2: 0.054659 ms, 150.53 dist, 24.88 reads, |P| 14  [exact]
+  uniforme knn etapa2_data: 0.04438 ms, 145.93 dist, 20.97 reads, |P| 14  [exact]
+  uniforme knn hilbert: 0.035101 ms, 119 dist, 16.48 reads  [exact]
+  uniforme knn etapa2_bulk: 0.033003 ms, 92.58 dist, 10.92 reads, |P| 638  [exact]
+  uniforme knn etapa2_bulk_data: 0.036535 ms, 93.52 dist, 11.61 reads, |P| 644  [exact]
+  uniforme knn hilbert_etapa1: 0.037809 ms, 119.21 dist, 16.19 reads, 700 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.053755 ms, 151.84 dist, 24.42 reads, 837 moved, |P| 14  [exact]
+  uniforme range original: 0.118743 ms, 322.33 dist, 64.75 reads  [exact]
+  uniforme range slimdown: 0.110988 ms, 310.76 dist, 60.15 reads  [exact]
+  uniforme range etapa1: 0.114182 ms, 311.78 dist, 62.67 reads, 1446 moved  [exact]
+  uniforme range etapa2: 0.047243 ms, 129.61 dist, 24.33 reads, |P| 14  [exact]
+  uniforme range etapa2_data: 0.0431 ms, 119.39 dist, 20.19 reads, |P| 14  [exact]
+  uniforme range hilbert: 0.034364 ms, 107.9 dist, 16.49 reads  [exact]
+  uniforme range etapa2_bulk: 0.025318 ms, 89.36 dist, 11.48 reads, |P| 638  [exact]
+  uniforme range etapa2_bulk_data: 0.0267 ms, 89.39 dist, 12.12 reads, |P| 644  [exact]
+  uniforme range hilbert_etapa1: 0.034816 ms, 107.4 dist, 16.21 reads, 620 moved  [exact]
+  uniforme range etapa2_etapa1: 0.045458 ms, 130.19 dist, 24.03 reads, 808 moved, |P| 14  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 19 seed 61 | adapt 200 measure 100 | measure->adapt 0.382058
+  region 0: Cândido Mota-SP (114 cities, radius 1.08908)
+  region 1: Catas Altas da Noruega-MG (114 cities, radius 0.912195)
+  region 2: Palmeirina-PE (114 cities, radius 0.925743)
+  region 3: Jaicós-PI (114 cities, radius 1.73488)
+  region 4: Arenápolis-MT (114 cities, radius 4.64247)
+  region 5: Timbé do Sul-SC (114 cities, radius 1.43031)
+  region 6: Bananeiras-PB (114 cities, radius 0.743236)
+  region 7: Óbidos-PA (114 cities, radius 6.90219)
+  disperso knn original: 0.127257 ms, 397.72 dist, 66.37 reads  [exact]
+  disperso knn slimdown: 0.119531 ms, 386.89 dist, 61.98 reads  [exact]
+  disperso knn etapa1: 0.137528 ms, 394.35 dist, 64.93 reads, 1216 moved  [exact]
+  disperso knn etapa2: 0.048384 ms, 144.51 dist, 21.14 reads, |P| 13  [exact]
+  disperso knn etapa2_data: 0.050747 ms, 143.43 dist, 23.31 reads, |P| 13  [exact]
+  disperso knn hilbert: 0.039217 ms, 123.32 dist, 17.66 reads  [exact]
+  disperso knn etapa2_bulk: 0.023842 ms, 84.99 dist, 10.57 reads, |P| 626  [exact]
+  disperso knn etapa2_bulk_data: 0.027385 ms, 92.35 dist, 11.83 reads, |P| 665  [exact]
+  disperso knn hilbert_etapa1: 0.037255 ms, 124.46 dist, 17.36 reads, 411 moved  [exact]
+  disperso knn etapa2_etapa1: 0.05487 ms, 146.79 dist, 20.92 reads, 759 moved, |P| 13  [exact]
+  disperso range original: 0.118467 ms, 332.74 dist, 64.76 reads  [exact]
+  disperso range slimdown: 0.107055 ms, 323.74 dist, 59.89 reads  [exact]
+  disperso range etapa1: 0.115965 ms, 329.46 dist, 63.21 reads, 1189 moved  [exact]
+  disperso range etapa2: 0.039391 ms, 122.95 dist, 20.11 reads, |P| 13  [exact]
+  disperso range etapa2_data: 0.048869 ms, 122.4 dist, 21.94 reads, |P| 13  [exact]
+  disperso range hilbert: 0.034336 ms, 114.51 dist, 17.49 reads  [exact]
+  disperso range etapa2_bulk: 0.025197 ms, 88.33 dist, 11.93 reads, |P| 626  [exact]
+  disperso range etapa2_bulk_data: 0.036204 ms, 90.16 dist, 12.73 reads, |P| 665  [exact]
+  disperso range hilbert_etapa1: 0.033965 ms, 115.76 dist, 17.2 reads, 420 moved  [exact]
+  disperso range etapa2_etapa1: 0.040835 ms, 124.26 dist, 19.91 reads, 679 moved, |P| 13  [exact]
+
+DONE (0)
+dataset 5507 objects | regime uniforme | rep 19 seed 61 | adapt 200 measure 100 | measure->adapt 0.786365
+  uniforme knn original: 0.137414 ms, 434.87 dist, 72.84 reads  [exact]
+  uniforme knn slimdown: 0.124812 ms, 423.08 dist, 67.13 reads  [exact]
+  uniforme knn etapa1: 0.132791 ms, 426.79 dist, 70.36 reads, 1532 moved  [exact]
+  uniforme knn etapa2: 0.048516 ms, 152.81 dist, 23.48 reads, |P| 11  [exact]
+  uniforme knn etapa2_data: 0.050472 ms, 150.19 dist, 24.41 reads, |P| 11  [exact]
+  uniforme knn hilbert: 0.03681 ms, 123.62 dist, 17.43 reads  [exact]
+  uniforme knn etapa2_bulk: 0.026971 ms, 94.4 dist, 11.89 reads, |P| 621  [exact]
+  uniforme knn etapa2_bulk_data: 0.028345 ms, 96.33 dist, 12.09 reads, |P| 665  [exact]
+  uniforme knn hilbert_etapa1: 0.036476 ms, 123.74 dist, 17.11 reads, 642 moved  [exact]
+  uniforme knn etapa2_etapa1: 0.047684 ms, 154.83 dist, 23.38 reads, 872 moved, |P| 11  [exact]
+  uniforme range original: 0.125862 ms, 360.15 dist, 70.16 reads  [exact]
+  uniforme range slimdown: 0.115664 ms, 347.41 dist, 64.73 reads  [exact]
+  uniforme range etapa1: 0.123861 ms, 349.62 dist, 68.03 reads, 1464 moved  [exact]
+  uniforme range etapa2: 0.045657 ms, 129.62 dist, 22.4 reads, |P| 11  [exact]
+  uniforme range etapa2_data: 0.045182 ms, 123.94 dist, 23.19 reads, |P| 11  [exact]
+  uniforme range hilbert: 0.036565 ms, 113.01 dist, 17.5 reads  [exact]
+  uniforme range etapa2_bulk: 0.025539 ms, 93.89 dist, 12.54 reads, |P| 621  [exact]
+  uniforme range etapa2_bulk_data: 0.027034 ms, 93.7 dist, 13.18 reads, |P| 665  [exact]
+  uniforme range hilbert_etapa1: 0.035569 ms, 113.89 dist, 17.15 reads, 671 moved  [exact]
+  uniforme range etapa2_etapa1: 0.046382 ms, 130.45 dist, 22.31 reads, 776 moved, |P| 11  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 19 seed 61 | adapt 200 measure 100 | measure->adapt 0.199176
+  region 0: Cândido Mota-SP (450 cities, radius 2.31225)
+  region 1: Catas Altas da Noruega-MG (450 cities, radius 2.07241)
+  concentrado knn original: 0.157659 ms, 478.46 dist, 85.26 reads  [exact]
+  concentrado knn slimdown: 0.141395 ms, 455.37 dist, 77.45 reads  [exact]
+  concentrado knn etapa1: 0.152537 ms, 475.05 dist, 81.95 reads, 1428 moved  [exact]
+  concentrado knn etapa2: 0.063803 ms, 193.03 dist, 30.21 reads, |P| 15  [exact]
+  concentrado knn etapa2_data: 0.049289 ms, 152.82 dist, 25.52 reads, |P| 15  [exact]
+  concentrado knn hilbert: 0.04446 ms, 139.79 dist, 20.54 reads  [exact]
+  concentrado knn etapa2_bulk: 0.033287 ms, 115.18 dist, 14.87 reads, |P| 651  [exact]
+  concentrado knn etapa2_bulk_data: 0.029858 ms, 108.67 dist, 13.84 reads, |P| 665  [exact]
+  concentrado knn hilbert_etapa1: 0.041266 ms, 144.31 dist, 20.12 reads, 517 moved  [exact]
+  concentrado knn etapa2_etapa1: 0.057861 ms, 197.63 dist, 29.35 reads, 823 moved, |P| 15  [exact]
+  concentrado range original: 0.151291 ms, 444.29 dist, 84.72 reads  [exact]
+  concentrado range slimdown: 0.142129 ms, 425.3 dist, 77.01 reads  [exact]
+  concentrado range etapa1: 0.148425 ms, 445.45 dist, 81.57 reads, 1426 moved  [exact]
+  concentrado range etapa2: 0.054639 ms, 160.53 dist, 27.95 reads, |P| 15  [exact]
+  concentrado range etapa2_data: 0.055059 ms, 167.91 dist, 27.29 reads, |P| 15  [exact]
+  concentrado range hilbert: 0.042754 ms, 135.15 dist, 20.56 reads  [exact]
+  concentrado range etapa2_bulk: 0.030702 ms, 107.82 dist, 15.26 reads, |P| 651  [exact]
+  concentrado range etapa2_bulk_data: 0.031979 ms, 118.1 dist, 16.01 reads, |P| 665  [exact]
+  concentrado range hilbert_etapa1: 0.040222 ms, 136.92 dist, 20.04 reads, 514 moved  [exact]
+  concentrado range etapa2_etapa1: 0.052047 ms, 161.73 dist, 27.33 reads, 810 moved, |P| 15  [exact]
+
+DONE (0)

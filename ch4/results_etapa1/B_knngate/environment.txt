@@ -1,0 +1,17 @@
+timestamp   : 2026-10-29T16:58:50-03:00
+commit      : 66ee4c7-dirty
+compiler    : g++.exe (Rev5, Built by MSYS2 project) 16.1.0
+reps        : 20
+adapt       : 200
+measure     : 100
+k           : 10
+radius      : 0.5
+page size   : 1024
+chunk       : 50
+seeds       : 42..61 (one per repetition)
+region fact.: 3
+pivots      : 0 (0 = root of T_Q)
+knn gate    : --knn-gate
+regimes     : concentrado disperso uniforme
+dataset     : /c/Users/tataw/OneDrive/Desktop/Talia/Slim_Tree/arboretum_SlimTree_QueryGravity/arboretum/test-brcities-datastore/BrazilianCities.txt
+query pool  : /c/Users/tataw/OneDrive/Desktop/Talia/Slim_Tree/arboretum_SlimTree_QueryGravity/arboretum/test-brcities-datastore/BrazilianCities500.txt

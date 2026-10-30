@@ -1,0 +1,640 @@
+dataset 5507 objects | regime concentrado | rep 0 seed 42 | adapt 1000 measure 100 | measure->adapt 0.140786
+  region 0: Carnaubal-CE (550 cities, radius 4.1021)
+  region 1: Floreal-SP (550 cities, radius 3.02696)
+  concentrado knn original: 0.182784 ms, 393.09 dist, 70.04 reads  [exact]
+  concentrado knn slimdown: 0.125586 ms, 388.95 dist, 65.45 reads  [exact]
+  concentrado knn etapa1: 0.130159 ms, 386.55 dist, 67.14 reads, 1298 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.120022 ms, 383.59 dist, 64.64 reads, 938 moved  [exact]
+  concentrado range original: 0.128361 ms, 343.25 dist, 69.38 reads  [exact]
+  concentrado range slimdown: 0.118606 ms, 334.22 dist, 64.52 reads  [exact]
+  concentrado range etapa1: 0.126012 ms, 327.56 dist, 65.89 reads, 1292 moved  [exact]
+  concentrado range slimdown_etapa1: 0.113076 ms, 325.63 dist, 63.61 reads, 956 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 0 seed 42 | adapt 1000 measure 100 | measure->adapt 0.160305
+  region 0: Carnaubal-CE (138 cities, radius 1.90646)
+  region 1: Vitória do Jari-AP (138 cities, radius 5.77087)
+  region 2: São Francisco do Oeste-RN (138 cities, radius 1.27028)
+  region 3: Floreal-SP (138 cities, radius 1.17175)
+  region 4: Sarzedo-MG (138 cities, radius 1.16812)
+  region 5: Taió-SC (138 cities, radius 1.39014)
+  region 6: Várzea Branca-PI (138 cities, radius 2.69615)
+  region 7: Pejuçara-RS (138 cities, radius 1.23693)
+  disperso knn original: 0.117511 ms, 354.62 dist, 62.62 reads  [exact]
+  disperso knn slimdown: 0.110886 ms, 347.4 dist, 58.23 reads  [exact]
+  disperso knn etapa1: 0.111034 ms, 351.75 dist, 59.94 reads, 1637 moved  [exact]
+  disperso knn slimdown_etapa1: 0.108533 ms, 345.32 dist, 57.98 reads, 1069 moved  [exact]
+  disperso range original: 0.110275 ms, 311.58 dist, 61.24 reads  [exact]
+  disperso range slimdown: 0.100916 ms, 302.11 dist, 56.9 reads  [exact]
+  disperso range etapa1: 0.107502 ms, 306.13 dist, 58.34 reads, 1552 moved  [exact]
+  disperso range slimdown_etapa1: 0.101156 ms, 300.1 dist, 56.57 reads, 981 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 1 seed 43 | adapt 1000 measure 100 | measure->adapt 0.147141
+  region 0: Novo Triunfo-BA (138 cities, radius 1.51347)
+  region 1: Graça Aranha-MA (138 cities, radius 2.07625)
+  region 2: Bom Sucesso do Sul-PR (138 cities, radius 1.16778)
+  region 3: Kaloré-PR (138 cities, radius 1.20934)
+  region 4: Formosa do Rio Preto-BA (138 cities, radius 3.37356)
+  region 5: Cumari-GO (138 cities, radius 2.13476)
+  region 6: Montenegro-RS (138 cities, radius 1.06212)
+  region 7: Itu-SP (138 cities, radius 1.05342)
+  disperso knn original: 0.143142 ms, 432.97 dist, 77.99 reads  [exact]
+  disperso knn slimdown: 0.13296 ms, 421.05 dist, 72.59 reads  [exact]
+  disperso knn etapa1: 0.139493 ms, 427.39 dist, 74.18 reads, 1991 moved  [exact]
+  disperso knn slimdown_etapa1: 0.139102 ms, 420.29 dist, 71.73 reads, 1004 moved  [exact]
+  disperso range original: 0.136952 ms, 373.16 dist, 75.6 reads  [exact]
+  disperso range slimdown: 0.129413 ms, 363.32 dist, 70.53 reads  [exact]
+  disperso range etapa1: 0.130322 ms, 365.89 dist, 72.18 reads, 1754 moved  [exact]
+  disperso range slimdown_etapa1: 0.13415 ms, 362.01 dist, 69.98 reads, 859 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 1 seed 43 | adapt 1000 measure 100 | measure->adapt 0.14859
+  region 0: Novo Triunfo-BA (550 cities, radius 3.38723)
+  region 1: São Sebastião do Tocantins-TO (550 cities, radius 6.17282)
+  concentrado knn original: 0.121708 ms, 385.04 dist, 65.68 reads  [exact]
+  concentrado knn slimdown: 0.113402 ms, 382.39 dist, 61.4 reads  [exact]
+  concentrado knn etapa1: 0.117121 ms, 389.11 dist, 62.11 reads, 1043 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.117821 ms, 381.05 dist, 60.75 reads, 498 moved  [exact]
+  concentrado range original: 0.11409 ms, 308.2 dist, 63.11 reads  [exact]
+  concentrado range slimdown: 0.107445 ms, 300.15 dist, 59.01 reads  [exact]
+  concentrado range etapa1: 0.106627 ms, 299.94 dist, 59.18 reads, 1090 moved  [exact]
+  concentrado range slimdown_etapa1: 0.109864 ms, 297.91 dist, 58.22 reads, 451 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 2 seed 44 | adapt 1000 measure 100 | measure->adapt 0.132107
+  region 0: Vassouras-RJ (550 cities, radius 2.878)
+  region 1: Tianguá-CE (550 cities, radius 4.28065)
+  concentrado knn original: 0.134354 ms, 371.59 dist, 73.57 reads  [exact]
+  concentrado knn slimdown: 0.1242 ms, 365.78 dist, 68.44 reads  [exact]
+  concentrado knn etapa1: 0.128463 ms, 361.67 dist, 69.61 reads, 1022 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.132619 ms, 362.24 dist, 68.15 reads, 473 moved  [exact]
+  concentrado range original: 0.129365 ms, 350.16 dist, 72.84 reads  [exact]
+  concentrado range slimdown: 0.120038 ms, 347.09 dist, 67.87 reads  [exact]
+  concentrado range etapa1: 0.1258 ms, 338.98 dist, 69.27 reads, 1083 moved  [exact]
+  concentrado range slimdown_etapa1: 0.125501 ms, 343.43 dist, 67.38 reads, 464 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 2 seed 44 | adapt 1000 measure 100 | measure->adapt 0.161489
+  region 0: Vassouras-RJ (138 cities, radius 1.33735)
+  region 1: Tianguá-CE (138 cities, radius 1.96901)
+  region 2: Sítio do Quinto-BA (138 cities, radius 1.42972)
+  region 3: Sítio Novo-RN (138 cities, radius 1.02078)
+  region 4: Rio Paranaíba-MG (138 cities, radius 1.8711)
+  region 5: Itapuranga-GO (138 cities, radius 1.94879)
+  region 6: Junqueirópolis-SP (138 cities, radius 1.43544)
+  region 7: Brasnorte-MT (138 cities, radius 5.6105)
+  disperso knn original: 0.135579 ms, 368.2 dist, 71.71 reads  [exact]
+  disperso knn slimdown: 0.120159 ms, 362.88 dist, 66.92 reads  [exact]
+  disperso knn etapa1: 0.125557 ms, 369.82 dist, 68.61 reads, 1313 moved  [exact]
+  disperso knn slimdown_etapa1: 0.127646 ms, 364.88 dist, 66.36 reads, 459 moved  [exact]
+  disperso range original: 0.126051 ms, 326.66 dist, 70.43 reads  [exact]
+  disperso range slimdown: 0.116531 ms, 320.85 dist, 65.75 reads  [exact]
+  disperso range etapa1: 0.119756 ms, 326.23 dist, 67.51 reads, 1259 moved  [exact]
+  disperso range slimdown_etapa1: 0.120466 ms, 320.85 dist, 65.35 reads, 436 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 3 seed 45 | adapt 1000 measure 100 | measure->adapt 0.195525
+  region 0: São Luiz-RR (138 cities, radius 11.0947)
+  region 1: Almas-TO (138 cities, radius 3.25301)
+  region 2: Mauá da Serra-PR (138 cities, radius 1.29275)
+  region 3: Santa Maria-RN (138 cities, radius 1.18697)
+  region 4: Tanguá-RJ (138 cities, radius 1.63573)
+  region 5: Meleiro-SC (138 cities, radius 1.63248)
+  region 6: Pingo-d'Água-MG (138 cities, radius 1.1114)
+  region 7: Santo Antônio do Jardim-SP (138 cities, radius 1.06066)
+  disperso knn original: 0.131843 ms, 398.84 dist, 70.85 reads  [exact]
+  disperso knn slimdown: 0.122489 ms, 385.59 dist, 64.8 reads  [exact]
+  disperso knn etapa1: 0.128127 ms, 394.58 dist, 68.05 reads, 1257 moved  [exact]
+  disperso knn slimdown_etapa1: 0.128934 ms, 381.31 dist, 64.21 reads, 812 moved  [exact]
+  disperso range original: 0.122764 ms, 344.08 dist, 68.82 reads  [exact]
+  disperso range slimdown: 0.123947 ms, 330.33 dist, 62.99 reads  [exact]
+  disperso range etapa1: 0.120888 ms, 332.96 dist, 65.87 reads, 1182 moved  [exact]
+  disperso range slimdown_etapa1: 0.112964 ms, 324.94 dist, 62.26 reads, 735 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 3 seed 45 | adapt 1000 measure 100 | measure->adapt 0.254533
+  region 0: São Luiz-RR (550 cities, radius 15.8792)
+  region 1: Mauá da Serra-PR (550 cities, radius 2.82816)
+  concentrado knn original: 0.181002 ms, 405.97 dist, 71.27 reads  [exact]
+  concentrado knn slimdown: 0.124797 ms, 396.65 dist, 65.99 reads  [exact]
+  concentrado knn etapa1: 0.126344 ms, 401.16 dist, 68.78 reads, 1139 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.125606 ms, 395.49 dist, 65.19 reads, 754 moved  [exact]
+  concentrado range original: 0.118791 ms, 301.68 dist, 67.6 reads  [exact]
+  concentrado range slimdown: 0.108083 ms, 290.73 dist, 62.53 reads  [exact]
+  concentrado range etapa1: 0.113482 ms, 292.14 dist, 65.24 reads, 1047 moved  [exact]
+  concentrado range slimdown_etapa1: 0.109602 ms, 284.99 dist, 61.38 reads, 590 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 4 seed 46 | adapt 1000 measure 100 | measure->adapt 0.125515
+  region 0: Conde-BA (550 cities, radius 4.09542)
+  region 1: Iraceminha-SC (550 cities, radius 2.83016)
+  concentrado knn original: 0.117825 ms, 369.32 dist, 62.36 reads  [exact]
+  concentrado knn slimdown: 0.112072 ms, 359.8 dist, 59.83 reads  [exact]
+  concentrado knn etapa1: 0.112788 ms, 357.34 dist, 60.28 reads, 912 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.113934 ms, 352.89 dist, 58.97 reads, 595 moved  [exact]
+  concentrado range original: 0.11392 ms, 343.43 dist, 61.86 reads  [exact]
+  concentrado range slimdown: 0.110383 ms, 335.41 dist, 59.36 reads  [exact]
+  concentrado range etapa1: 0.109363 ms, 332.5 dist, 59.78 reads, 830 moved  [exact]
+  concentrado range slimdown_etapa1: 0.109332 ms, 330.71 dist, 58.52 reads, 466 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 4 seed 46 | adapt 1000 measure 100 | measure->adapt 0.196377
+  region 0: Conde-BA (138 cities, radius 1.69118)
+  region 1: Iraceminha-SC (138 cities, radius 0.963016)
+  region 2: Pindorama do Tocantins-TO (138 cities, radius 3.22902)
+  region 3: Boa Vista-RR (138 cities, radius 12.348)
+  region 4: Rio Pomba-MG (138 cities, radius 1.02728)
+  region 5: Cachoeirinha-RS (138 cities, radius 1.26606)
+  region 6: Solânea-PB (138 cities, radius 0.847703)
+  region 7: Varjão de Minas-MG (138 cities, radius 2.17706)
+  disperso knn original: 0.143129 ms, 347.21 dist, 59.17 reads  [exact]
+  disperso knn slimdown: 0.11317 ms, 338.13 dist, 56.17 reads  [exact]
+  disperso knn etapa1: 0.109821 ms, 343.62 dist, 57.45 reads, 1252 moved  [exact]
+  disperso knn slimdown_etapa1: 0.108297 ms, 337.13 dist, 55.78 reads, 583 moved  [exact]
+  disperso range original: 0.112966 ms, 307.31 dist, 57.71 reads  [exact]
+  disperso range slimdown: 0.101499 ms, 299.33 dist, 54.69 reads  [exact]
+  disperso range etapa1: 0.10305 ms, 300.08 dist, 55.84 reads, 1157 moved  [exact]
+  disperso range slimdown_etapa1: 0.100236 ms, 297.63 dist, 54.4 reads, 486 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 5 seed 47 | adapt 1000 measure 100 | measure->adapt 0.15097
+  region 0: Augusto de Lima-MG (138 cities, radius 1.84133)
+  region 1: Boa Esperança-PR (138 cities, radius 1.29016)
+  region 2: São Geraldo do Araguaia-PA (138 cities, radius 3.01317)
+  region 3: Astolfo Dutra-MG (138 cities, radius 1)
+  region 4: São José do Piauí-PI (138 cities, radius 1.76918)
+  region 5: Nova Roma do Sul-RS (138 cities, radius 1.01193)
+  region 6: Itabaiana-PB (138 cities, radius 0.849058)
+  region 7: Porangatu-GO (138 cities, radius 2.83558)
+  disperso knn original: 0.124038 ms, 383.41 dist, 65.92 reads  [exact]
+  disperso knn slimdown: 0.114142 ms, 369.42 dist, 61.08 reads  [exact]
+  disperso knn etapa1: 0.117617 ms, 382.44 dist, 63.38 reads, 1518 moved  [exact]
+  disperso knn slimdown_etapa1: 0.119115 ms, 370.26 dist, 60.92 reads, 748 moved  [exact]
+  disperso range original: 0.117508 ms, 336.69 dist, 65.11 reads  [exact]
+  disperso range slimdown: 0.107822 ms, 321.87 dist, 60.2 reads  [exact]
+  disperso range etapa1: 0.111552 ms, 329.09 dist, 62.21 reads, 1336 moved  [exact]
+  disperso range slimdown_etapa1: 0.11231 ms, 319.7 dist, 59.81 reads, 716 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 5 seed 47 | adapt 1000 measure 100 | measure->adapt 0.13578
+  region 0: Augusto de Lima-MG (550 cities, radius 3.33906)
+  region 1: Boa Esperança-PR (550 cities, radius 3.08598)
+  concentrado knn original: 0.15747 ms, 436.12 dist, 76.94 reads  [exact]
+  concentrado knn slimdown: 0.127369 ms, 417.85 dist, 69.96 reads  [exact]
+  concentrado knn etapa1: 0.137214 ms, 429.46 dist, 73.72 reads, 1180 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.132061 ms, 414.36 dist, 69.66 reads, 573 moved  [exact]
+  concentrado range original: 0.137236 ms, 395.48 dist, 76.97 reads  [exact]
+  concentrado range slimdown: 0.124712 ms, 377.54 dist, 69.63 reads  [exact]
+  concentrado range etapa1: 0.136249 ms, 389.4 dist, 73.47 reads, 1016 moved  [exact]
+  concentrado range slimdown_etapa1: 0.128453 ms, 373.72 dist, 69.14 reads, 477 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 6 seed 48 | adapt 1000 measure 100 | measure->adapt 0.120304
+  region 0: Pelotas-RS (550 cities, radius 4.771)
+  region 1: Mata Grande-AL (550 cities, radius 2.77346)
+  concentrado knn original: 0.120628 ms, 338.66 dist, 64.62 reads  [exact]
+  concentrado knn slimdown: 0.110989 ms, 322.09 dist, 60.05 reads  [exact]
+  concentrado knn etapa1: 0.117576 ms, 330.7 dist, 62.73 reads, 748 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.109451 ms, 319.9 dist, 59.55 reads, 464 moved  [exact]
+  concentrado range original: 0.116465 ms, 333.22 dist, 64.41 reads  [exact]
+  concentrado range slimdown: 0.111947 ms, 321.63 dist, 59.64 reads  [exact]
+  concentrado range etapa1: 0.112446 ms, 320.22 dist, 62.21 reads, 660 moved  [exact]
+  concentrado range slimdown_etapa1: 0.123965 ms, 318.3 dist, 59.28 reads, 461 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 6 seed 48 | adapt 1000 measure 100 | measure->adapt 0.169482
+  region 0: Pelotas-RS (138 cities, radius 2.53837)
+  region 1: Mata Grande-AL (138 cities, radius 1.42618)
+  region 2: Frei Lagonegro-MG (138 cities, radius 1.54052)
+  region 3: Pedro Laurentino-PI (138 cities, radius 2.09831)
+  region 4: Jaborá-SC (138 cities, radius 1.1738)
+  region 5: Talismã-TO (138 cities, radius 3.03528)
+  region 6: Guaçuí-ES (138 cities, radius 1.21824)
+  region 7: Luiziana-PR (138 cities, radius 1.26606)
+  disperso knn original: 0.136962 ms, 395.97 dist, 71.59 reads  [exact]
+  disperso knn slimdown: 0.12167 ms, 380.54 dist, 65.33 reads  [exact]
+  disperso knn etapa1: 0.130599 ms, 387.13 dist, 68.72 reads, 1415 moved  [exact]
+  disperso knn slimdown_etapa1: 0.124457 ms, 376.95 dist, 64.82 reads, 774 moved  [exact]
+  disperso range original: 0.125223 ms, 344.29 dist, 70.4 reads  [exact]
+  disperso range slimdown: 0.122326 ms, 330.26 dist, 64.24 reads  [exact]
+  disperso range etapa1: 0.121839 ms, 334.1 dist, 67.82 reads, 1311 moved  [exact]
+  disperso range slimdown_etapa1: 0.121271 ms, 324.78 dist, 63.67 reads, 784 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 7 seed 49 | adapt 1000 measure 100 | measure->adapt 0.144758
+  region 0: Pirajuba-MG (138 cities, radius 1.51717)
+  region 1: São Carlos-SC (138 cities, radius 0.876641)
+  region 2: São Bento do Sul-SC (138 cities, radius 1.46492)
+  region 3: Iguatama-MG (138 cities, radius 1.46168)
+  region 4: Ribeirão Cascalheira-MT (138 cities, radius 3.76558)
+  region 5: São Bernardo-MA (138 cities, radius 2.11284)
+  region 6: Marcionílio Souza-BA (138 cities, radius 1.70141)
+  region 7: Belém do Brejo do Cruz-PB (138 cities, radius 1.11288)
+  disperso knn original: 0.145485 ms, 441.33 dist, 78.16 reads  [exact]
+  disperso knn slimdown: 0.132685 ms, 424.03 dist, 71.79 reads  [exact]
+  disperso knn etapa1: 0.136975 ms, 432.4 dist, 74.57 reads, 1815 moved  [exact]
+  disperso knn slimdown_etapa1: 0.134213 ms, 423.71 dist, 71.21 reads, 822 moved  [exact]
+  disperso range original: 0.146875 ms, 378.96 dist, 76.82 reads  [exact]
+  disperso range slimdown: 0.128795 ms, 365.67 dist, 70.41 reads  [exact]
+  disperso range etapa1: 0.146104 ms, 376.11 dist, 73.32 reads, 1704 moved  [exact]
+  disperso range slimdown_etapa1: 0.132875 ms, 364.76 dist, 69.86 reads, 757 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 7 seed 49 | adapt 1000 measure 100 | measure->adapt 0.124048
+  region 0: Pirajuba-MG (550 cities, radius 3.08508)
+  region 1: São Carlos-SC (550 cities, radius 2.66603)
+  concentrado knn original: 0.154564 ms, 462.06 dist, 82.09 reads  [exact]
+  concentrado knn slimdown: 0.136923 ms, 441.8 dist, 75.32 reads  [exact]
+  concentrado knn etapa1: 0.146058 ms, 449.43 dist, 77.85 reads, 1322 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.14324 ms, 440.33 dist, 74.27 reads, 775 moved  [exact]
+  concentrado range original: 0.161087 ms, 403.26 dist, 80.98 reads  [exact]
+  concentrado range slimdown: 0.132193 ms, 387.9 dist, 74.48 reads  [exact]
+  concentrado range etapa1: 0.138227 ms, 391.57 dist, 76.54 reads, 1244 moved  [exact]
+  concentrado range slimdown_etapa1: 0.13887 ms, 383.61 dist, 73.42 reads, 687 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 8 seed 50 | adapt 1000 measure 100 | measure->adapt 0.18569
+  region 0: Porto Alegre do Norte-MT (550 cities, radius 7.39506)
+  region 1: Jatobá do Piauí-PI (550 cities, radius 3.9579)
+  concentrado knn original: 0.119693 ms, 368.32 dist, 64.9 reads  [exact]
+  concentrado knn slimdown: 0.110504 ms, 356.44 dist, 59.79 reads  [exact]
+  concentrado knn etapa1: 0.115413 ms, 360.75 dist, 61.91 reads, 931 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.115443 ms, 356.42 dist, 59.55 reads, 431 moved  [exact]
+  concentrado range original: 0.111124 ms, 268.47 dist, 61.24 reads  [exact]
+  concentrado range slimdown: 0.099774 ms, 257.76 dist, 56.57 reads  [exact]
+  concentrado range etapa1: 0.103997 ms, 264.39 dist, 58.22 reads, 779 moved  [exact]
+  concentrado range slimdown_etapa1: 0.10198 ms, 257.71 dist, 56.5 reads, 323 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 8 seed 50 | adapt 1000 measure 100 | measure->adapt 0.145521
+  region 0: Porto Alegre do Norte-MT (138 cities, radius 4.13652)
+  region 1: Jatobá do Piauí-PI (138 cities, radius 1.77387)
+  region 2: Ibituruna-MG (138 cities, radius 1.19067)
+  region 3: Iperó-SP (138 cities, radius 1.19817)
+  region 4: Serro-MG (138 cities, radius 1.47031)
+  region 5: Presidente Venceslau-SP (138 cities, radius 1.47635)
+  region 6: Queimadas-PB (138 cities, radius 0.893085)
+  region 7: Palestina-AL (138 cities, radius 1.14948)
+  disperso knn original: 0.133668 ms, 421.12 dist, 72.41 reads  [exact]
+  disperso knn slimdown: 0.122276 ms, 404.09 dist, 65.41 reads  [exact]
+  disperso knn etapa1: 0.130005 ms, 420.69 dist, 68.7 reads, 1455 moved  [exact]
+  disperso knn slimdown_etapa1: 0.127525 ms, 403.16 dist, 64.58 reads, 742 moved  [exact]
+  disperso range original: 0.130177 ms, 374.34 dist, 71.45 reads  [exact]
+  disperso range slimdown: 0.133551 ms, 357.48 dist, 64.28 reads  [exact]
+  disperso range etapa1: 0.121292 ms, 367.03 dist, 67.26 reads, 1261 moved  [exact]
+  disperso range slimdown_etapa1: 0.121081 ms, 354.55 dist, 63.57 reads, 638 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 9 seed 51 | adapt 1000 measure 100 | measure->adapt 0.200211
+  region 0: Tibagi-PR (138 cities, radius 1.5262)
+  region 1: Campo Grande-MS (138 cities, radius 3.45064)
+  region 2: Maracás-BA (138 cities, radius 1.6844)
+  region 3: Congonhas do Norte-MG (138 cities, radius 1.42804)
+  region 4: Cotriguaçu-MT (138 cities, radius 6.15345)
+  region 5: Bicas-MG (138 cities, radius 1.08853)
+  region 6: Córrego do Ouro-GO (138 cities, radius 1.96817)
+  region 7: Biritiba-Mirim-SP (138 cities, radius 1.28888)
+  disperso knn original: 0.130914 ms, 397.25 dist, 70.73 reads  [exact]
+  disperso knn slimdown: 0.125935 ms, 382.64 dist, 65.32 reads  [exact]
+  disperso knn etapa1: 0.124423 ms, 394.27 dist, 67.08 reads, 1589 moved  [exact]
+  disperso knn slimdown_etapa1: 0.123916 ms, 385.64 dist, 65.04 reads, 853 moved  [exact]
+  disperso range original: 0.14447 ms, 330.37 dist, 68.36 reads  [exact]
+  disperso range slimdown: 0.111804 ms, 317.91 dist, 63.15 reads  [exact]
+  disperso range etapa1: 0.116034 ms, 327.09 dist, 65.04 reads, 1448 moved  [exact]
+  disperso range slimdown_etapa1: 0.115007 ms, 319.43 dist, 62.65 reads, 711 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 9 seed 51 | adapt 1000 measure 100 | measure->adapt 0.163842
+  region 0: Tibagi-PR (550 cities, radius 2.84007)
+  region 1: Maracás-BA (550 cities, radius 4.47604)
+  concentrado knn original: 0.15636 ms, 408.62 dist, 71.65 reads  [exact]
+  concentrado knn slimdown: 0.137021 ms, 388.95 dist, 65.88 reads  [exact]
+  concentrado knn etapa1: 0.126724 ms, 400 dist, 68.59 reads, 1436 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.12508 ms, 386.39 dist, 65.56 reads, 826 moved  [exact]
+  concentrado range original: 0.122919 ms, 331.96 dist, 68.88 reads  [exact]
+  concentrado range slimdown: 0.110233 ms, 317.03 dist, 63.43 reads  [exact]
+  concentrado range etapa1: 0.115872 ms, 324.1 dist, 65.48 reads, 1309 moved  [exact]
+  concentrado range slimdown_etapa1: 0.115646 ms, 316.09 dist, 63.08 reads, 784 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 10 seed 52 | adapt 1000 measure 100 | measure->adapt 0.137711
+  region 0: Várzea da Roça-BA (550 cities, radius 4.03833)
+  region 1: Astolfo Dutra-MG (550 cities, radius 2.64055)
+  concentrado knn original: 0.136686 ms, 422.11 dist, 75.07 reads  [exact]
+  concentrado knn slimdown: 0.148441 ms, 405.5 dist, 68.44 reads  [exact]
+  concentrado knn etapa1: 0.129611 ms, 405.02 dist, 69.77 reads, 1179 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.129001 ms, 400.87 dist, 67.28 reads, 417 moved  [exact]
+  concentrado range original: 0.132001 ms, 374.42 dist, 73.56 reads  [exact]
+  concentrado range slimdown: 0.120233 ms, 361.43 dist, 67.05 reads  [exact]
+  concentrado range etapa1: 0.123681 ms, 356.05 dist, 67.48 reads, 1084 moved  [exact]
+  concentrado range slimdown_etapa1: 0.126436 ms, 355.31 dist, 65.95 reads, 410 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 10 seed 52 | adapt 1000 measure 100 | measure->adapt 0.147779
+  region 0: Várzea da Roça-BA (138 cities, radius 1.77589)
+  region 1: Astolfo Dutra-MG (138 cities, radius 1)
+  region 2: Chapadão do Sul-MS (138 cities, radius 2.89401)
+  region 3: Embu-Guaçu-SP (138 cities, radius 1.29201)
+  region 4: Rancho Alegre-PR (138 cities, radius 1.20487)
+  region 5: Curral Velho-PB (138 cities, radius 1.2596)
+  region 6: São Pedro do Piauí-PI (138 cities, radius 1.92315)
+  region 7: Itaipé-MG (138 cities, radius 1.7254)
+  disperso knn original: 0.141815 ms, 421.01 dist, 76.11 reads  [exact]
+  disperso knn slimdown: 0.130871 ms, 410.16 dist, 69.71 reads  [exact]
+  disperso knn etapa1: 0.137392 ms, 420.63 dist, 72.34 reads, 1651 moved  [exact]
+  disperso knn slimdown_etapa1: 0.129501 ms, 406.53 dist, 68.94 reads, 878 moved  [exact]
+  disperso range original: 0.134888 ms, 365.2 dist, 74.74 reads  [exact]
+  disperso range slimdown: 0.146024 ms, 351.84 dist, 68.06 reads  [exact]
+  disperso range etapa1: 0.127005 ms, 360 dist, 71.01 reads, 1540 moved  [exact]
+  disperso range slimdown_etapa1: 0.125656 ms, 350.63 dist, 67.16 reads, 803 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 11 seed 53 | adapt 1000 measure 100 | measure->adapt 0.122659
+  region 0: Morro Cabeça no Tempo-PI (138 cities, radius 3.04631)
+  region 1: Itiruçu-BA (138 cities, radius 1.66075)
+  region 2: Jaboatão dos Guararapes-PE (138 cities, radius 1.17924)
+  region 3: Carmo-RJ (138 cities, radius 1.18343)
+  region 4: Vicente Dutra-RS (138 cities, radius 0.975756)
+  region 5: Morro Reuter-RS (138 cities, radius 1.10752)
+  region 6: Echaporã-SP (138 cities, radius 1.16503)
+  region 7: Coroaci-MG (138 cities, radius 1.35915)
+  disperso knn original: 0.132262 ms, 406.44 dist, 71.53 reads  [exact]
+  disperso knn slimdown: 0.119088 ms, 386.24 dist, 64.82 reads  [exact]
+  disperso knn etapa1: 0.12783 ms, 397.94 dist, 67.98 reads, 1441 moved  [exact]
+  disperso knn slimdown_etapa1: 0.125461 ms, 382.71 dist, 63.95 reads, 970 moved  [exact]
+  disperso range original: 0.126697 ms, 366.25 dist, 70.47 reads  [exact]
+  disperso range slimdown: 0.11365 ms, 353.66 dist, 63.71 reads  [exact]
+  disperso range etapa1: 0.123082 ms, 357.12 dist, 66.96 reads, 1479 moved  [exact]
+  disperso range slimdown_etapa1: 0.116082 ms, 350.31 dist, 62.89 reads, 920 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 11 seed 53 | adapt 1000 measure 100 | measure->adapt 0.142088
+  region 0: Morro Cabeça no Tempo-PI (550 cities, radius 5.10844)
+  region 1: Jaboatão dos Guararapes-PE (550 cities, radius 3.1425)
+  concentrado knn original: 0.132943 ms, 428.56 dist, 67.6 reads  [exact]
+  concentrado knn slimdown: 0.114823 ms, 403.29 dist, 61.93 reads  [exact]
+  concentrado knn etapa1: 0.125278 ms, 411.51 dist, 63.2 reads, 1069 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.114263 ms, 397.74 dist, 61.22 reads, 680 moved  [exact]
+  concentrado range original: 0.122506 ms, 352.05 dist, 65.3 reads  [exact]
+  concentrado range slimdown: 0.117593 ms, 333.75 dist, 59.42 reads  [exact]
+  concentrado range etapa1: 0.113443 ms, 339.9 dist, 61.82 reads, 959 moved  [exact]
+  concentrado range slimdown_etapa1: 0.104601 ms, 330.61 dist, 58.91 reads, 667 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 12 seed 54 | adapt 1000 measure 100 | measure->adapt 0.192817
+  region 0: Iguaraçu-PR (550 cities, radius 3.00093)
+  region 1: Alto Boa Vista-MT (550 cities, radius 7.14246)
+  concentrado knn original: 0.142748 ms, 425.08 dist, 70.66 reads  [exact]
+  concentrado knn slimdown: 0.129959 ms, 415.5 dist, 66.79 reads  [exact]
+  concentrado knn etapa1: 0.130304 ms, 420.69 dist, 67.41 reads, 1468 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.122877 ms, 413.69 dist, 66.03 reads, 692 moved  [exact]
+  concentrado range original: 0.117934 ms, 322.1 dist, 66.98 reads  [exact]
+  concentrado range slimdown: 0.110803 ms, 311.58 dist, 63.41 reads  [exact]
+  concentrado range etapa1: 0.111683 ms, 310.07 dist, 63.11 reads, 1204 moved  [exact]
+  concentrado range slimdown_etapa1: 0.113169 ms, 307.34 dist, 62.28 reads, 607 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 12 seed 54 | adapt 1000 measure 100 | measure->adapt 0.147898
+  region 0: Iguaraçu-PR (138 cities, radius 1.16297)
+  region 1: Tiradentes do Sul-RS (138 cities, radius 1.24403)
+  region 2: Alto Boa Vista-MT (138 cities, radius 4.05276)
+  region 3: São Geraldo da Piedade-MG (138 cities, radius 1.29449)
+  region 4: Vila Nova do Piauí-PI (138 cities, radius 1.91732)
+  region 5: Sinimbu-RS (138 cities, radius 1.19038)
+  region 6: Presidente Sarney-MA (138 cities, radius 2.37542)
+  region 7: Mira Estrela-SP (138 cities, radius 1.49094)
+  disperso knn original: 0.124122 ms, 368.71 dist, 65.16 reads  [exact]
+  disperso knn slimdown: 0.114367 ms, 359.96 dist, 61.43 reads  [exact]
+  disperso knn etapa1: 0.117289 ms, 364.91 dist, 63.01 reads, 1621 moved  [exact]
+  disperso knn slimdown_etapa1: 0.112741 ms, 358.36 dist, 60.92 reads, 875 moved  [exact]
+  disperso range original: 0.114714 ms, 325.15 dist, 64.16 reads  [exact]
+  disperso range slimdown: 0.108365 ms, 316.36 dist, 60.5 reads  [exact]
+  disperso range etapa1: 0.115336 ms, 323.29 dist, 62.27 reads, 1525 moved  [exact]
+  disperso range slimdown_etapa1: 0.113302 ms, 315.68 dist, 60.19 reads, 785 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 13 seed 55 | adapt 1000 measure 100 | measure->adapt 0.142521
+  region 0: Jeceaba-MG (138 cities, radius 1.09238)
+  region 1: Bela Cruz-CE (138 cities, radius 2.32312)
+  region 2: Barão do Triunfo-RS (138 cities, radius 1.42271)
+  region 3: Tupiratins-TO (138 cities, radius 2.9129)
+  region 4: Arataca-BA (138 cities, radius 2.21883)
+  region 5: Casinhas-PE (138 cities, radius 0.90956)
+  region 6: Timbó-SC (138 cities, radius 1.39589)
+  region 7: Maranhãozinho-MA (138 cities, radius 2.40832)
+  disperso knn original: 0.123287 ms, 368.21 dist, 66.01 reads  [exact]
+  disperso knn slimdown: 0.129996 ms, 354.19 dist, 61.56 reads  [exact]
+  disperso knn etapa1: 0.119261 ms, 365.18 dist, 63.69 reads, 1361 moved  [exact]
+  disperso knn slimdown_etapa1: 0.116037 ms, 353.92 dist, 60.89 reads, 704 moved  [exact]
+  disperso range original: 0.122562 ms, 321.92 dist, 64.22 reads  [exact]
+  disperso range slimdown: 0.107849 ms, 310.61 dist, 60.15 reads  [exact]
+  disperso range etapa1: 0.112419 ms, 315.43 dist, 62.39 reads, 1148 moved  [exact]
+  disperso range slimdown_etapa1: 0.112499 ms, 307.19 dist, 59.71 reads, 567 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 13 seed 55 | adapt 1000 measure 100 | measure->adapt 0.131611
+  region 0: Jeceaba-MG (550 cities, radius 2.37447)
+  region 1: Bela Cruz-CE (550 cities, radius 4.74195)
+  concentrado knn original: 0.136054 ms, 397.3 dist, 73.02 reads  [exact]
+  concentrado knn slimdown: 0.12278 ms, 382 dist, 67.02 reads  [exact]
+  concentrado knn etapa1: 0.128006 ms, 386.17 dist, 69.57 reads, 1074 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.126321 ms, 377.28 dist, 66.58 reads, 589 moved  [exact]
+  concentrado range original: 0.128334 ms, 361.05 dist, 72.06 reads  [exact]
+  concentrado range slimdown: 0.12078 ms, 344.62 dist, 66.15 reads  [exact]
+  concentrado range etapa1: 0.122197 ms, 346.14 dist, 68.43 reads, 991 moved  [exact]
+  concentrado range slimdown_etapa1: 0.121642 ms, 342.1 dist, 65.78 reads, 717 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 14 seed 56 | adapt 1000 measure 100 | measure->adapt 0.103885
+  region 0: Ajuricaba-RS (550 cities, radius 2.97061)
+  region 1: Jucurutu-RN (550 cities, radius 2.63775)
+  concentrado knn original: 0.119193 ms, 361.44 dist, 64.29 reads  [exact]
+  concentrado knn slimdown: 0.14914 ms, 348.2 dist, 59.18 reads  [exact]
+  concentrado knn etapa1: 0.112424 ms, 350.7 dist, 61.44 reads, 1172 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.109326 ms, 348.48 dist, 58.7 reads, 768 moved  [exact]
+  concentrado range original: 0.132101 ms, 374.99 dist, 65.61 reads  [exact]
+  concentrado range slimdown: 0.11549 ms, 363.77 dist, 60.31 reads  [exact]
+  concentrado range etapa1: 0.114552 ms, 360.69 dist, 62.45 reads, 1114 moved  [exact]
+  concentrado range slimdown_etapa1: 0.111563 ms, 361.6 dist, 59.78 reads, 604 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 14 seed 56 | adapt 1000 measure 100 | measure->adapt 0.157368
+  region 0: Ajuricaba-RS (138 cities, radius 1.25355)
+  region 1: Jucurutu-RN (138 cities, radius 1.17903)
+  region 2: Registro-SP (138 cities, radius 1.66193)
+  region 3: Tesouro-MT (138 cities, radius 3.76789)
+  region 4: Ibitirama-ES (138 cities, radius 1.19507)
+  region 5: Gouveia-MG (138 cities, radius 1.59678)
+  region 6: Jacundá-PA (138 cities, radius 3.31917)
+  region 7: Palmital-PR (138 cities, radius 1.4625)
+  disperso knn original: 0.148836 ms, 419.61 dist, 72.56 reads  [exact]
+  disperso knn slimdown: 0.194106 ms, 405.33 dist, 66.17 reads  [exact]
+  disperso knn etapa1: 0.134489 ms, 418.06 dist, 69.25 reads, 1679 moved  [exact]
+  disperso knn slimdown_etapa1: 0.134913 ms, 405.12 dist, 65.21 reads, 858 moved  [exact]
+  disperso range original: 0.126978 ms, 357.32 dist, 70.1 reads  [exact]
+  disperso range slimdown: 0.115856 ms, 344.4 dist, 63.67 reads  [exact]
+  disperso range etapa1: 0.120495 ms, 350.5 dist, 66.35 reads, 1820 moved  [exact]
+  disperso range slimdown_etapa1: 0.117209 ms, 341.57 dist, 63.07 reads, 850 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 15 seed 57 | adapt 1000 measure 100 | measure->adapt 0.128205
+  region 0: Itajuípe-BA (138 cities, radius 2.02941)
+  region 1: Jaguaribara-CE (138 cities, radius 1.40246)
+  region 2: Ibirité-MG (138 cities, radius 1.16417)
+  region 3: Arapoema-TO (138 cities, radius 2.91386)
+  region 4: Santa Tereza do Oeste-PR (138 cities, radius 1.52315)
+  region 5: Cumbe-SE (138 cities, radius 1.23065)
+  region 6: Fazenda Rio Grande-PR (138 cities, radius 1.65895)
+  region 7: Barra de Santa Rosa-PB (138 cities, radius 0.900777)
+  disperso knn original: 0.122348 ms, 375.72 dist, 64.68 reads  [exact]
+  disperso knn slimdown: 0.112755 ms, 363.51 dist, 60.67 reads  [exact]
+  disperso knn etapa1: 0.121629 ms, 372.28 dist, 62.51 reads, 1491 moved  [exact]
+  disperso knn slimdown_etapa1: 0.114586 ms, 363.54 dist, 60.28 reads, 827 moved  [exact]
+  disperso range original: 0.120648 ms, 339.89 dist, 63.85 reads  [exact]
+  disperso range slimdown: 0.113852 ms, 329.63 dist, 59.69 reads  [exact]
+  disperso range etapa1: 0.110628 ms, 337.77 dist, 61.89 reads, 1410 moved  [exact]
+  disperso range slimdown_etapa1: 0.110978 ms, 329.37 dist, 59.19 reads, 796 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 15 seed 57 | adapt 1000 measure 100 | measure->adapt 0.154502
+  region 0: Itajuípe-BA (550 cities, radius 4.63517)
+  region 1: Jaguaribara-CE (550 cities, radius 3.18248)
+  concentrado knn original: 0.132966 ms, 377.1 dist, 62.88 reads  [exact]
+  concentrado knn slimdown: 0.113737 ms, 367.11 dist, 59.43 reads  [exact]
+  concentrado knn etapa1: 0.11386 ms, 367.55 dist, 60.07 reads, 915 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.112333 ms, 364.75 dist, 58.7 reads, 582 moved  [exact]
+  concentrado range original: 0.117047 ms, 320.13 dist, 61.28 reads  [exact]
+  concentrado range slimdown: 0.107048 ms, 311.1 dist, 57.98 reads  [exact]
+  concentrado range etapa1: 0.105828 ms, 313.19 dist, 58.72 reads, 961 moved  [exact]
+  concentrado range slimdown_etapa1: 0.103736 ms, 307.77 dist, 57.48 reads, 499 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 16 seed 58 | adapt 1000 measure 100 | measure->adapt 0.314142
+  region 0: Costa Marques-RO (550 cities, radius 15.3308)
+  region 1: Esperantinópolis-MA (550 cities, radius 4.70738)
+  concentrado knn original: 0.120277 ms, 374.68 dist, 61.73 reads  [exact]
+  concentrado knn slimdown: 0.112138 ms, 367.71 dist, 57.93 reads  [exact]
+  concentrado knn etapa1: 0.116825 ms, 369.93 dist, 59.41 reads, 1039 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.106995 ms, 365.01 dist, 57.14 reads, 502 moved  [exact]
+  concentrado range original: 0.107356 ms, 242.11 dist, 56.12 reads  [exact]
+  concentrado range slimdown: 0.108261 ms, 234.47 dist, 52.71 reads  [exact]
+  concentrado range etapa1: 0.113053 ms, 235.43 dist, 53.48 reads, 832 moved  [exact]
+  concentrado range slimdown_etapa1: 0.094224 ms, 232.72 dist, 51.91 reads, 404 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 16 seed 58 | adapt 1000 measure 100 | measure->adapt 0.202071
+  region 0: Costa Marques-RO (138 cities, radius 8.49297)
+  region 1: Araguacema-TO (138 cities, radius 3.40918)
+  region 2: Esperantinópolis-MA (138 cities, radius 2.16021)
+  region 3: Brotas-SP (138 cities, radius 1.2184)
+  region 4: Tupãssi-PR (138 cities, radius 1.47384)
+  region 5: Vista Alegre-RS (138 cities, radius 1.03276)
+  region 6: Luziânia-GO (138 cities, radius 2.20635)
+  region 7: Matinhas-PB (138 cities, radius 0.85235)
+  disperso knn original: 0.127052 ms, 376.4 dist, 69.29 reads  [exact]
+  disperso knn slimdown: 0.130543 ms, 367.11 dist, 64.33 reads  [exact]
+  disperso knn etapa1: 0.124356 ms, 373.85 dist, 66.49 reads, 1403 moved  [exact]
+  disperso knn slimdown_etapa1: 0.1241 ms, 366.62 dist, 63.65 reads, 663 moved  [exact]
+  disperso range original: 0.121948 ms, 326.93 dist, 68.15 reads  [exact]
+  disperso range slimdown: 0.110863 ms, 316.19 dist, 63.14 reads  [exact]
+  disperso range etapa1: 0.117588 ms, 320.59 dist, 65.45 reads, 1326 moved  [exact]
+  disperso range slimdown_etapa1: 0.114792 ms, 314.53 dist, 62.46 reads, 660 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 17 seed 59 | adapt 1000 measure 100 | measure->adapt 0.14023
+  region 0: São Sebastião da Amoreira-PR (138 cities, radius 1.24459)
+  region 1: Celso Ramos-SC (138 cities, radius 1.23548)
+  region 2: Orindiúva-SP (138 cities, radius 1.37844)
+  region 3: Felixlândia-MG (138 cities, radius 1.71563)
+  region 4: Chiador-MG (138 cities, radius 1.13323)
+  region 5: Conceição dos Ouros-MG (138 cities, radius 1.0331)
+  region 6: Capanema-PA (138 cities, radius 3.28591)
+  region 7: Vila Propício-GO (138 cities, radius 1.98927)
+  disperso knn original: 0.150509 ms, 450.14 dist, 80.95 reads  [exact]
+  disperso knn slimdown: 0.138199 ms, 431.16 dist, 74.43 reads  [exact]
+  disperso knn etapa1: 0.145454 ms, 450.41 dist, 77.49 reads, 1597 moved  [exact]
+  disperso knn slimdown_etapa1: 0.139316 ms, 433.3 dist, 73.54 reads, 827 moved  [exact]
+  disperso range original: 0.143972 ms, 401.23 dist, 80.35 reads  [exact]
+  disperso range slimdown: 0.131113 ms, 387.42 dist, 73.84 reads  [exact]
+  disperso range etapa1: 0.135653 ms, 394.83 dist, 76.14 reads, 1335 moved  [exact]
+  disperso range slimdown_etapa1: 0.132271 ms, 386.7 dist, 72.86 reads, 711 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 17 seed 59 | adapt 1000 measure 100 | measure->adapt 0.135325
+  region 0: São Sebastião da Amoreira-PR (550 cities, radius 2.7777)
+  region 1: Felixlândia-MG (550 cities, radius 3.18127)
+  concentrado knn original: 0.166799 ms, 492.06 dist, 87.92 reads  [exact]
+  concentrado knn slimdown: 0.147054 ms, 469.82 dist, 80.54 reads  [exact]
+  concentrado knn etapa1: 0.156133 ms, 486.03 dist, 83.98 reads, 1324 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.152943 ms, 467.48 dist, 79.8 reads, 744 moved  [exact]
+  concentrado range original: 0.155097 ms, 440.87 dist, 87.24 reads  [exact]
+  concentrado range slimdown: 0.142241 ms, 424.98 dist, 79.81 reads  [exact]
+  concentrado range etapa1: 0.148023 ms, 432.37 dist, 82.52 reads, 1232 moved  [exact]
+  concentrado range slimdown_etapa1: 0.141191 ms, 421.92 dist, 78.9 reads, 660 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 18 seed 60 | adapt 1000 measure 100 | measure->adapt 0.118069
+  region 0: Água Doce-SC (550 cities, radius 2.54169)
+  region 1: Santa Luzia do Itanhy-SE (550 cities, radius 3.8883)
+  concentrado knn original: 0.119485 ms, 356.91 dist, 64.81 reads  [exact]
+  concentrado knn slimdown: 0.110447 ms, 344.89 dist, 59.98 reads  [exact]
+  concentrado knn etapa1: 0.115497 ms, 347.05 dist, 61.89 reads, 1114 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.111192 ms, 341.16 dist, 59.47 reads, 621 moved  [exact]
+  concentrado range original: 0.119634 ms, 348.54 dist, 65.62 reads  [exact]
+  concentrado range slimdown: 0.111499 ms, 336 dist, 60.18 reads  [exact]
+  concentrado range etapa1: 0.113669 ms, 335.79 dist, 62.41 reads, 1000 moved  [exact]
+  concentrado range slimdown_etapa1: 0.112523 ms, 333.58 dist, 59.58 reads, 536 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 18 seed 60 | adapt 1000 measure 100 | measure->adapt 0.166244
+  region 0: Água Doce-SC (138 cities, radius 1.2524)
+  region 1: Guia Lopes da Laguna-MS (138 cities, radius 4.0345)
+  region 2: São Vicente do Sul-RS (138 cities, radius 2.18552)
+  region 3: Santa Luzia do Itanhy-SE (138 cities, radius 1.60605)
+  region 4: Lençóis Paulista-SP (138 cities, radius 1.28133)
+  region 5: Novo Oriente do Piauí-PI (138 cities, radius 1.83448)
+  region 6: Barra da Estiva-BA (138 cities, radius 1.95433)
+  region 7: Uirapuru-GO (138 cities, radius 2.50833)
+  disperso knn original: 0.131077 ms, 395.72 dist, 69.15 reads  [exact]
+  disperso knn slimdown: 0.117159 ms, 383.38 dist, 63.98 reads  [exact]
+  disperso knn etapa1: 0.123861 ms, 393.19 dist, 66.77 reads, 1479 moved  [exact]
+  disperso knn slimdown_etapa1: 0.119269 ms, 385.05 dist, 63.75 reads, 854 moved  [exact]
+  disperso range original: 0.120414 ms, 325.35 dist, 66.17 reads  [exact]
+  disperso range slimdown: 0.113673 ms, 314.33 dist, 61.35 reads  [exact]
+  disperso range etapa1: 0.117756 ms, 324.65 dist, 64.58 reads, 1480 moved  [exact]
+  disperso range slimdown_etapa1: 0.11518 ms, 314.96 dist, 61.21 reads, 806 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime disperso | rep 19 seed 61 | adapt 1000 measure 100 | measure->adapt 0.151486
+  region 0: Cândido Mota-SP (138 cities, radius 1.17886)
+  region 1: Catas Altas da Noruega-MG (138 cities, radius 1.00319)
+  region 2: Palmeirina-PE (138 cities, radius 1.05679)
+  region 3: Jaicós-PI (138 cities, radius 1.95133)
+  region 4: Arenápolis-MT (138 cities, radius 5.18631)
+  region 5: Timbé do Sul-SC (138 cities, radius 1.55242)
+  region 6: Bananeiras-PB (138 cities, radius 0.832406)
+  region 7: Palhano-CE (138 cities, radius 1.71479)
+  disperso knn original: 0.132094 ms, 413.98 dist, 68.96 reads  [exact]
+  disperso knn slimdown: 0.139562 ms, 404.83 dist, 64.49 reads  [exact]
+  disperso knn etapa1: 0.125868 ms, 415.86 dist, 66.57 reads, 1417 moved  [exact]
+  disperso knn slimdown_etapa1: 0.125931 ms, 403.61 dist, 64.26 reads, 782 moved  [exact]
+  disperso range original: 0.128671 ms, 361.51 dist, 67.74 reads  [exact]
+  disperso range slimdown: 0.113569 ms, 354.81 dist, 62.95 reads  [exact]
+  disperso range etapa1: 0.118174 ms, 354.25 dist, 64.74 reads, 1260 moved  [exact]
+  disperso range slimdown_etapa1: 0.119713 ms, 352.09 dist, 62.66 reads, 736 moved  [exact]
+
+DONE (0)
+dataset 5507 objects | regime concentrado | rep 19 seed 61 | adapt 1000 measure 100 | measure->adapt 0.123859
+  region 0: Cândido Mota-SP (550 cities, radius 2.59677)
+  region 1: Catas Altas da Noruega-MG (550 cities, radius 2.39771)
+  concentrado knn original: 0.16381 ms, 498.21 dist, 87.16 reads  [exact]
+  concentrado knn slimdown: 0.143554 ms, 477.25 dist, 78.88 reads  [exact]
+  concentrado knn etapa1: 0.155767 ms, 493.79 dist, 83.05 reads, 1150 moved  [exact]
+  concentrado knn slimdown_etapa1: 0.144168 ms, 472.77 dist, 77.58 reads, 493 moved  [exact]
+  concentrado range original: 0.160939 ms, 450.7 dist, 86 reads  [exact]
+  concentrado range slimdown: 0.140919 ms, 432.66 dist, 77.91 reads  [exact]
+  concentrado range etapa1: 0.143298 ms, 440.09 dist, 80.81 reads, 995 moved  [exact]
+  concentrado range slimdown_etapa1: 0.138586 ms, 428.74 dist, 76.42 reads, 543 moved  [exact]
+
+DONE (0)

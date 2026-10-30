@@ -19,6 +19,12 @@
 #   --radius R      radius for the range batches      (default 0.5)
 #   --page-size N   page size in bytes                (default 1024)
 #   --chunk N       H3 break-even sampling interval   (default 50)
+#   --knn-gate      Etapa 1 only accepts moves that shrink the source radius
+#   --dest-farthest Etapa 1 moves objects to the visited leaf FARTHEST from q
+#   --etapa1 "ARGS" extra Etapa 1 options passed to the driver, e.g.
+#                   "--closer-to-rep --votes 3 --cooldown 20 --hysteresis 0.9"
+#   --arms LIST     comma-separated arms to run (default all; original always)
+#   --regimes LIST  space-separated regimes (default "concentrado disperso uniforme")
 #   --quick         2 reps, 100 adapt, 50 measure
 #   --no-analyse    skip analyze_ch4.py at the end
 #
@@ -46,6 +52,9 @@ RADIUS=0.5
 PAGE_SIZE=1024
 CHUNK=50
 ANALYSE=1
+GATE=()
+REGIMES="concentrado disperso uniforme"
+ARMS=""
 
 while [ "$#" -gt 0 ]; do
     case "$1" in
@@ -60,9 +69,14 @@ while [ "$#" -gt 0 ]; do
         --radius)     RADIUS="$2"; shift 2 ;;
         --page-size)  PAGE_SIZE="$2"; shift 2 ;;
         --chunk)      CHUNK="$2"; shift 2 ;;
+        --knn-gate)   GATE+=(--knn-gate); shift ;;
+        --dest-farthest) GATE+=(--dest-farthest); shift ;;
+        --etapa1)     read -r -a E1 <<< "$2"; GATE+=("${E1[@]}"); shift 2 ;;
+        --arms)       ARMS="$2"; shift 2 ;;
+        --regimes)    REGIMES="$2"; shift 2 ;;
         --quick)      REPS=2; ADAPT=100; MEASURE=50; shift ;;
         --no-analyse) ANALYSE=0; shift ;;
-        -h|--help)    sed -n '2,22p' "$0"; exit 0 ;;
+        -h|--help)    sed -n '2,28p' "$0"; exit 0 ;;
         *) echo "unknown option: $1" >&2; exit 2 ;;
     esac
 done
@@ -110,6 +124,9 @@ fi
     echo "seeds       : ${SEED}..$((SEED + REPS - 1)) (one per repetition)"
     echo "region fact.: ${REGION_FACTOR}"
     echo "pivots      : ${PIVOTS} (0 = root of T_Q)"
+    echo "etapa1 flags: ${GATE[*]:-none}"
+    echo "regimes     : ${REGIMES}"
+    echo "arms        : ${ARMS:-all}"
     echo "dataset     : ${DATASTORE}/BrazilianCities.txt"
     echo "query pool  : ${DATASTORE}/BrazilianCities500.txt"
 } > "${RESULTS}/environment.txt"
@@ -123,11 +140,9 @@ fi
 # ---------------------------------------------------------------------------
 for rep in $(seq 0 $((REPS - 1))); do
     echo "--- repetition $((rep + 1))/${REPS} ---"
-    case $((rep % 3)) in
-        0) order="concentrado disperso uniforme" ;;
-        1) order="disperso uniforme concentrado" ;;
-        *) order="uniforme concentrado disperso" ;;
-    esac
+    read -r -a regs <<< "$REGIMES"
+    n=${#regs[@]}; s=$((rep % n)); order=""
+    for j in $(seq 0 $((n - 1))); do order="$order ${regs[$(( (s + j) % n ))]}"; done
     for regime in $order; do
         "$BIN" \
             --dataset      "${DATASTORE}/BrazilianCities.txt" \
@@ -152,7 +167,7 @@ for rep in $(seq 0 $((REPS - 1))); do
             --workload-out  "${RESULTS}/workload.csv" \
             --seed          "$SEED" \
             --region-factor "$REGION_FACTOR" \
-            --pivots        "$PIVOTS" \
+            --pivots        "$PIVOTS"             ${GATE[@]+"${GATE[@]}"}             ${ARMS:+--arms "$ARMS"} \
             >> "${RESULTS}/run.log" 2>&1
         echo "  ${regime} done"
     done

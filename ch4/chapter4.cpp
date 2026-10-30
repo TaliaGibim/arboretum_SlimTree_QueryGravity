@@ -105,6 +105,17 @@ struct Config {
     bool verify = true;
     bool seedFirst = false;  // Etapa 2 variant
     bool knnGate = false;    // Etapa 1, Equation 4.8 gate
+    bool destFarthest = false;  // Etapa 1: destination = sibling farthest from q
+    // Etapa 1 hyperparameters; -1 / negative = keep the stSlimEtapa1 default.
+    long cooldown = -1;
+    double hysteresis = -1.0;
+    double minGain = -1.0;
+    int maxMoves = -1;
+    bool closerToRep = false;
+    bool noReturn = false;
+    int votes = 1;
+    int maxMovesObject = 0;
+    std::string arms;           // comma-separated subset; empty = all
     double bulkQueryShare = 0.5;  // etapa2_bulk: fan-out share of query pivots
     int pivots = 0;          // etapa2 |P|; 0 = the root of T_Q, whatever its size
     std::string commit = "";
@@ -583,6 +594,7 @@ int main(int argc, char **argv) {
     std::cout << std::unitbuf;
     Config cfg;
     std::string aggOut, structOut, movesOut, breakevenOut, navOut, workloadOut;
+    std::string decisionsOut, statsOut;
 
     for (int i = 1; i < argc; i++) {
         const std::string a = argv[i];
@@ -617,6 +629,16 @@ int main(int argc, char **argv) {
         else if (a == "--no-verify") cfg.verify = false;
         else if (a == "--seed-first") cfg.seedFirst = true;
         else if (a == "--knn-gate") cfg.knnGate = true;
+        else if (a == "--dest-farthest") cfg.destFarthest = true;
+        else if (a == "--cooldown") cfg.cooldown = std::stol(next("--cooldown"));
+        else if (a == "--hysteresis") cfg.hysteresis = std::stod(next("--hysteresis"));
+        else if (a == "--min-gain") cfg.minGain = std::stod(next("--min-gain"));
+        else if (a == "--max-moves") cfg.maxMoves = std::stoi(next("--max-moves"));
+        else if (a == "--closer-to-rep") cfg.closerToRep = true;
+        else if (a == "--no-return") cfg.noReturn = true;
+        else if (a == "--votes") cfg.votes = std::stoi(next("--votes"));
+        else if (a == "--max-moves-object") cfg.maxMovesObject = std::stoi(next("--max-moves-object"));
+        else if (a == "--arms") cfg.arms = next("--arms");
         else if (a == "--bulk-query-share") cfg.bulkQueryShare = std::stod(next("--bulk-query-share"));
         else if (a == "--pivots") cfg.pivots = std::stoi(next("--pivots"));
         else if (a == "--agg-out") aggOut = next("--agg-out");
@@ -625,6 +647,8 @@ int main(int argc, char **argv) {
         else if (a == "--breakeven-out") breakevenOut = next("--breakeven-out");
         else if (a == "--nav-out") navOut = next("--nav-out");
         else if (a == "--workload-out") workloadOut = next("--workload-out");
+        else if (a == "--decisions-out") decisionsOut = next("--decisions-out");
+        else if (a == "--stats-out") statsOut = next("--stats-out");
         else if (a == "--help" || a == "-h") {
             std::cout
                 << "usage: " << argv[0] << " --dataset <f> --queryfile <f>\n"
@@ -676,6 +700,16 @@ int main(int argc, char **argv) {
     ch4::openCsv(movesFile, movesOut, MOVES_HEADER);
     ch4::openCsv(breakevenFile, breakevenOut, BREAKEVEN_HEADER);
     ch4::openCsv(workloadFile, workloadOut, WORKLOAD_HEADER);
+    // Etapa 1 diagnostics: every decision (large) and the per-arm counters.
+    std::ofstream decisionsFile, statsFile;
+    ch4::openCsv(decisionsFile, decisionsOut,
+                 "regime,query_type,repetition,arm,query,src,dst,dq_dst,dq_src,"
+                 "event,object,d_x_src,d_x_dst,dst_radius");
+    ch4::openCsv(statsFile, statsOut,
+                 "regime,query_type,repetition,arm,queries,pairs,pairs_not_leaf,"
+                 "rejected_gain,representative,skipped_bound,cand_distances,"
+                 "pair_distances,coverage,duplicate,not_closer,no_return,move_cap,"
+                 "cooldown,underflow,no_shrink,votes,capacity,moved,reverse");
 
     std::vector<std::string> queryTypes;
     if (cfg.queryType == "both") {
@@ -698,9 +732,23 @@ int main(int argc, char **argv) {
     // etapa2_bulk builds T' top-down, with the queries deciding the partition
     // of every level (stSlimQueryBulkLoad); etapa2_bulk_data is the same code
     // with the queries switched off - its control.
-    const char *arms[] = {"original", "slimdown", "etapa1", "etapa2",
-                          "etapa2_data", "hilbert", "etapa2_bulk",
-                          "etapa2_bulk_data"};
+    const char *allArms[] = {"original", "slimdown", "etapa1", "etapa2",
+                             "etapa2_data", "hilbert", "etapa2_bulk",
+                             "etapa2_bulk_data", "hilbert_etapa1", "etapa2_etapa1",
+                             "slimdown_etapa1"};
+    // --arms keeps a subset, in the canonical order. `original` always runs:
+    // it is the baseline of the break-even file. etapa2_data needs the |P|
+    // that etapa2 picks, so it drags etapa2 in.
+    std::vector<std::string> arms;
+    for (const char *a : allArms) {
+        const std::string name(a);
+        const std::string list = "," + cfg.arms + ",";
+        const bool wanted =
+            cfg.arms.empty() || name == "original" ||
+            list.find("," + name + ",") != std::string::npos ||
+            (name == "etapa2" && list.find(",etapa2_data,") != std::string::npos);
+        if (wanted) arms.push_back(name);
+    }
     int failures = 0;
 
     for (int r = 0; r < cfg.reps; r++) {
@@ -764,7 +812,7 @@ int main(int argc, char **argv) {
                 mySlimTree *tree = new mySlimTree(pm);
 
                 const std::vector<TCity *> &insertion =
-                    (arm == "hilbert") ? hilbert : order;
+                    (arm == "hilbert" || arm == "hilbert_etapa1") ? hilbert : order;
                 ch4::Timer buildTimer;
                 for (TCity *o : insertion) tree->Add(o);
                 const double buildMs = buildTimer.ms();
@@ -775,7 +823,7 @@ int main(int argc, char **argv) {
                     (long)tree->GetMetricEvaluator()->GetDistanceCount();
                 extra.regionSize = w.regionSize;
                 extra.measureToAdapt = w.measureToAdapt;
-                extra.insertionOrder = (arm == "hilbert")
+                extra.insertionOrder = (arm == "hilbert" || arm == "hilbert_etapa1")
                                            ? "hilbert"
                                            : (cfg.fileOrder ? "file" : "shuffled");
                 if (!w.centres.empty()) {
@@ -815,10 +863,31 @@ int main(int argc, char **argv) {
                     extra.reorgDistances =
                         (long)tree->GetMetricEvaluator()->GetDistanceCount() - d0;
 
-                } else if (arm == "etapa1") {
+                }
+
+                // Etapa 1 on whichever tree `t` is. moves.csv and breakeven.csv
+                // carry no arm column, so only the plain etapa1 arm logs there.
+                auto runEtapa1 = [&](mySlimTree *t, stPlainDiskPageManager *p,
+                                     bool log) {
                     myEtapa1::Config ec1;
                     ec1.RequireShrink = cfg.knnGate;
-                    myEtapa1 etapa1(pm, ec1);
+                    ec1.DestinationFarthest = cfg.destFarthest;
+                    if (cfg.cooldown >= 0) ec1.CooldownQueries = cfg.cooldown;
+                    if (cfg.hysteresis > 0.0) ec1.HysteresisAlpha = cfg.hysteresis;
+                    if (cfg.minGain >= 0.0) ec1.MinGain = cfg.minGain;
+                    if (cfg.maxMoves >= 0) ec1.MaxMovesPerQuery = cfg.maxMoves;
+                    ec1.CloserToRep = cfg.closerToRep;
+                    ec1.NoReturn = cfg.noReturn;
+                    ec1.VotesRequired = cfg.votes;
+                    ec1.MaxMovesPerObject = cfg.maxMovesObject;
+                    myEtapa1 etapa1(p, ec1);
+                    if (decisionsFile.is_open()) {
+                        etapa1.SetDecisionLog(
+                            &decisionsFile,
+                            cfg.regime + "," + qtype + "," + std::to_string(rep) +
+                                "," + arm + ",",
+                            [](TCity &c) { return std::string(c.GetName()); });
+                    }
                     stSlimTrace trace;
                     long cumMoves = 0;
                     double cumMs = 0.0;
@@ -826,17 +895,17 @@ int main(int argc, char **argv) {
                     for (size_t i = 0; i < w.adapt.size(); i++) {
                         trace.Reset();
                         stSlimActiveTrace = &trace;
-                        myResult *res = knn ? tree->NearestQuery(w.adapt[i], cfg.k)
-                                            : tree->RangeQuery(w.adapt[i], cfg.radius);
+                        myResult *res = knn ? t->NearestQuery(w.adapt[i], cfg.k)
+                                            : t->RangeQuery(w.adapt[i], cfg.radius);
                         stSlimActiveTrace = 0;
                         delete res;
 
-                        ch4::Timer t;
+                        ch4::Timer tm;
                         const long moved = etapa1.ApplyAfterQuery(trace);
-                        cumMs += t.ms();
+                        cumMs += tm.ms();
                         cumMoves += moved;
 
-                        if (movesFile.is_open()) {
+                        if (log && movesFile.is_open()) {
                             movesFile << cfg.commit << ',' << cfg.datasetLabel << ','
                                       << cfg.regime << ',' << qtype << ',' << rep
                                       << ',' << i << ',' << moved << ','
@@ -845,10 +914,10 @@ int main(int argc, char **argv) {
 
                         // H3: after every `chunk` adapt queries, price the whole
                         // measure set read-only and record the cumulative cost.
-                        if (cfg.chunk > 0 && breakevenFile.is_open() &&
+                        if (log && cfg.chunk > 0 && breakevenFile.is_open() &&
                             ((i + 1) % (size_t)cfg.chunk == 0)) {
                             const Measurement probe =
-                                measureBatch(tree, pm, w.measure, knn, cfg, objects,
+                                measureBatch(t, p, w.measure, knn, cfg, objects,
                                              verifyEval, false, 0);
                             const myEtapa1::Stats &st = etapa1.GetStats();
                             breakevenFile
@@ -862,10 +931,31 @@ int main(int argc, char **argv) {
                                 << "\n";
                         }
                     }
-                    adaptMs = cumMs;
+                    adaptMs += cumMs;
                     adaptStats = etapa1.GetStats();
+                    if (statsFile.is_open()) {
+                        const myEtapa1::Stats &x = adaptStats;
+                        statsFile << cfg.regime << ',' << qtype << ',' << rep << ','
+                                  << arm << ',' << x.QueriesSeen << ','
+                                  << x.PairsConsidered << ',' << x.PairsSkippedNotLeaf
+                                  << ',' << x.RejectedByGain << ','
+                                  << x.RejectedByRepresentative << ','
+                                  << x.SkippedByBound << ',' << x.CandidateDistances
+                                  << ',' << x.PairDistances << ','
+                                  << x.RejectedByCoverage << ','
+                                  << x.RejectedByDuplicate << ','
+                                  << x.RejectedByNotCloser << ','
+                                  << x.RejectedByNoReturn << ','
+                                  << x.RejectedByMoveCap << ','
+                                  << x.RejectedByCooldown << ','
+                                  << x.RejectedByUnderflow << ','
+                                  << x.RejectedByNoShrink << ',' << x.RejectedByVotes
+                                  << ',' << x.RejectedByCapacity << ','
+                                  << x.ObjectsRelocated << ','
+                                  << x.ReverseRelocations << "\n";
+                    }
                     adaptPtr = &adaptStats;
-                    extra.reorgDistances = adaptStats.Distances;
+                    extra.reorgDistances += adaptStats.Distances;
 
                     if (adaptStats.DestinationRadiusGrowthEvents != 0) {
                         std::cerr << "FATAL: H2 violated - the destination radius "
@@ -874,11 +964,37 @@ int main(int argc, char **argv) {
                                   << " time(s)\n";
                         failures++;
                     }
+                };
 
-                } else if (arm == "etapa2" || arm == "etapa2_data") {
+                if (arm == "etapa1") {
+                    runEtapa1(tree, pm, true);
+
+                } else if (arm == "slimdown_etapa1") {
+                    // Slim-down first (cheap, query-blind), then Etapa 1 on top.
+                    if (tree->GetHeight() < 3) {
+                        std::cerr << "ERROR: Optimize() is a no-op below height 3" << std::endl;
+                        return 3;
+                    }
+                    const long d0 = (long)tree->GetMetricEvaluator()->GetDistanceCount();
+                    ch4::Timer t;
+                    tree->Optimize();
+                    adaptMs = t.ms();
+                    extra.reorgDistances =
+                        (long)tree->GetMetricEvaluator()->GetDistanceCount() - d0;
+                    runEtapa1(tree, pm, false);
+
+                } else if (arm == "hilbert_etapa1") {
+                    // Etapa 1 as fine tuning of a tree whose leaves are already
+                    // tight: the cost is the Hilbert rebuild plus the moves.
+                    extra.reorgDistances = extra.constructionDistances;
+                    adaptMs = buildMs;
+                    runEtapa1(tree, pm, false);
+
+                } else if (arm == "etapa2" || arm == "etapa2_data" ||
+                           arm == "etapa2_etapa1") {
                     ch4::Timer t;
                     long pivotCost = 0;
-                    if (arm == "etapa2") {
+                    if (arm != "etapa2_data") {
                         rebuild.BuildQueryTree(w.adapt, cfg.pageSize,
                                                cfg.indexDir + "/ch4_TQ.dat");
                         pivotsUsed = (cfg.pivots > 0)
@@ -922,6 +1038,9 @@ int main(int argc, char **argv) {
                         std::ofstream nav(navOut);
                         if (nav) rebuild.ExportNavigationGraph(nav, true);
                     }
+
+                    // Etapa 1 as fine tuning of T': cost is the rebuild plus the moves.
+                    if (arm == "etapa2_etapa1") runEtapa1(extraTree, extraPm, false);
 
                 } else if (arm == "etapa2_bulk" || arm == "etapa2_bulk_data") {
                     // Top-down: no T_Q and no reinsertion. The adapt queries

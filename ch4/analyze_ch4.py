@@ -38,7 +38,8 @@ import sys
 BASELINE = "original"
 
 ARMS = ["original", "slimdown", "etapa1", "etapa2", "etapa2_data", "hilbert",
-        "etapa2_bulk", "etapa2_bulk_data"]
+        "etapa2_bulk", "etapa2_bulk_data", "hilbert_etapa1", "etapa2_etapa1",
+        "slimdown_etapa1"]
 
 ARM_NOTES = {
     "original": "Slim-tree as built, in a random insertion order drawn per "
@@ -57,6 +58,10 @@ ARM_NOTES = {
                    "(stSlimQueryBulkLoad). Not height-balanced.",
     "etapa2_bulk_data": "Control for etapa2_bulk: the same code with the "
                         "queries switched off (data pivots only).",
+    "hilbert_etapa1": "Etapa 1 run on the Hilbert-built tree: relocation as "
+                      "fine tuning of a tree whose leaves are already tight.",
+    "etapa2_etapa1": "Etapa 1 run on T' after the Etapa 2 rebuild.",
+    "slimdown_etapa1": "Slim-down (Optimize()) first, then Etapa 1 on top.",
 }
 
 # (arm, reference): the comparisons that say where a gain comes from.
@@ -66,6 +71,9 @@ CONTROLS = [
     ("etapa2_bulk", "etapa2_bulk_data", "top-down: query vs data pivots"),
     ("etapa2_bulk", "hilbert", "top-down with queries vs Hilbert"),
     ("etapa2_bulk", "etapa2", "top-down vs insertion order, both with queries"),
+    ("hilbert_etapa1", "hilbert", "Etapa 1 on top of the Hilbert tree"),
+    ("etapa2_etapa1", "etapa2", "Etapa 1 on top of T'"),
+    ("slimdown_etapa1", "slimdown", "Etapa 1 on top of Slim-down"),
 ]
 
 CONFIG_KEYS = ("dataset", "regime", "query_type", "k", "radius")

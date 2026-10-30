@@ -1,0 +1,5 @@
+# Build output and results of the Chapter 3 harness.
+build/
+results/
+*.exe
+*.dat

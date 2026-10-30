@@ -64,6 +64,165 @@
    #include <arboretum/stLevelDiskAccess.h>
 #endif //__stDISKACCESSSTATS__
 
+//=============================================================================
+// Query Gravity - configuration
+//-----------------------------------------------------------------------------
+/**
+* Query Gravity makes the Slim-Down algorithm query-aware.
+*
+* The original Slim-Down only ever accepts moving an object into a neighbouring
+* node when the object already falls inside that node's current radius:
+*
+*     if (distance <= dst->GetMinimumRadius())
+*
+* so a swap can tighten a region but never enlarge it. Query Gravity keeps a
+* short history of where recent queries landed and relaxes that bound in
+* proportion to how much query traffic fell near the destination:
+*
+*     if (distance <= radius + heat * QG_GROWTH_FACTOR * radius)
+*
+* The intent is to let frequently queried ("hot") regions absorb nearby objects
+* so that popular queries touch fewer nodes.
+*
+* HOW TO TURN IT OFF
+* ------------------
+* Set QUERY_GRAVITY_ENABLED to 0 below, or compile with
+* -DQUERY_GRAVITY_ENABLED=0. Every part of Query Gravity - the hotspot history,
+* the heat computation, the calls from RangeQuery()/NearestQuery() and the
+* relaxed swap test - is then compiled out completely, leaving the original
+* Slim-Tree behaviour with no runtime cost whatsoever.
+*
+* HOW TO SEE WHAT IT DOES
+* -----------------------
+* Set QUERY_GRAVITY_TRACE to 1 to print, on std::cerr, every Slim-Down decision
+* where Query Gravity and the original algorithm actually disagree, plus the
+* heat and the two radii that produced the disagreement.
+*/
+#ifndef QUERY_GRAVITY_ENABLED
+   #define QUERY_GRAVITY_ENABLED 1
+#endif //QUERY_GRAVITY_ENABLED
+
+#ifndef QUERY_GRAVITY_TRACE
+   #define QUERY_GRAVITY_TRACE 1
+#endif //QUERY_GRAVITY_TRACE
+
+#if QUERY_GRAVITY_ENABLED
+   /**
+   * Tunable constants. Each default is the value from the original Query
+   * Gravity commit, so leaving them alone reproduces its exact behaviour.
+   */
+   #ifndef QG_GROWTH_FACTOR
+      /** Radius growth allowed per unit of heat. */
+      #define QG_GROWTH_FACTOR 0.1
+   #endif
+   #ifndef QG_BASE_ALLOWANCE
+      /**
+      * Allowance granted to a node whose radius is zero. Careful: this is not
+      * merely a guard for a degenerate case. It lets objects be swapped into
+      * zero-radius nodes, which the original Slim-Down would never accept
+      * (that would require distance <= 0), so it is a behavioural change in its
+      * own right, independent of QG_GROWTH_FACTOR.
+      */
+      #define QG_BASE_ALLOWANCE 0.1
+   #endif
+   #ifndef QG_HEAT_CAP
+      /**
+      * Upper bound on accumulated heat. The default is effectively no cap,
+      * which matches the original commit; note that heat is a sum over the
+      * whole hotspot history and so is unbounded in principle.
+      */
+      #define QG_HEAT_CAP 1e300
+   #endif
+   #ifndef QG_MERGE_EPS
+      /**
+      * Two queries count as the same hotspot below this distance. With the
+      * default of 1e-6 only near-exact repeats increment a hotspot's
+      * frequency; anything else appends a new frequency-1 entry.
+      */
+      #define QG_MERGE_EPS 1e-6
+   #endif
+   #ifndef QG_HEAT_RADIUS
+      /** A hotspot contributes heat only to nodes within this distance. */
+      #define QG_HEAT_RADIUS 10.0
+   #endif
+   #ifndef QG_HISTORY_SIZE
+      /**
+      * Hotspots retained, oldest evicted first. Note AddQueryHotspot() scans
+      * this whole list on every single query, so the value is also the
+      * per-query bookkeeping cost in distance computations.
+      */
+      #define QG_HISTORY_SIZE 50
+   #endif
+
+   #if QUERY_GRAVITY_TRACE
+      #include <iostream>
+   #endif //QUERY_GRAVITY_TRACE
+#endif //QUERY_GRAVITY_ENABLED
+
+//=============================================================================
+// Etapa 1 - Realocacao Guiada pela Consulta (thesis chapter 4, section 4.3)
+//-----------------------------------------------------------------------------
+/**
+* Query-guided relocation.
+*
+* After a query is answered, objects that lie in a zone covered by more than one
+* sibling node ("cobertura ambigua", Definition 2) are moved to whichever of
+* those siblings has the representative CLOSER TO THE QUERY CENTRE.
+*
+* The four conditions are exactly Equations 4.3-4.6 of the thesis:
+*
+*   (4.3)  d(x, O_j) <= r_j          destination ALREADY covers x
+*   (4.4)  d(q, O_j) <  d(q, O_i)    resolve the ambiguity towards the query
+*   (4.5)  ocup(N_j) + |x| <= C      destination page has room
+*   (4.6)  x != O_i                  never move a representative
+*
+* Condition 4.3 is the crucial one: the destination radius NEVER grows, so the
+* coverage invariant (Definition 1) is preserved and pruning can only get
+* stronger. This is the opposite of Query Gravity above, which relaxes exactly
+* that bound and was measured to make queries 44% more expensive.
+*
+* Cost control: d(x, O_i) is already stored in every leaf entry. Computing
+* d(O_i, O_j) once per node pair lets the triangle inequality
+*
+*     d(x, O_j) >= d(x, O_i) - d(O_i, O_j)
+*
+* reject most candidates with ZERO distance computations. Only survivors of that
+* filter pay for an exact d(x, O_j).
+*/
+#ifndef SLIM_ADAPT_ENABLED
+   #define SLIM_ADAPT_ENABLED 1
+#endif //SLIM_ADAPT_ENABLED
+
+#if SLIM_ADAPT_ENABLED
+   #ifndef SLIM_ADAPT_MAX_MOVES
+      /**
+      * Upper bound on relocations performed after a single query. Caps the
+      * worst-case latency added to any one query; H4 predicts the actual rate
+      * decays to zero anyway once the tree stabilises.
+      */
+      #define SLIM_ADAPT_MAX_MOVES 8
+   #endif //SLIM_ADAPT_MAX_MOVES
+
+   #ifndef SLIM_ADAPT_MIN_GAIN
+      /**
+      * Equation 4.4 is applied as d(q,O_j) < d(q,O_i) - SLIM_ADAPT_MIN_GAIN.
+      * A value > 0 demands a strict improvement and damps the ping-pong that
+      * H4 warns about when queries are uniformly distributed.
+      */
+      #define SLIM_ADAPT_MIN_GAIN 0.0
+   #endif //SLIM_ADAPT_MIN_GAIN
+
+   #ifndef SLIM_ADAPT_TRACE
+      #define SLIM_ADAPT_TRACE 0
+   #endif //SLIM_ADAPT_TRACE
+
+   #include <map>
+   #include <utility>
+   #if SLIM_ADAPT_TRACE
+      #include <iostream>
+   #endif //SLIM_ADAPT_TRACE
+#endif //SLIM_ADAPT_ENABLED
+
 
 #ifdef __BULKLOAD__
 //=============================================================================
@@ -1078,6 +1237,273 @@ class stSlimTree: public stMetricTree <ObjectType, EvaluatorType> {
       virtual long GetNodeCount(){
          return Header->NodeCount;
       }//end GetNodeCount
+
+      /**
+      * True when this tree was compiled with Query Gravity enabled. Lets a
+      * caller report which variant it is actually running.
+      */
+      static bool IsQueryGravityEnabled(){
+         #if QUERY_GRAVITY_ENABLED
+            return true;
+         #else
+            return false;
+         #endif
+      }//end IsQueryGravityEnabled
+
+      /**
+      * Number of query hotspots currently remembered. Always 0 when Query
+      * Gravity is disabled.
+      */
+      long GetQueryHotspotCount(){
+         #if QUERY_GRAVITY_ENABLED
+            return (long) recentQueries.size();
+         #else
+            return 0;
+         #endif
+      }//end GetQueryHotspotCount
+
+      /**
+      * Number of Slim-Down swaps accepted only because Query Gravity widened
+      * the radius test. This is exactly the number of decisions where the two
+      * algorithms disagreed, so 0 means Query Gravity changed nothing.
+      */
+      long GetQueryGravityExtraSwaps(){
+         #if QUERY_GRAVITY_ENABLED
+            return QueryGravityExtraSwaps;
+         #else
+            return 0;
+         #endif
+      }//end GetQueryGravityExtraSwaps
+
+      /**
+      * Total heat currently held in the hotspot history, i.e. the sum of all
+      * hotspot frequencies. Always 0 when Query Gravity is disabled.
+      */
+      long GetQueryHotspotTotalFrequency(){
+         long total = 0;
+         #if QUERY_GRAVITY_ENABLED
+            for (size_t i = 0; i < recentQueries.size(); i++){
+               total += recentQueries[i].frequency;
+            }//end for
+         #endif
+         return total;
+      }//end GetQueryHotspotTotalFrequency
+
+      //=====================================================================
+      // Etapa 1 - Realocacao Guiada pela Consulta: public interface
+      //=====================================================================
+
+      /**
+      * True when this tree was compiled with query-guided relocation available.
+      */
+      static bool IsQueryAdaptationAvailable(){
+         #if SLIM_ADAPT_ENABLED
+            return true;
+         #else
+            return false;
+         #endif
+      }//end IsQueryAdaptationAvailable
+
+      /**
+      * Turns query-guided relocation on or off at runtime.
+      *
+      * Defaults to OFF so that an unmodified program behaves exactly like the
+      * original Slim-tree. The benchmark turns it on only for the "etapa1"
+      * variant, which is what makes the four configurations of section 4.5
+      * comparable in a single binary.
+      */
+      void SetQueryAdaptation(bool enabled){
+         #if SLIM_ADAPT_ENABLED
+            AdaptationEnabled = enabled;
+         #else
+            (void) enabled;
+         #endif
+      }//end SetQueryAdaptation
+
+      /**
+      * @copydoc SetQueryAdaptation
+      */
+      bool GetQueryAdaptation(){
+         #if SLIM_ADAPT_ENABLED
+            return AdaptationEnabled;
+         #else
+            return false;
+         #endif
+      }//end GetQueryAdaptation
+
+      /**
+      * Total objects moved between sibling leaves since the last reset.
+      * The per-query series of this counter is the evidence for H4.
+      */
+      long GetAdaptRelocations(){
+         #if SLIM_ADAPT_ENABLED
+            return AdaptRelocations;
+         #else
+            return 0;
+         #endif
+      }//end GetAdaptRelocations
+
+      /**
+      * Relocations that undid an earlier move in the opposite direction
+      * (ping-pong). H4 predicts this stays small under a concentrated
+      * workload and grows under a uniform one.
+      */
+      long GetAdaptReverseRelocations(){
+         #if SLIM_ADAPT_ENABLED
+            return AdaptReverseRelocations;
+         #else
+            return 0;
+         #endif
+      }//end GetAdaptReverseRelocations
+
+      /**
+      * Moves performed after the most recent query. Sampling this per query
+      * gives the decay curve H4 is about.
+      */
+      long GetAdaptLastQueryMoves(){
+         #if SLIM_ADAPT_ENABLED
+            return AdaptLastQueryMoves;
+         #else
+            return 0;
+         #endif
+      }//end GetAdaptLastQueryMoves
+
+      /**
+      * Number of queries that went through the adaptation pass.
+      */
+      long GetAdaptQueryCount(){
+         #if SLIM_ADAPT_ENABLED
+            return AdaptQueryCount;
+         #else
+            return 0;
+         #endif
+      }//end GetAdaptQueryCount
+
+      /**
+      * Distance computations spent ON ADAPTATION ONLY, separated from the
+      * distances spent answering queries. This is the "custo adicional" of
+      * hypothesis H3; the break-even point is where the query savings
+      * overtake it.
+      */
+      long GetAdaptDistanceCalls(){
+         #if SLIM_ADAPT_ENABLED
+            return AdaptDistanceCalls;
+         #else
+            return 0;
+         #endif
+      }//end GetAdaptDistanceCalls
+
+      /**
+      * Page reads / writes attributable to adaptation only.
+      */
+      long GetAdaptPageReads(){
+         #if SLIM_ADAPT_ENABLED
+            return AdaptPageReads;
+         #else
+            return 0;
+         #endif
+      }//end GetAdaptPageReads
+
+      /**
+      * @copydoc GetAdaptPageReads
+      */
+      long GetAdaptPageWrites(){
+         #if SLIM_ADAPT_ENABLED
+            return AdaptPageWrites;
+         #else
+            return 0;
+         #endif
+      }//end GetAdaptPageWrites
+
+      /**
+      * Times a relocation would have required growing the destination radius.
+      *
+      * MUST ALWAYS BE ZERO. Equation 4.3 is checked before every move, so a
+      * non-zero value means the coverage invariant was violated and the
+      * exactness guarantee of hypothesis H2 is broken. The benchmark asserts
+      * on it.
+      */
+      long GetAdaptRadiusExpansions(){
+         #if SLIM_ADAPT_ENABLED
+            return AdaptRadiusExpansions;
+         #else
+            return 0;
+         #endif
+      }//end GetAdaptRadiusExpansions
+
+      /**
+      * Index nodes and leaf nodes actually read during the queries executed
+      * since the last ResetQueryStatistics(). "Numero de subarvores visitadas"
+      * in section 4.5 - the quantity the whole thesis is trying to reduce.
+      */
+      long GetNodesVisited(){
+         return NodesVisited;
+      }//end GetNodesVisited
+
+      /**
+      * Subtrees rejected by a pruning test instead of being visited.
+      */
+      long GetNodesPruned(){
+         return NodesPruned;
+      }//end GetNodesPruned
+
+      /**
+      * Final dynamic radius (tau) of the most recent k-NN query, and the
+      * number of queue entries discarded because of it. Section 4.5 asks for
+      * both to be recorded for k-NN.
+      */
+      double GetLastTau(){
+         return LastTau;
+      }//end GetLastTau
+
+      /**
+      * @copydoc GetLastTau
+      */
+      long GetEntriesDiscardedByTau(){
+         return EntriesDiscardedByTau;
+      }//end GetEntriesDiscardedByTau
+
+      /**
+      * Zeroes the query-side counters (visited, pruned, tau) and the
+      * adaptation counters. Call it right before a measured batch, exactly
+      * like stPageManager::ResetStatistics().
+      */
+      void ResetQueryStatistics(){
+         NodesVisited = 0;
+         NodesPruned = 0;
+         LastTau = 0.0;
+         EntriesDiscardedByTau = 0;
+         #if SLIM_ADAPT_ENABLED
+            AdaptRelocations = 0;
+            AdaptReverseRelocations = 0;
+            AdaptDistanceCalls = 0;
+            AdaptPageReads = 0;
+            AdaptPageWrites = 0;
+            AdaptQueryCount = 0;
+            AdaptLastQueryMoves = 0;
+            AdaptRadiusExpansions = 0;
+            AdaptMoveHistory.clear();
+         #endif
+      }//end ResetQueryStatistics
+
+      /**
+      * Mean and standard deviation of leaf-node occupation, plus the mean leaf
+      * covering radius. Section 4.5 tracks all three alongside the fat-factor.
+      */
+      void GetOccupancyStats(double & meanOccupancy, double & stdOccupancy,
+                             double & meanLeafRadius);
+
+      /**
+      * Appends a copy of every leaf-node representative to `out`.
+      *
+      * Etapa 2 (section 4.4.1) uses this on the QUERY tree T_Q to obtain its
+      * pivot set: the representatives of T_Q's leaves. Extracting them here,
+      * inside the class, keeps the root page id private while still giving the
+      * batch reorganiser what it needs.
+      *
+      * The caller owns the returned objects and must delete them.
+      */
+      void CollectLeafRepresentatives(std::vector<ObjectType *> & out);
 
       /**
       * Returns the total number of index nodes of this tree.
@@ -2924,12 +3350,31 @@ class stSlimTree: public stMetricTree <ObjectType, EvaluatorType> {
       bool SlimDownCanSwap(tMemLeafNode * src, tMemLeafNode * dst,
                            double & distance);
 
-      // --- Query-Aware SlimDown (Option B) ---
+#if QUERY_GRAVITY_ENABLED
+      //-----------------------------------------------------------------------
+      // Query Gravity (see the configuration block at the top of this file).
+      // Compiled out entirely when QUERY_GRAVITY_ENABLED is 0.
+      //-----------------------------------------------------------------------
+      /**
+      * One remembered query location, plus how many times it was queried.
+      * The count only grows on near-exact repeats (see QG_MERGE_EPS).
+      */
       struct stQueryHotspot {
           ObjectType center;
           int frequency;
       };
+
+      /**
+      * The query history, capped at QG_HISTORY_SIZE with oldest-first eviction.
+      */
       std::vector<stQueryHotspot> recentQueries;
+
+      /**
+      * Number of Slim-Down swaps that were accepted ONLY because of Query
+      * Gravity, i.e. that the original radius test would have rejected. This is
+      * the amount of extra region growth the feature actually caused.
+      */
+      long QueryGravityExtraSwaps = 0;
 
       /**
       * Adds a new query hotspot to the history.
@@ -2940,7 +3385,135 @@ class stSlimTree: public stMetricTree <ObjectType, EvaluatorType> {
       * Calculates the heat of a given region based on recent queries.
       */
       double CalculateHeat(ObjectType * repObj);
-      // ---------------------------------------
+#endif //QUERY_GRAVITY_ENABLED
+
+      //=====================================================================
+      // Query-side instrumentation (section 4.5)
+      //=====================================================================
+
+      /**
+      * Nodes read while answering queries, and subtrees rejected by pruning.
+      * Incremented by RangeQuery() and NearestQuery(); zeroed by
+      * ResetQueryStatistics().
+      */
+      long NodesVisited = 0;
+      long NodesPruned = 0;
+
+      /**
+      * Final dynamic radius of the last k-NN query and how many queued
+      * entries it discarded.
+      */
+      double LastTau = 0.0;
+      long EntriesDiscardedByTau = 0;
+
+#if SLIM_ADAPT_ENABLED
+      //=====================================================================
+      // Etapa 1 - Realocacao Guiada pela Consulta: internals
+      //=====================================================================
+
+      /**
+      * One index entry that a query descended into.
+      *
+      * Filled during the traversal from values the query ALREADY computed, so
+      * building the log costs no additional distance calculations. It is the
+      * raw material for AdaptAfterQuery(): everything the relocation pass
+      * needs to know about where the query went.
+      */
+      struct stVisitedNode{
+         /** Index node that held the entry. */
+         u_int32_t ParentPageID;
+         /** Page the entry pointed at. */
+         u_int32_t ChildPageID;
+         /** Position of the entry inside the parent. */
+         u_int32_t EntryIdx;
+         /** d(q, O_child) - the quantity Equation 4.4 compares. */
+         double DistToQuery;
+      };
+
+      /**
+      * Nodes visited by the query currently being answered. Cleared at the
+      * start of every top-level query.
+      */
+      std::vector<stVisitedNode> VisitLog;
+
+      /**
+      * Runtime switch. Off by default so an untouched program keeps the
+      * original Slim-tree behaviour bit for bit.
+      */
+      bool AdaptationEnabled = false;
+
+      /** @see GetAdaptRelocations */
+      long AdaptRelocations = 0;
+      /** @see GetAdaptReverseRelocations */
+      long AdaptReverseRelocations = 0;
+      /** @see GetAdaptDistanceCalls */
+      long AdaptDistanceCalls = 0;
+      /** @see GetAdaptPageReads */
+      long AdaptPageReads = 0;
+      /** @see GetAdaptPageWrites */
+      long AdaptPageWrites = 0;
+      /** @see GetAdaptQueryCount */
+      long AdaptQueryCount = 0;
+      /** @see GetAdaptLastQueryMoves */
+      long AdaptLastQueryMoves = 0;
+      /** @see GetAdaptRadiusExpansions */
+      long AdaptRadiusExpansions = 0;
+
+      /**
+      * How many objects went from page A to page B, keyed by (A,B).
+      *
+      * A move from A to B when (B,A) is already present is a reversal: the
+      * tree is undoing earlier work. Tracking it at page granularity is cheap
+      * and is enough to show the oscillation H4 predicts for uniform
+      * workloads.
+      */
+      std::map<std::pair<u_int32_t, u_int32_t>, long> AdaptMoveHistory;
+
+      /**
+      * Records one visited index entry. Called from the query traversal at the
+      * point where the distance to the entry's representative is already
+      * known, so it never triggers a distance computation.
+      */
+      void LogVisit(u_int32_t parentPageID, u_int32_t childPageID,
+                    u_int32_t entryIdx, double distToQuery){
+         if (AdaptationEnabled){
+            stVisitedNode v;
+            v.ParentPageID = parentPageID;
+            v.ChildPageID  = childPageID;
+            v.EntryIdx     = entryIdx;
+            v.DistToQuery  = distToQuery;
+            VisitLog.push_back(v);
+         }//end if
+      }//end LogVisit
+
+      /**
+      * Etapa 1 entry point. Runs the relocation pass over the nodes recorded
+      * in VisitLog, then clears the log.
+      *
+      * Called AFTER the query has produced its result, never during the
+      * traversal: mutating nodes mid-traversal would corrupt the iteration and
+      * contaminate the query's own statistics.
+      *
+      * @param sample The query centre q.
+      */
+      void AdaptAfterQuery(ObjectType * sample);
+
+      /**
+      * Relocates qualifying objects from one leaf into a sibling leaf.
+      *
+      * Implements Equations 4.3 to 4.7 for a single (source, destination)
+      * pair; see AdaptAfterQuery() for how the pairs are chosen.
+      *
+      * @param parent      The index node that owns both leaves.
+      * @param srcEntryIdx Entry of N_i inside parent.
+      * @param dstEntryIdx Entry of N_j inside parent.
+      * @param movesLeft   Remaining move budget, decremented in place.
+      * @return true when at least one object moved (pages then need writing).
+      */
+      bool RelocateBetweenSiblings(stSlimIndexNode * parent,
+                                   u_int32_t srcEntryIdx, u_int32_t dstEntryIdx,
+                                   int & movesLeft);
+#endif //SLIM_ADAPT_ENABLED
 
       #ifdef __BULKLOAD__
          /**

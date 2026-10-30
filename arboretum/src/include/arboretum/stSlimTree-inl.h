@@ -4314,8 +4314,16 @@ stResult<ObjectType> * tmpl_stSlimTree::RangeQuery(
    // Set the information.
    result->SetQueryInfo((ObjectType*) sample->Clone(), RANGEQUERY, -1, range, false);
 
-   // --- Query-Aware Logic (Option B) ---
+#if QUERY_GRAVITY_ENABLED
+   // Query Gravity: remember where this query landed, so a later Optimize()
+   // can let the regions around it grow.
    AddQueryHotspot(sample);
+#endif //QUERY_GRAVITY_ENABLED
+
+#if SLIM_ADAPT_ENABLED
+   // Etapa 1: start a fresh visit log for this query.
+   VisitLog.clear();
+#endif //SLIM_ADAPT_ENABLED
 
    // Visualization support
    #ifdef __stMAMVIEW__
@@ -4371,8 +4379,17 @@ stResult<ObjectType> * tmpl_stSlimTree::RangeQuery(
             // test if this subtree qualifies.
             if (distance <= range + indexNode->GetIndexEntry(idx).Radius){
                // Yes! Analyze this subtree.
+               #if SLIM_ADAPT_ENABLED
+                  // Etapa 1: `distance` is d(q, O_idx), already computed by the
+                  // query itself, so logging the visit costs nothing.
+                  LogVisit(this->GetRoot(),
+                           indexNode->GetIndexEntry(idx).PageID, idx, distance);
+               #endif //SLIM_ADAPT_ENABLED
+               NodesVisited++;
                this->RangeQuery(indexNode->GetIndexEntry(idx).PageID, result,
                                 sample, range, distance);
+            }else{
+               NodesPruned++;
             }//end if
          }//end for
          
@@ -4429,6 +4446,12 @@ stResult<ObjectType> * tmpl_stSlimTree::RangeQuery(
       MAMViewer->EndFrame();
       MAMViewer->EndAnimation();
    #endif //__stMAMVIEW__
+
+#if SLIM_ADAPT_ENABLED
+   // Etapa 1 runs AFTER the answer is complete, never during the traversal.
+   AdaptAfterQuery(sample);
+#endif //SLIM_ADAPT_ENABLED
+
    return result;
 }//end stSlimTree<ObjectType, EvaluatorType>::RangeQuery
 
@@ -4483,8 +4506,11 @@ void tmpl_stSlimTree::RangeQuery(
          // For each entry...
          for (idx = 0; idx < numberOfEntries; idx++) {
             // use of the triangle inequality to cut a subtree
-            if ( fabs(distanceRepres - indexNode->GetIndexEntry(idx).Distance) <=
+            if ( fabs(distanceRepres - indexNode->GetIndexEntry(idx).Distance) >
                       range + indexNode->GetIndexEntry(idx).Radius){
+               // Pruned without computing a single distance.
+               NodesPruned++;
+            }else{
                // Rebuild the object
                tmpObj.Unserialize(indexNode->GetObject(idx),
                                   indexNode->GetObjectSize(idx));
@@ -4493,6 +4519,11 @@ void tmpl_stSlimTree::RangeQuery(
                // is this a qualified subtree?
                if (distance <= range + indexNode->GetIndexEntry(idx).Radius){
                   // Yes! Analyze it!
+                  #if SLIM_ADAPT_ENABLED
+                     LogVisit(pageID, indexNode->GetIndexEntry(idx).PageID,
+                              idx, distance);
+                  #endif //SLIM_ADAPT_ENABLED
+                  NodesVisited++;
                   this->RangeQuery(indexNode->GetIndexEntry(idx).PageID, result,
                                     sample, range, distance);
                   #ifdef __stMAMVIEW__
@@ -5100,8 +5131,16 @@ stResult<ObjectType> * stSlimTree<ObjectType, EvaluatorType>::NearestQuery(
    // Set information for this query
    result->SetQueryInfo((ObjectType*) sample->Clone(), KNEARESTQUERY, k, MAXDOUBLE, tie);
 
-   // --- Query-Aware Logic (Option B) ---
+#if QUERY_GRAVITY_ENABLED
+   // Query Gravity: remember where this query landed, so a later Optimize()
+   // can let the regions around it grow.
    this->AddQueryHotspot(sample);
+#endif //QUERY_GRAVITY_ENABLED
+
+#if SLIM_ADAPT_ENABLED
+   // Etapa 1: start a fresh visit log for this query.
+   VisitLog.clear();
+#endif //SLIM_ADAPT_ENABLED
 
    #ifdef __stMAMVIEW__
       MAMViewer->SetQueryInfo(k, 0);
@@ -5131,6 +5170,11 @@ stResult<ObjectType> * stSlimTree<ObjectType, EvaluatorType>::NearestQuery(
       MAMViewer->EndFrame();
       MAMViewer->EndAnimation();
    #endif //__stMAMVIEW__
+
+#if SLIM_ADAPT_ENABLED
+   // Etapa 1 runs AFTER the answer is complete, never during the traversal.
+   AdaptAfterQuery(sample);
+#endif //SLIM_ADAPT_ENABLED
 
    return result;
 }//end stSlimTree<ObjectType, EvaluatorType>::NearestQuery
@@ -5202,8 +5246,11 @@ void stSlimTree<ObjectType, EvaluatorType>::NearestQuery(tResult * result,
          // for each entry...
          for (idx = 0; idx < numberOfEntries; idx++) {
             // try to cut this subtree with the triangle inequality.
-            if ( fabs(distanceRepres - indexNode->GetIndexEntry(idx).Distance) <=
+            if ( fabs(distanceRepres - indexNode->GetIndexEntry(idx).Distance) >
                       rangeK + indexNode->GetIndexEntry(idx).Radius){
+               // Pruned without computing a single distance.
+               NodesPruned++;
+            }else{
                // Rebuild the object
                tmpObj.Unserialize(indexNode->GetObject(idx),
                                   indexNode->GetObjectSize(idx));
@@ -5218,8 +5265,18 @@ void stSlimTree<ObjectType, EvaluatorType>::NearestQuery(tResult * result,
                      pqTmpValue.Parent = pqCurrValue.Parent;
                      pqTmpValue.Level = pqCurrValue.Level + 1;
                   #endif //__stMAMVIEW__                     
+                  #if SLIM_ADAPT_ENABLED
+                     // Etapa 1: `distance` is d(q, O_idx) and was computed by
+                     // the query itself, so the log costs nothing extra.
+                     LogVisit(pqCurrValue.PageID,
+                              indexNode->GetIndexEntry(idx).PageID,
+                              idx, distance);
+                  #endif //SLIM_ADAPT_ENABLED
+                  NodesVisited++;
                   queue->Add(distance, pqTmpValue);
                   this->sumOperationsQueue++;  // Update the statistics for the queue
+               }else{
+                  NodesPruned++;
                }//end if
             }//end if
          }//end for
@@ -5302,7 +5359,13 @@ void stSlimTree<ObjectType, EvaluatorType>::NearestQuery(tResult * result,
       do{
          if (queue->Get(distance, pqCurrValue)){
             this->sumOperationsQueue++;  // Update the statistics for the queue
+            // Section 4.5 asks for tau (the current dynamic radius) and for how
+            // many queued entries it manages to discard.
+            LastTau = rangeK;
             // Qualified if distance <= rangeK + radius
+            if (distance > rangeK + pqCurrValue.Radius){
+               EntriesDiscardedByTau++;
+            }//end if
             if (distance <= rangeK + pqCurrValue.Radius){
                // Yes, get the pageID and the distance from the representative
                // and the query object.
@@ -8268,42 +8331,544 @@ void tmpl_stSlimTree::LocalSlimDown(
    }//end while
 }//end stSlimTree<ObjectType, EvaluatorType>::LocalSlimDown
 
+#if SLIM_ADAPT_ENABLED
+//=============================================================================
+// Etapa 1 - Realocacao Guiada pela Consulta (thesis section 4.3)
+//=============================================================================
+/**
+* Moves objects from N_i into its sibling N_j when the destination already
+* covers them and its representative sits closer to the query centre.
+*
+* Equations 4.3 to 4.7 of the thesis are all implemented here. The order of the
+* tests is chosen to spend as few distance computations as possible:
+*
+*   1. Equation 4.6 (x != O_i)            - free, an index comparison.
+*   2. Triangle-inequality pre-filter     - free, uses the stored d(x,O_i)
+*                                           and the single d(O_i,O_j).
+*   3. Equation 4.3 (d(x,O_j) <= r_j)     - one distance, survivors only.
+*   4. Equation 4.5 (page has room)       - free, AddEntry returns -1 if not.
+*
+* Step 2 is what keeps Etapa 1 affordable. Query Gravity computed a distance for
+* every candidate and that bookkeeping alone cost +12% to +70% on the measured
+* workloads.
+*
+* @return true when the pages were modified and must be written back.
+*/
+template <class ObjectType, class EvaluatorType>
+bool tmpl_stSlimTree::RelocateBetweenSiblings(
+      stSlimIndexNode * parent, u_int32_t srcEntryIdx, u_int32_t dstEntryIdx,
+      int & movesLeft){
+
+   stPage * srcPage;
+   stPage * dstPage;
+   stSlimNode * srcNode;
+   stSlimNode * dstNode;
+   stSlimLeafNode * srcLeaf;
+   stSlimLeafNode * dstLeaf;
+   ObjectType srcRep;
+   ObjectType dstRep;
+   ObjectType candidate;
+   double repToRep;
+   double dstRadius;
+   double distXtoDst;
+   u_int32_t idx;
+   bool changed = false;
+
+   const u_int32_t srcPageID = parent->GetIndexEntry(srcEntryIdx).PageID;
+   const u_int32_t dstPageID = parent->GetIndexEntry(dstEntryIdx).PageID;
+
+   if ((srcPageID == 0) || (dstPageID == 0) || (srcPageID == dstPageID)){
+      return false;
+   }//end if
+
+   // Read both leaves. These reads are adaptation cost, not query cost, and are
+   // counted separately so that hypothesis H3 can be evaluated.
+   srcPage = tMetricTree::myPageManager->GetPage(srcPageID);
+   srcNode = stSlimNode::CreateNode(srcPage);
+   if (srcNode->GetNodeType() != stSlimNode::LEAF){
+      // Relocation only happens at the leaf level.
+      delete srcNode;
+      tMetricTree::myPageManager->ReleasePage(srcPage);
+      return false;
+   }//end if
+
+   dstPage = tMetricTree::myPageManager->GetPage(dstPageID);
+   dstNode = stSlimNode::CreateNode(dstPage);
+   if (dstNode->GetNodeType() != stSlimNode::LEAF){
+      delete dstNode;
+      tMetricTree::myPageManager->ReleasePage(dstPage);
+      delete srcNode;
+      tMetricTree::myPageManager->ReleasePage(srcPage);
+      return false;
+   }//end if
+
+   srcLeaf = (stSlimLeafNode *) srcNode;
+   dstLeaf = (stSlimLeafNode *) dstNode;
+   AdaptPageReads += 2;
+
+   const int srcRepIdx = srcLeaf->GetRepresentativeEntry();
+   const int dstRepIdx = dstLeaf->GetRepresentativeEntry();
+
+   // A leaf with no representative, or holding only its representative, has
+   // nothing that Equation 4.6 would allow us to move.
+   if ((srcRepIdx < 0) || (dstRepIdx < 0) ||
+       (srcLeaf->GetNumberOfEntries() < 2) ||
+       (dstLeaf->GetNumberOfEntries() == 0)){
+      delete dstNode;
+      tMetricTree::myPageManager->ReleasePage(dstPage);
+      delete srcNode;
+      tMetricTree::myPageManager->ReleasePage(srcPage);
+      return false;
+   }//end if
+
+   srcRep.Unserialize(srcLeaf->GetObject((u_int32_t)srcRepIdx),
+                      srcLeaf->GetObjectSize((u_int32_t)srcRepIdx));
+   dstRep.Unserialize(dstLeaf->GetObject((u_int32_t)dstRepIdx),
+                      dstLeaf->GetObjectSize((u_int32_t)dstRepIdx));
+
+   // The single distance that unlocks the pre-filter below.
+   repToRep = this->myMetricEvaluator->GetDistance(srcRep, dstRep);
+   AdaptDistanceCalls++;
+
+   // r_j: the destination radius, which this routine must never exceed.
+   dstRadius = parent->GetIndexEntry(dstEntryIdx).Radius;
+
+   // Walk backwards so that the compaction performed by RemoveEntry() never
+   // shifts an index we have not examined yet.
+   idx = srcLeaf->GetNumberOfEntries();
+   while ((idx > 0) && (movesLeft > 0)){
+      idx--;
+
+      // --- Equation 4.6: never move the representative -------------------
+      if ((int)idx == srcRepIdx){
+         continue;
+      }//end if
+
+      const double distXtoSrc = srcLeaf->GetLeafEntry(idx).Distance;
+
+      // --- Triangle-inequality pre-filter (costs no distance) ------------
+      // d(x,O_j) >= d(x,O_i) - d(O_i,O_j). When that lower bound already
+      // exceeds r_j, Equation 4.3 cannot hold and x is skipped for free.
+      if ((distXtoSrc - repToRep) > dstRadius){
+         continue;
+      }//end if
+
+      candidate.Unserialize(srcLeaf->GetObject(idx), srcLeaf->GetObjectSize(idx));
+
+      // --- Equation 4.3: destination must ALREADY cover x ----------------
+      distXtoDst = this->myMetricEvaluator->GetDistance(candidate, dstRep);
+      AdaptDistanceCalls++;
+      if (distXtoDst > dstRadius){
+         // Accepting x here would force r_j to grow. That is exactly what
+         // Query Gravity permitted and what hypothesis H2 forbids.
+         continue;
+      }//end if
+
+      // --- Equation 4.5: does it fit? AddEntry returns -1 when it does not
+      const int newIdx = dstLeaf->AddEntry(srcLeaf->GetObjectSize(idx),
+                                           srcLeaf->GetObject(idx));
+      if (newIdx < 0){
+         // Destination page is full; no remaining object will fit either.
+         break;
+      }//end if
+
+      // The new entry's distance is measured from the DESTINATION
+      // representative. AddEntry does not set this field.
+      dstLeaf->GetLeafEntry((u_int32_t)newIdx).Distance = distXtoDst;
+
+      srcLeaf->RemoveEntry(idx);
+
+      movesLeft--;
+      AdaptRelocations++;
+      changed = true;
+
+      // H4 bookkeeping: is this move undoing an earlier one?
+      std::pair<u_int32_t, u_int32_t> back(dstPageID, srcPageID);
+      if (AdaptMoveHistory.find(back) != AdaptMoveHistory.end()){
+         AdaptReverseRelocations++;
+      }//end if
+      AdaptMoveHistory[std::pair<u_int32_t, u_int32_t>(srcPageID, dstPageID)]++;
+
+      #if SLIM_ADAPT_TRACE
+         std::cerr << "[ADAPT] page " << srcPageID << " -> " << dstPageID
+                   << "  d(x,Oi)=" << distXtoSrc
+                   << "  d(x,Oj)=" << distXtoDst
+                   << "  r_j=" << dstRadius << std::endl;
+      #endif //SLIM_ADAPT_TRACE
+   }//end while
+
+   if (changed){
+      // --- Equation 4.7: r'_i = max over the objects that remain ---------
+      // Every distance needed is already stored in the entries, so shrinking
+      // the source radius costs no distance computations at all.
+      const double newSrcRadius = srcLeaf->GetMinimumRadius();
+      const double newDstRadius = dstLeaf->GetMinimumRadius();
+
+      // Paranoia check. Equation 4.3 was verified for every accepted object,
+      // so the destination radius cannot have grown. A non-zero count here
+      // means the coverage invariant of Definition 1 was violated.
+      if (newDstRadius > dstRadius){
+         AdaptRadiusExpansions++;
+         parent->GetIndexEntry(dstEntryIdx).Radius = newDstRadius;
+      }//end if
+
+      parent->GetIndexEntry(srcEntryIdx).Radius   = newSrcRadius;
+      parent->GetIndexEntry(srcEntryIdx).NEntries = srcLeaf->GetNumberOfEntries();
+      parent->GetIndexEntry(dstEntryIdx).NEntries = dstLeaf->GetNumberOfEntries();
+
+      tMetricTree::myPageManager->WritePage(srcPage);
+      tMetricTree::myPageManager->WritePage(dstPage);
+      AdaptPageWrites += 2;
+   }//end if
+
+   delete dstNode;
+   tMetricTree::myPageManager->ReleasePage(dstPage);
+   delete srcNode;
+   tMetricTree::myPageManager->ReleasePage(srcPage);
+
+   return changed;
+}//end stSlimTree<ObjectType, EvaluatorType>::RelocateBetweenSiblings
+
 //-----------------------------------------------------------------------------
+/**
+* Post-query adaptation pass (Etapa 1).
+*
+* VisitLog holds every index entry the query descended into, together with the
+* d(q, O_child) the query had already computed. Entries are grouped by parent
+* page: only true siblings are considered, because moving an object between
+* different parents would require re-validating coverage all the way up the
+* ancestor chain, whereas a move between siblings is contained inside one index
+* node.
+*
+* Within a group the child with the smallest d(q, O) becomes the destination and
+* every other visited child is a source. That is Equation 4.4 applied to the
+* whole group at once.
+*/
+template <class ObjectType, class EvaluatorType>
+void tmpl_stSlimTree::AdaptAfterQuery(ObjectType * sample){
+
+   (void) sample; // q enters only through the DistToQuery already recorded.
+
+   AdaptLastQueryMoves = 0;
+
+   if (!AdaptationEnabled || (VisitLog.size() < 2)){
+      VisitLog.clear();
+      return;
+   }//end if
+
+   AdaptQueryCount++;
+
+   int movesLeft = SLIM_ADAPT_MAX_MOVES;
+
+   // Distinct parents that appeared in this query's traversal.
+   std::vector<u_int32_t> parents;
+   for (size_t i = 0; i < VisitLog.size(); i++){
+      bool seen = false;
+      for (size_t j = 0; j < parents.size(); j++){
+         if (parents[j] == VisitLog[i].ParentPageID){
+            seen = true;
+            break;
+         }//end if
+      }//end for
+      if (!seen){
+         parents.push_back(VisitLog[i].ParentPageID);
+      }//end if
+   }//end for
+
+   for (size_t p = 0; (p < parents.size()) && (movesLeft > 0); p++){
+      const u_int32_t parentPageID = parents[p];
+
+      // Children of this parent that the query actually visited.
+      std::vector<stVisitedNode> group;
+      for (size_t i = 0; i < VisitLog.size(); i++){
+         if (VisitLog[i].ParentPageID == parentPageID){
+            group.push_back(VisitLog[i]);
+         }//end if
+      }//end for
+
+      // A single visited child means the query was never ambiguous here, so
+      // there is nothing to resolve.
+      if (group.size() < 2){
+         continue;
+      }//end if
+
+      // Destination = the visited child closest to q (Equation 4.4).
+      size_t best = 0;
+      for (size_t i = 1; i < group.size(); i++){
+         if (group[i].DistToQuery < group[best].DistToQuery){
+            best = i;
+         }//end if
+      }//end for
+
+      stPage * parentPage = tMetricTree::myPageManager->GetPage(parentPageID);
+      stSlimNode * parentNode = stSlimNode::CreateNode(parentPage);
+      AdaptPageReads++;
+
+      if (parentNode->GetNodeType() != stSlimNode::INDEX){
+         delete parentNode;
+         tMetricTree::myPageManager->ReleasePage(parentPage);
+         continue;
+      }//end if
+
+      stSlimIndexNode * parent = (stSlimIndexNode *) parentNode;
+      bool parentChanged = false;
+
+      for (size_t i = 0; (i < group.size()) && (movesLeft > 0); i++){
+         if (i == best){
+            continue;
+         }//end if
+
+         // Equation 4.4, with the configurable margin.
+         if (!(group[best].DistToQuery < group[i].DistToQuery - SLIM_ADAPT_MIN_GAIN)){
+            continue;
+         }//end if
+
+         // Resolve entry positions by page id rather than trusting the index
+         // recorded during the traversal: the parent may have been rewritten
+         // since then.
+         int srcIdx = -1;
+         int dstIdx = -1;
+         for (u_int32_t e = 0; e < parent->GetNumberOfEntries(); e++){
+            const u_int32_t pid = parent->GetIndexEntry(e).PageID;
+            if (pid == group[i].ChildPageID){
+               srcIdx = (int) e;
+            }//end if
+            if (pid == group[best].ChildPageID){
+               dstIdx = (int) e;
+            }//end if
+         }//end for
+         if ((srcIdx < 0) || (dstIdx < 0) || (srcIdx == dstIdx)){
+            continue;
+         }//end if
+
+         if (RelocateBetweenSiblings(parent, (u_int32_t) srcIdx,
+                                     (u_int32_t) dstIdx, movesLeft)){
+            parentChanged = true;
+         }//end if
+      }//end for
+
+      if (parentChanged){
+         // The parent's own covering radius may now be smaller. Ancestors
+         // above it are deliberately left untouched: an over-large ancestor
+         // radius is always SAFE (it only weakens pruning slightly, it never
+         // breaks correctness), whereas propagating the shrink upwards would
+         // mean re-reading pages after every single query.
+         tMetricTree::myPageManager->WritePage(parentPage);
+         AdaptPageWrites++;
+         HeaderUpdate = true;
+      }//end if
+
+      delete parentNode;
+      tMetricTree::myPageManager->ReleasePage(parentPage);
+   }//end for
+
+   AdaptLastQueryMoves = SLIM_ADAPT_MAX_MOVES - movesLeft;
+   VisitLog.clear();
+}//end stSlimTree<ObjectType, EvaluatorType>::AdaptAfterQuery
+#endif //SLIM_ADAPT_ENABLED
+
+//-----------------------------------------------------------------------------
+/**
+* Global fat-factor (Equation 2.22 of the thesis).
+*
+* stSlimTree.h has always DECLARED this method without ever defining it, so any
+* call to it was a link error. The definition reuses GetTreeInfo(), which
+* already walks the tree counting, for each stored object, how many index
+* regions cover it - exactly the object-based notion of overlap adopted in
+* section 2.3.2.6.3.
+*
+* @warning O(N x tree). Measurement only; never call it inside a timed batch.
+*/
+template <class ObjectType, class EvaluatorType>
+double tmpl_stSlimTree::GetFatFactor(){
+   stTreeInfoResult * info = this->GetTreeInfo();
+   if (info == NULL){
+      return -1.0;
+   }//end if
+   const double fat = info->GetGlobalFatFactor();
+   delete info;
+   return fat;
+}//end stSlimTree<ObjectType, EvaluatorType>::GetFatFactor
+
+//-----------------------------------------------------------------------------
+/**
+* Leaf occupation and mean leaf covering radius (section 4.5).
+*
+* Occupation is reported as a fraction of the page size so that it remains
+* comparable across page sizes.
+*/
+template <class ObjectType, class EvaluatorType>
+void tmpl_stSlimTree::GetOccupancyStats(double & meanOccupancy,
+      double & stdOccupancy, double & meanLeafRadius){
+
+   std::vector<double> occ;
+   std::vector<double> rad;
+   std::vector<u_int32_t> pending;
+
+   meanOccupancy = 0.0;
+   stdOccupancy = 0.0;
+   meanLeafRadius = 0.0;
+
+   if (this->GetRoot() == 0){
+      return;
+   }//end if
+
+   pending.push_back(this->GetRoot());
+   while (!pending.empty()){
+      const u_int32_t pageID = pending.back();
+      pending.pop_back();
+      if (pageID == 0){
+         continue;
+      }//end if
+
+      stPage * page = tMetricTree::myPageManager->GetPage(pageID);
+      stSlimNode * node = stSlimNode::CreateNode(page);
+
+      if (node->GetNodeType() == stSlimNode::INDEX){
+         stSlimIndexNode * idxNode = (stSlimIndexNode *) node;
+         for (u_int32_t i = 0; i < idxNode->GetNumberOfEntries(); i++){
+            pending.push_back(idxNode->GetIndexEntry(i).PageID);
+         }//end for
+      }else{
+         stSlimLeafNode * leaf = (stSlimLeafNode *) node;
+         const u_int32_t used = page->GetPageSize() - leaf->GetFree();
+         occ.push_back((double) used / (double) page->GetPageSize());
+         rad.push_back(leaf->GetMinimumRadius());
+      }//end if
+
+      delete node;
+      tMetricTree::myPageManager->ReleasePage(page);
+   }//end while
+
+   if (occ.empty()){
+      return;
+   }//end if
+
+   double sum = 0.0;
+   double sumRad = 0.0;
+   for (size_t i = 0; i < occ.size(); i++){
+      sum += occ[i];
+      sumRad += rad[i];
+   }//end for
+   meanOccupancy = sum / (double) occ.size();
+   meanLeafRadius = sumRad / (double) rad.size();
+
+   double var = 0.0;
+   for (size_t i = 0; i < occ.size(); i++){
+      const double d = occ[i] - meanOccupancy;
+      var += d * d;
+   }//end for
+   stdOccupancy = sqrt(var / (double) occ.size());
+}//end stSlimTree<ObjectType, EvaluatorType>::GetOccupancyStats
+
+//-----------------------------------------------------------------------------
+/**
+* Collects the representative object of every leaf node.
+*
+* @see CollectLeafRepresentatives in stSlimTree.h
+*/
+template <class ObjectType, class EvaluatorType>
+void tmpl_stSlimTree::CollectLeafRepresentatives(std::vector<ObjectType *> & out){
+
+   std::vector<u_int32_t> pending;
+
+   if (this->GetRoot() == 0){
+      return;
+   }//end if
+
+   pending.push_back(this->GetRoot());
+   while (!pending.empty()){
+      const u_int32_t pageID = pending.back();
+      pending.pop_back();
+      if (pageID == 0){
+         continue;
+      }//end if
+
+      stPage * page = tMetricTree::myPageManager->GetPage(pageID);
+      stSlimNode * node = stSlimNode::CreateNode(page);
+
+      if (node->GetNodeType() == stSlimNode::INDEX){
+         stSlimIndexNode * idxNode = (stSlimIndexNode *) node;
+         for (u_int32_t i = 0; i < idxNode->GetNumberOfEntries(); i++){
+            pending.push_back(idxNode->GetIndexEntry(i).PageID);
+         }//end for
+      }else{
+         stSlimLeafNode * leaf = (stSlimLeafNode *) node;
+         const int repIdx = leaf->GetRepresentativeEntry();
+         if (repIdx >= 0){
+            ObjectType * rep = new ObjectType();
+            rep->Unserialize(leaf->GetObject((u_int32_t)repIdx),
+                             leaf->GetObjectSize((u_int32_t)repIdx));
+            out.push_back(rep);
+         }//end if
+      }//end if
+
+      delete node;
+      tMetricTree::myPageManager->ReleasePage(page);
+   }//end while
+}//end stSlimTree<ObjectType, EvaluatorType>::CollectLeafRepresentatives
+
+#if QUERY_GRAVITY_ENABLED
+//-----------------------------------------------------------------------------
+// Query Gravity implementation. Compiled out when QUERY_GRAVITY_ENABLED is 0.
+//-----------------------------------------------------------------------------
+/**
+* Records where a query landed.
+*
+* Called from RangeQuery() and NearestQuery(), i.e. on EVERY query. It scans the
+* whole history each time, so it costs up to QG_HISTORY_SIZE distance
+* computations per query - and those are counted by the metric evaluator like
+* any other, so they show up in the tree's distance statistics.
+*/
 template <class ObjectType, class EvaluatorType>
 void tmpl_stSlimTree::AddQueryHotspot(ObjectType * sample){
     if (sample == NULL) return;
-    
-    // Check if it's close to an existing hotspot
+
+    // Is this query essentially a repeat of one we already know about?
+    // Note how tight the test is: with QG_MERGE_EPS at its default of 1e-6,
+    // only a near-identical query increments an existing hotspot. Merely
+    // *nearby* queries each create their own entry with frequency 1, so under a
+    // workload without exact repetition no hotspot ever gets hot.
     for (size_t i = 0; i < recentQueries.size(); i++) {
         double dist = this->myMetricEvaluator->GetDistance(*sample, recentQueries[i].center);
-        if (dist < 1e-6) {
+        if (dist < QG_MERGE_EPS) {
             recentQueries[i].frequency++;
             return;
         }
     }
-    
+
     stQueryHotspot hotspot;
     hotspot.center = *sample;
     hotspot.frequency = 1;
     recentQueries.push_back(hotspot);
-    
-    if (recentQueries.size() > 50) {
+
+    // Bounded history: drop the oldest entry.
+    if (recentQueries.size() > (size_t)(QG_HISTORY_SIZE)) {
         recentQueries.erase(recentQueries.begin());
     }
 }
 
 //-----------------------------------------------------------------------------
+/**
+* How much recent query traffic landed near repObj.
+*
+* Each nearby hotspot contributes frequency / (1 + distance), so heat grows with
+* both how often a spot was queried and how close it is. The sum is NOT bounded
+* by anything other than QG_HEAT_CAP: with many frequent hotspots it can reach
+* values large enough to multiply a node's allowed radius several times over.
+*/
 template <class ObjectType, class EvaluatorType>
 double tmpl_stSlimTree::CalculateHeat(ObjectType * repObj){
     double heatScore = 0.0;
     for (size_t i = 0; i < recentQueries.size(); i++) {
         double dist = this->myMetricEvaluator->GetDistance(*repObj, recentQueries[i].center);
-        if (dist < 10.0) { // Heat threshold
+        if (dist < QG_HEAT_RADIUS) { // Heat threshold
             heatScore += recentQueries[i].frequency / (1.0 + dist);
         }
     }
     return heatScore;
 }
+#endif //QUERY_GRAVITY_ENABLED
 
 //-----------------------------------------------------------------------------
 template <class ObjectType, class EvaluatorType>
@@ -8319,13 +8884,46 @@ bool tmpl_stSlimTree::SlimDownCanSwap(
    // Calculate the distance between src's last object and dst's representative
    distance = this->myMetricEvaluator->GetDistance(*src->LastObject(), *dst->RepObject());
 
-   // --- Query-Aware Logic (Option B) ---
+   // This single bound is the whole difference between the two algorithms.
+   //
+   // ORIGINAL Slim-Down: accept only if the object already lies inside dst's
+   // radius, so the region never grows and the tree can only get tighter.
+   const double originalRadius = dst->GetMinimumRadius();
+
+#if QUERY_GRAVITY_ENABLED
+   // QUERY GRAVITY: widen the bound in proportion to dst's heat, letting a
+   // frequently queried region pull in objects that sit outside it. That growth
+   // is what later makes the region overlap its neighbours.
    double heat = CalculateHeat(dst->RepObject());
-   double allowedGrowthFactor = 0.1; // 10% growth allowed per heat unit
-   double allowedRadius = dst->GetMinimumRadius() + (heat * allowedGrowthFactor * dst->GetMinimumRadius());
+   if (heat > QG_HEAT_CAP){
+      heat = QG_HEAT_CAP;
+   }//end if
+
+   double allowedRadius = originalRadius + (heat * QG_GROWTH_FACTOR * originalRadius);
    if (allowedRadius == 0 && heat > 0) {
-       allowedRadius = 0.1 * heat; // Base allowance if radius is 0
-   }
+      // See QG_BASE_ALLOWANCE: this also fires when QG_GROWTH_FACTOR is 0, so
+      // it is an independent relaxation, not just a guard.
+      allowedRadius = QG_BASE_ALLOWANCE * heat;
+   }//end if
+
+   // Did Query Gravity actually change this decision?
+   if ((distance <= allowedRadius) && !(distance <= originalRadius)){
+      QueryGravityExtraSwaps++;
+      #if QUERY_GRAVITY_TRACE
+         std::cerr << "[QG] heat=" << heat
+                   << "  radius=" << originalRadius
+                   << " -> allowed=" << allowedRadius
+                   << "  (x" << (originalRadius > 0 ? allowedRadius / originalRadius : 0.0)
+                   << ")  dist=" << distance
+                   << "  => Query Gravity ACCEPTS, original REJECTS"
+                   << (dst->CanAdd(src->LastObject()) ? "" : "  [dst full, no swap]")
+                   << std::endl;
+      #endif //QUERY_GRAVITY_TRACE
+   }//end if
+#else
+   // Query Gravity compiled out: the original bound, unchanged.
+   const double allowedRadius = originalRadius;
+#endif //QUERY_GRAVITY_ENABLED
 
    // Test distances and occupation against the allowed radius
    if (distance <= allowedRadius){
